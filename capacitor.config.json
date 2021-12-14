@@ -1,0 +1,6 @@
+{
+  "appId": "app.test",
+  "appName": "Yamb",
+  "webDir": "dist",
+  "bundledWebRuntime": false
+}
