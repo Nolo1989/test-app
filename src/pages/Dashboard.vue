@@ -1,10 +1,10 @@
 <template>
 	<section class="page-wrap">
-		<h2 class="page-title">Izaberite listić za igru:</h2>
+		<h2 class="page-title">Izaberite listic za igru:</h2>
 		<ul class="list">
-			<router-link class="card" :to="{name: 'SmallGame'}">Mali listić</router-link>
-			<router-link class="card" :to="{name: 'MediumGame'}">Srednji listić</router-link>
-			<router-link class="card" :to="{name: 'LargeGame'}">Veliki listić</router-link>
+			<router-link class="card" :to="{name: 'SmallGame'}">Mali listic</router-link>
+			<router-link class="card" :to="{name: 'MediumGame'}">Srednji listic</router-link>
+			<router-link class="card" :to="{name: 'LargeGame'}">Veliki listic</router-link>
 		</ul>
 	</section>
 </template>
