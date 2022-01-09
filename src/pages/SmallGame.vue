@@ -16,7 +16,7 @@
 					<img src="../images/arrow-down-outline.svg" alt="Down icon" class="icon" />
 				</div>
 				<template v-for="(item, idx) in firstSquareItems['column-1']">
-					<div class="field" @click="openModal(item.id, item.value && disabledAllBtns)" v-if="idx !== 6" :class="item.class" :disabled="item.value && disabledAllBtns" :id="item.id" :key="item.id">
+					<div class="field" @click="openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns)" v-if="idx !== 6" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns" :id="item.id" :key="item.id">
 						<input type="hidden" v-model="item.value" />
                         {{ item.value }}
 					</div>
@@ -29,7 +29,7 @@
 					<img src="../images/arrow-up-outline.svg" alt="Up icon" class="icon" />
 				</div>
 				<template v-for="(item, idx) in firstSquareItems['column-2']">
-					<div class="field" @click="openModal(item.id)" v-if="idx !== 6" :class="item.class" :disabled="item.value && disabledAllBtns" :id="item.id" :key="item.id">
+					<div class="field" @click="openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns)" v-if="idx !== 6" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns" :id="item.id" :key="item.id">
 						<input type="hidden" v-model="item.value" />
                         {{ item.value }}
 					</div>
@@ -41,7 +41,7 @@
 					<img src="../images/arrow-up-outline.svg" alt="Up icon" class="icon" />
 				</div>
 				<template v-for="(item, idx) in firstSquareItems['column-3']">
-					<div class="field" @click="openModal(item.id)" v-if="idx !== 6" :class="item.class" :disabled="item.value && disabledAllBtns" :id="item.id" :key="item.id">
+					<div class="field" @click="openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns)" v-if="idx !== 6" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns" :id="item.id" :key="item.id">
 						<input type="hidden" v-model="item.value" />
                         {{ item.value }}
 					</div>
@@ -51,7 +51,7 @@
 			<div class="column-4">
 				<div class="field blue">N</div>
 				<template v-for="(item, idx) in firstSquareItems['column-4']">
-					<div class="field" @click="openModal(item.id)" v-if="idx !== 6" :class="item.class" :disabled="item.value && disabledAllBtns" :id="item.id" :key="item.id">
+					<div class="field" @click="openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns)" v-if="idx !== 6" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns" :id="item.id" :key="item.id">
 						<input type="hidden" v-model="item.value" />
                         {{ item.value }}
 					</div>
@@ -118,7 +118,7 @@
 			</div>
 			<div class="column-1">
 				<template v-for="item in thirdSquareItems['column-1']">
-					<div class="field" @click="openModal(item.id)" :class="item.class" :disabled="item.value && disabledAllBtns" :id="item.id" :key="item.id">
+					<div class="field" @click="openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns)" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns" :id="item.id" :key="item.id">
 						<input type="hidden" v-model="item.value" />
                         {{ item.value }}
 					</div>
@@ -127,7 +127,7 @@
 			</div>
 			<div class="column-2">
 				<template v-for="item in thirdSquareItems['column-2']">
-					<div class="field" @click="openModal(item.id)" :class="item.class" :disabled="item.value && disabledAllBtns" :id="item.id" :key="item.id">
+					<div class="field" @click="openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns)" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns" :id="item.id" :key="item.id">
 						<input type="hidden" v-model="item.value" />
                         {{ item.value }}
 					</div>
@@ -136,7 +136,7 @@
 			</div>
 			<div class="column-3">
 				<template v-for="item in thirdSquareItems['column-3']">
-					<div class="field" @click="openModal(item.id)" :class="item.class" :disabled="item.value && disabledAllBtns" :id="item.id" :key="item.id">
+					<div class="field" @click="openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns)" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns" :id="item.id" :key="item.id">
 						<input type="hidden" v-model="item.value" />
                         {{ item.value }}
 					</div>
@@ -145,7 +145,7 @@
 			</div>
 			<div class="column-4">
 				<template v-for="item in thirdSquareItems['column-4']">
-					<div class="field" @click="openModal(item.id)" :class="item.class" :disabled="item.value && disabledAllBtns" :id="item.id" :key="item.id">
+					<div class="field" @click="openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns)" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns" :id="item.id" :key="item.id">
 						<input type="hidden" v-model="item.value" />
                         {{ item.value }}
 					</div>
@@ -745,6 +745,7 @@
                 this.firstFulRowDisabled = false;
                 this.secondFulRowDisabled = true;
                 this.disabledAllBtns = true;
+                console.log('usao');
                 this.$bus.$emit('edit:hide');
             },
             setFirstRowFul(result, number) {
