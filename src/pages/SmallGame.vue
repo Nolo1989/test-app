@@ -16,7 +16,7 @@
 					<img src="../images/arrow-down-outline.svg" alt="Down icon" class="icon" />
 				</div>
 				<template v-for="(item, idx) in firstSquareItems['column-1']">
-					<div class="field" @click="openModal(item.id)" v-if="idx !== 6" :class="item.class" :id="item.id" :key="item.id">
+					<div class="field" @click="openModal(item.id, item.value && disabledAllBtns)" v-if="idx !== 6" :class="item.class" :disabled="item.value && disabledAllBtns" :id="item.id" :key="item.id">
 						<input type="hidden" v-model="item.value" />
                         {{ item.value }}
 					</div>
@@ -29,7 +29,7 @@
 					<img src="../images/arrow-up-outline.svg" alt="Up icon" class="icon" />
 				</div>
 				<template v-for="(item, idx) in firstSquareItems['column-2']">
-					<div class="field" @click="openModal(item.id)" v-if="idx !== 6" :class="item.class" :id="item.id" :key="item.id">
+					<div class="field" @click="openModal(item.id)" v-if="idx !== 6" :class="item.class" :disabled="item.value && disabledAllBtns" :id="item.id" :key="item.id">
 						<input type="hidden" v-model="item.value" />
                         {{ item.value }}
 					</div>
@@ -41,7 +41,7 @@
 					<img src="../images/arrow-up-outline.svg" alt="Up icon" class="icon" />
 				</div>
 				<template v-for="(item, idx) in firstSquareItems['column-3']">
-					<div class="field" @click="openModal(item.id)" v-if="idx !== 6" :class="item.class" :id="item.id" :key="item.id">
+					<div class="field" @click="openModal(item.id)" v-if="idx !== 6" :class="item.class" :disabled="item.value && disabledAllBtns" :id="item.id" :key="item.id">
 						<input type="hidden" v-model="item.value" />
                         {{ item.value }}
 					</div>
@@ -51,7 +51,7 @@
 			<div class="column-4">
 				<div class="field blue">N</div>
 				<template v-for="(item, idx) in firstSquareItems['column-4']">
-					<div class="field" @click="openModal(item.id)" v-if="idx !== 6" :class="item.class" :id="item.id" :key="item.id">
+					<div class="field" @click="openModal(item.id)" v-if="idx !== 6" :class="item.class" :disabled="item.value && disabledAllBtns" :id="item.id" :key="item.id">
 						<input type="hidden" v-model="item.value" />
                         {{ item.value }}
 					</div>
@@ -118,7 +118,7 @@
 			</div>
 			<div class="column-1">
 				<template v-for="item in thirdSquareItems['column-1']">
-					<div class="field" @click="openModal(item.id)" :class="item.class" :id="item.id" :key="item.id">
+					<div class="field" @click="openModal(item.id)" :class="item.class" :disabled="item.value && disabledAllBtns" :id="item.id" :key="item.id">
 						<input type="hidden" v-model="item.value" />
                         {{ item.value }}
 					</div>
@@ -127,7 +127,7 @@
 			</div>
 			<div class="column-2">
 				<template v-for="item in thirdSquareItems['column-2']">
-					<div class="field" @click="openModal(item.id)" :class="item.class" :id="item.id" :key="item.id">
+					<div class="field" @click="openModal(item.id)" :class="item.class" :disabled="item.value && disabledAllBtns" :id="item.id" :key="item.id">
 						<input type="hidden" v-model="item.value" />
                         {{ item.value }}
 					</div>
@@ -136,7 +136,7 @@
 			</div>
 			<div class="column-3">
 				<template v-for="item in thirdSquareItems['column-3']">
-					<div class="field" @click="openModal(item.id)" :class="item.class" :id="item.id" :key="item.id">
+					<div class="field" @click="openModal(item.id)" :class="item.class" :disabled="item.value && disabledAllBtns" :id="item.id" :key="item.id">
 						<input type="hidden" v-model="item.value" />
                         {{ item.value }}
 					</div>
@@ -145,7 +145,7 @@
 			</div>
 			<div class="column-4">
 				<template v-for="item in thirdSquareItems['column-4']">
-					<div class="field" @click="openModal(item.id)" :class="item.class" :id="item.id" :key="item.id">
+					<div class="field" @click="openModal(item.id)" :class="item.class" :disabled="item.value && disabledAllBtns" :id="item.id" :key="item.id">
 						<input type="hidden" v-model="item.value" />
                         {{ item.value }}
 					</div>
@@ -181,8 +181,10 @@
                         <button class="modal-btn dice white-btn" @click="setResult(4, fieldId)">x 4</button>
                         <button class="modal-btn dice white-btn" @click="setResult(5, fieldId)">x 5</button>
                     </div>
-                    <button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
-                    <button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+                    <div class="bottom-wrap">
+                        <button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
+                        <button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+                    </div>
                 </div>
                 <div v-else-if="modalTwo">
                     <div class="dice-wrap">
@@ -198,8 +200,10 @@
                         <button class="modal-btn dice white-btn" @click="setResult(8, fieldId)">x 4</button>
                         <button class="modal-btn dice white-btn" @click="setResult(10, fieldId)">x 5</button>
                     </div>
-                    <button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
-                    <button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+                    <div class="bottom-wrap">
+                        <button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
+                        <button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+                    </div>
                 </div>
                 <div v-else-if="modalThree">
                     <div class="dice-wrap">
@@ -216,8 +220,10 @@
                         <button class="modal-btn dice white-btn" @click="setResult(12, fieldId)">x 4</button>
                         <button class="modal-btn dice white-btn" @click="setResult(15, fieldId)">x 5</button>
                     </div>
-                    <button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
-                    <button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+                    <div class="bottom-wrap">
+                        <button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
+                        <button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+                    </div>
                 </div>
                 <div v-else-if="modalFour">
                     <div class="dice-wrap">
@@ -235,8 +241,10 @@
                         <button class="modal-btn dice white-btn" @click="setResult(16, fieldId)">x 4</button>
                         <button class="modal-btn dice white-btn" @click="setResult(20, fieldId)">x 5</button>
                     </div>
-                    <button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
-                    <button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+                    <div class="bottom-wrap">
+                        <button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
+                        <button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+                    </div>
                 </div>
                 <div v-else-if="modalFive">
                     <div class="dice-wrap">
@@ -255,8 +263,10 @@
                         <button class="modal-btn dice white-btn" @click="setResult(20, fieldId)">x 4</button>
                         <button class="modal-btn dice white-btn" @click="setResult(25, fieldId)">x 5</button>
                     </div>
-                    <button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
-                    <button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+                    <div class="bottom-wrap">
+                        <button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
+                        <button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+                    </div>
                 </div>
                 <div v-else-if="modalSix">
                     <div class="dice-wrap">
@@ -276,14 +286,18 @@
                         <button class="modal-btn dice white-btn" @click="setResult(24, fieldId)">x 4</button>
                         <button class="modal-btn dice white-btn" @click="setResult(30, fieldId)">x 5</button>
                     </div>
-                    <button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
-                    <button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+                    <div class="bottom-wrap">
+                        <button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
+                        <button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+                    </div>
                 </div>
                 <div class="kenta" v-else-if="modalKenta">
                     <button class="modal-btn blue" @click="setResult(55, fieldId)">55</button>
                     <button class="modal-btn blue" @click="setResult(60, fieldId)">60</button>
-                    <button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
-                    <button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+                    <div class="bottom-wrap">
+                        <button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
+                        <button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+                    </div>
                 </div>
                 <div class="triling" v-else-if="modalTriling">
                     <div class="dice-wrap">
@@ -321,8 +335,10 @@
                             <span class="six"></span>
                         </button>
                     </div>
-                    <button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
-                    <button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+                    <div class="bottom-wrap">
+                        <button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
+                        <button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+                    </div>
                 </div>
                 <div class="ful" v-else-if="modalFul">
                     <div class="dice-wrap">
@@ -397,8 +413,10 @@
                             <span class="six"></span>
                         </button>
                     </div>
-                    <button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
-                    <button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+                    <div class="bottom-wrap">
+                        <button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
+                        <button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+                    </div>
                 </div>
                 <div class="poker" v-else-if="modalPoker">
                     <div class="dice-wrap">
@@ -436,8 +454,10 @@
                             <span class="six"></span>
                         </button>
                     </div>
-                    <button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
-                    <button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+                    <div class="bottom-wrap">
+                        <button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
+                        <button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+                    </div>
                 </div>
                 <div class="yamb" v-else-if="modalYamb">
                     <div class="dice-wrap">
@@ -475,8 +495,10 @@
                             <span class="six"></span>
                         </button>
                     </div>
-                    <button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
-                    <button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+                    <div class="bottom-wrap">
+                        <button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
+                        <button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+                    </div>
                 </div>
             </div>
         </modal>
@@ -524,7 +546,8 @@
                 secondFulRowDisabled: true,
                 firstRowFulResult: 0,
                 disabledNumber: 0,
-                totalFieldActive: false
+                totalFieldActive: false,
+                disabledAllBtns: true
             }
         },
         beforeRouteLeave(to, from, next) {
@@ -538,6 +561,9 @@
             this.getFirstSquare();
             this.getSecondSquare();
             this.getThirdSquare();
+            this.$bus.$on('edit:changed', () => {
+                this.disabledAllBtns = !this.disabledAllBtns;
+            });
         },
         methods: {
             getFirstSquare() {
@@ -665,7 +691,10 @@
                     this.thirdSquareItems['column-4'].push(item4);
                 }
             },
-            openModal(fieldId) {
+            openModal(fieldId, isDisabled) {
+                if (isDisabled)
+                    return;
+
                 this.showModal = true;
                 this.fieldId = fieldId;
 
@@ -715,6 +744,8 @@
                 this.disabledNumber = 0;
                 this.firstFulRowDisabled = false;
                 this.secondFulRowDisabled = true;
+                this.disabledAllBtns = true;
+                this.$bus.$emit('edit:hide');
             },
             setFirstRowFul(result, number) {
                 this.firstFulRowDisabled = true;
