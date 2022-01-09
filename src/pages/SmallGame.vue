@@ -17,7 +17,8 @@
 				</div>
 				<template v-for="(item, idx) in firstSquareItems['column-1']">
 					<div class="field" @click="openModal(item.id)" v-if="idx !== 6" :class="item.class" :id="item.id" :key="item.id">
-						<input type="number" v-model="item.value" />
+						<input type="hidden" v-model="item.value" />
+                        {{ item.value }}
 					</div>
 				</template>
 				<div class="field blue">{{ firstSquareSumColOne }}</div>
@@ -29,7 +30,8 @@
 				</div>
 				<template v-for="(item, idx) in firstSquareItems['column-2']">
 					<div class="field" @click="openModal(item.id)" v-if="idx !== 6" :class="item.class" :id="item.id" :key="item.id">
-						<input type="number" v-model="item.value" />
+						<input type="hidden" v-model="item.value" />
+                        {{ item.value }}
 					</div>
 				</template>
 				<div class="field blue">{{ firstSquareSumColTwo }}</div>
@@ -40,7 +42,8 @@
 				</div>
 				<template v-for="(item, idx) in firstSquareItems['column-3']">
 					<div class="field" @click="openModal(item.id)" v-if="idx !== 6" :class="item.class" :id="item.id" :key="item.id">
-						<input type="number" v-model="item.value" />
+						<input type="hidden" v-model="item.value" />
+                        {{ item.value }}
 					</div>
 				</template>
 				<div class="field blue">{{ firstSquareSumColThree }}</div>
@@ -49,7 +52,8 @@
 				<div class="field blue">N</div>
 				<template v-for="(item, idx) in firstSquareItems['column-4']">
 					<div class="field" @click="openModal(item.id)" v-if="idx !== 6" :class="item.class" :id="item.id" :key="item.id">
-						<input type="number" v-model="item.value" />
+						<input type="hidden" v-model="item.value" />
+                        {{ item.value }}
 					</div>
 				</template>
 				<div class="field blue">{{ firstSquareSumColFour }}</div>
@@ -115,7 +119,8 @@
 			<div class="column-1">
 				<template v-for="item in thirdSquareItems['column-1']">
 					<div class="field" @click="openModal(item.id)" :class="item.class" :id="item.id" :key="item.id">
-						<input type="input" v-model="item.value" />
+						<input type="hidden" v-model="item.value" />
+                        {{ item.value }}
 					</div>
 				</template>
 				<div class="field blue" ref="third-1">{{ thirdSquareSumColOne }}</div>
@@ -123,7 +128,8 @@
 			<div class="column-2">
 				<template v-for="item in thirdSquareItems['column-2']">
 					<div class="field" @click="openModal(item.id)" :class="item.class" :id="item.id" :key="item.id">
-						<input type="number" v-model="item.value" />
+						<input type="hidden" v-model="item.value" />
+                        {{ item.value }}
 					</div>
 				</template>
 				<div class="field blue">{{ thirdSquareSumColTwo }}</div>
@@ -131,7 +137,8 @@
 			<div class="column-3">
 				<template v-for="item in thirdSquareItems['column-3']">
 					<div class="field" @click="openModal(item.id)" :class="item.class" :id="item.id" :key="item.id">
-						<input type="number" v-model="item.value" />
+						<input type="hidden" v-model="item.value" />
+                        {{ item.value }}
 					</div>
 				</template>
 				<div class="field blue">{{ thirdSquareSumColThree }}</div>
@@ -139,7 +146,8 @@
 			<div class="column-4">
 				<template v-for="item in thirdSquareItems['column-4']">
 					<div class="field" @click="openModal(item.id)" :class="item.class" :id="item.id" :key="item.id">
-						<input type="number" v-model="item.value" />
+						<input type="hidden" v-model="item.value" />
+                        {{ item.value }}
 					</div>
 				</template>
 				<div class="field blue">{{ thirdSquareSumColFour }}</div>
