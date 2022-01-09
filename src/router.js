@@ -16,24 +16,47 @@ const router = new Router({
         },
         {
             path: '/dashboard',
+            name: 'Dashboard',
             component: Dashboard
         },
         {
 			path: '/small-game',
 			name: 'SmallGame',
 			component: SmallGame,
+            meta: { gameInProgress: true }
 		},
         {
 			path: '/medium-game',
 			name: 'MediumGame',
 			component: MediumGame,
+            meta: { gameInProgress: true }
 		},
         {
 			path: '/large-game',
 			name: 'LargeGame',
 			component: LargeGame,
+            meta: { gameInProgress: true }
 		},
     ]
 });
+
+// window.popStateDetected = false;
+// window.addEventListener('popstate', () => {
+//   window.popStateDetected = true;
+// })
+
+
+// router.beforeEach((to, from, next) => {
+//   const IsItABackButton = window.popStateDetected;
+//   window.popStateDetected = false;
+
+//   if (IsItABackButton) {
+//     if (from && from.meta && from.meta.gameInProgress) {
+//         this.$bus.$emit('openModal');
+//     }
+//     return '';
+//   }
+//   next();
+// })
 
 export default router;

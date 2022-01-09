@@ -5,36 +5,18 @@
       color="primary"
       dark
     >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
+    <modal :show="showModal" @closeModal="showModal = false" class="confirmation-modal">
+      <div slot="header" class="modal-title-wrapper">
+        <p class="modal-title">Da li ste sigurni da zelite da napustite igru?</p>
       </div>
-
-      <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
+      <div slot="body">
+        <button class="modal-btn" @click="showModal = false">NE</button>
+        <button class="modal-btn blue" @click="goToDashboard()">DA</button>
+      </div>
+    </modal>
+    <div class="back-btn-wrap" @click="openModal()">
+        <img src="./images/arrow-down-outline.svg" alt="Down icon" class="icon" />
+    </div>
     </v-app-bar>
 
     <v-main>
@@ -44,18 +26,31 @@
 </template>
 
 <script>
-// import Dashboard from './pages/Dashboard';
 
+import modal from './common/modal.vue';
 export default {
   name: 'App',
 
-  // components: {
-  //   Dashboard,
-  // },
-
   data: () => ({
-    //
+    showModal: false
   }),
+  mounted() {
+    this.$bus.$on('openModal', () => {
+      this.openModal();
+    });
+  },
+  methods: {
+    openModal() {
+      this.showModal = true;
+    },
+    goToDashboard() {
+      this.$router.push({ name: 'Dashboard' });
+      this.showModal = false;
+    }
+  },
+  components: {
+    modal
+  }
 };
 </script>
 
