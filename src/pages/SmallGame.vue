@@ -550,13 +550,13 @@
                 disabledAllBtns: true
             }
         },
-        beforeRouteLeave(to, from, next) {
-            if (from && from.meta && from.meta.gameInProgress) {
-                this.$bus.$emit('openModal');
-                return;
-            }
-            next();
-        },
+        // beforeRouteLeave(to, from, next) {
+        //     if (from && from.meta && from.meta.gameInProgress) {
+        //         this.$bus.$emit('openModal');
+        //         return;
+        //     }
+        //     next();
+        // },
         mounted() {
             this.getFirstSquare();
             this.getSecondSquare();
@@ -745,7 +745,6 @@
                 this.firstFulRowDisabled = false;
                 this.secondFulRowDisabled = true;
                 this.disabledAllBtns = true;
-                console.log('usao');
                 this.$bus.$emit('edit:hide');
             },
             setFirstRowFul(result, number) {

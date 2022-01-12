@@ -148,12 +148,15 @@
 	}
 }
 .medium-game {
-	.first-square, .third-square {
+	.first-square {
 		grid-template: repeat(8, calc((100vh - 56px) / 17)) / repeat(9, 1fr);
 	}
 	.second-square {
 		grid-template: repeat(3, calc((100vh - 56px) / 17)) / repeat(9, 1fr);
 
+	}
+	.third-square {
+		grid-template: repeat(6, calc((100vh - 56px) / 17)) / repeat(9, 1fr);
 	}
 	.field {
 		width: calc(100vw / 9);
