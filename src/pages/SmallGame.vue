@@ -123,7 +123,7 @@
                         {{ item.value }}
 					</div>
 				</template>
-				<div class="field blue" ref="third-1">{{ thirdSquareSumColOne }}</div>
+				<div class="field blue">{{ thirdSquareSumColOne }}</div>
 			</div>
 			<div class="column-2">
 				<template v-for="item in thirdSquareItems['column-2']">

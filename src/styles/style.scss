@@ -189,57 +189,137 @@
 			height: 40%;
 		}
 	}
-}
-.field-sec-71, .field-sec-61 {
-	position: relative;
-	&:after {
-		content: '';
-		position: absolute;
-		left: 0;
-		bottom: 0;
-		width: 100%;
-		height: 1px;
-		background-color: #000;
+	.field-sec-71, .field-sec-61 {
+		position: relative;
+		&:after {
+			content: '';
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			width: 100%;
+			height: 1px;
+			background-color: #000;
+		}
+	}
+	.field-sec-72, .field-sec-62 {
+		position: relative;
+		&:before {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 1px;
+			background-color: #000;
+		}
+	}
+	.field-sec-71, .field-third-65 {
+		&:before {
+			content: url('../images/arrow-up-outline.svg');
+			position: absolute;
+			bottom: -2px;
+			left: 0;
+			width: 16px;
+			height: 17px;
+			opacity: 0.6;
+		}
+	}
+	.field-sec-72, .field-61 {
+		&:after {
+			content: url('../images/arrow-down-outline.svg');
+			position: absolute;
+			top: -4px;
+			left: 0;
+			width: 16px;
+			height: 17px;
+			opacity: 0.6;
+		}
+	}
+	.field-61, .field-third-65 {
+		position: relative;
 	}
 }
-.field-sec-72, .field-sec-62 {
-	position: relative;
-	&:before {
-		content: '';
-		position: absolute;
-		left: 0;
-		top: 0;
-		width: 100%;
-		height: 1px;
-		background-color: #000;
+.large-game {
+	.first-square {
+		grid-template: repeat(8, calc((100vh - 56px) / 17)) / repeat(12, 1fr);
 	}
-}
-.field-sec-71, .field-third-65 {
-	&:before {
-		content: url('../images/arrow-up-outline.svg');
-		position: absolute;
-		bottom: -2px;
-		left: 0;
-		width: 16px;
-		height: 17px;
-		opacity: 0.6;
-	}
-}
-.field-sec-72, .field-61 {
-	&:after {
-		content: url('../images/arrow-down-outline.svg');
-		position: absolute;
-		top: -4px;
-		left: 0;
-		width: 16px;
-		height: 17px;
-		opacity: 0.6;
-	}
-}
-.field-61, .field-third-65 {
-	position: relative;
-}
+	.second-square {
+		grid-template: repeat(3, calc((100vh - 56px) / 17)) / repeat(12, 1fr);
 
+	}
+	.third-square {
+		grid-template: repeat(6, calc((100vh - 56px) / 17)) / repeat(12, 1fr);
+	}
+	.field {
+		width: calc(100vw / 12);
+		&.smaller {
+			font-size: 12px;
+		}
+		&.smallest {
+			font-size: 10px;
+		}
+		&.result {
+			font-size: 12px;
+		}
+	}
+	.total-field {
+		position: absolute;
+		top: -61px;
+		left: 50%;
+		transform: translate(-50%);
+		width: 70px;
+		z-index: 5;
+	}
+	.field-sec-81, .field-sec-71 {
+		position: relative;
+		&:after {
+			content: '';
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			width: 100%;
+			height: 1px;
+			background-color: #000;
+		}
+	}
+	.field-sec-82, .field-sec-72 {
+		position: relative;
+		&:before {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 1px;
+			background-color: #000;
+		}
+	}
+	.field-sec-81, .field-third-75 {
+		&:before {
+			content: url('../images/arrow-up-outline.svg');
+			position: absolute;
+			bottom: -2px;
+			left: 0;
+			width: 16px;
+			height: 17px;
+			opacity: 0.6;
+		}
+	}
+	.field-sec-82, .field-71 {
+		&:after {
+			content: url('../images/arrow-down-outline.svg');
+			position: absolute;
+			top: -4px;
+			left: 0;
+			width: 16px;
+			height: 17px;
+			opacity: 0.6;
+		}
+	}
+	.field-71, .field-third-75 {
+		position: relative;
+	}
+}
 .confirmation-modal {
 	.close-btn {
 		position: absolute;
