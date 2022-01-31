@@ -1,63 +1,7 @@
 <template>
 	<section class="large-game">
 		<div class="first-square">
-			<div class="column-0">
-				<div class="field blue">Y</div>
-				<div class="field smaller">1</div>
-				<div class="field smaller">2</div>
-				<div class="field smaller">3</div>
-				<div class="field smaller">4</div>
-				<div class="field smaller">5</div>
-				<div class="field smaller">6</div>
-				<div class="field blue">S</div>
-			</div>
-			<div class="column-1">
-				<div class="field blue">
-					<img src="../images/arrow-down-outline.svg" alt="Down icon" class="icon" />
-				</div>
-				<template v-for="(item, idx) in firstSquareItems['column-1']">
-					<div class="field" @click="openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns)" v-if="idx !== 6" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns" :id="item.id" :key="item.id">
-						<input type="hidden" v-model="item.value" />
-						{{ item.value }}
-					</div>
-				</template>
-				<div class="field blue result">{{ firstSquareSumColOne }}</div>
-			</div>
-			<div class="column-2">
-				<div class="field blue">
-					<img src="../images/arrow-down-outline.svg" alt="Down icon" class="icon" />
-					<img src="../images/arrow-up-outline.svg" alt="Up icon" class="icon" />
-				</div>
-				<template v-for="(item, idx) in firstSquareItems['column-2']">
-					<div class="field" @click="openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns)" v-if="idx !== 6" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns" :id="item.id" :key="item.id">
-						<input type="hidden" v-model="item.value" />
-						{{ item.value }}
-					</div>
-				</template>
-				<div class="field blue result">{{ firstSquareSumColTwo }}</div>
-			</div>
-			<div class="column-3">
-				<div class="field blue">
-					<img src="../images/arrow-up-outline.svg" alt="Up icon" class="icon" />
-				</div>
-				<template v-for="(item, idx) in firstSquareItems['column-3']">
-					<div class="field" @click="openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns)" v-if="idx !== 6" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns" :id="item.id" :key="item.id">
-						<input type="hidden" v-model="item.value" />
-						{{ item.value }}
-					</div>
-				</template>
-				<div class="field blue result">{{ firstSquareSumColThree }}</div>
-			</div>
-			<div class="column-4">
-				<div class="field blue">N</div>
-				<template v-for="(item, idx) in firstSquareItems['column-4']">
-					<div class="field" @click="openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns)" v-if="idx !== 6" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns" :id="item.id" :key="item.id">
-						<input type="hidden" v-model="item.value" />
-						{{ item.value }}
-					</div>
-				</template>
-				<div class="field blue result">{{ firstSquareSumColFour }}</div>
-			</div>
+			<basic-game-first-square :basicGameFirstSquareData="firstSquareItems" :disabledAllBtns="disabledAllBtns" :game="'large-game'"></basic-game-first-square>
 			<div class="column-5">
 				<div class="field blue">R</div>
 				<template v-for="(item, idx) in firstSquareItems['column-5']">
@@ -133,43 +77,7 @@
 			</div>
 		</div>
 		<div class="second-square">
-			<div class="column-0">
-				<div class="field smallest">MAX</div>
-				<div class="field smallest">MIN</div>
-				<div class="field blue">S</div>
-			</div>
-			<div class="column-1">
-				<template v-for="item in secondSquareItems['column-1']">
-					<div class="field" :class="item.class" :id="item.id" :key="item.id">
-						<input type="number" v-model="item.value" />
-					</div>
-				</template>
-				<div class="field blue result">{{ secondSquareSumColOne }}</div>
-			</div>
-			<div class="column-2">
-				<template v-for="item in secondSquareItems['column-2']">
-					<div class="field" :class="item.class" :id="item.id" :key="item.id">
-						<input type="number" v-model="item.value" />
-					</div>
-				</template>
-				<div class="field blue result">{{ secondSquareSumColTwo }}</div>
-			</div>
-			<div class="column-3">
-				<template v-for="item in secondSquareItems['column-3']">
-					<div class="field" :class="item.class" :id="item.id" :key="item.id">
-						<input type="number" v-model="item.value" />
-					</div>
-				</template>
-				<div class="field blue result">{{ secondSquareSumColThree }}</div>
-			</div>
-			<div class="column-4">
-				<template v-for="item in secondSquareItems['column-4']">
-					<div class="field" :class="item.class" :id="item.id" :key="item.id">
-						<input type="number" v-model="item.value" />
-					</div>
-				</template>
-				<div class="field blue result">{{ secondSquareSumColFour }}</div>
-			</div>
+			<basic-game-second-square :basicGameSecondSquareData="secondSquareItems" :basicGameFirstSquareData="firstSquareItems" :disabledAllBtns="disabledAllBtns" :game="'large-game'"></basic-game-second-square>
 			<div class="column-5">
 				<template v-for="item in secondSquareItems['column-5']">
 					<div class="field" :class="item.class" :id="item.id" :key="item.id">
@@ -224,50 +132,7 @@
 			</div>
 		</div>
 		<div class="third-square">
-			<div class="column-0">
-				<div class="field">K</div>
-				<div class="field">T</div>
-				<div class="field">F</div>
-				<div class="field">P</div>
-				<div class="field">Y</div>
-				<div class="field blue">S</div>
-			</div>
-			<div class="column-1">
-				<template v-for="item in thirdSquareItems['column-1']">
-					<div class="field" @click="openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns)" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns" :id="item.id" :key="item.id">
-						<input type="hidden" v-model="item.value" />
-						{{ item.value }}
-					</div>
-				</template>
-				<div class="field blue result">{{ thirdSquareSumColOne }}</div>
-			</div>
-			<div class="column-2">
-				<template v-for="item in thirdSquareItems['column-2']">
-					<div class="field" @click="openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns)" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns" :id="item.id" :key="item.id">
-						<input type="hidden" v-model="item.value" />
-						{{ item.value }}
-					</div>
-				</template>
-				<div class="field blue result">{{ thirdSquareSumColTwo }}</div>
-			</div>
-			<div class="column-3">
-				<template v-for="item in thirdSquareItems['column-3']">
-					<div class="field" @click="openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns)" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns" :id="item.id" :key="item.id">
-						<input type="hidden" v-model="item.value" />
-						{{ item.value }}
-					</div>
-				</template>
-				<div class="field blue result">{{ thirdSquareSumColThree }}</div>
-			</div>
-			<div class="column-4">
-				<template v-for="item in thirdSquareItems['column-4']">
-					<div class="field" @click="openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns)" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns" :id="item.id" :key="item.id">
-						<input type="hidden" v-model="item.value" />
-						{{ item.value }}
-					</div>
-				</template>
-				<div class="field blue result">{{ thirdSquareSumColFour }}</div>
-			</div>
+			<basic-game-third-square :basicGameThirdSquareData="thirdSquareItems" :disabledAllBtns="disabledAllBtns" :firstFulRowDisabled="firstFulRowDisabled" :secondFulRowDisabled="secondFulRowDisabled" :disabledNumber="disabledNumber" :game="'large-game'"></basic-game-third-square>
 			<div class="column-5">
 				<template v-for="item in thirdSquareItems['column-5']">
 					<div class="field" @click="openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns)" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns" :id="item.id" :key="item.id">
@@ -331,6 +196,7 @@
 				<div class="field blue result">{{ thirdSquareSumTotal }}</div>
 			</div>
 		</div>
+
 		<modal :show="showModal" @closeModal="showModal = false" class="confirmation-modal wide">
 			<div slot="header" class="modal-title-wrapper">
 				<p class="modal-title">Dobijena kombinacija:</p>
@@ -674,7 +540,11 @@
 </template>
 
 <script>
+	import BasicGameFirstSquare from '../common/basic-game/basicGameFirstSquare.vue';
+	import BasicGameSecondSquare from '../common/basic-game/basicGameSecondSquare.vue';
+	import BasicGameThirdSquare from '../common/basic-game/basicGameThirdSquare.vue';
 	import modal from '../common/modal.vue';
+
 	export default {
 		name: "LargeGame",
 		data() {
@@ -733,7 +603,10 @@
 				firstRowFulResult: 0,
 				disabledNumber: 0,
 				totalFieldActive: false,
-				disabledAllBtns: true
+				disabledAllBtns: true,
+				basicGameFirstSquareSumTotal: 0,
+				basicGameSecondSquareSumTotal: 0,
+				basicGameThirdSquareSumTotal: 0
 			}
 		},
 		mounted() {
@@ -742,6 +615,15 @@
 			this.getThirdSquare();
 			this.$bus.$on('edit:changed', () => {
 				this.disabledAllBtns = !this.disabledAllBtns;
+			});
+			this.$bus.$on('basic-game-first-square-sum-total', (firstSquareSumTotal) => {
+				this.basicGameFirstSquareSumTotal = firstSquareSumTotal;
+			});
+			this.$bus.$on('basic-game-second-square-sum-total', (secondSquareSumTotal) => {
+				this.basicGameSecondSquareSumTotal = secondSquareSumTotal;
+			});
+			this.$bus.$on('basic-game-third-square-sum-total', (thirdSquareSumTotal) => {
+				this.basicGameThirdSquareSumTotal = thirdSquareSumTotal;
 			});
 		},
 		methods: {
@@ -991,43 +873,6 @@
 					this.thirdSquareItems['column-10'].push(item10);
 				}
 			},
-			openModal(fieldId, isDisabled) {
-				if (isDisabled)
-					return;
-
-				this.showModal = true;
-				this.fieldId = fieldId;
-
-				const area = fieldId.split('-')[0];
-				const row = fieldId.split('-')[1].length > 2 ? fieldId.split('-')[1][2] : fieldId.split('-')[1][1];
-
-				if (area === 'first') {
-					if (row === '1')
-						this.modalOne = true;
-					else if (row === '2')
-						this.modalTwo = true;
-					else if (row === '3')
-						this.modalThree = true;
-					else if (row === '4')
-						this.modalFour = true;
-					else if (row === '5')
-						this.modalFive = true;
-					else if (row === '6')
-						this.modalSix = true;
-				}
-				else if (area === 'third') {
-					if (row === '1')
-						this.modalKenta = true;
-					else if (row === '2')
-						this.modalTriling = true;
-					else if (row === '3')
-						this.modalFul = true;
-					else if (row === '4')
-						this.modalPoker = true;
-					else if (row === '5')
-						this.modalYamb = true;
-				}
-			},
 			setResult(val, fieldId) {
 				const area = fieldId.split('-')[0];
 				const col = fieldId.split('-')[1].length > 2 ? fieldId.split('-')[1].substring(0, 2) : fieldId.split('-')[1][0];
@@ -1059,431 +904,119 @@
 				this.disabledNumber === 0;
 				const totalFulResult = this.firstRowFulResult + result + 30;
 				this.setResult(totalFulResult, fieldId);
+			},
+			firstSquareSumPerCol(col) {
+				const item1 = this.firstSquareItems[`column-${col}`][0] && this.firstSquareItems[`column-${col}`][0].value ? parseFloat(this.firstSquareItems[`column-${col}`][0].value) : 0;
+				const item2 = this.firstSquareItems[`column-${col}`][1] && this.firstSquareItems[`column-${col}`][1].value ? parseFloat(this.firstSquareItems[`column-${col}`][1].value) : 0;
+				const item3 = this.firstSquareItems[`column-${col}`][2] && this.firstSquareItems[`column-${col}`][2].value ? parseFloat(this.firstSquareItems[`column-${col}`][2].value) : 0;
+				const item4 = this.firstSquareItems[`column-${col}`][3] && this.firstSquareItems[`column-${col}`][3].value ? parseFloat(this.firstSquareItems[`column-${col}`][3].value) : 0;
+				const item5 = this.firstSquareItems[`column-${col}`][4] && this.firstSquareItems[`column-${col}`][4].value ? parseFloat(this.firstSquareItems[`column-${col}`][4].value) : 0;
+				const item6 = this.firstSquareItems[`column-${col}`][5] && this.firstSquareItems[`column-${col}`][5].value ? parseFloat(this.firstSquareItems[`column-${col}`][5].value) : 0;
+				let sum = item1 + item2 + item3 + item4 + item5 + item6;
+
+				if (item1 !== null && item2 !== null && item3 !== null && item4 !== null && item5 !== null && item6 !== null) {
+					if (sum >= 80)
+						sum += 50;
+					else if (sum >= 70)
+						sum += 40;
+					else if (sum >= 60)
+						sum += 30;
+				}
+
+				return sum;
+			},
+			secondSquareSumPerCol(col) {
+				const item1 = this.firstSquareItems[`column-${col}`][0] && this.firstSquareItems[`column-${col}`][0].value ? parseFloat(this.firstSquareItems[`column-${col}`][0].value) : 0;
+				const max = this.secondSquareItems[`column-${col}`][0] && this.secondSquareItems[`column-${col}`][0].value ? parseFloat(this.secondSquareItems[`column-${col}`][0].value) : 0;
+				const min = this.secondSquareItems[`column-${col}`][1] && this.secondSquareItems[`column-${col}`][1].value ? parseFloat(this.secondSquareItems[`column-${col}`][1].value) : 0;
+				let filledAllFields = this.firstSquareItems[`column-${col}`][0] && this.firstSquareItems[`column-${col}`][0].value && this.secondSquareItems[`column-${col}`][0] && this.secondSquareItems[`column-${col}`][0].value && this.secondSquareItems[`column-${col}`][1] && this.secondSquareItems[`column-${col}`][1].value;
+
+				let sum = filledAllFields ? (max - min) * item1 : 0;
+
+				return sum;
+			},
+			thirdSquareSumPerCol(col) {
+				const item1 = this.thirdSquareItems[`column-${col}`][0] && this.thirdSquareItems[`column-${col}`][0].value ? parseFloat(this.thirdSquareItems[`column-${col}`][0].value) : 0;
+				const item2 = this.thirdSquareItems[`column-${col}`][1] && this.thirdSquareItems[`column-${col}`][1].value ? parseFloat(this.thirdSquareItems[`column-${col}`][1].value) : 0;
+				const item3 = this.thirdSquareItems[`column-${col}`][2] && this.thirdSquareItems[`column-${col}`][2].value ? parseFloat(this.thirdSquareItems[`column-${col}`][2].value) : 0;
+				const item4 = this.thirdSquareItems[`column-${col}`][3] && this.thirdSquareItems[`column-${col}`][3].value ? parseFloat(this.thirdSquareItems[`column-${col}`][3].value) : 0;
+				const item5 = this.thirdSquareItems[`column-${col}`][4] && this.thirdSquareItems[`column-${col}`][4].value ? parseFloat(this.thirdSquareItems[`column-${col}`][4].value) : 0;
+				const item6 = this.thirdSquareItems[`column-${col}`][5] && this.thirdSquareItems[`column-${col}`][5].value ? parseFloat(this.thirdSquareItems[`column-${col}`][5].value) : 0;
+				let sum = item1 + item2 + item3 + item4 + item5 + item6;
+
+				return sum;
 			}
 		},
-		components: {
-			modal
-		},
 		computed: {
-			firstSquareSumColOne() {
-				const item1 = this.firstSquareItems['column-1'][0] && this.firstSquareItems['column-1'][0].value ? parseFloat(this.firstSquareItems['column-1'][0].value) : 0;
-				const item2 = this.firstSquareItems['column-1'][1] && this.firstSquareItems['column-1'][1].value ? parseFloat(this.firstSquareItems['column-1'][1].value) : 0;
-				const item3 = this.firstSquareItems['column-1'][2] && this.firstSquareItems['column-1'][2].value ? parseFloat(this.firstSquareItems['column-1'][2].value) : 0;
-				const item4 = this.firstSquareItems['column-1'][3] && this.firstSquareItems['column-1'][3].value ? parseFloat(this.firstSquareItems['column-1'][3].value) : 0;
-				const item5 = this.firstSquareItems['column-1'][4] && this.firstSquareItems['column-1'][4].value ? parseFloat(this.firstSquareItems['column-1'][4].value) : 0;
-				const item6 = this.firstSquareItems['column-1'][5] && this.firstSquareItems['column-1'][5].value ? parseFloat(this.firstSquareItems['column-1'][5].value) : 0;
-				let sum = item1 + item2 + item3 + item4 + item5 + item6;
-
-				if (item1 !== null && item2 !== null && item3 !== null && item4 !== null && item5 !== null && item6 !== null) {
-					if (sum >= 80)
-						sum += 50;
-					else if (sum >= 70)
-						sum += 40;
-					else if (sum >= 60)
-						sum += 30;
-				}
-
-				return sum;
-			},
-			firstSquareSumColTwo() {
-				const item1 = this.firstSquareItems['column-2'][0] && this.firstSquareItems['column-2'][0].value ? parseFloat(this.firstSquareItems['column-2'][0].value) : 0;
-				const item2 = this.firstSquareItems['column-2'][1] && this.firstSquareItems['column-2'][1].value ? parseFloat(this.firstSquareItems['column-2'][1].value) : 0;
-				const item3 = this.firstSquareItems['column-2'][2] && this.firstSquareItems['column-2'][2].value ? parseFloat(this.firstSquareItems['column-2'][2].value) : 0;
-				const item4 = this.firstSquareItems['column-2'][3] && this.firstSquareItems['column-2'][3].value ? parseFloat(this.firstSquareItems['column-2'][3].value) : 0;
-				const item5 = this.firstSquareItems['column-2'][4] && this.firstSquareItems['column-2'][4].value ? parseFloat(this.firstSquareItems['column-2'][4].value) : 0;
-				const item6 = this.firstSquareItems['column-2'][5] && this.firstSquareItems['column-2'][5].value ? parseFloat(this.firstSquareItems['column-2'][5].value) : 0;
-				let sum = item1 + item2 + item3 + item4 + item5 + item6;
-				
-				if (item1 !== null && item2 !== null && item3 !== null && item4 !== null && item5 !== null && item6 !== null) {
-					if (sum >= 80)
-						sum += 50;
-					else if (sum >= 70)
-						sum += 40;
-					else if (sum >= 60)
-						sum += 30;
-				}
-				
-				return sum;
-			},
-			firstSquareSumColThree() {
-				const item1 = this.firstSquareItems['column-3'][0] && this.firstSquareItems['column-3'][0].value ? parseFloat(this.firstSquareItems['column-3'][0].value) : 0;
-				const item2 = this.firstSquareItems['column-3'][1] && this.firstSquareItems['column-3'][1].value ? parseFloat(this.firstSquareItems['column-3'][1].value) : 0;
-				const item3 = this.firstSquareItems['column-3'][2] && this.firstSquareItems['column-3'][2].value ? parseFloat(this.firstSquareItems['column-3'][2].value) : 0;
-				const item4 = this.firstSquareItems['column-3'][3] && this.firstSquareItems['column-3'][3].value ? parseFloat(this.firstSquareItems['column-3'][3].value) : 0;
-				const item5 = this.firstSquareItems['column-3'][4] && this.firstSquareItems['column-3'][4].value ? parseFloat(this.firstSquareItems['column-3'][4].value) : 0;
-				const item6 = this.firstSquareItems['column-3'][5] && this.firstSquareItems['column-3'][5].value ? parseFloat(this.firstSquareItems['column-3'][5].value) : 0;
-				let sum = item1 + item2 + item3 + item4 + item5 + item6;
-				
-				if (item1 !== null && item2 !== null && item3 !== null && item4 !== null && item5 !== null && item6 !== null) {
-					if (sum >= 80)
-						sum += 50;
-					else if (sum >= 70)
-						sum += 40;
-					else if (sum >= 60)
-						sum += 30;
-				}
-				
-				return sum;
-			},
-			firstSquareSumColFour() {
-				const item1 = this.firstSquareItems['column-4'][0] && this.firstSquareItems['column-4'][0].value ? parseFloat(this.firstSquareItems['column-4'][0].value) : 0;
-				const item2 = this.firstSquareItems['column-4'][1] && this.firstSquareItems['column-4'][1].value ? parseFloat(this.firstSquareItems['column-4'][1].value) : 0;
-				const item3 = this.firstSquareItems['column-4'][2] && this.firstSquareItems['column-4'][2].value ? parseFloat(this.firstSquareItems['column-4'][2].value) : 0;
-				const item4 = this.firstSquareItems['column-4'][3] && this.firstSquareItems['column-4'][3].value ? parseFloat(this.firstSquareItems['column-4'][3].value) : 0;
-				const item5 = this.firstSquareItems['column-4'][4] && this.firstSquareItems['column-4'][4].value ? parseFloat(this.firstSquareItems['column-4'][4].value) : 0;
-				const item6 = this.firstSquareItems['column-4'][5] && this.firstSquareItems['column-4'][5].value ? parseFloat(this.firstSquareItems['column-4'][5].value) : 0;
-				let sum = item1 + item2 + item3 + item4 + item5 + item6;
-				
-				if (item1 !== null && item2 !== null && item3 !== null && item4 !== null && item5 !== null && item6 !== null) {
-					if (sum >= 80)
-						sum += 50;
-					else if (sum >= 70)
-						sum += 40;
-					else if (sum >= 60)
-						sum += 30;
-				}
-				
-				return sum;
-			},
 			firstSquareSumColFive() {
-				const item1 = this.firstSquareItems['column-5'][0] && this.firstSquareItems['column-5'][0].value ? parseFloat(this.firstSquareItems['column-5'][0].value) : 0;
-				const item2 = this.firstSquareItems['column-5'][1] && this.firstSquareItems['column-5'][1].value ? parseFloat(this.firstSquareItems['column-5'][1].value) : 0;
-				const item3 = this.firstSquareItems['column-5'][2] && this.firstSquareItems['column-5'][2].value ? parseFloat(this.firstSquareItems['column-5'][2].value) : 0;
-				const item4 = this.firstSquareItems['column-5'][3] && this.firstSquareItems['column-5'][3].value ? parseFloat(this.firstSquareItems['column-5'][3].value) : 0;
-				const item5 = this.firstSquareItems['column-5'][4] && this.firstSquareItems['column-5'][4].value ? parseFloat(this.firstSquareItems['column-5'][4].value) : 0;
-				const item6 = this.firstSquareItems['column-5'][5] && this.firstSquareItems['column-5'][5].value ? parseFloat(this.firstSquareItems['column-5'][5].value) : 0;
-				let sum = item1 + item2 + item3 + item4 + item5 + item6;
-				
-				if (item1 !== null && item2 !== null && item3 !== null && item4 !== null && item5 !== null && item6 !== null) {
-					if (sum >= 80)
-						sum += 50;
-					else if (sum >= 70)
-						sum += 40;
-					else if (sum >= 60)
-						sum += 30;
-				}
-				
-				return sum;
+				return this.firstSquareSumPerCol(5);
 			},
 			firstSquareSumColSix() {
-				const item1 = this.firstSquareItems['column-6'][0] && this.firstSquareItems['column-6'][0].value ? parseFloat(this.firstSquareItems['column-6'][0].value) : 0;
-				const item2 = this.firstSquareItems['column-6'][1] && this.firstSquareItems['column-6'][1].value ? parseFloat(this.firstSquareItems['column-6'][1].value) : 0;
-				const item3 = this.firstSquareItems['column-6'][2] && this.firstSquareItems['column-6'][2].value ? parseFloat(this.firstSquareItems['column-6'][2].value) : 0;
-				const item4 = this.firstSquareItems['column-6'][3] && this.firstSquareItems['column-6'][3].value ? parseFloat(this.firstSquareItems['column-6'][3].value) : 0;
-				const item5 = this.firstSquareItems['column-6'][4] && this.firstSquareItems['column-6'][4].value ? parseFloat(this.firstSquareItems['column-6'][4].value) : 0;
-				const item6 = this.firstSquareItems['column-6'][5] && this.firstSquareItems['column-6'][5].value ? parseFloat(this.firstSquareItems['column-6'][5].value) : 0;
-				let sum = item1 + item2 + item3 + item4 + item5 + item6;
-				
-				if (item1 !== null && item2 !== null && item3 !== null && item4 !== null && item5 !== null && item6 !== null) {
-					if (sum >= 80)
-						sum += 50;
-					else if (sum >= 70)
-						sum += 40;
-					else if (sum >= 60)
-						sum += 30;
-				}
-				
-				return sum;
+				return this.firstSquareSumPerCol(6);
 			},
 			firstSquareSumColSeven() {
-				const item1 = this.firstSquareItems['column-7'][0] && this.firstSquareItems['column-7'][0].value ? parseFloat(this.firstSquareItems['column-7'][0].value) : 0;
-				const item2 = this.firstSquareItems['column-7'][1] && this.firstSquareItems['column-7'][1].value ? parseFloat(this.firstSquareItems['column-7'][1].value) : 0;
-				const item3 = this.firstSquareItems['column-7'][2] && this.firstSquareItems['column-7'][2].value ? parseFloat(this.firstSquareItems['column-7'][2].value) : 0;
-				const item4 = this.firstSquareItems['column-7'][3] && this.firstSquareItems['column-7'][3].value ? parseFloat(this.firstSquareItems['column-7'][3].value) : 0;
-				const item5 = this.firstSquareItems['column-7'][4] && this.firstSquareItems['column-7'][4].value ? parseFloat(this.firstSquareItems['column-7'][4].value) : 0;
-				const item6 = this.firstSquareItems['column-7'][5] && this.firstSquareItems['column-7'][5].value ? parseFloat(this.firstSquareItems['column-7'][5].value) : 0;
-				let sum = item1 + item2 + item3 + item4 + item5 + item6;
-				
-				if (item1 !== null && item2 !== null && item3 !== null && item4 !== null && item5 !== null && item6 !== null) {
-					if (sum >= 80)
-						sum += 50;
-					else if (sum >= 70)
-						sum += 40;
-					else if (sum >= 60)
-						sum += 30;
-				}
-				
-				return sum;
+				return this.firstSquareSumPerCol(7);
 			},
 			firstSquareSumColEight() {
-				const item1 = this.firstSquareItems['column-8'][0] && this.firstSquareItems['column-8'][0].value ? parseFloat(this.firstSquareItems['column-8'][0].value) : 0;
-				const item2 = this.firstSquareItems['column-8'][1] && this.firstSquareItems['column-8'][1].value ? parseFloat(this.firstSquareItems['column-8'][1].value) : 0;
-				const item3 = this.firstSquareItems['column-8'][2] && this.firstSquareItems['column-8'][2].value ? parseFloat(this.firstSquareItems['column-8'][2].value) : 0;
-				const item4 = this.firstSquareItems['column-8'][3] && this.firstSquareItems['column-8'][3].value ? parseFloat(this.firstSquareItems['column-8'][3].value) : 0;
-				const item5 = this.firstSquareItems['column-8'][4] && this.firstSquareItems['column-8'][4].value ? parseFloat(this.firstSquareItems['column-8'][4].value) : 0;
-				const item6 = this.firstSquareItems['column-8'][5] && this.firstSquareItems['column-8'][5].value ? parseFloat(this.firstSquareItems['column-8'][5].value) : 0;
-				let sum = item1 + item2 + item3 + item4 + item5 + item6;
-				
-				if (item1 !== null && item2 !== null && item3 !== null && item4 !== null && item5 !== null && item6 !== null) {
-					if (sum >= 80)
-						sum += 50;
-					else if (sum >= 70)
-						sum += 40;
-					else if (sum >= 60)
-						sum += 30;
-				}
-				
-				return sum;
+				return this.firstSquareSumPerCol(8);
 			},
 			firstSquareSumColNine() {
-				const item1 = this.firstSquareItems['column-9'][0] && this.firstSquareItems['column-9'][0].value ? parseFloat(this.firstSquareItems['column-9'][0].value) : 0;
-				const item2 = this.firstSquareItems['column-9'][1] && this.firstSquareItems['column-9'][1].value ? parseFloat(this.firstSquareItems['column-9'][1].value) : 0;
-				const item3 = this.firstSquareItems['column-9'][2] && this.firstSquareItems['column-9'][2].value ? parseFloat(this.firstSquareItems['column-9'][2].value) : 0;
-				const item4 = this.firstSquareItems['column-9'][3] && this.firstSquareItems['column-9'][3].value ? parseFloat(this.firstSquareItems['column-9'][3].value) : 0;
-				const item5 = this.firstSquareItems['column-9'][4] && this.firstSquareItems['column-9'][4].value ? parseFloat(this.firstSquareItems['column-9'][4].value) : 0;
-				const item6 = this.firstSquareItems['column-9'][5] && this.firstSquareItems['column-9'][5].value ? parseFloat(this.firstSquareItems['column-9'][5].value) : 0;
-				let sum = item1 + item2 + item3 + item4 + item5 + item6;
-				
-				if (item1 !== null && item2 !== null && item3 !== null && item4 !== null && item5 !== null && item6 !== null) {
-					if (sum >= 80)
-						sum += 50;
-					else if (sum >= 70)
-						sum += 40;
-					else if (sum >= 60)
-						sum += 30;
-				}
-				
-				return sum;
+				return this.firstSquareSumPerCol(9);
 			},
 			firstSquareSumColTen() {
-				const item1 = this.firstSquareItems['column-10'][0] && this.firstSquareItems['column-10'][0].value ? parseFloat(this.firstSquareItems['column-10'][0].value) : 0;
-				const item2 = this.firstSquareItems['column-10'][1] && this.firstSquareItems['column-10'][1].value ? parseFloat(this.firstSquareItems['column-10'][1].value) : 0;
-				const item3 = this.firstSquareItems['column-10'][2] && this.firstSquareItems['column-10'][2].value ? parseFloat(this.firstSquareItems['column-10'][2].value) : 0;
-				const item4 = this.firstSquareItems['column-10'][3] && this.firstSquareItems['column-10'][3].value ? parseFloat(this.firstSquareItems['column-10'][3].value) : 0;
-				const item5 = this.firstSquareItems['column-10'][4] && this.firstSquareItems['column-10'][4].value ? parseFloat(this.firstSquareItems['column-10'][4].value) : 0;
-				const item6 = this.firstSquareItems['column-10'][5] && this.firstSquareItems['column-10'][5].value ? parseFloat(this.firstSquareItems['column-10'][5].value) : 0;
-				let sum = item1 + item2 + item3 + item4 + item5 + item6;
-				
-				if (item1 !== null && item2 !== null && item3 !== null && item4 !== null && item5 !== null && item6 !== null) {
-					if (sum >= 80)
-						sum += 50;
-					else if (sum >= 70)
-						sum += 40;
-					else if (sum >= 60)
-						sum += 30;
-				}
-				
-				return sum;
+				return this.firstSquareSumPerCol(10);
 			},
 			firstSquareSumTotal() {
-				return this.firstSquareSumColOne + this.firstSquareSumColTwo + this.firstSquareSumColThree + this.firstSquareSumColFour + this.firstSquareSumColFive + this.firstSquareSumColSix + this.firstSquareSumColSeven + this.firstSquareSumColEight + this.firstSquareSumColNine + this.firstSquareSumColTen;
-			},
-			secondSquareSumColOne() {
-				const item1 = this.firstSquareItems['column-1'][0] && this.firstSquareItems['column-1'][0].value ? parseFloat(this.firstSquareItems['column-1'][0].value) : 0;
-				const max = this.secondSquareItems['column-1'][0] && this.secondSquareItems['column-1'][0].value ? parseFloat(this.secondSquareItems['column-1'][0].value) : 0;
-				const min = this.secondSquareItems['column-1'][1] && this.secondSquareItems['column-1'][1].value ? parseFloat(this.secondSquareItems['column-1'][1].value) : 0;
-				let filledAllFields = this.firstSquareItems['column-1'][0] && this.firstSquareItems['column-1'][0].value && this.secondSquareItems['column-1'][0] && this.secondSquareItems['column-1'][0].value && this.secondSquareItems['column-1'][1] && this.secondSquareItems['column-1'][1].value;
-
-				let sum = filledAllFields ? (max - min) * item1 : 0;
-
-				return sum;
-			},
-			secondSquareSumColTwo() {
-				const item1 = this.firstSquareItems['column-2'][0] && this.firstSquareItems['column-2'][0].value ? parseFloat(this.firstSquareItems['column-2'][0].value) : 0;
-				const max = this.secondSquareItems['column-2'][0] && this.secondSquareItems['column-2'][0].value ? parseFloat(this.secondSquareItems['column-2'][0].value) : 0;
-				const min = this.secondSquareItems['column-2'][1] && this.secondSquareItems['column-2'][1].value ? parseFloat(this.secondSquareItems['column-2'][1].value) : 0;
-				let filledAllFields = this.firstSquareItems['column-2'][0] && this.firstSquareItems['column-2'][0].value && this.secondSquareItems['column-2'][0] && this.secondSquareItems['column-2'][0].value && this.secondSquareItems['column-2'][1] && this.secondSquareItems['column-1'][1].value;
-
-				let sum = filledAllFields ? (max - min) * item1 : 0;
-
-				return sum;
-			},
-			secondSquareSumColThree() {
-				const item1 = this.firstSquareItems['column-3'][0] && this.firstSquareItems['column-3'][0].value ? parseFloat(this.firstSquareItems['column-3'][0].value) : 0;
-				const max = this.secondSquareItems['column-3'][0] && this.secondSquareItems['column-3'][0].value ? parseFloat(this.secondSquareItems['column-3'][0].value) : 0;
-				const min = this.secondSquareItems['column-3'][1] && this.secondSquareItems['column-3'][1].value ? parseFloat(this.secondSquareItems['column-3'][1].value) : 0;
-				let filledAllFields = this.firstSquareItems['column-3'][0] && this.firstSquareItems['column-3'][0].value && this.secondSquareItems['column-3'][0] && this.secondSquareItems['column-3'][0].value && this.secondSquareItems['column-3'][1] && this.secondSquareItems['column-3'][1].value;
-
-				let sum = filledAllFields ? (max - min) * item1 : 0;
-
-				return sum;
-			},
-			secondSquareSumColFour() {
-				const item1 = this.firstSquareItems['column-4'][0] && this.firstSquareItems['column-4'][0].value ? parseFloat(this.firstSquareItems['column-4'][0].value) : 0;
-				const max = this.secondSquareItems['column-4'][0] && this.secondSquareItems['column-4'][0].value ? parseFloat(this.secondSquareItems['column-4'][0].value) : 0;
-				const min = this.secondSquareItems['column-4'][1] && this.secondSquareItems['column-4'][1].value ? parseFloat(this.secondSquareItems['column-4'][1].value) : 0;
-				let filledAllFields = this.firstSquareItems['column-4'][0] && this.firstSquareItems['column-4'][0].value && this.secondSquareItems['column-4'][0] && this.secondSquareItems['column-4'][0].value && this.secondSquareItems['column-4'][1] && this.secondSquareItems['column-4'][1].value;
-
-				let sum = filledAllFields ? (max - min) * item1 : 0;
-
-				return sum;
+				return this.basicGameFirstSquareSumTotal + this.firstSquareSumColFive + this.firstSquareSumColSix + this.firstSquareSumColSeven + this.firstSquareSumColSeven + this.firstSquareSumColEight + this.firstSquareSumColNine + this.firstSquareSumColTen;
 			},
 			secondSquareSumColFive() {
-				const item1 = this.firstSquareItems['column-5'][0] && this.firstSquareItems['column-5'][0].value ? parseFloat(this.firstSquareItems['column-5'][0].value) : 0;
-				const max = this.secondSquareItems['column-5'][0] && this.secondSquareItems['column-5'][0].value ? parseFloat(this.secondSquareItems['column-5'][0].value) : 0;
-				const min = this.secondSquareItems['column-5'][1] && this.secondSquareItems['column-5'][1].value ? parseFloat(this.secondSquareItems['column-5'][1].value) : 0;
-				let filledAllFields = this.firstSquareItems['column-5'][0] && this.firstSquareItems['column-5'][0].value && this.secondSquareItems['column-5'][0] && this.secondSquareItems['column-5'][0].value && this.secondSquareItems['column-5'][1] && this.secondSquareItems['column-5'][1].value;
-
-				let sum = filledAllFields ? (max - min) * item1 : 0;
-
-				return sum;
+				return this.secondSquareSumPerCol(5);
 			},
 			secondSquareSumColSix() {
-				const item1 = this.firstSquareItems['column-6'][0] && this.firstSquareItems['column-6'][0].value ? parseFloat(this.firstSquareItems['column-6'][0].value) : 0;
-				const max = this.secondSquareItems['column-6'][0] && this.secondSquareItems['column-6'][0].value ? parseFloat(this.secondSquareItems['column-6'][0].value) : 0;
-				const min = this.secondSquareItems['column-6'][1] && this.secondSquareItems['column-6'][1].value ? parseFloat(this.secondSquareItems['column-6'][1].value) : 0;
-				let filledAllFields = this.firstSquareItems['column-6'][0] && this.firstSquareItems['column-6'][0].value && this.secondSquareItems['column-6'][0] && this.secondSquareItems['column-6'][0].value && this.secondSquareItems['column-6'][1] && this.secondSquareItems['column-6'][1].value;
-
-				let sum = filledAllFields ? (max - min) * item1 : 0;
-
-				return sum;
+				return this.secondSquareSumPerCol(6);
 			},
 			secondSquareSumColSeven() {
-				const item1 = this.firstSquareItems['column-7'][0] && this.firstSquareItems['column-7'][0].value ? parseFloat(this.firstSquareItems['column-7'][0].value) : 0;
-				const max = this.secondSquareItems['column-7'][0] && this.secondSquareItems['column-7'][0].value ? parseFloat(this.secondSquareItems['column-7'][0].value) : 0;
-				const min = this.secondSquareItems['column-7'][1] && this.secondSquareItems['column-7'][1].value ? parseFloat(this.secondSquareItems['column-7'][1].value) : 0;
-				let filledAllFields = this.firstSquareItems['column-7'][0] && this.firstSquareItems['column-7'][0].value && this.secondSquareItems['column-7'][0] && this.secondSquareItems['column-7'][0].value && this.secondSquareItems['column-7'][1] && this.secondSquareItems['column-7'][1].value;
-
-				let sum = filledAllFields ? (max - min) * item1 : 0;
-
-				return sum;
+				return this.secondSquareSumPerCol(7);
 			},
 			secondSquareSumColEight() {
-				const item1 = this.firstSquareItems['column-8'][0] && this.firstSquareItems['column-8'][0].value ? parseFloat(this.firstSquareItems['column-8'][0].value) : 0;
-				const max = this.secondSquareItems['column-8'][0] && this.secondSquareItems['column-8'][0].value ? parseFloat(this.secondSquareItems['column-8'][0].value) : 0;
-				const min = this.secondSquareItems['column-8'][1] && this.secondSquareItems['column-8'][1].value ? parseFloat(this.secondSquareItems['column-8'][1].value) : 0;
-				let filledAllFields = this.firstSquareItems['column-8'][0] && this.firstSquareItems['column-8'][0].value && this.secondSquareItems['column-8'][0] && this.secondSquareItems['column-8'][0].value && this.secondSquareItems['column-8'][1] && this.secondSquareItems['column-8'][1].value;
-
-				let sum = filledAllFields ? (max - min) * item1 : 0;
-
-				return sum;
+				return this.secondSquareSumPerCol(8);
 			},
 			secondSquareSumColNine() {
-				const item1 = this.firstSquareItems['column-9'][0] && this.firstSquareItems['column-9'][0].value ? parseFloat(this.firstSquareItems['column-9'][0].value) : 0;
-				const max = this.secondSquareItems['column-9'][0] && this.secondSquareItems['column-9'][0].value ? parseFloat(this.secondSquareItems['column-9'][0].value) : 0;
-				const min = this.secondSquareItems['column-9'][1] && this.secondSquareItems['column-9'][1].value ? parseFloat(this.secondSquareItems['column-9'][1].value) : 0;
-				let filledAllFields = this.firstSquareItems['column-9'][0] && this.firstSquareItems['column-9'][0].value && this.secondSquareItems['column-9'][0] && this.secondSquareItems['column-9'][0].value && this.secondSquareItems['column-9'][1] && this.secondSquareItems['column-9'][1].value;
-
-				let sum = filledAllFields ? (max - min) * item1 : 0;
-
-				return sum;
+				return this.secondSquareSumPerCol(9);
 			},
 			secondSquareSumColTen() {
-				const item1 = this.firstSquareItems['column-10'][0] && this.firstSquareItems['column-10'][0].value ? parseFloat(this.firstSquareItems['column-10'][0].value) : 0;
-				const max = this.secondSquareItems['column-10'][0] && this.secondSquareItems['column-10'][0].value ? parseFloat(this.secondSquareItems['column-10'][0].value) : 0;
-				const min = this.secondSquareItems['column-10'][1] && this.secondSquareItems['column-10'][1].value ? parseFloat(this.secondSquareItems['column-10'][1].value) : 0;
-				let filledAllFields = this.firstSquareItems['column-10'][0] && this.firstSquareItems['column-10'][0].value && this.secondSquareItems['column-10'][0] && this.secondSquareItems['column-10'][0].value && this.secondSquareItems['column-10'][1] && this.secondSquareItems['column-10'][1].value;
-
-				let sum = filledAllFields ? (max - min) * item1 : 0;
-
-				return sum;
+				return this.secondSquareSumPerCol(10);
 			},
 			secondSquareSumTotal() {
-				return this.secondSquareSumColOne + this.secondSquareSumColTwo + this.secondSquareSumColThree + this.secondSquareSumColFour + this.secondSquareSumColFive + this.secondSquareSumColSix + this.secondSquareSumColSeven + this.secondSquareSumColEight + this.secondSquareSumColNine + this.secondSquareSumColTen;
-			},
-			thirdSquareSumColOne() {
-				const item1 = this.thirdSquareItems['column-1'][0] && this.thirdSquareItems['column-1'][0].value ? parseFloat(this.thirdSquareItems['column-1'][0].value) : 0;
-				const item2 = this.thirdSquareItems['column-1'][1] && this.thirdSquareItems['column-1'][1].value ? parseFloat(this.thirdSquareItems['column-1'][1].value) : 0;
-				const item3 = this.thirdSquareItems['column-1'][2] && this.thirdSquareItems['column-1'][2].value ? parseFloat(this.thirdSquareItems['column-1'][2].value) : 0;
-				const item4 = this.thirdSquareItems['column-1'][3] && this.thirdSquareItems['column-1'][3].value ? parseFloat(this.thirdSquareItems['column-1'][3].value) : 0;
-				const item5 = this.thirdSquareItems['column-1'][4] && this.thirdSquareItems['column-1'][4].value ? parseFloat(this.thirdSquareItems['column-1'][4].value) : 0;
-				const item6 = this.thirdSquareItems['column-1'][5] && this.thirdSquareItems['column-1'][5].value ? parseFloat(this.thirdSquareItems['column-1'][5].value) : 0;
-				let sum = item1 + item2 + item3 + item4 + item5 + item6;
-
-				return sum;
-			},
-			thirdSquareSumColTwo() {
-				const item1 = this.thirdSquareItems['column-2'][0] && this.thirdSquareItems['column-2'][0].value ? parseFloat(this.thirdSquareItems['column-2'][0].value) : 0;
-				const item2 = this.thirdSquareItems['column-2'][1] && this.thirdSquareItems['column-2'][1].value ? parseFloat(this.thirdSquareItems['column-2'][1].value) : 0;
-				const item3 = this.thirdSquareItems['column-2'][2] && this.thirdSquareItems['column-2'][2].value ? parseFloat(this.thirdSquareItems['column-2'][2].value) : 0;
-				const item4 = this.thirdSquareItems['column-2'][3] && this.thirdSquareItems['column-2'][3].value ? parseFloat(this.thirdSquareItems['column-2'][3].value) : 0;
-				const item5 = this.thirdSquareItems['column-2'][4] && this.thirdSquareItems['column-2'][4].value ? parseFloat(this.thirdSquareItems['column-2'][4].value) : 0;
-				const item6 = this.thirdSquareItems['column-2'][5] && this.thirdSquareItems['column-2'][5].value ? parseFloat(this.thirdSquareItems['column-2'][5].value) : 0;
-				let sum = item1 + item2 + item3 + item4 + item5 + item6;
-
-				return sum;
-			},
-			thirdSquareSumColThree() {
-				const item1 = this.thirdSquareItems['column-3'][0] && this.thirdSquareItems['column-3'][0].value ? parseFloat(this.thirdSquareItems['column-3'][0].value) : 0;
-				const item2 = this.thirdSquareItems['column-3'][1] && this.thirdSquareItems['column-3'][1].value ? parseFloat(this.thirdSquareItems['column-3'][1].value) : 0;
-				const item3 = this.thirdSquareItems['column-3'][2] && this.thirdSquareItems['column-3'][2].value ? parseFloat(this.thirdSquareItems['column-3'][2].value) : 0;
-				const item4 = this.thirdSquareItems['column-3'][3] && this.thirdSquareItems['column-3'][3].value ? parseFloat(this.thirdSquareItems['column-3'][3].value) : 0;
-				const item5 = this.thirdSquareItems['column-3'][4] && this.thirdSquareItems['column-3'][4].value ? parseFloat(this.thirdSquareItems['column-3'][4].value) : 0;
-				const item6 = this.thirdSquareItems['column-3'][5] && this.thirdSquareItems['column-3'][5].value ? parseFloat(this.thirdSquareItems['column-3'][5].value) : 0;
-				let sum = item1 + item2 + item3 + item4 + item5 + item6;
-
-				return sum;
-			},
-			thirdSquareSumColFour() {
-				const item1 = this.thirdSquareItems['column-4'][0] && this.thirdSquareItems['column-4'][0].value ? parseFloat(this.thirdSquareItems['column-4'][0].value) : 0;
-				const item2 = this.thirdSquareItems['column-4'][1] && this.thirdSquareItems['column-4'][1].value ? parseFloat(this.thirdSquareItems['column-4'][1].value) : 0;
-				const item3 = this.thirdSquareItems['column-4'][2] && this.thirdSquareItems['column-4'][2].value ? parseFloat(this.thirdSquareItems['column-4'][2].value) : 0;
-				const item4 = this.thirdSquareItems['column-4'][3] && this.thirdSquareItems['column-4'][3].value ? parseFloat(this.thirdSquareItems['column-4'][3].value) : 0;
-				const item5 = this.thirdSquareItems['column-4'][4] && this.thirdSquareItems['column-4'][4].value ? parseFloat(this.thirdSquareItems['column-4'][4].value) : 0;
-				const item6 = this.thirdSquareItems['column-4'][5] && this.thirdSquareItems['column-4'][5].value ? parseFloat(this.thirdSquareItems['column-4'][5].value) : 0;
-				let sum = item1 + item2 + item3 + item4 + item5 + item6;
-
-				return sum;
+				return this.basicGameSecondSquareSumTotal + this.secondSquareSumColFive + this.secondSquareSumColSix + this.secondSquareSumColSeven + this.secondSquareSumColEight + this.secondSquareSumColNine + this.secondSquareSumColTen;
 			},
 			thirdSquareSumColFive() {
-				const item1 = this.thirdSquareItems['column-5'][0] && this.thirdSquareItems['column-5'][0].value ? parseFloat(this.thirdSquareItems['column-5'][0].value) : 0;
-				const item2 = this.thirdSquareItems['column-5'][1] && this.thirdSquareItems['column-5'][1].value ? parseFloat(this.thirdSquareItems['column-5'][1].value) : 0;
-				const item3 = this.thirdSquareItems['column-5'][2] && this.thirdSquareItems['column-5'][2].value ? parseFloat(this.thirdSquareItems['column-5'][2].value) : 0;
-				const item4 = this.thirdSquareItems['column-5'][3] && this.thirdSquareItems['column-5'][3].value ? parseFloat(this.thirdSquareItems['column-5'][3].value) : 0;
-				const item5 = this.thirdSquareItems['column-5'][4] && this.thirdSquareItems['column-5'][4].value ? parseFloat(this.thirdSquareItems['column-5'][4].value) : 0;
-				const item6 = this.thirdSquareItems['column-5'][5] && this.thirdSquareItems['column-5'][5].value ? parseFloat(this.thirdSquareItems['column-5'][5].value) : 0;
-				let sum = item1 + item2 + item3 + item4 + item5 + item6;
-
-				return sum;
+				return this.thirdSquareSumPerCol(5);
 			},
 			thirdSquareSumColSix() {
-				const item1 = this.thirdSquareItems['column-6'][0] && this.thirdSquareItems['column-6'][0].value ? parseFloat(this.thirdSquareItems['column-6'][0].value) : 0;
-				const item2 = this.thirdSquareItems['column-6'][1] && this.thirdSquareItems['column-6'][1].value ? parseFloat(this.thirdSquareItems['column-6'][1].value) : 0;
-				const item3 = this.thirdSquareItems['column-6'][2] && this.thirdSquareItems['column-6'][2].value ? parseFloat(this.thirdSquareItems['column-6'][2].value) : 0;
-				const item4 = this.thirdSquareItems['column-6'][3] && this.thirdSquareItems['column-6'][3].value ? parseFloat(this.thirdSquareItems['column-6'][3].value) : 0;
-				const item5 = this.thirdSquareItems['column-6'][4] && this.thirdSquareItems['column-6'][4].value ? parseFloat(this.thirdSquareItems['column-6'][4].value) : 0;
-				const item6 = this.thirdSquareItems['column-6'][5] && this.thirdSquareItems['column-6'][5].value ? parseFloat(this.thirdSquareItems['column-6'][5].value) : 0;
-				let sum = item1 + item2 + item3 + item4 + item5 + item6;
-
-				return sum;
+				return this.thirdSquareSumPerCol(6);
 			},
 			thirdSquareSumColSeven() {
-				const item1 = this.thirdSquareItems['column-7'][0] && this.thirdSquareItems['column-7'][0].value ? parseFloat(this.thirdSquareItems['column-7'][0].value) : 0;
-				const item2 = this.thirdSquareItems['column-7'][1] && this.thirdSquareItems['column-7'][1].value ? parseFloat(this.thirdSquareItems['column-7'][1].value) : 0;
-				const item3 = this.thirdSquareItems['column-7'][2] && this.thirdSquareItems['column-7'][2].value ? parseFloat(this.thirdSquareItems['column-7'][2].value) : 0;
-				const item4 = this.thirdSquareItems['column-7'][3] && this.thirdSquareItems['column-7'][3].value ? parseFloat(this.thirdSquareItems['column-7'][3].value) : 0;
-				const item5 = this.thirdSquareItems['column-7'][4] && this.thirdSquareItems['column-7'][4].value ? parseFloat(this.thirdSquareItems['column-7'][4].value) : 0;
-				const item6 = this.thirdSquareItems['column-7'][5] && this.thirdSquareItems['column-7'][5].value ? parseFloat(this.thirdSquareItems['column-7'][5].value) : 0;
-				let sum = item1 + item2 + item3 + item4 + item5 + item6;
-
-				return sum;
+				return this.thirdSquareSumPerCol(7);
 			},
 			thirdSquareSumColEight() {
-				const item1 = this.thirdSquareItems['column-8'][0] && this.thirdSquareItems['column-8'][0].value ? parseFloat(this.thirdSquareItems['column-8'][0].value) : 0;
-				const item2 = this.thirdSquareItems['column-8'][1] && this.thirdSquareItems['column-8'][1].value ? parseFloat(this.thirdSquareItems['column-8'][1].value) : 0;
-				const item3 = this.thirdSquareItems['column-8'][2] && this.thirdSquareItems['column-8'][2].value ? parseFloat(this.thirdSquareItems['column-8'][2].value) : 0;
-				const item4 = this.thirdSquareItems['column-8'][3] && this.thirdSquareItems['column-8'][3].value ? parseFloat(this.thirdSquareItems['column-8'][3].value) : 0;
-				const item5 = this.thirdSquareItems['column-8'][4] && this.thirdSquareItems['column-8'][4].value ? parseFloat(this.thirdSquareItems['column-8'][4].value) : 0;
-				const item6 = this.thirdSquareItems['column-8'][5] && this.thirdSquareItems['column-8'][5].value ? parseFloat(this.thirdSquareItems['column-8'][5].value) : 0;
-				let sum = item1 + item2 + item3 + item4 + item5 + item6;
-
-				return sum;
+				return this.thirdSquareSumPerCol(8);
 			},
 			thirdSquareSumColNine() {
-				const item1 = this.thirdSquareItems['column-9'][0] && this.thirdSquareItems['column-9'][0].value ? parseFloat(this.thirdSquareItems['column-9'][0].value) : 0;
-				const item2 = this.thirdSquareItems['column-9'][1] && this.thirdSquareItems['column-9'][1].value ? parseFloat(this.thirdSquareItems['column-9'][1].value) : 0;
-				const item3 = this.thirdSquareItems['column-9'][2] && this.thirdSquareItems['column-9'][2].value ? parseFloat(this.thirdSquareItems['column-9'][2].value) : 0;
-				const item4 = this.thirdSquareItems['column-9'][3] && this.thirdSquareItems['column-9'][3].value ? parseFloat(this.thirdSquareItems['column-9'][3].value) : 0;
-				const item5 = this.thirdSquareItems['column-9'][4] && this.thirdSquareItems['column-9'][4].value ? parseFloat(this.thirdSquareItems['column-9'][4].value) : 0;
-				const item6 = this.thirdSquareItems['column-9'][5] && this.thirdSquareItems['column-9'][5].value ? parseFloat(this.thirdSquareItems['column-9'][5].value) : 0;
-				let sum = item1 + item2 + item3 + item4 + item5 + item6;
-
-				return sum;
+				return this.thirdSquareSumPerCol(9);
 			},
 			thirdSquareSumColTen() {
-				const item1 = this.thirdSquareItems['column-10'][0] && this.thirdSquareItems['column-10'][0].value ? parseFloat(this.thirdSquareItems['column-10'][0].value) : 0;
-				const item2 = this.thirdSquareItems['column-10'][1] && this.thirdSquareItems['column-10'][1].value ? parseFloat(this.thirdSquareItems['column-10'][1].value) : 0;
-				const item3 = this.thirdSquareItems['column-10'][2] && this.thirdSquareItems['column-10'][2].value ? parseFloat(this.thirdSquareItems['column-10'][2].value) : 0;
-				const item4 = this.thirdSquareItems['column-10'][3] && this.thirdSquareItems['column-10'][3].value ? parseFloat(this.thirdSquareItems['column-10'][3].value) : 0;
-				const item5 = this.thirdSquareItems['column-10'][4] && this.thirdSquareItems['column-10'][4].value ? parseFloat(this.thirdSquareItems['column-10'][4].value) : 0;
-				const item6 = this.thirdSquareItems['column-10'][5] && this.thirdSquareItems['column-10'][5].value ? parseFloat(this.thirdSquareItems['column-10'][5].value) : 0;
-				let sum = item1 + item2 + item3 + item4 + item5 + item6;
-
-				return sum;
+				return this.thirdSquareSumPerCol(10);
 			},
 			thirdSquareSumTotal() {
-				return this.thirdSquareSumColOne + this.thirdSquareSumColTwo + this.thirdSquareSumColThree + this.thirdSquareSumColFour + this.thirdSquareSumColFive + this.thirdSquareSumColSix + this.thirdSquareSumColSeven + this.thirdSquareSumColEight + this.thirdSquareSumColNine + this.thirdSquareSumColTen;
+				return this.basicGameThirdSquareSumTotal + this.thirdSquareSumColFive + this.thirdSquareSumColSix + this.thirdSquareSumColSeven + this.thirdSquareSumColEight + this.thirdSquareSumColNine + this.thirdSquareSumColTen;
 			},
+		},
+		components: {
+			modal,
+			BasicGameFirstSquare,
+			BasicGameSecondSquare,
+			BasicGameThirdSquare
 		},
 		watch: {
 			showModal: {

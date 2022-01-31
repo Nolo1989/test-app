@@ -61,10 +61,29 @@
 }
 .first-square {
 	display: grid;
-	grid-template: repeat(8, calc((100vh - 56px) / 17)) / repeat(6, 1fr);
+	grid-template-rows: repeat(8, calc((100vh - 56px) / 17));
+	grid-template-columns: calc((100vw / 6) * 5) calc(100vw / 6);
 	div {
 		grid-row: 1 / 9;
 	}
+}
+.basic-game-first-suare {
+	display: grid;
+    grid-template: repeat(8, calc((100vh - 56px) / 17))/repeat(5, 1fr);
+    grid-column-start: 1;
+    grid-row: 1 / 9;
+}
+.basic-game-second-suare {
+    display: grid;
+	grid-template: repeat(2, calc((100vh - 56px) / 17))/repeat(5, 1fr);
+    grid-column-start: 1;
+    grid-row: 1/3;
+}
+.basic-game-third-suare {
+    display: grid;
+	grid-template: repeat(5, calc((100vh - 56px) / 17))/repeat(5, 1fr);
+    grid-column-start: 1;
+    grid-row: 1/6;
 }
 .icon {
 	height: 100%;
@@ -101,7 +120,8 @@
 }
 .second-square {
 	display: grid;
-	grid-template: repeat(3, calc((100vh - 56px) / 17)) / repeat(6, 1fr);
+	grid-template-columns: calc((100vw / 6) * 5) calc(100vw / 6);
+    grid-template-rows: repeat(3, calc((100vh - 56px) / 17));
 	div {
 		grid-row: 1 / 4;
 	}
@@ -111,7 +131,8 @@
 }
 .third-square {
 	display: grid;
-	grid-template: repeat(6, calc((100vh - 56px) / 17)) / repeat(6, 1fr);
+	grid-template-columns: calc((100vw / 6) * 5) calc(100vw / 6);
+    grid-template-rows: repeat(6, calc((100vh - 56px) / 17));
 	div {
 		grid-row: 1 / 7;
 	}
@@ -157,9 +178,15 @@
 	}
 	.third-square {
 		grid-template: repeat(6, calc((100vh - 56px) / 17)) / repeat(9, 1fr);
+		.total {
+			font-size: 10px;
+		}
 	}
 	.field {
 		width: calc(100vw / 9);
+		&.smaller {
+			font-size: 12px;
+		}
 	}
 	.third-square {
 		.column-0 .field {
@@ -265,8 +292,7 @@
 	.total-field {
 		position: absolute;
 		top: -61px;
-		left: 50%;
-		transform: translate(-50%);
+		left: calc(50% - 35px);
 		width: 70px;
 		z-index: 5;
 	}
