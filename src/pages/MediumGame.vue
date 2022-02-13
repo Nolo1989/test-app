@@ -2,44 +2,9 @@
 	<section class="medium-game">
 		<div class="first-square">
 			<basic-game-first-square :basicGameFirstSquareData="firstSquareItems" :disabledAllBtns="disabledAllBtns"></basic-game-first-square>
-			<div class="column-5">
-				<div class="field blue">R</div>
-				<template v-for="(item, idx) in firstSquareItems['column-5']">
-					<div class="field" @click="openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns)" v-if="idx !== 6" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns" :id="item.id" :key="item.id">
-						<input type="hidden" v-model="item.value" />
-						{{ item.value }}
-					</div>
-				</template>
-				<div class="field blue">{{ firstSquareSumColFive }}</div>
-			</div>
-			<div class="column-6">
-				<div class="field blue to-middle">
-					<img src="../images/arrow-down-outline.svg" alt="Down icon" class="icon" />
-					<div class="divider"></div>
-					<img src="../images/arrow-up-outline.svg" alt="Up icon" class="icon" />
-				</div>
-				<template v-for="(item, idx) in firstSquareItems['column-6']">
-					<div class="field" @click="openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns)" v-if="idx !== 6" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns" :id="item.id" :key="item.id">
-						<input type="hidden" v-model="item.value" />
-						{{ item.value }}
-					</div>
-				</template>
-				<div class="field blue">{{ firstSquareSumColSix }}</div>
-			</div>
-			<div class="column-7">
-				<div class="field blue from-middle">
-					<img src="../images/arrow-up-outline.svg" alt="Up icon" class="icon" />
-					<div class="divider"></div>
-					<img src="../images/arrow-down-outline.svg" alt="Down icon" class="icon" />
-				</div>
-				<template v-for="(item, idx) in firstSquareItems['column-7']">
-					<div class="field" @click="openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns)" v-if="idx !== 6" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns" :id="item.id" :key="item.id">
-						<input type="hidden" v-model="item.value" />
-						{{ item.value }}
-					</div>
-				</template>
-				<div class="field blue">{{ firstSquareSumColSeven }}</div>
-			</div>
+			<single-column-first-square :column="5" :nameOfColumn="'R'" :firstSquareDataFive="firstSquareItems['column-5']" :disabledAllBtns="disabledAllBtns"></single-column-first-square>
+			<single-column-first-square :column="6" :toMiddle="true" :firstSquareDataSix="firstSquareItems['column-6']" :disabledAllBtns="disabledAllBtns"></single-column-first-square>
+			<single-column-first-square :column="7" :fromMiddle="true" :firstSquareDataSeven="firstSquareItems['column-7']" :disabledAllBtns="disabledAllBtns"></single-column-first-square>
 			<div class="column-8">
 				<div class="field blue smaller">YAMB</div>
 				<div class="field large"></div>
@@ -48,30 +13,9 @@
 		</div>
 		<div class="second-square">
 			<basic-game-second-square :basicGameSecondSquareData="secondSquareItems" :basicGameFirstSquareData="firstSquareItems" :disabledAllBtns="disabledAllBtns"></basic-game-second-square>
-			<div class="column-5">
-				<template v-for="item in secondSquareItems['column-5']">
-					<div class="field" :class="item.class" :id="item.id" :key="item.id">
-						<input type="number" v-model="item.value" />
-					</div>
-				</template>
-				<div class="field blue">{{ secondSquareSumColFive }}</div>
-			</div>
-			<div class="column-6">
-				<template v-for="item in secondSquareItems['column-6']">
-					<div class="field" :class="item.class" :id="item.id" :key="item.id">
-						<input type="number" v-model="item.value" />
-					</div>
-				</template>
-				<div class="field blue">{{ secondSquareSumColSix }}</div>
-			</div>
-			<div class="column-7">
-				<template v-for="item in secondSquareItems['column-7']">
-					<div class="field" :class="item.class" :id="item.id" :key="item.id">
-						<input type="number" v-model="item.value" />
-					</div>
-				</template>
-				<div class="field blue">{{ secondSquareSumColSeven }}</div>
-			</div>
+			<single-column-second-square :column="5" :firstSquareOneVal="firstSquareItems['column-5'][0]" :secondSquareDataFive="secondSquareItems['column-5']" :disabledAllBtns="disabledAllBtns"></single-column-second-square>
+			<single-column-second-square :column="6" :firstSquareOneVal="firstSquareItems['column-6'][0]" :secondSquareDataSix="secondSquareItems['column-6']" :disabledAllBtns="disabledAllBtns"></single-column-second-square>
+			<single-column-second-square :column="7" :firstSquareOneVal="firstSquareItems['column-7'][0]" :secondSquareDataSeven="secondSquareItems['column-7']" :disabledAllBtns="disabledAllBtns"></single-column-second-square>
 			<div class="column-8">
 				<div class="field large"></div>
 				<div class="field blue">{{ secondSquareSumTotal }}</div>
@@ -79,33 +23,9 @@
 		</div>
 		<div class="third-square">
 			<basic-game-third-square :basicGameThirdSquareData="thirdSquareItems" :disabledAllBtns="disabledAllBtns" :firstFulRowDisabled="firstFulRowDisabled" :secondFulRowDisabled="secondFulRowDisabled" :disabledNumber="disabledNumber"></basic-game-third-square>
-			<div class="column-5">
-				<template v-for="item in thirdSquareItems['column-5']">
-					<div class="field" @click="openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns)" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns" :id="item.id" :key="item.id">
-						<input type="hidden" v-model="item.value" />
-						{{ item.value }}
-					</div>
-				</template>
-				<div class="field blue">{{ thirdSquareSumColFive }}</div>
-			</div>
-			<div class="column-6">
-				<template v-for="item in thirdSquareItems['column-6']">
-					<div class="field" @click="openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns)" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns" :id="item.id" :key="item.id">
-						<input type="hidden" v-model="item.value" />
-						{{ item.value }}
-					</div>
-				</template>
-				<div class="field blue">{{ thirdSquareSumColSix }}</div>
-			</div>
-			<div class="column-7">
-				<template v-for="item in thirdSquareItems['column-7']">
-					<div class="field" @click="openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns)" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns" :id="item.id" :key="item.id">
-						<input type="hidden" v-model="item.value" />
-						{{ item.value }}
-					</div>
-				</template>
-				<div class="field blue">{{ thirdSquareSumColSeven }}</div>
-			</div>
+			<single-column-third-square :column="5" :thirdSquareDataFive="thirdSquareItems['column-5']" :disabledAllBtns="disabledAllBtns"></single-column-third-square>
+			<single-column-third-square :column="6" :thirdSquareDataSix="thirdSquareItems['column-6']" :disabledAllBtns="disabledAllBtns"></single-column-third-square>
+			<single-column-third-square :column="7" :thirdSquareDataSeven="thirdSquareItems['column-7']" :disabledAllBtns="disabledAllBtns"></single-column-third-square>
 			<div class="column-8">
 				<div class="field large">
 					<p class="total">TOTAL:</p>
@@ -463,6 +383,9 @@
 	import BasicGameFirstSquare from '../common/basic-game/basicGameFirstSquare.vue';
 	import BasicGameSecondSquare from '../common/basic-game/basicGameSecondSquare.vue';
 	import BasicGameThirdSquare from '../common/basic-game/basicGameThirdSquare.vue';
+	import SingleColumnFirstSquare from '../common/single-column/singleColumnFirstSquare.vue';
+	import SingleColumnSecondSquare from '../common/single-column/singleColumnSecondSquare.vue';
+	import SingleColumnThirdSquare from '../common/single-column/singleColumnThirdSquare.vue';
 	import modal from '../common/modal.vue';
 
 	export default {
@@ -517,7 +440,16 @@
 				disabledAllBtns: true,
 				basicGameFirstSquareSumTotal: 0,
 				basicGameSecondSquareSumTotal: 0,
-				basicGameThirdSquareSumTotal: 0
+				basicGameThirdSquareSumTotal: 0,
+				firstSquareSumColFive: 0,
+				firstSquareSumColSix: 0,
+				firstSquareSumColSeven: 0,
+				secondSquareSumColFive: 0,
+				secondSquareSumColSix: 0,
+				secondSquareSumColSeven: 0,
+				thirdSquareSumColFive: 0,
+				thirdSquareSumColSix: 0,
+				thirdSquareSumColSeven: 0,
 			}
 		},
 		mounted() {
@@ -790,38 +722,11 @@
 			}
 		},
 		computed: {
-			firstSquareSumColFive() {
-				return this.firstSquareSumPerCol(5);
-			},
-			firstSquareSumColSix() {
-				return this.firstSquareSumPerCol(6);
-			},
-			firstSquareSumColSeven() {
-				return this.firstSquareSumPerCol(7);
-			},
 			firstSquareSumTotal() {
 				return this.basicGameFirstSquareSumTotal + this.firstSquareSumColFive + this.firstSquareSumColSix + this.firstSquareSumColSeven;
 			},
-			secondSquareSumColFive() {
-				return this.secondSquareSumPerCol(5);
-			},
-			secondSquareSumColSix() {
-				return this.secondSquareSumPerCol(6);
-			},
-			secondSquareSumColSeven() {
-				return this.secondSquareSumPerCol(7);
-			},
 			secondSquareSumTotal() {
 				return this.basicGameSecondSquareSumTotal + this.secondSquareSumColFive + this.secondSquareSumColSix + this.secondSquareSumColSeven;
-			},
-			thirdSquareSumColFive() {
-				return this.thirdSquareSumPerCol(5);
-			},
-			thirdSquareSumColSix() {
-				return this.thirdSquareSumPerCol(6);
-			},
-			thirdSquareSumColSeven() {
-				return this.thirdSquareSumPerCol(7);
 			},
 			thirdSquareSumTotal() {
 				return this.basicGameThirdSquareSumTotal + this.thirdSquareSumColFive + this.thirdSquareSumColSix + this.thirdSquareSumColSeven;
@@ -831,7 +736,10 @@
 			modal,
 			BasicGameFirstSquare,
 			BasicGameSecondSquare,
-			BasicGameThirdSquare
+			BasicGameThirdSquare,
+			SingleColumnFirstSquare,
+			SingleColumnSecondSquare,
+			SingleColumnThirdSquare
 		},
 		watch: {
 			showModal: {

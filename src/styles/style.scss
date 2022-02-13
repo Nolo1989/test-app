@@ -154,6 +154,20 @@
 .first-square .column-0 .field, .second-square .column-0 .field, .third-square .column-0 .field, .field.blue, .third-square .field.large {
 	font-weight: 600;
 }
+.to-middle, .from-middle {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	.icon {
+		width: 30%;
+		height: 40%;
+	}
+}
+.divider {
+	width: 50%;
+	height: 2px;
+	background-color: #000;
+}
 .total-field {
 	width: calc(100% - 6px);
 	margin-top: 10px;
@@ -201,20 +215,6 @@
 	.total-field {
 		width: 100%;
 		padding: 10px 0;
-	}
-	.divider {
-		width: 50%;
-		height: 2px;
-		background-color: #000;
-	}
-	.to-middle, .from-middle {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		.icon {
-			width: 30%;
-			height: 40%;
-		}
 	}
 	.field-sec-71, .field-sec-61 {
 		position: relative;
