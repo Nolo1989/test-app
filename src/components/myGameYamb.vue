@@ -1,0 +1,880 @@
+<template>
+	<section class="my-game" :class="numOfColumns">
+		<div class="first-square">
+			<basic-game-first-square :basicGameFirstSquareData="firstSquareItems" :disabledAllBtns="disabledAllBtns" :game="'large-game'"></basic-game-first-square>
+			<template v-if="myGameDataSorted && myGameDataSorted.length">
+				<template v-for="item in myGameDataSorted">
+					<single-column-first-square v-if="item.order === 6" :column="item.order - 1" :nameOfColumn="item.game === 'toMiddle' || item.game === 'fromMiddle' ? null : item.game" :toMiddle="item.game === 'toMiddle' ? true : false" :fromMiddle="item.game === 'fromMiddle' ? true : false" :firstSquareDataFive="firstSquareItems['column-5']" :disabledAllBtns="disabledAllBtns" :smallFont="true" :key="item.order"></single-column-first-square>
+
+					<single-column-first-square v-if="item.order === 7" :column="item.order - 1" :nameOfColumn="item.game === 'toMiddle' || item.game === 'fromMiddle' ? null : item.game" :toMiddle="item.game === 'toMiddle' ? true : false" :fromMiddle="item.game === 'fromMiddle' ? true : false" :firstSquareDataSix="firstSquareItems['column-6']" :disabledAllBtns="disabledAllBtns" :smallFont="true" :key="item.order"></single-column-first-square>
+
+					<single-column-first-square v-if="item.order === 8" :column="item.order - 1" :nameOfColumn="item.game === 'toMiddle' || item.game === 'fromMiddle' ? null : item.game" :toMiddle="item.game === 'toMiddle' ? true : false" :fromMiddle="item.game === 'fromMiddle' ? true : false" :firstSquareDataSeven="firstSquareItems['column-7']" :disabledAllBtns="disabledAllBtns" :smallFont="true" :key="item.order"></single-column-first-square>
+
+					<single-column-first-square v-if="item.order === 9" :column="item.order - 1" :nameOfColumn="item.game === 'toMiddle' || item.game === 'fromMiddle' ? null : item.game" :toMiddle="item.game === 'toMiddle' ? true : false" :fromMiddle="item.game === 'fromMiddle' ? true : false" :firstSquareDataEight="firstSquareItems['column-8']" :disabledAllBtns="disabledAllBtns" :smallFont="true" :key="item.order"></single-column-first-square>
+
+					<single-column-first-square v-if="item.order === 10" :column="item.order - 1" :nameOfColumn="item.game === 'toMiddle' || item.game === 'fromMiddle' ? null : item.game" :toMiddle="item.game === 'toMiddle' ? true : false" :fromMiddle="item.game === 'fromMiddle' ? true : false" :firstSquareDataNine="firstSquareItems['column-9']" :disabledAllBtns="disabledAllBtns" :smallFont="true" :key="item.order"></single-column-first-square>
+
+					<single-column-first-square v-if="item.order === 11" :column="item.order - 1" :nameOfColumn="item.game === 'toMiddle' || item.game === 'fromMiddle' ? null : item.game" :toMiddle="item.game === 'toMiddle' ? true : false" :fromMiddle="item.game === 'fromMiddle' ? true : false" :firstSquareDataTen="firstSquareItems['column-10']" :disabledAllBtns="disabledAllBtns" :smallFont="true" :key="item.order"></single-column-first-square>
+				</template>
+			</template>
+			<div :class="`column-${myGameData.length}`">
+				<div class="field blue">Y</div>
+				<div class="field large"></div>
+				<div class="field blue result">{{ firstSquareSumTotal }}</div>
+			</div>
+		</div>
+		<div class="second-square">
+			<basic-game-second-square :basicGameSecondSquareData="secondSquareItems" :basicGameFirstSquareData="firstSquareItems" :disabledAllBtns="disabledAllBtns" :game="'large-game'"></basic-game-second-square>
+			<template v-if="myGameDataSorted && myGameDataSorted.length">
+				<template v-for="item in myGameDataSorted">
+					<single-column-second-square v-if="item.order === 6" :column="item.order - 1" :firstSquareOneVal="firstSquareItems[`column-${item.order - 1}`][0]" :secondSquareDataFive="secondSquareItems[`column-${item.order - 1}`]" :disabledAllBtns="disabledAllBtns" :smallFont="true" :toMiddle="item.game === 'toMiddle' ? true : false" :fromMiddle="item.game === 'fromMiddle' ? true : false" :key="item.order"></single-column-second-square>
+
+					<single-column-second-square v-if="item.order === 7" :column="item.order - 1" :firstSquareOneVal="firstSquareItems[`column-${item.order - 1}`][0]" :secondSquareDataSix="secondSquareItems[`column-${item.order - 1}`]" :disabledAllBtns="disabledAllBtns" :smallFont="true" :toMiddle="item.game === 'toMiddle' ? true : false" :fromMiddle="item.game === 'fromMiddle' ? true : false" :key="item.order"></single-column-second-square>
+
+					<single-column-second-square v-if="item.order === 8" :column="item.order - 1" :firstSquareOneVal="firstSquareItems[`column-${item.order - 1}`][0]" :secondSquareDataSeven="secondSquareItems[`column-${item.order - 1}`]" :disabledAllBtns="disabledAllBtns" :smallFont="true" :toMiddle="item.game === 'toMiddle' ? true : false" :fromMiddle="item.game === 'fromMiddle' ? true : false" :key="item.order"></single-column-second-square>
+
+					<single-column-second-square v-if="item.order === 9" :column="item.order - 1" :firstSquareOneVal="firstSquareItems[`column-${item.order - 1}`][0]" :secondSquareDataEight="secondSquareItems[`column-${item.order - 1}`]" :disabledAllBtns="disabledAllBtns" :smallFont="true" :toMiddle="item.game === 'toMiddle' ? true : false" :fromMiddle="item.game === 'fromMiddle' ? true : false" :key="item.order"></single-column-second-square>
+					
+					<single-column-second-square v-if="item.order === 10" :column="item.order - 1" :firstSquareOneVal="firstSquareItems[`column-${item.order - 1}`][0]" :secondSquareDataNine="secondSquareItems[`column-${item.order - 1}`]" :disabledAllBtns="disabledAllBtns" :smallFont="true" :toMiddle="item.game === 'toMiddle' ? true : false" :fromMiddle="item.game === 'fromMiddle' ? true : false" :key="item.order"></single-column-second-square>
+
+					<single-column-second-square v-if="item.order === 11" :column="item.order - 1" :firstSquareOneVal="firstSquareItems[`column-${item.order - 1}`][0]" :secondSquareDataTen="secondSquareItems[`column-${item.order - 1}`]" :disabledAllBtns="disabledAllBtns" :smallFont="true" :toMiddle="item.game === 'toMiddle' ? true : false" :fromMiddle="item.game === 'fromMiddle' ? true : false" :key="item.order"></single-column-second-square>
+
+				</template>
+			</template>
+			<div :class="`column-${myGameData.length}`">
+				<div class="field large"></div>
+				<div class="field blue result">{{ secondSquareSumTotal }}</div>
+			</div>
+		</div>
+		<div class="third-square">
+			<basic-game-third-square :basicGameThirdSquareData="thirdSquareItems" :disabledAllBtns="disabledAllBtns" :firstFulRowDisabled="firstFulRowDisabled" :secondFulRowDisabled="secondFulRowDisabled" :disabledNumber="disabledNumber" :game="'large-game'"></basic-game-third-square>
+			<template v-if="myGameDataSorted && myGameDataSorted.length">
+				<template v-for="item in myGameDataSorted">
+					<single-column-third-square v-if="item.order === 6" :column="item.order - 1" :thirdSquareDataFive="thirdSquareItems[`column-${item.order - 1}`]" :disabledAllBtns="disabledAllBtns" :smallFont="true" :toMiddle="item.game === 'toMiddle' ? true : false" :key="item.order"></single-column-third-square>
+					<single-column-third-square v-if="item.order === 7" :column="item.order - 1" :thirdSquareDataSix="thirdSquareItems[`column-${item.order - 1}`]" :disabledAllBtns="disabledAllBtns" :smallFont="true" :toMiddle="item.game === 'toMiddle' ? true : false" :key="item.order"></single-column-third-square>
+					<single-column-third-square v-if="item.order === 8" :column="item.order - 1" :thirdSquareDataSeven="thirdSquareItems[`column-${item.order - 1}`]" :disabledAllBtns="disabledAllBtns" :smallFont="true" :toMiddle="item.game === 'toMiddle' ? true : false" :key="item.order"></single-column-third-square>
+					<single-column-third-square v-if="item.order === 9" :column="item.order - 1" :thirdSquareDataEight="thirdSquareItems[`column-${item.order - 1}`]" :disabledAllBtns="disabledAllBtns" :smallFont="true" :toMiddle="item.game === 'toMiddle' ? true : false" :key="item.order"></single-column-third-square>
+					<single-column-third-square v-if="item.order === 10" :column="item.order - 1" :thirdSquareDataNine="thirdSquareItems[`column-${item.order - 1}`]" :disabledAllBtns="disabledAllBtns" :smallFont="true" :toMiddle="item.game === 'toMiddle' ? true : false" :key="item.order"></single-column-third-square>
+					<single-column-third-square v-if="item.order === 11" :column="item.order - 1" :thirdSquareDataTen="thirdSquareItems[`column-${item.order - 1}`]" :disabledAllBtns="disabledAllBtns" :smallFont="true" :toMiddle="item.game === 'toMiddle' ? true : false" :key="item.order"></single-column-third-square>
+				</template>
+			</template>
+			<div :class="`column-${myGameData.length}`">
+				<div class="field large">
+					<!-- <p class="total">TOTAL:</p> -->
+					<div class="total-field" @click="totalFieldActive = !totalFieldActive" :class="{'active': totalFieldActive}">
+						{{ firstSquareSumTotal + secondSquareSumTotal + thirdSquareSumTotal }}
+					</div>
+				</div>
+				<div class="field blue result">{{ thirdSquareSumTotal }}</div>
+			</div>
+		</div>
+		<modal :show="showModal" @closeModal="showModal = false" class="confirmation-modal wide">
+			<div slot="header" class="modal-title-wrapper">
+				<p class="modal-title">Dobijena kombinacija:</p>
+			</div>
+			<div slot="body">
+				<div v-if="modalOne">
+					<div class="dice-wrap">
+						<button class="modal-btn blue dice">
+							<span class="center"></span>
+						</button>
+					</div>
+					<div class="dice-wrap">
+						<button class="modal-btn dice white-btn" @click="setResult(1, fieldId)">x 1</button>
+						<button class="modal-btn dice white-btn" @click="setResult(2, fieldId)">x 2</button>
+						<button class="modal-btn dice white-btn" @click="setResult(3, fieldId)">x 3</button>
+						<button class="modal-btn dice white-btn" @click="setResult(4, fieldId)">x 4</button>
+						<button class="modal-btn dice white-btn" @click="setResult(5, fieldId)">x 5</button>
+					</div>
+					<div class="bottom-wrap">
+						<button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
+						<button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+					</div>
+				</div>
+				<div v-else-if="modalTwo">
+					<div class="dice-wrap">
+						<button class="modal-btn blue dice">
+							<span class="three"></span>
+							<span class="four"></span>
+						</button>
+					</div>
+					<div class="dice-wrap">
+						<button class="modal-btn dice white-btn" @click="setResult(2, fieldId)">x 1</button>
+						<button class="modal-btn dice white-btn" @click="setResult(4, fieldId)">x 2</button>
+						<button class="modal-btn dice white-btn" @click="setResult(6, fieldId)">x 3</button>
+						<button class="modal-btn dice white-btn" @click="setResult(8, fieldId)">x 4</button>
+						<button class="modal-btn dice white-btn" @click="setResult(10, fieldId)">x 5</button>
+					</div>
+					<div class="bottom-wrap">
+						<button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
+						<button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+					</div>
+				</div>
+				<div v-else-if="modalThree">
+					<div class="dice-wrap">
+						<button class="modal-btn blue dice">
+							<span class="three"></span>
+							<span class="center"></span>
+							<span class="four"></span>
+						</button>
+					</div>
+					<div class="dice-wrap">
+						<button class="modal-btn dice white-btn" @click="setResult(3, fieldId)">x 1</button>
+						<button class="modal-btn dice white-btn" @click="setResult(6, fieldId)">x 2</button>
+						<button class="modal-btn dice white-btn" @click="setResult(9, fieldId)">x 3</button>
+						<button class="modal-btn dice white-btn" @click="setResult(12, fieldId)">x 4</button>
+						<button class="modal-btn dice white-btn" @click="setResult(15, fieldId)">x 5</button>
+					</div>
+					<div class="bottom-wrap">
+						<button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
+						<button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+					</div>
+				</div>
+				<div v-else-if="modalFour">
+					<div class="dice-wrap">
+						<button class="modal-btn blue dice">
+							<span class="one"></span>
+							<span class="three"></span>
+							<span class="four"></span>
+							<span class="six"></span>
+						</button>
+					</div>
+					<div class="dice-wrap">
+						<button class="modal-btn dice white-btn" @click="setResult(4, fieldId)">x 1</button>
+						<button class="modal-btn dice white-btn" @click="setResult(8, fieldId)">x 2</button>
+						<button class="modal-btn dice white-btn" @click="setResult(12, fieldId)">x 3</button>
+						<button class="modal-btn dice white-btn" @click="setResult(16, fieldId)">x 4</button>
+						<button class="modal-btn dice white-btn" @click="setResult(20, fieldId)">x 5</button>
+					</div>
+					<div class="bottom-wrap">
+						<button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
+						<button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+					</div>
+				</div>
+				<div v-else-if="modalFive">
+					<div class="dice-wrap">
+						<button class="modal-btn blue dice">
+							<span class="one"></span>
+							<span class="three"></span>
+							<span class="center"></span>
+							<span class="four"></span>
+							<span class="six"></span>
+						</button>
+					</div>
+					<div class="dice-wrap">
+						<button class="modal-btn dice white-btn" @click="setResult(5, fieldId)">x 1</button>
+						<button class="modal-btn dice white-btn" @click="setResult(10, fieldId)">x 2</button>
+						<button class="modal-btn dice white-btn" @click="setResult(15, fieldId)">x 3</button>
+						<button class="modal-btn dice white-btn" @click="setResult(20, fieldId)">x 4</button>
+						<button class="modal-btn dice white-btn" @click="setResult(25, fieldId)">x 5</button>
+					</div>
+					<div class="bottom-wrap">
+						<button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
+						<button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+					</div>
+				</div>
+				<div v-else-if="modalSix">
+					<div class="dice-wrap">
+						<button class="modal-btn blue dice">
+							<span class="one"></span>
+							<span class="two"></span>
+							<span class="three"></span>
+							<span class="four"></span>
+							<span class="five"></span>
+							<span class="six"></span>
+						</button>
+					</div>
+					<div class="dice-wrap">
+						<button class="modal-btn dice white-btn" @click="setResult(6, fieldId)">x 1</button>
+						<button class="modal-btn dice white-btn" @click="setResult(12, fieldId)">x 2</button>
+						<button class="modal-btn dice white-btn" @click="setResult(18, fieldId)">x 3</button>
+						<button class="modal-btn dice white-btn" @click="setResult(24, fieldId)">x 4</button>
+						<button class="modal-btn dice white-btn" @click="setResult(30, fieldId)">x 5</button>
+					</div>
+					<div class="bottom-wrap">
+						<button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
+						<button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+					</div>
+				</div>
+				<div class="kenta" v-else-if="modalKenta">
+					<button class="modal-btn blue" @click="setResult(55, fieldId)">55</button>
+					<button class="modal-btn blue" @click="setResult(60, fieldId)">60</button>
+					<div class="bottom-wrap">
+						<button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
+						<button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+					</div>
+				</div>
+				<div class="triling" v-else-if="modalTriling">
+					<div class="dice-wrap">
+						<button class="modal-btn blue dice" @click="setResult(23, fieldId)">
+							<span class="center"></span>
+						</button>
+						<button class="modal-btn blue dice" @click="setResult(26, fieldId)">
+							<span class="three"></span>
+							<span class="four"></span>
+						</button>
+						<button class="modal-btn blue dice" @click="setResult(29, fieldId)">
+							<span class="three"></span>
+							<span class="center"></span>
+							<span class="four"></span>
+						</button>
+						<button class="modal-btn blue dice" @click="setResult(32, fieldId)">
+							<span class="one"></span>
+							<span class="three"></span>
+							<span class="four"></span>
+							<span class="six"></span>
+						</button>
+						<button class="modal-btn blue dice" @click="setResult(35, fieldId)">
+							<span class="one"></span>
+							<span class="three"></span>
+							<span class="center"></span>
+							<span class="four"></span>
+							<span class="six"></span>
+						</button>
+						<button class="modal-btn blue dice" @click="setResult(38, fieldId)">
+							<span class="one"></span>
+							<span class="two"></span>
+							<span class="three"></span>
+							<span class="four"></span>
+							<span class="five"></span>
+							<span class="six"></span>
+						</button>
+					</div>
+					<div class="bottom-wrap">
+						<button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
+						<button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+					</div>
+				</div>
+				<div class="ful" v-else-if="modalFul">
+					<div class="dice-wrap">
+						<span class="multiplier">3 x </span>
+						<button class="modal-btn blue dice" :class="{'disabled': firstFulRowDisabled}" :disabled="firstFulRowDisabled" @click="setFirstRowFul(3, 1)">
+							<span class="center"></span>
+						</button>
+						<button class="modal-btn blue dice" :class="{'disabled': firstFulRowDisabled}" :disabled="firstFulRowDisabled" @click="setFirstRowFul(6, 2)">
+							<span class="three"></span>
+							<span class="four"></span>
+						</button>
+						<button class="modal-btn blue dice" :class="{'disabled': firstFulRowDisabled}" :disabled="firstFulRowDisabled" @click="setFirstRowFul(9, 3)">
+							<span class="three"></span>
+							<span class="center"></span>
+							<span class="four"></span>
+						</button>
+						<button class="modal-btn blue dice" :class="{'disabled': firstFulRowDisabled}" :disabled="firstFulRowDisabled" @click="setFirstRowFul(12, 4)">
+							<span class="one"></span>
+							<span class="three"></span>
+							<span class="four"></span>
+							<span class="six"></span>
+						</button>
+						<button class="modal-btn blue dice" :class="{'disabled': firstFulRowDisabled}" :disabled="firstFulRowDisabled" @click="setFirstRowFul(15, 5)">
+							<span class="one"></span>
+							<span class="three"></span>
+							<span class="center"></span>
+							<span class="four"></span>
+							<span class="six"></span>
+						</button>
+						<button class="modal-btn blue dice" :class="{'disabled': firstFulRowDisabled}" :disabled="firstFulRowDisabled" @click="setFirstRowFul(18, 6)">
+							<span class="one"></span>
+							<span class="two"></span>
+							<span class="three"></span>
+							<span class="four"></span>
+							<span class="five"></span>
+							<span class="six"></span>
+						</button>
+					</div>
+					<div class="dice-wrap">
+						<span class="multiplier">2 x </span>
+						<button class="modal-btn blue dice" :class="{'disabled': secondFulRowDisabled || disabledNumber === 1}" :disabled="secondFulRowDisabled || disabledNumber === 1" @click="setFulResult(2, fieldId)">
+							<span class="center"></span>
+						</button>
+						<button class="modal-btn blue dice" :class="{'disabled': secondFulRowDisabled || disabledNumber === 2}" :disabled="secondFulRowDisabled || disabledNumber === 2" @click="setFulResult(4, fieldId)">
+							<span class="three"></span>
+							<span class="four"></span>
+						</button>
+						<button class="modal-btn blue dice" :class="{'disabled': secondFulRowDisabled || disabledNumber === 3}" :disabled="secondFulRowDisabled || disabledNumber === 3" @click="setFulResult(6, fieldId)">
+							<span class="three"></span>
+							<span class="center"></span>
+							<span class="four"></span>
+						</button>
+						<button class="modal-btn blue dice" :class="{'disabled': secondFulRowDisabled || disabledNumber === 4}" :disabled="secondFulRowDisabled || disabledNumber === 4" @click="setFulResult(8, fieldId)">
+							<span class="one"></span>
+							<span class="three"></span>
+							<span class="four"></span>
+							<span class="six"></span>
+						</button>
+						<button class="modal-btn blue dice" :class="{'disabled': secondFulRowDisabled || disabledNumber === 5}" :disabled="secondFulRowDisabled || disabledNumber === 5" @click="setFulResult(10, fieldId)">
+							<span class="one"></span>
+							<span class="three"></span>
+							<span class="center"></span>
+							<span class="four"></span>
+							<span class="six"></span>
+						</button>
+						<button class="modal-btn blue dice" :class="{'disabled': secondFulRowDisabled || disabledNumber === 6}" :disabled="secondFulRowDisabled || disabledNumber === 6" @click="setFulResult(12, fieldId)">
+							<span class="one"></span>
+							<span class="two"></span>
+							<span class="three"></span>
+							<span class="four"></span>
+							<span class="five"></span>
+							<span class="six"></span>
+						</button>
+					</div>
+					<div class="bottom-wrap">
+						<button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
+						<button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+					</div>
+				</div>
+				<div class="poker" v-else-if="modalPoker">
+					<div class="dice-wrap">
+						<button class="modal-btn blue dice" @click="setResult(54, fieldId)">
+							<span class="center"></span>
+						</button>
+						<button class="modal-btn blue dice" @click="setResult(58, fieldId)">
+							<span class="three"></span>
+							<span class="four"></span>
+						</button>
+						<button class="modal-btn blue dice" @click="setResult(62, fieldId)">
+							<span class="three"></span>
+							<span class="center"></span>
+							<span class="four"></span>
+						</button>
+						<button class="modal-btn blue dice" @click="setResult(66, fieldId)">
+							<span class="one"></span>
+							<span class="three"></span>
+							<span class="four"></span>
+							<span class="six"></span>
+						</button>
+						<button class="modal-btn blue dice" @click="setResult(70, fieldId)">
+							<span class="one"></span>
+							<span class="three"></span>
+							<span class="center"></span>
+							<span class="four"></span>
+							<span class="six"></span>
+						</button>
+						<button class="modal-btn blue dice" @click="setResult(74, fieldId)">
+							<span class="one"></span>
+							<span class="two"></span>
+							<span class="three"></span>
+							<span class="four"></span>
+							<span class="five"></span>
+							<span class="six"></span>
+						</button>
+					</div>
+					<div class="bottom-wrap">
+						<button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
+						<button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+					</div>
+				</div>
+				<div class="yamb" v-else-if="modalYamb">
+					<div class="dice-wrap">
+						<button class="modal-btn blue dice" @click="setResult(85, fieldId)">
+							<span class="center"></span>
+						</button>
+						<button class="modal-btn blue dice" @click="setResult(90, fieldId)">
+							<span class="three"></span>
+							<span class="four"></span>
+						</button>
+						<button class="modal-btn blue dice" @click="setResult(95, fieldId)">
+							<span class="three"></span>
+							<span class="center"></span>
+							<span class="four"></span>
+						</button>
+						<button class="modal-btn blue dice" @click="setResult(100, fieldId)">
+							<span class="one"></span>
+							<span class="three"></span>
+							<span class="four"></span>
+							<span class="six"></span>
+						</button>
+						<button class="modal-btn blue dice" @click="setResult(105, fieldId)">
+							<span class="one"></span>
+							<span class="three"></span>
+							<span class="center"></span>
+							<span class="four"></span>
+							<span class="six"></span>
+						</button>
+						<button class="modal-btn blue dice" @click="setResult(110, fieldId)">
+							<span class="one"></span>
+							<span class="two"></span>
+							<span class="three"></span>
+							<span class="four"></span>
+							<span class="five"></span>
+							<span class="six"></span>
+						</button>
+					</div>
+					<div class="bottom-wrap">
+						<button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
+						<button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+					</div>
+				</div>
+			</div>
+		</modal>
+	</section>
+</template>
+
+<script>
+	import BasicGameFirstSquare from '../common/basic-game/basicGameFirstSquare.vue';
+	import BasicGameSecondSquare from '../common/basic-game/basicGameSecondSquare.vue';
+	import BasicGameThirdSquare from '../common/basic-game/basicGameThirdSquare.vue';
+	import SingleColumnFirstSquare from '../common/single-column/singleColumnFirstSquare.vue';
+	import SingleColumnSecondSquare from '../common/single-column/singleColumnSecondSquare.vue';
+	import SingleColumnThirdSquare from '../common/single-column/singleColumnThirdSquare.vue';
+	import modal from '../common/modal.vue';
+
+	export default {
+		name: 'MyGameYamb',
+		props: {
+			myGameData: {
+				type: Array,
+				require: true
+			},
+		},
+		data() {
+			return {
+				firstSquareItems: {
+					'column-1': [],
+					'column-2': [],
+					'column-3': [],
+					'column-4': [],
+					'column-5': [],
+					'column-6': [],
+					'column-7': [],
+					'column-8': [],
+					'column-9': [],
+					'column-10': [],
+				},
+				secondSquareItems: {
+					'column-1': [],
+					'column-2': [],
+					'column-3': [],
+					'column-4': [],
+					'column-5': [],
+					'column-6': [],
+					'column-7': [],
+					'column-8': [],
+					'column-9': [],
+					'column-10': [],
+				},
+				thirdSquareItems: {
+					'column-1': [],
+					'column-2': [],
+					'column-3': [],
+					'column-4': [],
+					'column-5': [],
+					'column-6': [],
+					'column-7': [],
+					'column-8': [],
+					'column-9': [],
+					'column-10': [],
+				},
+				showModal: false,
+				modalOne: false,
+				modalTwo: false,
+				modalThree: false,
+				modalFour: false,
+				modalFive: false,
+				modalSix: false,
+				modalKenta: false,
+				modalTriling: false,
+				modalFul: false,
+				modalPoker: false,
+				modalYamb: false,
+				fieldId: '',
+				firstFulRowDisabled: false,
+				secondFulRowDisabled: true,
+				firstRowFulResult: 0,
+				disabledNumber: 0,
+				totalFieldActive: false,
+				disabledAllBtns: true,
+				firstSquareSumColFive: 0,
+				firstSquareSumColSix: 0,
+				firstSquareSumColSeven: 0,
+				firstSquareSumColEight: 0,
+				firstSquareSumColNine: 0,
+				firstSquareSumColTen: 0,
+				secondSquareSumColFive: 0,
+				secondSquareSumColSix: 0,
+				secondSquareSumColSeven: 0,
+				secondSquareSumColEight: 0,
+				secondSquareSumColNine: 0,
+				secondSquareSumColTen: 0,
+				thirdSquareSumColFive: 0,
+				thirdSquareSumColSix: 0,
+				thirdSquareSumColSeven: 0,
+				thirdSquareSumColEight: 0,
+				thirdSquareSumColNine: 0,
+				thirdSquareSumColTen: 0,
+				basicGameFirstSquareSumTotal: 0,
+				basicGameSecondSquareSumTotal: 0,
+				basicGameThirdSquareSumTotal: 0,
+				myGameDataSorted: []
+			}
+		},
+		mounted() {
+			this.getFirstSquare();
+			this.$nextTick(() => {
+				this.singleColumnsSort();
+			});
+			this.getSecondSquare();
+			this.getThirdSquare();
+			this.$bus.$on('edit:changed', () => {
+				this.disabledAllBtns = !this.disabledAllBtns;
+			});
+			this.$bus.$on('basic-game-first-square-sum-total', (firstSquareSumTotal) => {
+				this.basicGameFirstSquareSumTotal = firstSquareSumTotal;
+			});
+			this.$bus.$on('basic-game-second-square-sum-total', (secondSquareSumTotal) => {
+				this.basicGameSecondSquareSumTotal = secondSquareSumTotal;
+			});
+			this.$bus.$on('basic-game-third-square-sum-total', (thirdSquareSumTotal) => {
+				this.basicGameThirdSquareSumTotal = thirdSquareSumTotal;
+			});
+		},
+		methods: {
+			getFirstSquare() {
+				let item1;
+				let item2;
+				let item3;
+				let item4;
+				let item5;
+				let item6;
+				let item7;
+				let item8;
+				let item9;
+				let item10;
+				let sumOfFirstCol = {
+					value: null
+				};
+				let sumOfSecondCol = {
+					value: null
+				};
+				let sumOfThirdCol = {
+					value: null
+				};
+				let sumOfFourthCol = {
+					value: null
+				};
+				let sumOfFifththCol = {
+					value: null
+				};
+				let sumOfSixthCol = {
+					value: null
+				};
+				let sumOfSeventhCol = {
+					value: null
+				};
+				let sumOfEighthCol = {
+					value: null
+				};
+				let sumOfNinethCol = {
+					value: null
+				};
+				let sumOfTenthCol = {
+					value: null
+				};
+
+				for (let i = 1; i <= 6; i++) {
+					item1 = {
+						class: `field-1${i}`,
+						id: `first-1${i}`,
+						value: null
+					}
+					item2 = {
+						class: `field-2${i}`,
+						id: `first-2${i}`,
+						value: null
+					}
+					item3 = {
+						class: `field-3${i}`,
+						id: `first-3${i}`,
+						value: null
+					}
+					item4 = {
+						class: `field-4${i}`,
+						id: `first-4${i}`,
+						value: null
+					}
+					item5 = {
+						class: `field-5${i}`,
+						id: `first-5${i}`,
+						value: null
+					}
+					item6 = {
+						class: `field-6${i}`,
+						id: `first-6${i}`,
+						value: null
+					}
+					item7 = {
+						class: `field-7${i}`,
+						id: `first-7${i}`,
+						value: null
+					}
+					item8 = {
+						class: `field-8${i}`,
+						id: `first-8${i}`,
+						value: null
+					}
+					item9 = {
+						class: `field-9${i}`,
+						id: `first-9${i}`,
+						value: null
+					}
+					item10 = {
+						class: `field-10${i}`,
+						id: `first-10${i}`,
+						value: null
+					}
+					this.firstSquareItems['column-1'].push(item1);
+					this.firstSquareItems['column-2'].push(item2);
+					this.firstSquareItems['column-3'].push(item3);
+					this.firstSquareItems['column-4'].push(item4);
+					this.firstSquareItems['column-5'].push(item5);
+					this.firstSquareItems['column-6'].push(item6);
+					this.firstSquareItems['column-7'].push(item7);
+					this.firstSquareItems['column-8'].push(item8);
+					this.firstSquareItems['column-9'].push(item9);
+					this.firstSquareItems['column-10'].push(item10);
+				}
+				this.firstSquareItems['column-1'].push(sumOfFirstCol);
+				this.firstSquareItems['column-2'].push(sumOfSecondCol);
+				this.firstSquareItems['column-3'].push(sumOfThirdCol);
+				this.firstSquareItems['column-4'].push(sumOfFourthCol);
+				this.firstSquareItems['column-5'].push(sumOfFifththCol);
+				this.firstSquareItems['column-6'].push(sumOfSixthCol);
+				this.firstSquareItems['column-7'].push(sumOfSeventhCol);
+				this.firstSquareItems['column-8'].push(sumOfEighthCol);
+				this.firstSquareItems['column-9'].push(sumOfNinethCol);
+				this.firstSquareItems['column-10'].push(sumOfTenthCol);
+
+			},
+			getSecondSquare() {
+				for (let i = 1; i <= 2; i++) {
+					const item1 = {
+						class: `field-sec-1${i}`,
+						id: `second-1${i}`,
+						value: null
+					}
+					const item2 = {
+						class: `field-sec-2${i}`,
+						id: `second-2${i}`,
+						value: null
+					}
+					const item3 = {
+						class: `field-sec-3${i}`,
+						id: `second-3${i}`,
+						value: null
+					}
+					const item4 = {
+						class: `field-sec-4${i}`,
+						id: `second-4${i}`,
+						value: null
+					}
+					const item5 = {
+						class: `field-sec-5${i}`,
+						id: `second-5${i}`,
+						value: null
+					}
+					const item6 = {
+						class: `field-sec-6${i}`,
+						id: `second-6${i}`,
+						value: null
+					}
+					const item7 = {
+						class: `field-sec-7${i}`,
+						id: `second-7${i}`,
+						value: null
+					}
+					const item8 = {
+						class: `field-sec-8${i}`,
+						id: `second-8${i}`,
+						value: null
+					}
+					const item9 = {
+						class: `field-sec-9${i}`,
+						id: `second-9${i}`,
+						value: null
+					}
+					const item10 = {
+						class: `field-sec-10${i}`,
+						id: `second-10${i}`,
+						value: null
+					}
+
+					this.secondSquareItems['column-1'].push(item1);
+					this.secondSquareItems['column-2'].push(item2);
+					this.secondSquareItems['column-3'].push(item3);
+					this.secondSquareItems['column-4'].push(item4);
+					this.secondSquareItems['column-5'].push(item5);
+					this.secondSquareItems['column-6'].push(item6);
+					this.secondSquareItems['column-7'].push(item7);
+					this.secondSquareItems['column-8'].push(item8);
+					this.secondSquareItems['column-9'].push(item9);
+					this.secondSquareItems['column-10'].push(item10);
+				}
+			},
+			getThirdSquare() {
+				for (let i = 1; i <= 5; i++) {
+					const item1 = {
+						class: `field-third-1${i}`,
+						id: `third-1${i}`,
+						value: null
+					}
+					const item2 = {
+						class: `field-third-2${i}`,
+						id: `third-2${i}`,
+						value: null
+					}
+					const item3 = {
+						class: `field-third-3${i}`,
+						id: `third-3${i}`,
+						value: null
+					}
+					const item4 = {
+						class: `field-third-4${i}`,
+						id: `third-4${i}`,
+						value: null
+					}
+					const item5 = {
+						class: `field-third-5${i}`,
+						id: `third-5${i}`,
+						value: null
+					}
+					const item6 = {
+						class: `field-third-6${i}`,
+						id: `third-6${i}`,
+						value: null
+					}
+					const item7 = {
+						class: `field-third-7${i}`,
+						id: `third-7${i}`,
+						value: null
+					}
+					const item8 = {
+						class: `field-third-8${i}`,
+						id: `third-8${i}`,
+						value: null
+					}
+					const item9 = {
+						class: `field-third-9${i}`,
+						id: `third-9${i}`,
+						value: null
+					}
+					const item10 = {
+						class: `field-third-10${i}`,
+						id: `third-10${i}`,
+						value: null
+					}
+
+					this.thirdSquareItems['column-1'].push(item1);
+					this.thirdSquareItems['column-2'].push(item2);
+					this.thirdSquareItems['column-3'].push(item3);
+					this.thirdSquareItems['column-4'].push(item4);
+					this.thirdSquareItems['column-5'].push(item5);
+					this.thirdSquareItems['column-6'].push(item6);
+					this.thirdSquareItems['column-7'].push(item7);
+					this.thirdSquareItems['column-8'].push(item8);
+					this.thirdSquareItems['column-9'].push(item9);
+					this.thirdSquareItems['column-10'].push(item10);
+				}
+			},
+			setResult(val, fieldId) {
+				const area = fieldId.split('-')[0];
+				const col = fieldId.split('-')[1].length > 2 ? fieldId.split('-')[1].substring(0, 2) : fieldId.split('-')[1][0];
+				const row = fieldId.split('-')[1].length > 2 ? fieldId.split('-')[1][2] : fieldId.split('-')[1][1];
+
+				if (area === 'first')
+					this.firstSquareItems[`column-${col}`][`${row - 1}`].value = val;
+				else if (area === 'second')
+					this.secondSquareItems[`column-${col}`][`${row - 1}`].value = val;
+				else if (area === 'third')
+					this.thirdSquareItems[`column-${col}`][`${row - 1}`].value = val;
+
+				this.showModal = false;
+				this.disabledNumber = 0;
+				this.firstFulRowDisabled = false;
+				this.secondFulRowDisabled = true;
+				this.disabledAllBtns = true;
+				this.$bus.$emit('edit:hide');
+			},
+			setFirstRowFul(result, number) {
+				this.firstFulRowDisabled = true;
+				this.secondFulRowDisabled = false;
+				this.firstRowFulResult = result;
+				this.disabledNumber = number;
+			},
+			setFulResult(result, fieldId) {
+				this.firstFulRowDisabled = false;
+				this.secondFulRowDisabled = true;
+				this.disabledNumber === 0;
+				const totalFulResult = this.firstRowFulResult + result + 30;
+				this.setResult(totalFulResult, fieldId);
+			},
+			singleColumnsSort() {
+				for (let j = 6; j < this.myGameData.length + 6; j++) {
+					for (var i = 0; i < this.myGameData.length; i++) {
+						if (this.myGameData[i].order === j)
+							this.myGameDataSorted.push(this.myGameData[i]);
+					}
+				}
+
+				return this.myGameDataSorted;
+			}
+		},
+		computed: {
+			firstSquareSumTotal() {
+				return this.basicGameFirstSquareSumTotal + this.firstSquareSumColFive + this.firstSquareSumColSix + this.firstSquareSumColSeven + this.firstSquareSumColEight + this.firstSquareSumColNine + this.firstSquareSumColTen;
+			},
+			secondSquareSumTotal() {
+				return this.basicGameSecondSquareSumTotal + this.secondSquareSumColFive + this.secondSquareSumColSix + this.secondSquareSumColSeven + this.secondSquareSumColEight + this.secondSquareSumColNine + this.secondSquareSumColTen;
+			},
+			thirdSquareSumTotal() {
+				return this.basicGameThirdSquareSumTotal + this.thirdSquareSumColFive + this.thirdSquareSumColSix + this.thirdSquareSumColSeven + this.thirdSquareSumColEight + this.thirdSquareSumColNine + this.thirdSquareSumColTen;
+			},
+			numOfColumns() {
+				if (this.myGameDataSorted.length === 0)
+					return 'basic-game';
+				if (this.myGameDataSorted.length === 1)
+					return 'seven';
+				if (this.myGameDataSorted.length === 2)
+					return 'eight';
+				if (this.myGameDataSorted.length === 3)
+					return 'nine';
+				if (this.myGameDataSorted.length === 4)
+					return 'ten';
+				if (this.myGameDataSorted.length === 5)
+					return 'eleven';
+				if (this.myGameDataSorted.length === 6)
+					return 'twelve';
+
+				return '';
+			}
+		},
+		watch: {
+			showModal: {
+				handler() {
+					if (!this.showModal) {
+						this.modalOne = false;
+						this.modalTwo = false;
+						this.modalThree = false;
+						this.modalFour = false;
+						this.modalFive = false;
+						this.modalSix = false;
+						this.modalKenta = false;
+						this.modalTriling = false;
+						this.modalFul = false;
+						this.modalPoker = false;
+						this.modalYamb = false;
+						this.firstRowFulResult = 0;
+					} 
+				}
+			}
+		},
+		components: {
+			BasicGameFirstSquare,
+			BasicGameSecondSquare,
+			BasicGameThirdSquare,
+			SingleColumnFirstSquare,
+			SingleColumnSecondSquare,
+			SingleColumnThirdSquare,
+			modal
+		}
+	}
+</script>

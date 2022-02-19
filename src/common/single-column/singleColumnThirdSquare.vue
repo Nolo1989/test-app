@@ -97,11 +97,16 @@
 				type: Boolean,
 				require: false,
 				default: false
-			}
+			},
+			toMiddle: {
+				type: Boolean,
+				require: false
+			},
 		},
 		computed: {
 			numOfColumn() {
-				return `column-${this.column}`;
+				let toMiddleClass = this.toMiddle ? 'to-middle-flag' : '';
+				return `column-${this.column} ${toMiddleClass}`;
 			},
 			thirdSquareSumColumnFive() {
 				const item1 = this.thirdSquareDataFive && this.thirdSquareDataFive[0] && this.thirdSquareDataFive[0].value ? parseFloat(this.thirdSquareDataFive[0].value) : 0;

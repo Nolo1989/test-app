@@ -121,7 +121,9 @@
 		},
 		computed: {
 			numOfColumn() {
-				return `column-${this.column}`;
+				let toMiddleClass = this.toMiddle ? 'to-middle-flag' : '';
+				let fromMiddleClass = this.fromMiddle ? 'from-middle-flag' : '';
+				return `column-${this.column} ${toMiddleClass} ${fromMiddleClass}`;
 			},
 			firstSquareSumColumnFive() {
 				const item1 = this.firstSquareDataFive && this.firstSquareDataFive[0] && this.firstSquareDataFive[0].value ? parseFloat(this.firstSquareDataFive[0].value) : 0;

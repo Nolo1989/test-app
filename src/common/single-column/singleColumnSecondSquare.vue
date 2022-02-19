@@ -91,11 +91,21 @@
 				type: Boolean,
 				require: false,
 				default: false
-			}
+			},
+			toMiddle: {
+				type: Boolean,
+				require: false
+			},
+			fromMiddle: {
+				type: Boolean,
+				require: false
+			},
 		},
 		computed: {
 			numOfColumn() {
-				return `column-${this.column}`;
+				let toMiddleClass = this.toMiddle ? 'to-middle-flag' : '';
+				let fromMiddleClass = this.fromMiddle ? 'from-middle-flag' : '';
+				return `column-${this.column} ${toMiddleClass} ${fromMiddleClass}`;
 			},
 			secondSquareSumColumnFive() {
 				const item1 = this.firstSquareOneVal && this.firstSquareOneVal.value ? parseFloat(this.firstSquareOneVal.value) : 0;
