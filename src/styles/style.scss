@@ -362,57 +362,57 @@
 	}
 	&.eight {
 		.first-square {
-			grid-template-columns: calc((100vw / 8) * 5) calc(100vw / 8);
+			grid-template-columns: calc((100vw / 8) * 5) calc(100vw / 8) calc(100vw / 8);
 		}
 		.second-square {
 			grid-template-columns: calc((100vw / 8) * 5) calc(100vw / 8) calc(100vw / 8);
 		}
 		.third-square {
-			grid-template-columns: calc((100vw / 8) * 5) calc(100vw / 8);
+			grid-template-columns: calc((100vw / 8) * 5) calc(100vw / 8) calc(100vw / 8);
 		}
 	}
 	&.nine {
 		.first-square {
-			grid-template-columns: calc((100vw / 9) * 5) calc(100vw / 9);
+			grid-template-columns: calc((100vw / 9) * 5) calc(100vw / 9) calc(100vw / 9) calc(100vw / 9);
 		}
 		.second-square {
 			grid-template-columns: calc((100vw / 9) * 5) calc(100vw / 9) calc(100vw / 9) calc(100vw / 9);
 		}
 		.third-square {
-			grid-template-columns: calc((100vw / 9) * 5) calc(100vw / 9);
+			grid-template-columns: calc((100vw / 9) * 5) calc(100vw / 9) calc(100vw / 9) calc(100vw / 9);
 		}
 	}
 	&.ten {
 		.first-square {
-			grid-template-columns: calc((100vw / 10) * 5) calc(100vw / 10);
+			grid-template-columns: calc((100vw / 10) * 5) calc(100vw / 10) calc(100vw / 10) calc(100vw / 10) calc(100vw / 10);
 		}
 		.second-square {
 			grid-template-columns: calc((100vw / 10) * 5) calc(100vw / 10) calc(100vw / 10) calc(100vw / 10) calc(100vw / 10);
 		}
 		.third-square {
-			grid-template-columns: calc((100vw / 10) * 5) calc(100vw / 10);
+			grid-template-columns: calc((100vw / 10) * 5) calc(100vw / 10) calc(100vw / 10) calc(100vw / 10) calc(100vw / 10);
 		}
 	}
 	&.eleven {
 		.first-square {
-			grid-template-columns: calc((100vw / 11) * 5) calc(100vw / 11);
+			grid-template-columns: calc((100vw / 11) * 5) calc(100vw / 11) calc(100vw / 11) calc(100vw / 11) calc(100vw / 11) calc(100vw / 11);
 		}
 		.second-square {
 			grid-template-columns: calc((100vw / 11) * 5) calc(100vw / 11) calc(100vw / 11) calc(100vw / 11) calc(100vw / 11) calc(100vw / 11);
 		}
 		.third-square {
-			grid-template-columns: calc((100vw / 11) * 5) calc(100vw / 11);
+			grid-template-columns: calc((100vw / 11) * 5) calc(100vw / 11) calc(100vw / 11) calc(100vw / 11) calc(100vw / 11) calc(100vw / 11);
 		}
 	}
 	&.twelve {
 		.first-square {
-			grid-template-columns: calc((100vw / 12) * 5) calc(100vw / 12);
+			grid-template-columns: calc((100vw / 12) * 5) calc(100vw / 12) calc(100vw / 12) calc(100vw / 12) calc(100vw / 12) calc(100vw / 12) calc(100vw / 12);
 		}
 		.second-square {
-			grid-template-columns: calc((100vw / 12) * 5) calc(100vw / 12) calc(100vw / 12) calc(100vw / 12) calc(100vw / 12) calc(100vw / 12) calc(100vw / 12)
+			grid-template-columns: calc((100vw / 12) * 5) calc(100vw / 12) calc(100vw / 12) calc(100vw / 12) calc(100vw / 12) calc(100vw / 12) calc(100vw / 12);
 		}
 		.third-square {
-			grid-template-columns: calc((100vw / 12) * 5) calc(100vw / 12);
+			grid-template-columns: calc((100vw / 12) * 5) calc(100vw / 12) calc(100vw / 12) calc(100vw / 12) calc(100vw / 12) calc(100vw / 12) calc(100vw / 12);
 		}
 	}
 	.total-field {
