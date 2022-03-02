@@ -30,7 +30,7 @@
 .page-title {
 	padding: 14px 0 15px;
 	text-align: center;
-	font-family: cursive;
+	// font-family: cursive;
 	font-weight: 500;
 	background-color: #eee;
 }
@@ -51,7 +51,7 @@
 	border-radius: 25px;
 	text-transform: uppercase;
 	text-decoration: none;
-	font-family: cursive;
+	// font-family: cursive;
 	background-color: #fff;
 	font-size: 16px;
 	font-weight: 600;
@@ -96,7 +96,7 @@
 	align-items: center;
 	background-color: #fff;
 	border: 1px solid #000;
-	font-family: cursive;
+	// font-family: cursive;
 	&.blue {
 		background-color: #b6d1ff;
 	}
@@ -244,7 +244,7 @@
 		&:before {
 			content: url('../images/arrow-up-outline.svg');
 			position: absolute;
-			bottom: -2px;
+			bottom: -3px;
 			left: 0;
 			width: 16px;
 			height: 17px;
@@ -325,7 +325,7 @@
 			&:before {
 				content: url('../images/arrow-up-outline.svg');
 				position: absolute;
-				bottom: -2px;
+				bottom: -3px;
 				left: 0;
 				width: 16px;
 				height: 17px;
@@ -478,7 +478,7 @@
 				&:before {
 					content: url('../images/arrow-up-outline.svg');
 					position: absolute;
-					bottom: -2px;
+					bottom: -3px;
 					left: 0;
 					width: 16px;
 					height: 17px;
@@ -513,7 +513,7 @@
 		&:before {
 			content: url('../images/arrow-up-outline.svg');
 			position: absolute;
-			bottom: -2px;
+			bottom: -3px;
 			left: 0;
 			width: 16px;
 			height: 17px;
@@ -756,9 +756,9 @@
 .my-game-draft {
 	display: flex;
     justify-content: center;
-    height: calc(50vh + 60px);
+    height: calc(50vh + 40px);
     padding: 30px 20px;
-	font-family: cursive;
+	// font-family: cursive;
 	.column {
 		display: flex;
 		flex-direction: column;
@@ -798,7 +798,7 @@
 		}
 	}
 	.choose-my-game-title {
-		font-family: cursive;
+		// font-family: cursive;
 		font-size: 16px;
 	}
 	.selected-columns {
@@ -819,7 +819,7 @@
 			border: 1px solid #ed1a3b;
 			border-radius: 50%;
 			font-weight: 700;
-			font-family: cursive;
+			// font-family: cursive;
 			background-color: #eee;
 		}
 	}
@@ -831,7 +831,7 @@
 		background-color: #eee;
 		border: 1px solid #1976d2;
 		border-radius: 15px;
-		font-family: cursive;
+		// font-family: cursive;
 		&:first-child {
 			margin-left: 0;
 		}

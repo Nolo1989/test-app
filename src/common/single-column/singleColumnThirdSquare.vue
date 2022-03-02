@@ -1,58 +1,202 @@
 <template>
 	<div :class="numOfColumn" class="single-column">
 		<template v-if="column === 5">
-			<template v-for="item in thirdSquareDataFive">
-				<div class="field" @click="$parent.openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns)" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns" :id="item.id" :key="item.id">
+			<template v-for="(item, idx) in thirdSquareDataFive">
+				<div v-if="nameOfColumn === 'M' && idx !== 6" :key="idx" class="field" :class="item.class" :disabled="nameOfColumn === 'M'">
+					<template v-if="idx === 0">
+						{{ dataForMax.kenta }}
+					</template>
+					<template v-else-if="idx === 1">
+						{{ dataForMax.triling }}
+					</template>
+					<template v-else-if="idx === 2">
+						{{ dataForMax.ful }}
+					</template>
+					<template v-else-if="idx === 3">
+						{{ dataForMax.poker }}
+					</template>
+					<template v-else-if="idx === 4">
+						{{ dataForMax.yamb }}
+					</template>
+				</div>
+				<div v-else class="field" @click="$parent.openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns)" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns" :id="item.id" :key="item.id">
 					<input type="hidden" v-model="item.value" />
 					{{ item.value }}
 				</div>
 			</template>
-			<div class="field blue" :class="{'result': smallFont}">{{ thirdSquareSumColumnFive }}</div>
+			<div class="field blue" :class="{'result': smallFont}">
+				<template v-if="nameOfColumn === 'M'">
+					{{ thirdSquareForMaxSum }}
+				</template>
+				<template v-else>
+					{{ thirdSquareSumColumnFive }}
+				</template>
+			</div>
 		</template>		
 		<template v-else-if="column === 6">
-			<template v-for="item in thirdSquareDataSix">
-				<div class="field" @click="$parent.openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns)" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns" :id="item.id" :key="item.id">
+			<template v-for="(item, idx) in thirdSquareDataSix">
+				<div v-if="nameOfColumn === 'M' && idx !== 6" :key="idx" class="field" :class="item.class" :disabled="nameOfColumn === 'M'">
+					<template v-if="idx === 0">
+						{{ dataForMax.kenta }}
+					</template>
+					<template v-else-if="idx === 1">
+						{{ dataForMax.triling }}
+					</template>
+					<template v-else-if="idx === 2">
+						{{ dataForMax.ful }}
+					</template>
+					<template v-else-if="idx === 3">
+						{{ dataForMax.poker }}
+					</template>
+					<template v-else-if="idx === 4">
+						{{ dataForMax.yamb }}
+					</template>
+				</div>
+				<div v-else class="field" @click="$parent.openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns)" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns" :id="item.id" :key="item.id">
 					<input type="hidden" v-model="item.value" />
 					{{ item.value }}
 				</div>
 			</template>
-			<div class="field blue" :class="{'result': smallFont}">{{ thirdSquareSumColumnSix }}</div>
+			<div class="field blue" :class="{'result': smallFont}">
+				<template v-if="nameOfColumn === 'M'">
+					{{ thirdSquareForMaxSum }}
+				</template>
+				<template v-else>
+					{{ thirdSquareSumColumnSix }}
+				</template>
+			</div>
 		</template>		
 		<template v-else-if="column === 7">
-			<template v-for="item in thirdSquareDataSeven">
-				<div class="field" @click="$parent.openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns)" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns" :id="item.id" :key="item.id">
+			<template v-for="(item, idx) in thirdSquareDataSeven">
+				<div v-if="nameOfColumn === 'M' && idx !== 6" :key="idx" class="field" :class="item.class" :disabled="nameOfColumn === 'M'">
+					<template v-if="idx === 0">
+						{{ dataForMax.kenta }}
+					</template>
+					<template v-else-if="idx === 1">
+						{{ dataForMax.triling }}
+					</template>
+					<template v-else-if="idx === 2">
+						{{ dataForMax.ful }}
+					</template>
+					<template v-else-if="idx === 3">
+						{{ dataForMax.poker }}
+					</template>
+					<template v-else-if="idx === 4">
+						{{ dataForMax.yamb }}
+					</template>
+				</div>
+				<div v-else class="field" @click="$parent.openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns)" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns" :id="item.id" :key="item.id">
 					<input type="hidden" v-model="item.value" />
 					{{ item.value }}
 				</div>
 			</template>
-			<div class="field blue" :class="{'result': smallFont}">{{ thirdSquareSumColumnSeven }}</div>
+			<div class="field blue" :class="{'result': smallFont}">
+				<template v-if="nameOfColumn === 'M'">
+					{{ thirdSquareForMaxSum }}
+				</template>
+				<template v-else>
+					{{ thirdSquareSumColumnSeven }}
+				</template>
+			</div>
 		</template>		
 		<template v-else-if="column === 8">
-			<template v-for="item in thirdSquareDataEight">
-				<div class="field" @click="$parent.openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns)" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns" :id="item.id" :key="item.id">
+			<template v-for="(item, idx) in thirdSquareDataEight">
+				<div v-if="nameOfColumn === 'M' && idx !== 6" :key="idx" class="field" :class="item.class" :disabled="nameOfColumn === 'M'">
+					<template v-if="idx === 0">
+						{{ dataForMax.kenta }}
+					</template>
+					<template v-else-if="idx === 1">
+						{{ dataForMax.triling }}
+					</template>
+					<template v-else-if="idx === 2">
+						{{ dataForMax.ful }}
+					</template>
+					<template v-else-if="idx === 3">
+						{{ dataForMax.poker }}
+					</template>
+					<template v-else-if="idx === 4">
+						{{ dataForMax.yamb }}
+					</template>
+				</div>
+				<div v-else class="field" @click="$parent.openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns)" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns" :id="item.id" :key="item.id">
 					<input type="hidden" v-model="item.value" />
 					{{ item.value }}
 				</div>
 			</template>
-			<div class="field blue" :class="{'result': smallFont}">{{ thirdSquareSumColumnEight }}</div>
+			<div class="field blue" :class="{'result': smallFont}">
+				<template v-if="nameOfColumn === 'M'">
+					{{ thirdSquareForMaxSum }}
+				</template>
+				<template v-else>
+					{{ thirdSquareSumColumnEight }}
+				</template>
+			</div>
 		</template>		
 		<template v-else-if="column === 9">
-			<template v-for="item in thirdSquareDataNine">
-				<div class="field" @click="$parent.openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns)" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns" :id="item.id" :key="item.id">
+			<template v-for="(item, idx) in thirdSquareDataNine">
+				<div v-if="nameOfColumn === 'M' && idx !== 6" :key="idx" class="field" :class="item.class" :disabled="nameOfColumn === 'M'">
+					<template v-if="idx === 0">
+						{{ dataForMax.kenta }}
+					</template>
+					<template v-else-if="idx === 1">
+						{{ dataForMax.triling }}
+					</template>
+					<template v-else-if="idx === 2">
+						{{ dataForMax.ful }}
+					</template>
+					<template v-else-if="idx === 3">
+						{{ dataForMax.poker }}
+					</template>
+					<template v-else-if="idx === 4">
+						{{ dataForMax.yamb }}
+					</template>
+				</div>
+				<div v-else class="field" @click="$parent.openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns)" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns" :id="item.id" :key="item.id">
 					<input type="hidden" v-model="item.value" />
 					{{ item.value }}
 				</div>
 			</template>
-			<div class="field blue" :class="{'result': smallFont}">{{ thirdSquareSumColumnNine }}</div>
+			<div class="field blue" :class="{'result': smallFont}">
+				<template v-if="nameOfColumn === 'M'">
+					{{ thirdSquareForMaxSum }}
+				</template>
+				<template v-else>
+					{{ thirdSquareSumColumnNine }}
+				</template>
+			</div>
 		</template>		
 		<template v-else-if="column === 10">
-			<template v-for="item in thirdSquareDataTen">
-				<div class="field" @click="$parent.openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns)" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns" :id="item.id" :key="item.id">
+			<template v-for="(item, idx) in thirdSquareDataTen">
+				<div v-if="nameOfColumn === 'M' && idx !== 6" :key="idx" class="field" :class="item.class" :disabled="nameOfColumn === 'M'">
+					<template v-if="idx === 0">
+						{{ dataForMax.kenta }}
+					</template>
+					<template v-else-if="idx === 1">
+						{{ dataForMax.triling }}
+					</template>
+					<template v-else-if="idx === 2">
+						{{ dataForMax.ful }}
+					</template>
+					<template v-else-if="idx === 3">
+						{{ dataForMax.poker }}
+					</template>
+					<template v-else-if="idx === 4">
+						{{ dataForMax.yamb }}
+					</template>
+				</div>
+				<div v-else class="field" @click="$parent.openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns)" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns" :id="item.id" :key="item.id">
 					<input type="hidden" v-model="item.value" />
 					{{ item.value }}
 				</div>
 			</template>
-			<div class="field blue" :class="{'result': smallFont}">{{ thirdSquareSumColumnTen }}</div>
+			<div class="field blue" :class="{'result': smallFont}">
+				<template v-if="nameOfColumn === 'M'">
+					{{ thirdSquareForMaxSum }}
+				</template>
+				<template v-else>
+					{{ thirdSquareSumColumnTen }}
+				</template>
+			</div>
 		</template>		
 	</div>
 </template>
@@ -102,6 +246,19 @@
 				type: Boolean,
 				require: false
 			},
+			nameOfColumn: {
+				type: String,
+				require: false
+			},
+			dataForMax: {
+				type: Object,
+				require: false,
+			},
+			thirdSquareForMaxSum: {
+				type: Number,
+				require: false,
+				default: 0
+			}
 		},
 		computed: {
 			numOfColumn() {

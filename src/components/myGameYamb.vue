@@ -4,17 +4,17 @@
 			<basic-game-first-square :basicGameFirstSquareData="firstSquareItems" :disabledAllBtns="disabledAllBtns" :game="'large-game'"></basic-game-first-square>
 			<template v-if="myGameDataSorted && myGameDataSorted.length">
 				<template v-for="item in myGameDataSorted">
-					<single-column-first-square v-if="item.order === 6" :column="item.order - 1" :nameOfColumn="item.game === 'toMiddle' || item.game === 'fromMiddle' ? null : item.game" :toMiddle="item.game === 'toMiddle' ? true : false" :fromMiddle="item.game === 'fromMiddle' ? true : false" :firstSquareDataFive="firstSquareItems['column-5']" :disabledAllBtns="disabledAllBtns" :smallFont="true" :key="item.order"></single-column-first-square>
+					<single-column-first-square v-if="item.order === 6" :column="item.order - 1" :nameOfColumn="item.game === 'toMiddle' || item.game === 'fromMiddle' ? null : item.game" :toMiddle="item.game === 'toMiddle' ? true : false" :fromMiddle="item.game === 'fromMiddle' ? true : false" :firstSquareDataFive="firstSquareItems['column-5']" :disabledAllBtns="disabledAllBtns" :smallFont="true" :key="item.order" :dataForMax="dataForMax" :firstSquareForMaxSum="firstSquareForMaxSum"></single-column-first-square>
 
-					<single-column-first-square v-if="item.order === 7" :column="item.order - 1" :nameOfColumn="item.game === 'toMiddle' || item.game === 'fromMiddle' ? null : item.game" :toMiddle="item.game === 'toMiddle' ? true : false" :fromMiddle="item.game === 'fromMiddle' ? true : false" :firstSquareDataSix="firstSquareItems['column-6']" :disabledAllBtns="disabledAllBtns" :smallFont="true" :key="item.order"></single-column-first-square>
+					<single-column-first-square v-if="item.order === 7" :column="item.order - 1" :nameOfColumn="item.game === 'toMiddle' || item.game === 'fromMiddle' ? null : item.game" :toMiddle="item.game === 'toMiddle' ? true : false" :fromMiddle="item.game === 'fromMiddle' ? true : false" :firstSquareDataSix="firstSquareItems['column-6']" :disabledAllBtns="disabledAllBtns" :smallFont="true" :key="item.order" :dataForMax="dataForMax" :firstSquareForMaxSum="firstSquareForMaxSum"></single-column-first-square>
 
-					<single-column-first-square v-if="item.order === 8" :column="item.order - 1" :nameOfColumn="item.game === 'toMiddle' || item.game === 'fromMiddle' ? null : item.game" :toMiddle="item.game === 'toMiddle' ? true : false" :fromMiddle="item.game === 'fromMiddle' ? true : false" :firstSquareDataSeven="firstSquareItems['column-7']" :disabledAllBtns="disabledAllBtns" :smallFont="true" :key="item.order"></single-column-first-square>
+					<single-column-first-square v-if="item.order === 8" :column="item.order - 1" :nameOfColumn="item.game === 'toMiddle' || item.game === 'fromMiddle' ? null : item.game" :toMiddle="item.game === 'toMiddle' ? true : false" :fromMiddle="item.game === 'fromMiddle' ? true : false" :firstSquareDataSeven="firstSquareItems['column-7']" :disabledAllBtns="disabledAllBtns" :smallFont="true" :key="item.order" :dataForMax="dataForMax" :firstSquareForMaxSum="firstSquareForMaxSum"></single-column-first-square>
 
-					<single-column-first-square v-if="item.order === 9" :column="item.order - 1" :nameOfColumn="item.game === 'toMiddle' || item.game === 'fromMiddle' ? null : item.game" :toMiddle="item.game === 'toMiddle' ? true : false" :fromMiddle="item.game === 'fromMiddle' ? true : false" :firstSquareDataEight="firstSquareItems['column-8']" :disabledAllBtns="disabledAllBtns" :smallFont="true" :key="item.order"></single-column-first-square>
+					<single-column-first-square v-if="item.order === 9" :column="item.order - 1" :nameOfColumn="item.game === 'toMiddle' || item.game === 'fromMiddle' ? null : item.game" :toMiddle="item.game === 'toMiddle' ? true : false" :fromMiddle="item.game === 'fromMiddle' ? true : false" :firstSquareDataEight="firstSquareItems['column-8']" :disabledAllBtns="disabledAllBtns" :smallFont="true" :key="item.order" :dataForMax="dataForMax" :firstSquareForMaxSum="firstSquareForMaxSum"></single-column-first-square>
 
-					<single-column-first-square v-if="item.order === 10" :column="item.order - 1" :nameOfColumn="item.game === 'toMiddle' || item.game === 'fromMiddle' ? null : item.game" :toMiddle="item.game === 'toMiddle' ? true : false" :fromMiddle="item.game === 'fromMiddle' ? true : false" :firstSquareDataNine="firstSquareItems['column-9']" :disabledAllBtns="disabledAllBtns" :smallFont="true" :key="item.order"></single-column-first-square>
+					<single-column-first-square v-if="item.order === 10" :column="item.order - 1" :nameOfColumn="item.game === 'toMiddle' || item.game === 'fromMiddle' ? null : item.game" :toMiddle="item.game === 'toMiddle' ? true : false" :fromMiddle="item.game === 'fromMiddle' ? true : false" :firstSquareDataNine="firstSquareItems['column-9']" :disabledAllBtns="disabledAllBtns" :smallFont="true" :key="item.order" :dataForMax="dataForMax" :firstSquareForMaxSum="firstSquareForMaxSum"></single-column-first-square>
 
-					<single-column-first-square v-if="item.order === 11" :column="item.order - 1" :nameOfColumn="item.game === 'toMiddle' || item.game === 'fromMiddle' ? null : item.game" :toMiddle="item.game === 'toMiddle' ? true : false" :fromMiddle="item.game === 'fromMiddle' ? true : false" :firstSquareDataTen="firstSquareItems['column-10']" :disabledAllBtns="disabledAllBtns" :smallFont="true" :key="item.order"></single-column-first-square>
+					<single-column-first-square v-if="item.order === 11" :column="item.order - 1" :nameOfColumn="item.game === 'toMiddle' || item.game === 'fromMiddle' ? null : item.game" :toMiddle="item.game === 'toMiddle' ? true : false" :fromMiddle="item.game === 'fromMiddle' ? true : false" :firstSquareDataTen="firstSquareItems['column-10']" :disabledAllBtns="disabledAllBtns" :smallFont="true" :key="item.order" :dataForMax="dataForMax" :firstSquareForMaxSum="firstSquareForMaxSum"></single-column-first-square>
 				</template>
 			</template>
 			<div :class="`column-${myGameData.length}`">
@@ -27,17 +27,17 @@
 			<basic-game-second-square :basicGameSecondSquareData="secondSquareItems" :basicGameFirstSquareData="firstSquareItems" :disabledAllBtns="disabledAllBtns" :game="'large-game'"></basic-game-second-square>
 			<template v-if="myGameDataSorted && myGameDataSorted.length">
 				<template v-for="item in myGameDataSorted">
-					<single-column-second-square v-if="item.order === 6" :column="item.order - 1" :firstSquareOneVal="firstSquareItems[`column-${item.order - 1}`][0]" :secondSquareDataFive="secondSquareItems[`column-${item.order - 1}`]" :disabledAllBtns="disabledAllBtns" :smallFont="true" :toMiddle="item.game === 'toMiddle' ? true : false" :fromMiddle="item.game === 'fromMiddle' ? true : false" :key="item.order"></single-column-second-square>
+					<single-column-second-square v-if="item.order === 6" :column="item.order - 1" :firstSquareOneVal="firstSquareItems[`column-${item.order - 1}`][0]" :secondSquareDataFive="secondSquareItems[`column-${item.order - 1}`]" :disabledAllBtns="disabledAllBtns" :smallFont="true" :toMiddle="item.game === 'toMiddle' ? true : false" :fromMiddle="item.game === 'fromMiddle' ? true : false" :key="item.order" :dataForMax="dataForMax" :secondSquareForMaxSum="secondSquareForMaxSum" :nameOfColumn="item.game === 'toMiddle' || item.game === 'fromMiddle' ? null : item.game"></single-column-second-square>
 
-					<single-column-second-square v-if="item.order === 7" :column="item.order - 1" :firstSquareOneVal="firstSquareItems[`column-${item.order - 1}`][0]" :secondSquareDataSix="secondSquareItems[`column-${item.order - 1}`]" :disabledAllBtns="disabledAllBtns" :smallFont="true" :toMiddle="item.game === 'toMiddle' ? true : false" :fromMiddle="item.game === 'fromMiddle' ? true : false" :key="item.order"></single-column-second-square>
+					<single-column-second-square v-if="item.order === 7" :column="item.order - 1" :firstSquareOneVal="firstSquareItems[`column-${item.order - 1}`][0]" :secondSquareDataSix="secondSquareItems[`column-${item.order - 1}`]" :disabledAllBtns="disabledAllBtns" :smallFont="true" :toMiddle="item.game === 'toMiddle' ? true : false" :fromMiddle="item.game === 'fromMiddle' ? true : false" :key="item.order" :dataForMax="dataForMax" :secondSquareForMaxSum="secondSquareForMaxSum" :nameOfColumn="item.game === 'toMiddle' || item.game === 'fromMiddle' ? null : item.game"></single-column-second-square>
 
-					<single-column-second-square v-if="item.order === 8" :column="item.order - 1" :firstSquareOneVal="firstSquareItems[`column-${item.order - 1}`][0]" :secondSquareDataSeven="secondSquareItems[`column-${item.order - 1}`]" :disabledAllBtns="disabledAllBtns" :smallFont="true" :toMiddle="item.game === 'toMiddle' ? true : false" :fromMiddle="item.game === 'fromMiddle' ? true : false" :key="item.order"></single-column-second-square>
+					<single-column-second-square v-if="item.order === 8" :column="item.order - 1" :firstSquareOneVal="firstSquareItems[`column-${item.order - 1}`][0]" :secondSquareDataSeven="secondSquareItems[`column-${item.order - 1}`]" :disabledAllBtns="disabledAllBtns" :smallFont="true" :toMiddle="item.game === 'toMiddle' ? true : false" :fromMiddle="item.game === 'fromMiddle' ? true : false" :key="item.order" :dataForMax="dataForMax" :secondSquareForMaxSum="secondSquareForMaxSum" :nameOfColumn="item.game === 'toMiddle' || item.game === 'fromMiddle' ? null : item.game"></single-column-second-square>
 
-					<single-column-second-square v-if="item.order === 9" :column="item.order - 1" :firstSquareOneVal="firstSquareItems[`column-${item.order - 1}`][0]" :secondSquareDataEight="secondSquareItems[`column-${item.order - 1}`]" :disabledAllBtns="disabledAllBtns" :smallFont="true" :toMiddle="item.game === 'toMiddle' ? true : false" :fromMiddle="item.game === 'fromMiddle' ? true : false" :key="item.order"></single-column-second-square>
+					<single-column-second-square v-if="item.order === 9" :column="item.order - 1" :firstSquareOneVal="firstSquareItems[`column-${item.order - 1}`][0]" :secondSquareDataEight="secondSquareItems[`column-${item.order - 1}`]" :disabledAllBtns="disabledAllBtns" :smallFont="true" :toMiddle="item.game === 'toMiddle' ? true : false" :fromMiddle="item.game === 'fromMiddle' ? true : false" :key="item.order" :dataForMax="dataForMax" :secondSquareForMaxSum="secondSquareForMaxSum" :nameOfColumn="item.game === 'toMiddle' || item.game === 'fromMiddle' ? null : item.game"></single-column-second-square>
 					
-					<single-column-second-square v-if="item.order === 10" :column="item.order - 1" :firstSquareOneVal="firstSquareItems[`column-${item.order - 1}`][0]" :secondSquareDataNine="secondSquareItems[`column-${item.order - 1}`]" :disabledAllBtns="disabledAllBtns" :smallFont="true" :toMiddle="item.game === 'toMiddle' ? true : false" :fromMiddle="item.game === 'fromMiddle' ? true : false" :key="item.order"></single-column-second-square>
+					<single-column-second-square v-if="item.order === 10" :column="item.order - 1" :firstSquareOneVal="firstSquareItems[`column-${item.order - 1}`][0]" :secondSquareDataNine="secondSquareItems[`column-${item.order - 1}`]" :disabledAllBtns="disabledAllBtns" :smallFont="true" :toMiddle="item.game === 'toMiddle' ? true : false" :fromMiddle="item.game === 'fromMiddle' ? true : false" :key="item.order" :dataForMax="dataForMax" :secondSquareForMaxSum="secondSquareForMaxSum" :nameOfColumn="item.game === 'toMiddle' || item.game === 'fromMiddle' ? null : item.game"></single-column-second-square>
 
-					<single-column-second-square v-if="item.order === 11" :column="item.order - 1" :firstSquareOneVal="firstSquareItems[`column-${item.order - 1}`][0]" :secondSquareDataTen="secondSquareItems[`column-${item.order - 1}`]" :disabledAllBtns="disabledAllBtns" :smallFont="true" :toMiddle="item.game === 'toMiddle' ? true : false" :fromMiddle="item.game === 'fromMiddle' ? true : false" :key="item.order"></single-column-second-square>
+					<single-column-second-square v-if="item.order === 11" :column="item.order - 1" :firstSquareOneVal="firstSquareItems[`column-${item.order - 1}`][0]" :secondSquareDataTen="secondSquareItems[`column-${item.order - 1}`]" :disabledAllBtns="disabledAllBtns" :smallFont="true" :toMiddle="item.game === 'toMiddle' ? true : false" :fromMiddle="item.game === 'fromMiddle' ? true : false" :key="item.order" :dataForMax="dataForMax" :secondSquareForMaxSum="secondSquareForMaxSum" :nameOfColumn="item.game === 'toMiddle' || item.game === 'fromMiddle' ? null : item.game"></single-column-second-square>
 
 				</template>
 			</template>
@@ -50,12 +50,12 @@
 			<basic-game-third-square :basicGameThirdSquareData="thirdSquareItems" :disabledAllBtns="disabledAllBtns" :firstFulRowDisabled="firstFulRowDisabled" :secondFulRowDisabled="secondFulRowDisabled" :disabledNumber="disabledNumber" :game="'large-game'"></basic-game-third-square>
 			<template v-if="myGameDataSorted && myGameDataSorted.length">
 				<template v-for="item in myGameDataSorted">
-					<single-column-third-square v-if="item.order === 6" :column="item.order - 1" :thirdSquareDataFive="thirdSquareItems[`column-${item.order - 1}`]" :disabledAllBtns="disabledAllBtns" :smallFont="true" :toMiddle="item.game === 'toMiddle' ? true : false" :key="item.order"></single-column-third-square>
-					<single-column-third-square v-if="item.order === 7" :column="item.order - 1" :thirdSquareDataSix="thirdSquareItems[`column-${item.order - 1}`]" :disabledAllBtns="disabledAllBtns" :smallFont="true" :toMiddle="item.game === 'toMiddle' ? true : false" :key="item.order"></single-column-third-square>
-					<single-column-third-square v-if="item.order === 8" :column="item.order - 1" :thirdSquareDataSeven="thirdSquareItems[`column-${item.order - 1}`]" :disabledAllBtns="disabledAllBtns" :smallFont="true" :toMiddle="item.game === 'toMiddle' ? true : false" :key="item.order"></single-column-third-square>
-					<single-column-third-square v-if="item.order === 9" :column="item.order - 1" :thirdSquareDataEight="thirdSquareItems[`column-${item.order - 1}`]" :disabledAllBtns="disabledAllBtns" :smallFont="true" :toMiddle="item.game === 'toMiddle' ? true : false" :key="item.order"></single-column-third-square>
-					<single-column-third-square v-if="item.order === 10" :column="item.order - 1" :thirdSquareDataNine="thirdSquareItems[`column-${item.order - 1}`]" :disabledAllBtns="disabledAllBtns" :smallFont="true" :toMiddle="item.game === 'toMiddle' ? true : false" :key="item.order"></single-column-third-square>
-					<single-column-third-square v-if="item.order === 11" :column="item.order - 1" :thirdSquareDataTen="thirdSquareItems[`column-${item.order - 1}`]" :disabledAllBtns="disabledAllBtns" :smallFont="true" :toMiddle="item.game === 'toMiddle' ? true : false" :key="item.order"></single-column-third-square>
+					<single-column-third-square v-if="item.order === 6" :column="item.order - 1" :thirdSquareDataFive="thirdSquareItems[`column-${item.order - 1}`]" :disabledAllBtns="disabledAllBtns" :smallFont="true" :toMiddle="item.game === 'toMiddle' ? true : false" :key="item.order" :dataForMax="dataForMax" :thirdSquareForMaxSum="thirdSquareForMaxSum" :nameOfColumn="item.game === 'toMiddle' || item.game === 'fromMiddle' ? null : item.game"></single-column-third-square>
+					<single-column-third-square v-if="item.order === 7" :column="item.order - 1" :thirdSquareDataSix="thirdSquareItems[`column-${item.order - 1}`]" :disabledAllBtns="disabledAllBtns" :smallFont="true" :toMiddle="item.game === 'toMiddle' ? true : false" :key="item.order" :dataForMax="dataForMax" :thirdSquareForMaxSum="thirdSquareForMaxSum" :nameOfColumn="item.game === 'toMiddle' || item.game === 'fromMiddle' ? null : item.game"></single-column-third-square>
+					<single-column-third-square v-if="item.order === 8" :column="item.order - 1" :thirdSquareDataSeven="thirdSquareItems[`column-${item.order - 1}`]" :disabledAllBtns="disabledAllBtns" :smallFont="true" :toMiddle="item.game === 'toMiddle' ? true : false" :key="item.order" :dataForMax="dataForMax" :thirdSquareForMaxSum="thirdSquareForMaxSum" :nameOfColumn="item.game === 'toMiddle' || item.game === 'fromMiddle' ? null : item.game"></single-column-third-square>
+					<single-column-third-square v-if="item.order === 9" :column="item.order - 1" :thirdSquareDataEight="thirdSquareItems[`column-${item.order - 1}`]" :disabledAllBtns="disabledAllBtns" :smallFont="true" :toMiddle="item.game === 'toMiddle' ? true : false" :key="item.order" :dataForMax="dataForMax" :thirdSquareForMaxSum="thirdSquareForMaxSum" :nameOfColumn="item.game === 'toMiddle' || item.game === 'fromMiddle' ? null : item.game"></single-column-third-square>
+					<single-column-third-square v-if="item.order === 10" :column="item.order - 1" :thirdSquareDataNine="thirdSquareItems[`column-${item.order - 1}`]" :disabledAllBtns="disabledAllBtns" :smallFont="true" :toMiddle="item.game === 'toMiddle' ? true : false" :key="item.order" :dataForMax="dataForMax" :thirdSquareForMaxSum="thirdSquareForMaxSum" :nameOfColumn="item.game === 'toMiddle' || item.game === 'fromMiddle' ? null : item.game"></single-column-third-square>
+					<single-column-third-square v-if="item.order === 11" :column="item.order - 1" :thirdSquareDataTen="thirdSquareItems[`column-${item.order - 1}`]" :disabledAllBtns="disabledAllBtns" :smallFont="true" :toMiddle="item.game === 'toMiddle' ? true : false" :key="item.order" :dataForMax="dataForMax" :thirdSquareForMaxSum="thirdSquareForMaxSum" :nameOfColumn="item.game === 'toMiddle' || item.game === 'fromMiddle' ? null : item.game"></single-column-third-square>
 				</template>
 			</template>
 			<div :class="`column-${myGameData.length}`">
@@ -505,7 +505,23 @@
 				basicGameFirstSquareSumTotal: 0,
 				basicGameSecondSquareSumTotal: 0,
 				basicGameThirdSquareSumTotal: 0,
-				myGameDataSorted: []
+				myGameDataSorted: [],
+				max: 0,
+				dataForMax: {
+					one: null,
+					two: null,
+					three: null,
+					four: null,
+					five: null,
+					six: null,
+					max: null,
+					min: null,
+					kenta: null,
+					triling: null,
+					ful: null,
+					poker: null,
+					yamb: null,
+				}
 			}
 		},
 		mounted() {
@@ -515,6 +531,7 @@
 			});
 			this.getSecondSquare();
 			this.getThirdSquare();
+			this.columnOfMax();
 			this.$bus.$on('edit:changed', () => {
 				this.disabledAllBtns = !this.disabledAllBtns;
 			});
@@ -816,17 +833,38 @@
 				}
 
 				return this.myGameDataSorted;
+			},
+			columnOfMax() {
+				this.myGameData.forEach(element => {
+					this.max = element.game === 'M' ? element.order - 1 : 0; 
+				});
 			}
 		},
 		computed: {
+			firstSquareForMaxSum() {
+				let total = this.dataForMax.one + this.dataForMax.two + this.dataForMax.three + this.dataForMax.four + this.dataForMax.five + this.dataForMax.six;
+				if (total >= 80)
+					total += 50;
+				else if (total >= 70)
+					total += 40;
+				else if (total >= 60)
+					total += 30;
+				return total;
+			},
+			secondSquareForMaxSum() {
+				return (this.dataForMax.max - this.dataForMax.min) * this.dataForMax.one;
+			},
+			thirdSquareForMaxSum() {
+				return this.dataForMax.kenta + this.dataForMax.triling + this.dataForMax.ful + this.dataForMax.poker + this.dataForMax.yamb;
+			},
 			firstSquareSumTotal() {
-				return this.basicGameFirstSquareSumTotal + this.firstSquareSumColFive + this.firstSquareSumColSix + this.firstSquareSumColSeven + this.firstSquareSumColEight + this.firstSquareSumColNine + this.firstSquareSumColTen;
+				return this.basicGameFirstSquareSumTotal + this.firstSquareSumColFive + this.firstSquareSumColSix + this.firstSquareSumColSeven + this.firstSquareSumColEight + this.firstSquareSumColNine + this.firstSquareSumColTen + this.firstSquareForMaxSum;
 			},
 			secondSquareSumTotal() {
-				return this.basicGameSecondSquareSumTotal + this.secondSquareSumColFive + this.secondSquareSumColSix + this.secondSquareSumColSeven + this.secondSquareSumColEight + this.secondSquareSumColNine + this.secondSquareSumColTen;
+				return this.basicGameSecondSquareSumTotal + this.secondSquareSumColFive + this.secondSquareSumColSix + this.secondSquareSumColSeven + this.secondSquareSumColEight + this.secondSquareSumColNine + this.secondSquareSumColTen + this.secondSquareForMaxSum;
 			},
 			thirdSquareSumTotal() {
-				return this.basicGameThirdSquareSumTotal + this.thirdSquareSumColFive + this.thirdSquareSumColSix + this.thirdSquareSumColSeven + this.thirdSquareSumColEight + this.thirdSquareSumColNine + this.thirdSquareSumColTen;
+				return this.basicGameThirdSquareSumTotal + this.thirdSquareSumColFive + this.thirdSquareSumColSix + this.thirdSquareSumColSeven + this.thirdSquareSumColEight + this.thirdSquareSumColNine + this.thirdSquareSumColTen + this.thirdSquareForMaxSum;
 			},
 			numOfColumns() {
 				if (this.myGameDataSorted.length === 0)
@@ -845,7 +883,10 @@
 					return 'twelve';
 
 				return '';
-			}
+			},
+			totalNumberOfCols() {
+				return 4 + this.myGameData.length;
+			},
 		},
 		watch: {
 			showModal: {
@@ -865,7 +906,99 @@
 						this.firstRowFulResult = 0;
 					} 
 				}
-			}
+			},
+			firstSquareItems: {
+				handler() {
+					this.dataForMax.one = null;
+					this.dataForMax.two = null;
+					this.dataForMax.three = null;
+					this.dataForMax.four = null;
+					this.dataForMax.five = null;
+					this.dataForMax.six = null;
+
+					for (let i = 1; i <= this.totalNumberOfCols; i++) {
+						if (i !== this.max) {
+							if (this.firstSquareItems[`column-${i}`] && this.firstSquareItems[`column-${i}`][0] && this.firstSquareItems[`column-${i}`][0].value !== null) {
+								this.dataForMax.one = this.firstSquareItems[`column-${i}`][0].value === 0 && this.dataForMax.one === null || this.firstSquareItems[`column-${i}`][0].value > this.dataForMax.one ? this.firstSquareItems[`column-${i}`][0].value : this.dataForMax.one;
+							}
+
+							if (this.firstSquareItems[`column-${i}`] && this.firstSquareItems[`column-${i}`][1] && this.firstSquareItems[`column-${i}`][1].value !== null) {
+								this.dataForMax.two = this.firstSquareItems[`column-${i}`][1].value === 0 && this.dataForMax.two === null || this.firstSquareItems[`column-${i}`][1].value > this.dataForMax.two ? this.firstSquareItems[`column-${i}`][1].value : this.dataForMax.two;
+							}
+
+							if (this.firstSquareItems[`column-${i}`] && this.firstSquareItems[`column-${i}`][2] && this.firstSquareItems[`column-${i}`][2].value !== null) {
+								this.dataForMax.three = this.firstSquareItems[`column-${i}`][2].value === 0 && this.dataForMax.three === null || this.firstSquareItems[`column-${i}`][2].value > this.dataForMax.three ? this.firstSquareItems[`column-${i}`][2].value : this.dataForMax.three;
+							}
+
+							if (this.firstSquareItems[`column-${i}`] && this.firstSquareItems[`column-${i}`][3] && this.firstSquareItems[`column-${i}`][3].value !== null) {
+								this.dataForMax.four = this.firstSquareItems[`column-${i}`][3].value === 0 && this.dataForMax.four === null || this.firstSquareItems[`column-${i}`][3].value > this.dataForMax.four ? this.firstSquareItems[`column-${i}`][3].value : this.dataForMax.four;
+							}
+
+							if (this.firstSquareItems[`column-${i}`] && this.firstSquareItems[`column-${i}`][4] && this.firstSquareItems[`column-${i}`][4].value !== null) {
+								this.dataForMax.five = this.firstSquareItems[`column-${i}`][4].value === 0 && this.dataForMax.five === null || this.firstSquareItems[`column-${i}`][4].value > this.dataForMax.five ? this.firstSquareItems[`column-${i}`][4].value : this.dataForMax.five;
+							}
+
+							if (this.firstSquareItems[`column-${i}`] && this.firstSquareItems[`column-${i}`][5] && this.firstSquareItems[`column-${i}`][5].value !== null) {
+								this.dataForMax.six = this.firstSquareItems[`column-${i}`][5].value === 0 && this.dataForMax.six === null || this.firstSquareItems[`column-${i}`][5].value > this.dataForMax.six ? this.firstSquareItems[`column-${i}`][5].value : this.dataForMax.six;
+							}
+						}
+					}
+				},
+				deep: true
+			},
+			secondSquareItems: {
+				handler() {
+					this.dataForMax.max = null;
+					this.dataForMax.min = null;
+
+					for (let i = 1; i <= this.totalNumberOfCols; i++) {
+						if (i !== this.max) {
+							if (this.secondSquareItems[`column-${i}`] && this.secondSquareItems[`column-${i}`][0] && this.secondSquareItems[`column-${i}`][0].value !== null) {
+								this.dataForMax.max = this.secondSquareItems[`column-${i}`][0].value === 0 && this.dataForMax.max === null || parseFloat(this.secondSquareItems[`column-${i}`][0].value) > this.dataForMax.max ? parseFloat(this.secondSquareItems[`column-${i}`][0].value) : this.dataForMax.max;
+							}
+
+							if (this.secondSquareItems[`column-${i}`] && this.secondSquareItems[`column-${i}`][1] && this.secondSquareItems[`column-${i}`][1].value !== null && this.secondSquareItems[`column-${i}`][1].value !== '') {
+								this.dataForMax.min = this.dataForMax.min === null || parseFloat(this.secondSquareItems[`column-${i}`][1].value) < this.dataForMax.min ? parseFloat(this.secondSquareItems[`column-${i}`][1].value) : this.dataForMax.min;
+							}
+						}
+					}
+				},
+				deep: true
+			},
+			thirdSquareItems: {
+				handler() {
+					this.dataForMax.kenta = null;
+					this.dataForMax.triling = null;
+					this.dataForMax.ful = null;
+					this.dataForMax.poker = null;
+					this.dataForMax.yamb = null;
+
+					for (let i = 1; i <= this.totalNumberOfCols; i++) {
+						if (i !== this.max) {
+							if (this.thirdSquareItems[`column-${i}`] && this.thirdSquareItems[`column-${i}`][0] && this.thirdSquareItems[`column-${i}`][0].value !== null) {
+								this.dataForMax.kenta = this.thirdSquareItems[`column-${i}`][0].value === 0 && this.dataForMax.kenta === null || this.thirdSquareItems[`column-${i}`][0].value > this.dataForMax.kenta ? this.thirdSquareItems[`column-${i}`][0].value : this.dataForMax.kenta;
+							}
+
+							if (this.thirdSquareItems[`column-${i}`] && this.thirdSquareItems[`column-${i}`][1] && this.thirdSquareItems[`column-${i}`][1].value !== null) {
+								this.dataForMax.triling = this.thirdSquareItems[`column-${i}`][1].value === 0 && this.dataForMax.triling === null || this.thirdSquareItems[`column-${i}`][1].value > this.dataForMax.triling ? this.thirdSquareItems[`column-${i}`][1].value : this.dataForMax.triling;
+							}
+
+							if (this.thirdSquareItems[`column-${i}`] && this.thirdSquareItems[`column-${i}`][2] && this.thirdSquareItems[`column-${i}`][2].value !== null) {
+								this.dataForMax.ful = this.thirdSquareItems[`column-${i}`][2].value === 0 && this.dataForMax.ful === null || this.thirdSquareItems[`column-${i}`][2].value > this.dataForMax.ful ? this.thirdSquareItems[`column-${i}`][2].value : this.dataForMax.ful;
+							}
+
+							if (this.thirdSquareItems[`column-${i}`] && this.thirdSquareItems[`column-${i}`][3] && this.thirdSquareItems[`column-${i}`][3].value !== null) {
+								this.dataForMax.poker = this.thirdSquareItems[`column-${i}`][3].value === 0 && this.dataForMax.poker === null || this.thirdSquareItems[`column-${i}`][3].value > this.dataForMax.poker ? this.thirdSquareItems[`column-${i}`][3].value : this.dataForMax.poker;
+							}
+
+							if (this.thirdSquareItems[`column-${i}`] && this.thirdSquareItems[`column-${i}`][4] && this.thirdSquareItems[`column-${i}`][4].value !== null) {
+								this.dataForMax.yamb = this.thirdSquareItems[`column-${i}`][4].value === 0 && this.dataForMax.yamb === null || this.thirdSquareItems[`column-${i}`][4].value > this.dataForMax.yamb ? this.thirdSquareItems[`column-${i}`][4].value : this.dataForMax.yamb;
+							}
+						}
+					}
+				},
+				deep: true
+			},
 		},
 		components: {
 			BasicGameFirstSquare,

@@ -1,52 +1,142 @@
 <template>
 	<div :class="numOfColumn" class="single-column">
 		<template v-if="column === 5">
-			<template v-for="item in secondSquareDataFive">
-				<div class="field" :class="item.class" :id="item.id" :key="item.id">
+			<template v-for="(item, idx) in secondSquareDataFive">
+				<div v-if="nameOfColumn === 'M'" :key="idx" class="field" :class="item.class" :disabled="nameOfColumn === 'M'">
+					<template v-if="idx === 0">
+						{{ dataForMax.max }}
+					</template>
+					<template v-else-if="idx === 1">
+						{{ dataForMax.min }}
+					</template>
+				</div>
+				<div v-else class="field" :class="item.class" :id="item.id" :key="item.id">
 					<input type="number" v-model="item.value" />
 				</div>
 			</template>
-			<div class="field blue" :class="{'result': smallFont}">{{ secondSquareSumColumnFive }}</div>
+			<div class="field blue" :class="{'result': smallFont}">
+				<template v-if="nameOfColumn === 'M'">
+					{{ secondSquareForMaxSum }}
+				</template>
+				<template v-else>
+					{{ secondSquareSumColumnFive }}
+				</template>
+			</div>
 		</template>
 		<template v-else-if="column === 6">
-			<template v-for="item in secondSquareDataSix">
-				<div class="field" :class="item.class" :id="item.id" :key="item.id">
+			<template v-for="(item, idx) in secondSquareDataSix">
+				<div v-if="nameOfColumn === 'M'" :key="idx" class="field" :class="item.class" :disabled="nameOfColumn === 'M'">
+					<template v-if="idx === 0">
+						{{ dataForMax.max }}
+					</template>
+					<template v-else-if="idx === 1">
+						{{ dataForMax.min }}
+					</template>
+				</div>
+				<div v-else class="field" :class="item.class" :id="item.id" :key="item.id">
 					<input type="number" v-model="item.value" />
 				</div>
 			</template>
-			<div class="field blue" :class="{'result': smallFont}">{{ secondSquareSumColumnSix }}</div>
+			<div class="field blue" :class="{'result': smallFont}">
+				<template v-if="nameOfColumn === 'M'">
+					{{ secondSquareForMaxSum }}
+				</template>
+				<template v-else>
+					{{ secondSquareSumColumnSix }}
+				</template>
+			</div>
 		</template>
 		<template v-else-if="column === 7">
-			<template v-for="item in secondSquareDataSeven">
-				<div class="field" :class="item.class" :id="item.id" :key="item.id">
+			<template v-for="(item, idx) in secondSquareDataSeven">
+				<div v-if="nameOfColumn === 'M'" :key="idx" class="field" :class="item.class" :disabled="nameOfColumn === 'M'">
+					<template v-if="idx === 0">
+						{{ dataForMax.max }}
+					</template>
+					<template v-else-if="idx === 1">
+						{{ dataForMax.min }}
+					</template>
+				</div>
+				<div v-else class="field" :class="item.class" :id="item.id" :key="item.id">
 					<input type="number" v-model="item.value" />
 				</div>
 			</template>
-			<div class="field blue" :class="{'result': smallFont}">{{ secondSquareSumColumnSeven }}</div>
+			<div class="field blue" :class="{'result': smallFont}">
+				<template v-if="nameOfColumn === 'M'">
+					{{ secondSquareForMaxSum }}
+				</template>
+				<template v-else>
+					{{ secondSquareSumColumnSeven }}
+				</template>
+			</div>
 		</template>
 		<template v-else-if="column === 8">
-			<template v-for="item in secondSquareDataEight">
-				<div class="field" :class="item.class" :id="item.id" :key="item.id">
+			<template v-for="(item, idx) in secondSquareDataEight">
+				<div v-if="nameOfColumn === 'M'" :key="idx" class="field" :class="item.class" :disabled="nameOfColumn === 'M'">
+					<template v-if="idx === 0">
+						{{ dataForMax.max }}
+					</template>
+					<template v-else-if="idx === 1">
+						{{ dataForMax.min }}
+					</template>
+				</div>
+				<div v-else class="field" :class="item.class" :id="item.id" :key="item.id">
 					<input type="number" v-model="item.value" />
 				</div>
 			</template>
-			<div class="field blue" :class="{'result': smallFont}">{{ secondSquareSumColumnEight }}</div>
+			<div class="field blue" :class="{'result': smallFont}">
+				<template v-if="nameOfColumn === 'M'">
+					{{ secondSquareForMaxSum }}
+				</template>
+				<template v-else>
+					{{ secondSquareSumColumnEight }}
+				</template>
+			</div>
 		</template>
 		<template v-else-if="column === 9">
-			<template v-for="item in secondSquareDataNine">
-				<div class="field" :class="item.class" :id="item.id" :key="item.id">
+			<template v-for="(item, idx) in secondSquareDataNine">
+				<div v-if="nameOfColumn === 'M'" :key="idx" class="field" :class="item.class" :disabled="nameOfColumn === 'M'">
+					<template v-if="idx === 0">
+						{{ dataForMax.max }}
+					</template>
+					<template v-else-if="idx === 1">
+						{{ dataForMax.min }}
+					</template>
+				</div>
+				<div v-else class="field" :class="item.class" :id="item.id" :key="item.id">
 					<input type="number" v-model="item.value" />
 				</div>
 			</template>
-			<div class="field blue" :class="{'result': smallFont}">{{ secondSquareSumColumnNine }}</div>
+			<div class="field blue" :class="{'result': smallFont}">
+				<template v-if="nameOfColumn === 'M'">
+					{{ secondSquareForMaxSum }}
+				</template>
+				<template v-else>
+					{{ secondSquareSumColumnNine }}
+				</template>
+			</div>
 		</template>
 		<template v-else-if="column === 10">
-			<template v-for="item in secondSquareDataTen">
-				<div class="field" :class="item.class" :id="item.id" :key="item.id">
+			<template v-for="(item, idx) in secondSquareDataTen">
+				<div v-if="nameOfColumn === 'M'" :key="idx" class="field" :class="item.class" :disabled="nameOfColumn === 'M'">
+					<template v-if="idx === 0">
+						{{ dataForMax.max }}
+					</template>
+					<template v-else-if="idx === 1">
+						{{ dataForMax.min }}
+					</template>
+				</div>
+				<div v-else class="field" :class="item.class" :id="item.id" :key="item.id">
 					<input type="number" v-model="item.value" />
 				</div>
 			</template>
-			<div class="field blue" :class="{'result': smallFont}">{{ secondSquareSumColumnTen }}</div>
+			<div class="field blue" :class="{'result': smallFont}">
+				<template v-if="nameOfColumn === 'M'">
+					{{ secondSquareForMaxSum }}
+				</template>
+				<template v-else>
+					{{ secondSquareSumColumnTen }}
+				</template>
+			</div>
 		</template>
 	</div>
 </template>
@@ -100,6 +190,19 @@
 				type: Boolean,
 				require: false
 			},
+			nameOfColumn: {
+				type: String,
+				require: false
+			},
+			dataForMax: {
+				type: Object,
+				require: false,
+			},
+			secondSquareForMaxSum: {
+				type: Number,
+				require: false,
+				default: 0
+			}
 		},
 		computed: {
 			numOfColumn() {
