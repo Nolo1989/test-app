@@ -20,7 +20,7 @@
 			</div>
 			<div class="column-1">
 				<template v-for="item in basicGameThirdSquareData['column-1']">
-					<div class="field" @click="openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns)" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns" :id="item.id" :key="item.id">
+					<div class="field" @click="openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled)" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled" :id="item.id" :key="item.id">
 						<input type="hidden" v-model="item.value" />
 						{{ item.value }}
 					</div>
@@ -38,7 +38,7 @@
 			</div>
 			<div class="column-3">
 				<template v-for="item in basicGameThirdSquareData['column-3']">
-					<div class="field" @click="openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns)" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns" :id="item.id" :key="item.id">
+					<div class="field" @click="openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled)" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled" :id="item.id" :key="item.id">
 						<input type="hidden" v-model="item.value" />
 						{{ item.value }}
 					</div>
@@ -55,7 +55,7 @@
 				<div class="field blue result">{{ thirdSquareSumColFour }}</div>
 			</div>
 
-            <thirdSquareModal :basicGameThirdSquareData="basicGameThirdSquareData" :showModal="showModal" :firstFulRowDisabled="firstFulRowDisabled" :secondFulRowDisabled="secondFulRowDisabled" :disabledNumber="disabledNumber"></thirdSquareModal>
+            <thirdSquareModal :basicGameThirdSquareData="basicGameThirdSquareData" :showModal="showModal" :firstFulRowDisabled="firstFulRowDisabled" :secondFulRowDisabled="secondFulRowDisabled" :disabledNumber="disabledNumber" :disabledAllBtns="disabledAllBtns"></thirdSquareModal>
     </section>
 </template>
 

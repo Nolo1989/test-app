@@ -50,12 +50,12 @@
 			<basic-game-third-square :basicGameThirdSquareData="thirdSquareItems" :disabledAllBtns="disabledAllBtns" :firstFulRowDisabled="firstFulRowDisabled" :secondFulRowDisabled="secondFulRowDisabled" :disabledNumber="disabledNumber" :game="'large-game'"></basic-game-third-square>
 			<template v-if="myGameDataSorted && myGameDataSorted.length">
 				<template v-for="item in myGameDataSorted">
-					<single-column-third-square v-if="item.order === 6" :column="item.order - 1" :thirdSquareDataFive="thirdSquareItems[`column-${item.order - 1}`]" :disabledAllBtns="disabledAllBtns" :smallFont="true" :toMiddle="item.game === 'toMiddle' ? true : false" :key="item.order" :dataForMax="dataForMax" :thirdSquareForMaxSum="thirdSquareForMaxSum" :nameOfColumn="item.game === 'toMiddle' || item.game === 'fromMiddle' ? null : item.game"></single-column-third-square>
-					<single-column-third-square v-if="item.order === 7" :column="item.order - 1" :thirdSquareDataSix="thirdSquareItems[`column-${item.order - 1}`]" :disabledAllBtns="disabledAllBtns" :smallFont="true" :toMiddle="item.game === 'toMiddle' ? true : false" :key="item.order" :dataForMax="dataForMax" :thirdSquareForMaxSum="thirdSquareForMaxSum" :nameOfColumn="item.game === 'toMiddle' || item.game === 'fromMiddle' ? null : item.game"></single-column-third-square>
-					<single-column-third-square v-if="item.order === 8" :column="item.order - 1" :thirdSquareDataSeven="thirdSquareItems[`column-${item.order - 1}`]" :disabledAllBtns="disabledAllBtns" :smallFont="true" :toMiddle="item.game === 'toMiddle' ? true : false" :key="item.order" :dataForMax="dataForMax" :thirdSquareForMaxSum="thirdSquareForMaxSum" :nameOfColumn="item.game === 'toMiddle' || item.game === 'fromMiddle' ? null : item.game"></single-column-third-square>
-					<single-column-third-square v-if="item.order === 9" :column="item.order - 1" :thirdSquareDataEight="thirdSquareItems[`column-${item.order - 1}`]" :disabledAllBtns="disabledAllBtns" :smallFont="true" :toMiddle="item.game === 'toMiddle' ? true : false" :key="item.order" :dataForMax="dataForMax" :thirdSquareForMaxSum="thirdSquareForMaxSum" :nameOfColumn="item.game === 'toMiddle' || item.game === 'fromMiddle' ? null : item.game"></single-column-third-square>
-					<single-column-third-square v-if="item.order === 10" :column="item.order - 1" :thirdSquareDataNine="thirdSquareItems[`column-${item.order - 1}`]" :disabledAllBtns="disabledAllBtns" :smallFont="true" :toMiddle="item.game === 'toMiddle' ? true : false" :key="item.order" :dataForMax="dataForMax" :thirdSquareForMaxSum="thirdSquareForMaxSum" :nameOfColumn="item.game === 'toMiddle' || item.game === 'fromMiddle' ? null : item.game"></single-column-third-square>
-					<single-column-third-square v-if="item.order === 11" :column="item.order - 1" :thirdSquareDataTen="thirdSquareItems[`column-${item.order - 1}`]" :disabledAllBtns="disabledAllBtns" :smallFont="true" :toMiddle="item.game === 'toMiddle' ? true : false" :key="item.order" :dataForMax="dataForMax" :thirdSquareForMaxSum="thirdSquareForMaxSum" :nameOfColumn="item.game === 'toMiddle' || item.game === 'fromMiddle' ? null : item.game"></single-column-third-square>
+					<single-column-third-square v-if="item.order === 6" :column="item.order - 1" :thirdSquareDataFive="thirdSquareItems[`column-${item.order - 1}`]" :disabledAllBtns="disabledAllBtns" :smallFont="true" :toMiddle="item.game === 'toMiddle' ? true : false" :fromMiddle="item.game === 'fromMiddle' ? true : false" :key="item.order" :dataForMax="dataForMax" :thirdSquareForMaxSum="thirdSquareForMaxSum" :nameOfColumn="item.game === 'toMiddle' || item.game === 'fromMiddle' ? null : item.game"></single-column-third-square>
+					<single-column-third-square v-if="item.order === 7" :column="item.order - 1" :thirdSquareDataSix="thirdSquareItems[`column-${item.order - 1}`]" :disabledAllBtns="disabledAllBtns" :smallFont="true" :toMiddle="item.game === 'toMiddle' ? true : false" :fromMiddle="item.game === 'fromMiddle' ? true : false" :key="item.order" :dataForMax="dataForMax" :thirdSquareForMaxSum="thirdSquareForMaxSum" :nameOfColumn="item.game === 'toMiddle' || item.game === 'fromMiddle' ? null : item.game"></single-column-third-square>
+					<single-column-third-square v-if="item.order === 8" :column="item.order - 1" :thirdSquareDataSeven="thirdSquareItems[`column-${item.order - 1}`]" :disabledAllBtns="disabledAllBtns" :smallFont="true" :toMiddle="item.game === 'toMiddle' ? true : false" :fromMiddle="item.game === 'fromMiddle' ? true : false" :key="item.order" :dataForMax="dataForMax" :thirdSquareForMaxSum="thirdSquareForMaxSum" :nameOfColumn="item.game === 'toMiddle' || item.game === 'fromMiddle' ? null : item.game"></single-column-third-square>
+					<single-column-third-square v-if="item.order === 9" :column="item.order - 1" :thirdSquareDataEight="thirdSquareItems[`column-${item.order - 1}`]" :disabledAllBtns="disabledAllBtns" :smallFont="true" :toMiddle="item.game === 'toMiddle' ? true : false" :fromMiddle="item.game === 'fromMiddle' ? true : false" :key="item.order" :dataForMax="dataForMax" :thirdSquareForMaxSum="thirdSquareForMaxSum" :nameOfColumn="item.game === 'toMiddle' || item.game === 'fromMiddle' ? null : item.game"></single-column-third-square>
+					<single-column-third-square v-if="item.order === 10" :column="item.order - 1" :thirdSquareDataNine="thirdSquareItems[`column-${item.order - 1}`]" :disabledAllBtns="disabledAllBtns" :smallFont="true" :toMiddle="item.game === 'toMiddle' ? true : false" :fromMiddle="item.game === 'fromMiddle' ? true : false" :key="item.order" :dataForMax="dataForMax" :thirdSquareForMaxSum="thirdSquareForMaxSum" :nameOfColumn="item.game === 'toMiddle' || item.game === 'fromMiddle' ? null : item.game"></single-column-third-square>
+					<single-column-third-square v-if="item.order === 11" :column="item.order - 1" :thirdSquareDataTen="thirdSquareItems[`column-${item.order - 1}`]" :disabledAllBtns="disabledAllBtns" :smallFont="true" :toMiddle="item.game === 'toMiddle' ? true : false" :fromMiddle="item.game === 'fromMiddle' ? true : false" :key="item.order" :dataForMax="dataForMax" :thirdSquareForMaxSum="thirdSquareForMaxSum" :nameOfColumn="item.game === 'toMiddle' || item.game === 'fromMiddle' ? null : item.game"></single-column-third-square>
 				</template>
 			</template>
 			<div :class="`column-${myGameData.length}`">
@@ -88,7 +88,7 @@
 					</div>
 					<div class="bottom-wrap">
 						<button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
-						<button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+						<button class="modal-btn red-btn reset" :disabled="disabledUndoResultBtn" @click="setResult('', fieldId)">Ponisti rezultat</button>
 					</div>
 				</div>
 				<div v-else-if="modalTwo">
@@ -107,7 +107,7 @@
 					</div>
 					<div class="bottom-wrap">
 						<button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
-						<button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+						<button class="modal-btn red-btn reset" :disabled="disabledUndoResultBtn" @click="setResult('', fieldId)">Ponisti rezultat</button>
 					</div>
 				</div>
 				<div v-else-if="modalThree">
@@ -127,7 +127,7 @@
 					</div>
 					<div class="bottom-wrap">
 						<button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
-						<button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+						<button class="modal-btn red-btn reset" :disabled="disabledUndoResultBtn" @click="setResult('', fieldId)">Ponisti rezultat</button>
 					</div>
 				</div>
 				<div v-else-if="modalFour">
@@ -148,7 +148,7 @@
 					</div>
 					<div class="bottom-wrap">
 						<button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
-						<button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+						<button class="modal-btn red-btn reset" :disabled="disabledUndoResultBtn" @click="setResult('', fieldId)">Ponisti rezultat</button>
 					</div>
 				</div>
 				<div v-else-if="modalFive">
@@ -170,7 +170,7 @@
 					</div>
 					<div class="bottom-wrap">
 						<button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
-						<button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+						<button class="modal-btn red-btn reset" :disabled="disabledUndoResultBtn" @click="setResult('', fieldId)">Ponisti rezultat</button>
 					</div>
 				</div>
 				<div v-else-if="modalSix">
@@ -193,7 +193,7 @@
 					</div>
 					<div class="bottom-wrap">
 						<button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
-						<button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+						<button class="modal-btn red-btn reset" :disabled="disabledUndoResultBtn" @click="setResult('', fieldId)">Ponisti rezultat</button>
 					</div>
 				</div>
 				<div class="kenta" v-else-if="modalKenta">
@@ -201,7 +201,7 @@
 					<button class="modal-btn blue" @click="setResult(60, fieldId)">60</button>
 					<div class="bottom-wrap">
 						<button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
-						<button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+						<button class="modal-btn red-btn reset" :disabled="disabledUndoResultBtn" @click="setResult('', fieldId)">Ponisti rezultat</button>
 					</div>
 				</div>
 				<div class="triling" v-else-if="modalTriling">
@@ -242,7 +242,7 @@
 					</div>
 					<div class="bottom-wrap">
 						<button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
-						<button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+						<button class="modal-btn red-btn reset" :disabled="disabledUndoResultBtn" @click="setResult('', fieldId)">Ponisti rezultat</button>
 					</div>
 				</div>
 				<div class="ful" v-else-if="modalFul">
@@ -320,7 +320,7 @@
 					</div>
 					<div class="bottom-wrap">
 						<button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
-						<button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+						<button class="modal-btn red-btn reset" :disabled="disabledUndoResultBtn" @click="setResult('', fieldId)">Ponisti rezultat</button>
 					</div>
 				</div>
 				<div class="poker" v-else-if="modalPoker">
@@ -361,7 +361,7 @@
 					</div>
 					<div class="bottom-wrap">
 						<button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
-						<button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+						<button class="modal-btn red-btn reset" :disabled="disabledUndoResultBtn" @click="setResult('', fieldId)">Ponisti rezultat</button>
 					</div>
 				</div>
 				<div class="yamb" v-else-if="modalYamb">
@@ -402,7 +402,7 @@
 					</div>
 					<div class="bottom-wrap">
 						<button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
-						<button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+						<button class="modal-btn red-btn reset" :disabled="disabledUndoResultBtn" @click="setResult('', fieldId)">Ponisti rezultat</button>
 					</div>
 				</div>
 			</div>
@@ -507,6 +507,9 @@
 				basicGameThirdSquareSumTotal: 0,
 				myGameDataSorted: [],
 				max: 0,
+				odjava: 0,
+				toMiddleColumn: 0,
+				fromMiddleColumn: 0,
 				dataForMax: {
 					one: null,
 					two: null,
@@ -521,17 +524,19 @@
 					ful: null,
 					poker: null,
 					yamb: null,
-				}
+				},
+				disabledUndoResultBtn: false,
+				activeModalColumn: ''
 			}
 		},
 		mounted() {
+			this.orderOfColumns();
 			this.getFirstSquare();
 			this.$nextTick(() => {
 				this.singleColumnsSort();
 			});
 			this.getSecondSquare();
 			this.getThirdSquare();
-			this.columnOfMax();
 			this.$bus.$on('edit:changed', () => {
 				this.disabledAllBtns = !this.disabledAllBtns;
 			});
@@ -594,6 +599,8 @@
 						id: `first-1${i}`,
 						value: null
 					}
+					if (i !== 1)
+						item1.disabled = true;
 					item2 = {
 						class: `field-2${i}`,
 						id: `first-2${i}`,
@@ -602,7 +609,8 @@
 					item3 = {
 						class: `field-3${i}`,
 						id: `first-3${i}`,
-						value: null
+						value: null,
+						disabled: true
 					}
 					item4 = {
 						class: `field-4${i}`,
@@ -614,31 +622,73 @@
 						id: `first-5${i}`,
 						value: null
 					}
+					if (this.odjava === 5 && i !== 1)
+						item5.disabled = true;
+					if (this.toMiddleColumn === 5 && i !== 1)
+						item5.disabled = true;
+					if (this.fromMiddleColumn === 5)
+						item5.disabled = true;
+
 					item6 = {
 						class: `field-6${i}`,
 						id: `first-6${i}`,
 						value: null
 					}
+					if (this.odjava === 6 && i !== 1)
+						item6.disabled = true;
+					if (this.toMiddleColumn === 6 && i !== 1)
+						item6.disabled = true;
+					if (this.fromMiddleColumn === 6)
+						item6.disabled = true;
+
 					item7 = {
 						class: `field-7${i}`,
 						id: `first-7${i}`,
 						value: null
 					}
+					if (this.odjava === 7 && i !== 1)
+						item7.disabled = true;
+					if (this.toMiddleColumn === 7 && i !== 1)
+						item7.disabled = true;
+					if (this.fromMiddleColumn === 7)
+						item7.disabled = true;
+
 					item8 = {
 						class: `field-8${i}`,
 						id: `first-8${i}`,
 						value: null
 					}
+					if (this.odjava === 8 && i !== 1)
+						item8.disabled = true;
+					if (this.toMiddleColumn === 8 && i !== 1)
+						item8.disabled = true;
+					if (this.fromMiddleColumn === 8)
+						item8.disabled = true;
+
 					item9 = {
 						class: `field-9${i}`,
 						id: `first-9${i}`,
 						value: null
 					}
+					if (this.odjava === 9 && i !== 1)
+						item9.disabled = true;
+					if (this.toMiddleColumn === 9 && i !== 1)
+						item9.disabled = true;
+					if (this.fromMiddleColumn === 9)
+						item9.disabled = true;
+
 					item10 = {
 						class: `field-10${i}`,
 						id: `first-10${i}`,
 						value: null
 					}
+					if (this.odjava === 10 && i !== 1)
+						item10.disabled = true;
+					if (this.toMiddleColumn === 10 && i !== 1)
+						item10.disabled = true;
+					if (this.fromMiddleColumn === 10)
+						item10.disabled = true;
+
 					this.firstSquareItems['column-1'].push(item1);
 					this.firstSquareItems['column-2'].push(item2);
 					this.firstSquareItems['column-3'].push(item3);
@@ -667,7 +717,8 @@
 					const item1 = {
 						class: `field-sec-1${i}`,
 						id: `second-1${i}`,
-						value: null
+						value: null,
+						disabled: true
 					}
 					const item2 = {
 						class: `field-sec-2${i}`,
@@ -677,7 +728,8 @@
 					const item3 = {
 						class: `field-sec-3${i}`,
 						id: `second-3${i}`,
-						value: null
+						value: null,
+						disabled: true
 					}
 					const item4 = {
 						class: `field-sec-4${i}`,
@@ -689,31 +741,60 @@
 						id: `second-5${i}`,
 						value: null
 					}
+					if (this.odjava === 5)
+						item5.disabled = true;
+					if (this.toMiddleColumn === 5)
+						item5.disabled = true;
+
 					const item6 = {
 						class: `field-sec-6${i}`,
 						id: `second-6${i}`,
 						value: null
 					}
+					if (this.odjava === 6)
+						item6.disabled = true;
+					if (this.toMiddleColumn === 6)
+						item6.disabled = true;
+
 					const item7 = {
 						class: `field-sec-7${i}`,
 						id: `second-7${i}`,
 						value: null
 					}
+					if (this.odjava === 7)
+						item7.disabled = true;
+					if (this.toMiddleColumn === 7)
+						item7.disabled = true;
+
 					const item8 = {
 						class: `field-sec-8${i}`,
 						id: `second-8${i}`,
 						value: null
 					}
+					if (this.odjava === 8)
+						item8.disabled = true;
+					if (this.toMiddleColumn === 8)
+						item8.disabled = true;
+
 					const item9 = {
 						class: `field-sec-9${i}`,
 						id: `second-9${i}`,
 						value: null
 					}
+					if (this.odjava === 9)
+						item9.disabled = true;
+					if (this.toMiddleColumn === 9)
+						item9.disabled = true;
+
 					const item10 = {
 						class: `field-sec-10${i}`,
 						id: `second-10${i}`,
 						value: null
 					}
+					if (this.odjava === 10)
+						item10.disabled = true;
+					if (this.toMiddleColumn === 10)
+						item10.disabled = true;
 
 					this.secondSquareItems['column-1'].push(item1);
 					this.secondSquareItems['column-2'].push(item2);
@@ -732,7 +813,8 @@
 					const item1 = {
 						class: `field-third-1${i}`,
 						id: `third-1${i}`,
-						value: null
+						value: null,
+						disabled: true
 					}
 					const item2 = {
 						class: `field-third-2${i}`,
@@ -744,6 +826,8 @@
 						id: `third-3${i}`,
 						value: null
 					}
+					if (i !== 5)
+						item3.disabled = true;
 					const item4 = {
 						class: `field-third-4${i}`,
 						id: `third-4${i}`,
@@ -754,31 +838,72 @@
 						id: `third-5${i}`,
 						value: null
 					}
+					if (this.odjava === 5)
+						item5.disabled = true;
+					if (this.toMiddleColumn === 5 && i !== 5)
+						item5.disabled = true;
+					if (this.fromMiddleColumn === 5)
+						item5.disabled = true;
+
 					const item6 = {
 						class: `field-third-6${i}`,
 						id: `third-6${i}`,
 						value: null
 					}
+					if (this.odjava === 6)
+						item6.disabled = true;
+					if (this.toMiddleColumn === 6 && i !== 5)
+						item6.disabled = true;
+					if (this.fromMiddleColumn === 6)
+						item6.disabled = true;
+
 					const item7 = {
 						class: `field-third-7${i}`,
 						id: `third-7${i}`,
 						value: null
 					}
+					if (this.odjava === 7)
+						item7.disabled = true;
+					if (this.toMiddleColumn === 7 && i !== 5)
+						item7.disabled = true;
+					if (this.fromMiddleColumn === 7)
+						item7.disabled = true;
+
 					const item8 = {
 						class: `field-third-8${i}`,
 						id: `third-8${i}`,
 						value: null
 					}
+					if (this.odjava === 8)
+						item8.disabled = true;
+					if (this.toMiddleColumn === 8 && i !== 5)
+						item8.disabled = true;
+					if (this.fromMiddleColumn === 8)
+						item8.disabled = true;
+
 					const item9 = {
 						class: `field-third-9${i}`,
 						id: `third-9${i}`,
 						value: null
 					}
+					if (this.odjava === 9)
+						item9.disabled = true;
+					if (this.toMiddleColumn === 9 && i !== 5)
+						item9.disabled = true;
+					if (this.fromMiddleColumn === 9)
+						item9.disabled = true;
+
 					const item10 = {
 						class: `field-third-10${i}`,
 						id: `third-10${i}`,
 						value: null
 					}
+					if (this.odjava === 10)
+						item10.disabled = true;
+					if (this.toMiddleColumn === 10 && i !== 5)
+						item10.disabled = true;
+					if (this.fromMiddleColumn === 10)
+						item10.disabled = true;
 
 					this.thirdSquareItems['column-1'].push(item1);
 					this.thirdSquareItems['column-2'].push(item2);
@@ -834,11 +959,18 @@
 
 				return this.myGameDataSorted;
 			},
-			columnOfMax() {
+			orderOfColumns() {
 				this.myGameData.forEach(element => {
-					this.max = element.game === 'M' ? element.order - 1 : 0; 
+					if (element.game === 'M')
+						this.max = element.order - 1;
+					if (element.game === 'O')
+						this.odjava = element.order - 1;
+					if (element.game === 'toMiddle')
+						this.toMiddleColumn = element.order - 1;
+					if (element.game === 'fromMiddle')
+						this.fromMiddleColumn = element.order - 1;
 				});
-			}
+			},
 		},
 		computed: {
 			firstSquareForMaxSum() {
@@ -904,43 +1036,156 @@
 						this.modalPoker = false;
 						this.modalYamb = false;
 						this.firstRowFulResult = 0;
-					} 
+						this.disabledUndoResultBtn = false;
+						this.activeModalColumn = '';
+						this.$bus.$emit('disabled:undoResultBtn', this.disabledUndoResultBtn);
+					} else if (this.showModal && !this.disabledAllBtns) {
+						let id = this.fieldId;
+						let area = id.split('-')[0];
+						let field = id.slice(-1);
+
+						// TO MIDDLE COLUMN
+						if (this.activeModalColumn === 'toMiddle') {
+							if (area === 'first' && this['firstSquareItems'][`column-${this.toMiddleColumn}`][field] && this[`${area}SquareItems`][`column-${this.toMiddleColumn}`][field].value !== null && this[`${area}SquareItems`][`column-${this.toMiddleColumn}`][field].value !== '') {
+								this.disabledUndoResultBtn = true;
+							}
+							if (area === 'first' && field === '6' && this.secondSquareItems[`column-${this.toMiddleColumn}`][0].value !== null && this.secondSquareItems[`column-${this.toMiddleColumn}`][0].value !== '') {
+								this.disabledUndoResultBtn = true;
+							}
+	
+							if (area === 'third' && this['thirdSquareItems'][`column-${this.toMiddleColumn}`][field - 2] && this[`${area}SquareItems`][`column-${this.toMiddleColumn}`][field - 2].value !== null && this[`${area}SquareItems`][`column-${this.toMiddleColumn}`][field - 2].value !== '') {
+								this.disabledUndoResultBtn = true;
+							}
+							if (area === 'third' && field === '1' && this.secondSquareItems[`column-${this.toMiddleColumn}`][1].value !== null && this.secondSquareItems[`column-${this.toMiddleColumn}`][1].value !== '') {
+								this.disabledUndoResultBtn = true;
+							}
+						} else if (this.activeModalColumn === 'fromMiddle') {
+							// FROM MIDDLE COLUMN
+							if (area === 'first' && this['firstSquareItems'][`column-${this.fromMiddleColumn}`][field - 2] && this[`${area}SquareItems`][`column-${this.fromMiddleColumn}`][field - 2].value !== null && this[`${area}SquareItems`][`column-${this.fromMiddleColumn}`][field - 2].value !== '') {
+								this.disabledUndoResultBtn = true;
+							}
+							if (area === 'first' && field === '6' && this.firstSquareItems[`column-${this.fromMiddleColumn}`][4].value !== null && this.firstSquareItems[`column-${this.fromMiddleColumn}`][4].value !== '') {
+								this.disabledUndoResultBtn = true;
+							}
+	
+							if (area === 'third' && this['thirdSquareItems'][`column-${this.fromMiddleColumn}`][field] && this[`${area}SquareItems`][`column-${this.fromMiddleColumn}`][field].value !== null && this[`${area}SquareItems`][`column-${this.fromMiddleColumn}`][field].value !== '') {
+								this.disabledUndoResultBtn = true;
+							}
+							if (area === 'third' && field === '1' && this.thirdSquareItems[`column-${this.fromMiddleColumn}`][1].value !== null && this.thirdSquareItems[`column-${this.fromMiddleColumn}`][1].value !== '') {
+								this.disabledUndoResultBtn = true;
+							}
+						} else {
+							// OTHER CASES
+							if (this[`${area}SquareItems`][`column-${this.odjava}`][field] && this[`${area}SquareItems`][`column-${this.odjava}`][field].value !== null) {
+								this.disabledUndoResultBtn = true;
+							}
+							if (area === 'first' && field === '6' && this.secondSquareItems[`column-${this.odjava}`][0].value !== null) {
+								this.disabledUndoResultBtn = true;
+							}
+						}
+					}
 				}
 			},
 			firstSquareItems: {
 				handler() {
-					this.dataForMax.one = null;
-					this.dataForMax.two = null;
-					this.dataForMax.three = null;
-					this.dataForMax.four = null;
-					this.dataForMax.five = null;
-					this.dataForMax.six = null;
-
-					for (let i = 1; i <= this.totalNumberOfCols; i++) {
-						if (i !== this.max) {
-							if (this.firstSquareItems[`column-${i}`] && this.firstSquareItems[`column-${i}`][0] && this.firstSquareItems[`column-${i}`][0].value !== null) {
-								this.dataForMax.one = this.firstSquareItems[`column-${i}`][0].value === 0 && this.dataForMax.one === null || this.firstSquareItems[`column-${i}`][0].value > this.dataForMax.one ? this.firstSquareItems[`column-${i}`][0].value : this.dataForMax.one;
+					console.log('firstSquareItems');
+					if (this.max) {
+						this.dataForMax.one = null;
+						this.dataForMax.two = null;
+						this.dataForMax.three = null;
+						this.dataForMax.four = null;
+						this.dataForMax.five = null;
+						this.dataForMax.six = null;
+	
+						for (let i = 1; i <= this.totalNumberOfCols; i++) {
+							if (i !== this.max) {
+								if (this.firstSquareItems[`column-${i}`] && this.firstSquareItems[`column-${i}`][0] && this.firstSquareItems[`column-${i}`][0].value !== null) {
+									this.dataForMax.one = this.firstSquareItems[`column-${i}`][0].value === 0 && this.dataForMax.one === null || this.firstSquareItems[`column-${i}`][0].value > this.dataForMax.one ? this.firstSquareItems[`column-${i}`][0].value : this.dataForMax.one;
+								}
+	
+								if (this.firstSquareItems[`column-${i}`] && this.firstSquareItems[`column-${i}`][1] && this.firstSquareItems[`column-${i}`][1].value !== null) {
+									this.dataForMax.two = this.firstSquareItems[`column-${i}`][1].value === 0 && this.dataForMax.two === null || this.firstSquareItems[`column-${i}`][1].value > this.dataForMax.two ? this.firstSquareItems[`column-${i}`][1].value : this.dataForMax.two;
+								}
+	
+								if (this.firstSquareItems[`column-${i}`] && this.firstSquareItems[`column-${i}`][2] && this.firstSquareItems[`column-${i}`][2].value !== null) {
+									this.dataForMax.three = this.firstSquareItems[`column-${i}`][2].value === 0 && this.dataForMax.three === null || this.firstSquareItems[`column-${i}`][2].value > this.dataForMax.three ? this.firstSquareItems[`column-${i}`][2].value : this.dataForMax.three;
+								}
+	
+								if (this.firstSquareItems[`column-${i}`] && this.firstSquareItems[`column-${i}`][3] && this.firstSquareItems[`column-${i}`][3].value !== null) {
+									this.dataForMax.four = this.firstSquareItems[`column-${i}`][3].value === 0 && this.dataForMax.four === null || this.firstSquareItems[`column-${i}`][3].value > this.dataForMax.four ? this.firstSquareItems[`column-${i}`][3].value : this.dataForMax.four;
+								}
+	
+								if (this.firstSquareItems[`column-${i}`] && this.firstSquareItems[`column-${i}`][4] && this.firstSquareItems[`column-${i}`][4].value !== null) {
+									this.dataForMax.five = this.firstSquareItems[`column-${i}`][4].value === 0 && this.dataForMax.five === null || this.firstSquareItems[`column-${i}`][4].value > this.dataForMax.five ? this.firstSquareItems[`column-${i}`][4].value : this.dataForMax.five;
+								}
+	
+								if (this.firstSquareItems[`column-${i}`] && this.firstSquareItems[`column-${i}`][5] && this.firstSquareItems[`column-${i}`][5].value !== null) {
+									this.dataForMax.six = this.firstSquareItems[`column-${i}`][5].value === 0 && this.dataForMax.six === null || this.firstSquareItems[`column-${i}`][5].value > this.dataForMax.six ? this.firstSquareItems[`column-${i}`][5].value : this.dataForMax.six;
+								}
 							}
+						}
+					}
 
-							if (this.firstSquareItems[`column-${i}`] && this.firstSquareItems[`column-${i}`][1] && this.firstSquareItems[`column-${i}`][1].value !== null) {
-								this.dataForMax.two = this.firstSquareItems[`column-${i}`][1].value === 0 && this.dataForMax.two === null || this.firstSquareItems[`column-${i}`][1].value > this.dataForMax.two ? this.firstSquareItems[`column-${i}`][1].value : this.dataForMax.two;
-							}
+					if (this.odjava && Object.keys(this.firstSquareItems).length && this.firstSquareItems[`column-${this.odjava}`]) {
+						for (let j = this.firstSquareItems[`column-${this.odjava}`].length - 2; j > 0; j--) {
+							if (this.firstSquareItems[`column-${this.odjava}`][j - 1].value || this.firstSquareItems[`column-${this.odjava}`][j - 1].value === 0)
+								this.firstSquareItems[`column-${this.odjava}`][j].disabled = false;
+							else
+								this.firstSquareItems[`column-${this.odjava}`][j].disabled = true;
 
-							if (this.firstSquareItems[`column-${i}`] && this.firstSquareItems[`column-${i}`][2] && this.firstSquareItems[`column-${i}`][2].value !== null) {
-								this.dataForMax.three = this.firstSquareItems[`column-${i}`][2].value === 0 && this.dataForMax.three === null || this.firstSquareItems[`column-${i}`][2].value > this.dataForMax.three ? this.firstSquareItems[`column-${i}`][2].value : this.dataForMax.three;
-							}
+							if (this.firstSquareItems[`column-${this.odjava}`][5].value || this.firstSquareItems[`column-${this.odjava}`][5].value === 0)
+								this.secondSquareItems[`column-${this.odjava}`][0].disabled = false;
+							else
+								this.secondSquareItems[`column-${this.odjava}`][0].disabled = true;
+						}
+					}
 
-							if (this.firstSquareItems[`column-${i}`] && this.firstSquareItems[`column-${i}`][3] && this.firstSquareItems[`column-${i}`][3].value !== null) {
-								this.dataForMax.four = this.firstSquareItems[`column-${i}`][3].value === 0 && this.dataForMax.four === null || this.firstSquareItems[`column-${i}`][3].value > this.dataForMax.four ? this.firstSquareItems[`column-${i}`][3].value : this.dataForMax.four;
-							}
+					for (let k = this.firstSquareItems['column-1'].length - 2; k > 0; k--) {
+						if (this.firstSquareItems['column-1'][k - 1].value || this.firstSquareItems['column-1'][k - 1].value === 0)
+							this.firstSquareItems['column-1'][k].disabled = false;
+						else
+							this.firstSquareItems['column-1'][k].disabled = true;
 
-							if (this.firstSquareItems[`column-${i}`] && this.firstSquareItems[`column-${i}`][4] && this.firstSquareItems[`column-${i}`][4].value !== null) {
-								this.dataForMax.five = this.firstSquareItems[`column-${i}`][4].value === 0 && this.dataForMax.five === null || this.firstSquareItems[`column-${i}`][4].value > this.dataForMax.five ? this.firstSquareItems[`column-${i}`][4].value : this.dataForMax.five;
-							}
+						// if (k === 5 && (this.firstSquareItems['column-1'][k].value || this.firstSquareItems['column-1'][k].value === 0)) {
+						// 	this.secondSquareItems['column-1'][0].disabled = false;
+						// 	break;
+						// }
+						// else
+						// 	this.secondSquareItems['column-1'][0].disabled = true;
+					}
 
-							if (this.firstSquareItems[`column-${i}`] && this.firstSquareItems[`column-${i}`][5] && this.firstSquareItems[`column-${i}`][5].value !== null) {
-								this.dataForMax.six = this.firstSquareItems[`column-${i}`][5].value === 0 && this.dataForMax.six === null || this.firstSquareItems[`column-${i}`][5].value > this.dataForMax.six ? this.firstSquareItems[`column-${i}`][5].value : this.dataForMax.six;
-							}
+					if (this.firstSquareItems['column-1'][5].value || this.firstSquareItems['column-1'][5].value === 0)
+						this.secondSquareItems['column-1'][0].disabled = false;
+					else
+						this.secondSquareItems['column-1'][0].disabled = true;
+
+					for (let l = this.firstSquareItems['column-3'].length - 2; l > 0; l--) {
+						if (this.firstSquareItems['column-3'][l].value || this.firstSquareItems['column-3'][l].value === 0)
+							this.firstSquareItems['column-3'][l - 1].disabled = false;
+						else
+							this.firstSquareItems['column-3'][l - 1].disabled = true;
+					}
+
+					if (this.toMiddleColumn && Object.keys(this.firstSquareItems).length && this.firstSquareItems[`column-${this.toMiddleColumn}`]) {
+						for (let n = this.firstSquareItems[`column-${this.toMiddleColumn}`].length - 2; n > 0; n--) {
+							if (this.firstSquareItems[`column-${this.toMiddleColumn}`][n - 1].value || this.firstSquareItems[`column-${this.toMiddleColumn}`][n - 1].value === 0)
+								this.firstSquareItems[`column-${this.toMiddleColumn}`][n].disabled = false;
+							else
+								this.firstSquareItems[`column-${this.toMiddleColumn}`][n].disabled = true;
+
+							if (this.firstSquareItems[`column-${this.toMiddleColumn}`][5].value || this.firstSquareItems[`column-${this.toMiddleColumn}`][5].value === 0)
+								this.secondSquareItems[`column-${this.toMiddleColumn}`][0].disabled = false;
+							else
+								this.secondSquareItems[`column-${this.toMiddleColumn}`][0].disabled = true;
+						}
+					}
+
+					if (this.fromMiddleColumn && Object.keys(this.firstSquareItems).length && this.firstSquareItems[`column-${this.fromMiddleColumn}`]) {
+						for (let o = this.firstSquareItems[`column-${this.fromMiddleColumn}`].length - 2; o > 0; o--) {
+							if (this.firstSquareItems[`column-${this.fromMiddleColumn}`][o].value || this.firstSquareItems[`column-${this.fromMiddleColumn}`][o].value === 0)
+								this.firstSquareItems[`column-${this.fromMiddleColumn}`][o - 1].disabled = false;
+							else
+								this.firstSquareItems[`column-${this.fromMiddleColumn}`][o - 1].disabled = true;
 						}
 					}
 				},
@@ -948,52 +1193,154 @@
 			},
 			secondSquareItems: {
 				handler() {
-					this.dataForMax.max = null;
-					this.dataForMax.min = null;
-
-					for (let i = 1; i <= this.totalNumberOfCols; i++) {
-						if (i !== this.max) {
-							if (this.secondSquareItems[`column-${i}`] && this.secondSquareItems[`column-${i}`][0] && this.secondSquareItems[`column-${i}`][0].value !== null) {
-								this.dataForMax.max = this.secondSquareItems[`column-${i}`][0].value === 0 && this.dataForMax.max === null || parseFloat(this.secondSquareItems[`column-${i}`][0].value) > this.dataForMax.max ? parseFloat(this.secondSquareItems[`column-${i}`][0].value) : this.dataForMax.max;
-							}
-
-							if (this.secondSquareItems[`column-${i}`] && this.secondSquareItems[`column-${i}`][1] && this.secondSquareItems[`column-${i}`][1].value !== null && this.secondSquareItems[`column-${i}`][1].value !== '') {
-								this.dataForMax.min = this.dataForMax.min === null || parseFloat(this.secondSquareItems[`column-${i}`][1].value) < this.dataForMax.min ? parseFloat(this.secondSquareItems[`column-${i}`][1].value) : this.dataForMax.min;
+					console.log('secondSquareItems');
+					if (this.max) {
+						this.dataForMax.max = null;
+						this.dataForMax.min = null;
+	
+						for (let i = 1; i <= this.totalNumberOfCols; i++) {
+							if (i !== this.max) {
+								if (this.secondSquareItems[`column-${i}`] && this.secondSquareItems[`column-${i}`][0] && this.secondSquareItems[`column-${i}`][0].value !== null) {
+									this.dataForMax.max = this.secondSquareItems[`column-${i}`][0].value === 0 && this.dataForMax.max === null || parseFloat(this.secondSquareItems[`column-${i}`][0].value) > this.dataForMax.max ? parseFloat(this.secondSquareItems[`column-${i}`][0].value) : this.dataForMax.max;
+								}
+	
+								if (this.secondSquareItems[`column-${i}`] && this.secondSquareItems[`column-${i}`][1] && this.secondSquareItems[`column-${i}`][1].value !== null && this.secondSquareItems[`column-${i}`][1].value !== '') {
+									this.dataForMax.min = this.dataForMax.min === null || parseFloat(this.secondSquareItems[`column-${i}`][1].value) < this.dataForMax.min ? parseFloat(this.secondSquareItems[`column-${i}`][1].value) : this.dataForMax.min;
+								}
 							}
 						}
+					}
+
+					if (this.odjava && Object.keys(this.secondSquareItems).length && this.secondSquareItems[`column-${this.odjava}`]) {
+						if (this.secondSquareItems[`column-${this.odjava}`][0].value || this.secondSquareItems[`column-${this.odjava}`][0].value === 0)
+							this.secondSquareItems[`column-${this.odjava}`][1].disabled = false;
+						else
+							this.secondSquareItems[`column-${this.odjava}`][1].disabled = true;
+
+						if (this.secondSquareItems[`column-${this.odjava}`][1].value || this.secondSquareItems[`column-${this.odjava}`][1].value === 0)
+							this.thirdSquareItems[`column-${this.odjava}`][0].disabled = false;
+						else
+							this.thirdSquareItems[`column-${this.odjava}`][0].disabled = true;
+					}
+
+					if (this.secondSquareItems['column-1'][0].value || this.secondSquareItems['column-1'][0].value === 0)
+						this.secondSquareItems['column-1'][1].disabled = false;
+					else
+						this.secondSquareItems['column-1'][1].disabled = true;
+
+					if (this.secondSquareItems['column-1'][1].value || this.secondSquareItems['column-1'][1].value === 0)
+						this.thirdSquareItems['column-1'][0].disabled = false;
+					else
+						this.thirdSquareItems['column-1'][0].disabled = true;
+
+					if (this.secondSquareItems['column-3'][1].value || this.secondSquareItems['column-3'][1].value === 0)
+						this.secondSquareItems['column-3'][0].disabled = false;
+					else
+						this.secondSquareItems['column-3'][0].disabled = true;
+
+					if (this.secondSquareItems['column-3'][0].value || this.secondSquareItems['column-3'][0].value === 0)
+						this.firstSquareItems['column-3'][5].disabled = false;
+					else
+						this.firstSquareItems['column-3'][5].disabled = true;
+
+					if (this.fromMiddleColumn && Object.keys(this.secondSquareItems).length && this.secondSquareItems[`column-${this.fromMiddleColumn}`]) {
+						if (this.secondSquareItems[`column-${this.fromMiddleColumn}`][0].value || this.secondSquareItems[`column-${this.fromMiddleColumn}`][0].value === 0)
+							this.firstSquareItems[`column-${this.fromMiddleColumn}`][5].disabled = false;
+						else
+							this.firstSquareItems[`column-${this.fromMiddleColumn}`][5].disabled = true;
+
+						if (this.secondSquareItems[`column-${this.fromMiddleColumn}`][1].value || this.secondSquareItems[`column-${this.fromMiddleColumn}`][1].value === 0)
+							this.thirdSquareItems[`column-${this.fromMiddleColumn}`][0].disabled = false;
+						else
+							this.thirdSquareItems[`column-${this.fromMiddleColumn}`][0].disabled = true;
 					}
 				},
 				deep: true
 			},
 			thirdSquareItems: {
 				handler() {
-					this.dataForMax.kenta = null;
-					this.dataForMax.triling = null;
-					this.dataForMax.ful = null;
-					this.dataForMax.poker = null;
-					this.dataForMax.yamb = null;
-
-					for (let i = 1; i <= this.totalNumberOfCols; i++) {
-						if (i !== this.max) {
-							if (this.thirdSquareItems[`column-${i}`] && this.thirdSquareItems[`column-${i}`][0] && this.thirdSquareItems[`column-${i}`][0].value !== null) {
-								this.dataForMax.kenta = this.thirdSquareItems[`column-${i}`][0].value === 0 && this.dataForMax.kenta === null || this.thirdSquareItems[`column-${i}`][0].value > this.dataForMax.kenta ? this.thirdSquareItems[`column-${i}`][0].value : this.dataForMax.kenta;
+					console.log('thirdSquareItems');
+					if (this.max) {
+						this.dataForMax.kenta = null;
+						this.dataForMax.triling = null;
+						this.dataForMax.ful = null;
+						this.dataForMax.poker = null;
+						this.dataForMax.yamb = null;
+	
+						for (let i = 1; i <= this.totalNumberOfCols; i++) {
+							if (i !== this.max) {
+								if (this.thirdSquareItems[`column-${i}`] && this.thirdSquareItems[`column-${i}`][0] && this.thirdSquareItems[`column-${i}`][0].value !== null) {
+									this.dataForMax.kenta = this.thirdSquareItems[`column-${i}`][0].value === 0 && this.dataForMax.kenta === null || this.thirdSquareItems[`column-${i}`][0].value > this.dataForMax.kenta ? this.thirdSquareItems[`column-${i}`][0].value : this.dataForMax.kenta;
+								}
+	
+								if (this.thirdSquareItems[`column-${i}`] && this.thirdSquareItems[`column-${i}`][1] && this.thirdSquareItems[`column-${i}`][1].value !== null) {
+									this.dataForMax.triling = this.thirdSquareItems[`column-${i}`][1].value === 0 && this.dataForMax.triling === null || this.thirdSquareItems[`column-${i}`][1].value > this.dataForMax.triling ? this.thirdSquareItems[`column-${i}`][1].value : this.dataForMax.triling;
+								}
+	
+								if (this.thirdSquareItems[`column-${i}`] && this.thirdSquareItems[`column-${i}`][2] && this.thirdSquareItems[`column-${i}`][2].value !== null) {
+									this.dataForMax.ful = this.thirdSquareItems[`column-${i}`][2].value === 0 && this.dataForMax.ful === null || this.thirdSquareItems[`column-${i}`][2].value > this.dataForMax.ful ? this.thirdSquareItems[`column-${i}`][2].value : this.dataForMax.ful;
+								}
+	
+								if (this.thirdSquareItems[`column-${i}`] && this.thirdSquareItems[`column-${i}`][3] && this.thirdSquareItems[`column-${i}`][3].value !== null) {
+									this.dataForMax.poker = this.thirdSquareItems[`column-${i}`][3].value === 0 && this.dataForMax.poker === null || this.thirdSquareItems[`column-${i}`][3].value > this.dataForMax.poker ? this.thirdSquareItems[`column-${i}`][3].value : this.dataForMax.poker;
+								}
+	
+								if (this.thirdSquareItems[`column-${i}`] && this.thirdSquareItems[`column-${i}`][4] && this.thirdSquareItems[`column-${i}`][4].value !== null) {
+									this.dataForMax.yamb = this.thirdSquareItems[`column-${i}`][4].value === 0 && this.dataForMax.yamb === null || this.thirdSquareItems[`column-${i}`][4].value > this.dataForMax.yamb ? this.thirdSquareItems[`column-${i}`][4].value : this.dataForMax.yamb;
+								}
 							}
+						}
+					}
 
-							if (this.thirdSquareItems[`column-${i}`] && this.thirdSquareItems[`column-${i}`][1] && this.thirdSquareItems[`column-${i}`][1].value !== null) {
-								this.dataForMax.triling = this.thirdSquareItems[`column-${i}`][1].value === 0 && this.dataForMax.triling === null || this.thirdSquareItems[`column-${i}`][1].value > this.dataForMax.triling ? this.thirdSquareItems[`column-${i}`][1].value : this.dataForMax.triling;
-							}
+					if (this.odjava && Object.keys(this.thirdSquareItems).length && this.thirdSquareItems[`column-${this.odjava}`]) {
+						for (let k = this.thirdSquareItems[`column-${this.odjava}`].length - 1; k > 0; k--) {
+							if (this.thirdSquareItems[`column-${this.odjava}`][k - 1].value || this.thirdSquareItems[`column-${this.odjava}`][k - 1].value === 0)
+								this.thirdSquareItems[`column-${this.odjava}`][k].disabled = false;
+							else
+								this.thirdSquareItems[`column-${this.odjava}`][k].disabled = true;
+						}
+					}
 
-							if (this.thirdSquareItems[`column-${i}`] && this.thirdSquareItems[`column-${i}`][2] && this.thirdSquareItems[`column-${i}`][2].value !== null) {
-								this.dataForMax.ful = this.thirdSquareItems[`column-${i}`][2].value === 0 && this.dataForMax.ful === null || this.thirdSquareItems[`column-${i}`][2].value > this.dataForMax.ful ? this.thirdSquareItems[`column-${i}`][2].value : this.dataForMax.ful;
-							}
+					for (let l = this.thirdSquareItems['column-1'].length - 1; l > 0; l--) {
+						if (this.thirdSquareItems['column-1'][l - 1].value || this.thirdSquareItems['column-1'][l - 1].value === 0)
+							this.thirdSquareItems['column-1'][l].disabled = false;
+						else
+							this.thirdSquareItems['column-1'][l].disabled = true;
+					}
 
-							if (this.thirdSquareItems[`column-${i}`] && this.thirdSquareItems[`column-${i}`][3] && this.thirdSquareItems[`column-${i}`][3].value !== null) {
-								this.dataForMax.poker = this.thirdSquareItems[`column-${i}`][3].value === 0 && this.dataForMax.poker === null || this.thirdSquareItems[`column-${i}`][3].value > this.dataForMax.poker ? this.thirdSquareItems[`column-${i}`][3].value : this.dataForMax.poker;
-							}
+					for (let m = this.thirdSquareItems['column-3'].length - 1; m > 0; m--) {
+						if (this.thirdSquareItems['column-3'][m].value || this.thirdSquareItems['column-3'][m].value === 0)
+							this.thirdSquareItems['column-3'][m - 1].disabled = false;
+						else
+							this.thirdSquareItems['column-3'][m - 1].disabled = true;
 
-							if (this.thirdSquareItems[`column-${i}`] && this.thirdSquareItems[`column-${i}`][4] && this.thirdSquareItems[`column-${i}`][4].value !== null) {
-								this.dataForMax.yamb = this.thirdSquareItems[`column-${i}`][4].value === 0 && this.dataForMax.yamb === null || this.thirdSquareItems[`column-${i}`][4].value > this.dataForMax.yamb ? this.thirdSquareItems[`column-${i}`][4].value : this.dataForMax.yamb;
-							}
+					}
+
+					if (this.thirdSquareItems['column-3'][0].value || this.thirdSquareItems['column-3'][0].value === 0)
+						this.secondSquareItems['column-3'][1].disabled = false;
+					else
+						this.secondSquareItems['column-3'][1].disabled = true;
+
+					if (this.toMiddleColumn && Object.keys(this.thirdSquareItems).length && this.thirdSquareItems[`column-${this.toMiddleColumn}`]) {
+						for (let n = this.thirdSquareItems[`column-${this.toMiddleColumn}`].length - 1; n > 0; n--) {
+							if (this.thirdSquareItems[`column-${this.toMiddleColumn}`][n].value || this.thirdSquareItems[`column-${this.toMiddleColumn}`][n].value === 0)
+								this.thirdSquareItems[`column-${this.toMiddleColumn}`][n - 1].disabled = false;
+							else
+								this.thirdSquareItems[`column-${this.toMiddleColumn}`][n - 1].disabled = true;
+
+							if (this.thirdSquareItems[`column-${this.toMiddleColumn}`][0].value || this.thirdSquareItems[`column-${this.toMiddleColumn}`][0].value === 0)
+								this.secondSquareItems[`column-${this.toMiddleColumn}`][1].disabled = false;
+							else
+								this.secondSquareItems[`column-${this.toMiddleColumn}`][1].disabled = true;
+						}
+					}
+
+					if (this.fromMiddleColumn && Object.keys(this.thirdSquareItems).length && this.thirdSquareItems[`column-${this.fromMiddleColumn}`]) {
+						for (let o = this.thirdSquareItems[`column-${this.fromMiddleColumn}`].length - 1; o > 0; o--) {
+							if (this.thirdSquareItems[`column-${this.fromMiddleColumn}`][o - 1].value || this.thirdSquareItems[`column-${this.fromMiddleColumn}`][o - 1].value === 0)
+								this.thirdSquareItems[`column-${this.fromMiddleColumn}`][o].disabled = false;
+							else
+								this.thirdSquareItems[`column-${this.fromMiddleColumn}`][o].disabled = true;
 						}
 					}
 				},

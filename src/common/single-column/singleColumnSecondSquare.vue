@@ -10,8 +10,8 @@
 						{{ dataForMax.min }}
 					</template>
 				</div>
-				<div v-else class="field" :class="item.class" :id="item.id" :key="item.id">
-					<input type="number" v-model="item.value" />
+				<div v-else class="field" :class="item.class" :id="item.id" :key="item.id" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns && numberFocused || item.disabled">
+					<input type="number" v-model="item.value" @blur="numberFocused = true" @focus="numberFocused = false" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns && numberFocused || item.disabled" />
 				</div>
 			</template>
 			<div class="field blue" :class="{'result': smallFont}">
@@ -33,8 +33,8 @@
 						{{ dataForMax.min }}
 					</template>
 				</div>
-				<div v-else class="field" :class="item.class" :id="item.id" :key="item.id">
-					<input type="number" v-model="item.value" />
+				<div v-else class="field" :class="item.class" :id="item.id" :key="item.id" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns && numberFocused || item.disabled">
+					<input type="number" v-model="item.value" @blur="numberFocused = true" @focus="numberFocused = false" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns && numberFocused || item.disabled" />
 				</div>
 			</template>
 			<div class="field blue" :class="{'result': smallFont}">
@@ -56,8 +56,8 @@
 						{{ dataForMax.min }}
 					</template>
 				</div>
-				<div v-else class="field" :class="item.class" :id="item.id" :key="item.id">
-					<input type="number" v-model="item.value" />
+				<div v-else class="field" :class="item.class" :id="item.id" :key="item.id" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns && numberFocused || item.disabled">
+					<input type="number" v-model="item.value" @blur="numberFocused = true" @focus="numberFocused = false" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns && numberFocused || item.disabled" />
 				</div>
 			</template>
 			<div class="field blue" :class="{'result': smallFont}">
@@ -79,8 +79,8 @@
 						{{ dataForMax.min }}
 					</template>
 				</div>
-				<div v-else class="field" :class="item.class" :id="item.id" :key="item.id">
-					<input type="number" v-model="item.value" />
+				<div v-else class="field" :class="item.class" :id="item.id" :key="item.id" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns && numberFocused || item.disabled">
+					<input type="number" v-model="item.value" @blur="numberFocused = true" @focus="numberFocused = false" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns && numberFocused || item.disabled" />
 				</div>
 			</template>
 			<div class="field blue" :class="{'result': smallFont}">
@@ -102,8 +102,8 @@
 						{{ dataForMax.min }}
 					</template>
 				</div>
-				<div v-else class="field" :class="item.class" :id="item.id" :key="item.id">
-					<input type="number" v-model="item.value" />
+				<div v-else class="field" :class="item.class" :id="item.id" :key="item.id" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns && numberFocused || item.disabled">
+					<input type="number" v-model="item.value" @blur="numberFocused = true" @focus="numberFocused = false" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns && numberFocused || item.disabled" />
 				</div>
 			</template>
 			<div class="field blue" :class="{'result': smallFont}">
@@ -125,8 +125,8 @@
 						{{ dataForMax.min }}
 					</template>
 				</div>
-				<div v-else class="field" :class="item.class" :id="item.id" :key="item.id">
-					<input type="number" v-model="item.value" />
+				<div v-else class="field" :class="item.class" :id="item.id" :key="item.id" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns && numberFocused || item.disabled">
+					<input type="number" v-model="item.value" @blur="numberFocused = true" @focus="numberFocused = false" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns && numberFocused || item.disabled" />
 				</div>
 			</template>
 			<div class="field blue" :class="{'result': smallFont}">
@@ -202,6 +202,15 @@
 				type: Number,
 				require: false,
 				default: 0
+			},
+			disabledAllBtns: {
+				type: Boolean,
+				required: true
+			},
+		},
+		data() {
+			return {
+				numberFocused: false
 			}
 		},
 		computed: {
@@ -272,6 +281,12 @@
 			},
 		},
 		watch: {
+			numberFocused: {
+				handler(newVal) {
+					if (newVal)
+						this.$parent.disabledAllBtns = true;
+				}
+			},
 			secondSquareSumColumnFive: {
 				handler() {
 					this.$parent.secondSquareSumColFive = this.secondSquareSumColumnFive;

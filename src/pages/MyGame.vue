@@ -461,18 +461,115 @@
 			}
 		},
 		watch: {
-			numOfGames: {
+			// numOfGames: {
+			// 	handler(newVal, oldVal) {
+			// 		if (newVal < oldVal) {
+			// 			this.rOrder ? this.rOrder-- : '';
+			// 			this.dOrder ? this.dOrder-- : '';
+			// 			this.toMiddleOrder ? this.toMiddleOrder-- : '';
+			// 			this.fromMiddleOrder ? this.fromMiddleOrder-- : '';
+			// 			this.oOrder ? this.oOrder-- : '';
+			// 			this.mOrder ? this.mOrder-- : '';
+			// 		}
+			// 	}
+			// },
+			rOrder: {
 				handler(newVal, oldVal) {
-					if (newVal < oldVal) {
-						this.rOrder ? this.rOrder-- : '';
-						this.dOrder ? this.dOrder-- : '';
-						this.toMiddleOrder ? this.toMiddleOrder-- : '';
-						this.fromMiddleOrder ? this.fromMiddleOrder-- : '';
-						this.oOrder ? this.oOrder-- : '';
-						this.mOrder ? this.mOrder-- : '';
+					if (newVal === null) {
+						if (this.dOrder && this.dOrder > oldVal)
+							this.dOrder--;
+						if (this.toMiddleOrder && this.toMiddleOrder > oldVal)
+							this.toMiddleOrder--;
+						if (this.fromMiddleOrder && this.fromMiddleOrder > oldVal)
+							this.fromMiddleOrder--;
+						if (this.oOrder && this.oOrder > oldVal)
+							this.oOrder--;
+						if (this.mOrder && this.mOrder > oldVal)
+							this.mOrder--;
 					}
 				}
-			}
+			},
+			dOrder: {
+				handler(newVal, oldVal) {
+					if (newVal === null) {
+						if (this.rOrder && this.rOrder > oldVal)
+							this.rOrder--;
+						if (this.toMiddleOrder && this.toMiddleOrder > oldVal)
+							this.toMiddleOrder--;
+						if (this.fromMiddleOrder && this.fromMiddleOrder > oldVal)
+							this.fromMiddleOrder--;
+						if (this.oOrder && this.oOrder > oldVal)
+							this.oOrder--;
+						if (this.mOrder && this.mOrder > oldVal)
+							this.mOrder--;
+					}
+				}
+			},
+			toMiddleOrder: {
+				handler(newVal, oldVal) {
+					if (newVal === null) {
+						if (this.rOrder && this.rOrder > oldVal)
+							this.rOrder--;
+						if (this.dOrder && this.dOrder > oldVal)
+							this.dOrder--;
+						if (this.fromMiddleOrder && this.fromMiddleOrder > oldVal)
+							this.fromMiddleOrder--;
+						if (this.oOrder && this.oOrder > oldVal)
+							this.oOrder--;
+						if (this.mOrder && this.mOrder > oldVal)
+							this.mOrder--;
+					}
+				}
+			},
+			fromMiddleOrder: {
+				handler(newVal, oldVal) {
+					if (newVal === null) {
+						if (this.rOrder && this.rOrder > oldVal)
+							this.rOrder--;
+						if (this.dOrder && this.dOrder > oldVal)
+							this.dOrder--;
+						if (this.toMiddleOrder && this.toMiddleOrder > oldVal)
+							this.toMiddleOrder--;
+						if (this.oOrder && this.oOrder > oldVal)
+							this.oOrder--;
+						if (this.mOrder && this.mOrder > oldVal)
+							this.mOrder--;
+					}
+				}
+			},
+			oOrder: {
+				handler(newVal, oldVal) {
+					if (newVal === null) {
+						if (this.rOrder && this.rOrder > oldVal)
+							this.rOrder--;
+						if (this.dOrder && this.dOrder > oldVal)
+							this.dOrder--;
+						if (this.toMiddleOrder && this.toMiddleOrder > oldVal)
+							this.toMiddleOrder--;
+						if (this.fromMiddleOrder && this.fromMiddleOrder > oldVal)
+							this.fromMiddleOrder--;
+						if (this.mOrder && this.mOrder > oldVal)
+							this.mOrder--;
+					}
+				}
+			},
+			mOrder: {
+				handler(newVal, oldVal) {
+					if (newVal === null) {
+						if (this.rOrder && this.rOrder > oldVal)
+							this.rOrder--;
+						if (this.dOrder && this.dOrder > oldVal)
+							this.dOrder--;
+						if (this.toMiddleOrder && this.toMiddleOrder > oldVal)
+							this.toMiddleOrder--;
+						if (this.fromMiddleOrder && this.fromMiddleOrder > oldVal)
+							this.fromMiddleOrder--;
+						if (this.oOrder && this.oOrder > oldVal)
+							this.oOrder--;
+					}
+				}
+			},
+			
 		},
 		components: {
 			MyGameYamb

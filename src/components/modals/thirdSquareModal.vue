@@ -9,7 +9,7 @@
 					<button class="modal-btn blue" @click="setResult(60, fieldId)">60</button>
 					<div class="bottom-wrap">
 						<button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
-						<button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+						<button class="modal-btn red-btn reset" :disabled="undoResultBnt" @click="setResult('', fieldId)">Ponisti rezultat</button>
 					</div>
 				</div>
 				<div class="triling" v-else-if="modalTriling">
@@ -50,7 +50,7 @@
 					</div>
 					<div class="bottom-wrap">
 						<button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
-						<button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+						<button class="modal-btn red-btn reset" :disabled="undoResultBnt" @click="setResult('', fieldId)">Ponisti rezultat</button>
 					</div>
 				</div>
 				<div class="ful" v-else-if="modalFul">
@@ -128,7 +128,7 @@
 					</div>
 					<div class="bottom-wrap">
 						<button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
-						<button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+						<button class="modal-btn red-btn reset" :disabled="undoResultBnt" @click="setResult('', fieldId)">Ponisti rezultat</button>
 					</div>
 				</div>
 				<div class="poker" v-else-if="modalPoker">
@@ -169,7 +169,7 @@
 					</div>
 					<div class="bottom-wrap">
 						<button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
-						<button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+						<button class="modal-btn red-btn reset" :disabled="undoResultBnt" @click="setResult('', fieldId)">Ponisti rezultat</button>
 					</div>
 				</div>
 				<div class="yamb" v-else-if="modalYamb">
@@ -210,7 +210,7 @@
 					</div>
 					<div class="bottom-wrap">
 						<button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
-						<button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+						<button class="modal-btn red-btn reset" :disabled="undoResultBnt" @click="setResult('', fieldId)">Ponisti rezultat</button>
 					</div>
 				</div>
         </div>
@@ -245,7 +245,11 @@
                 type: Number,
                 require: true,
                 default: 0
-            }
+            },
+			disabledAllBtns: {
+				type: Boolean,
+				required: true
+			},
 		},
         data() {
 			return {
@@ -256,6 +260,7 @@
                 modalYamb: false,
                 firstRowFulResult: 0,
 				fieldId: '',
+				undoResultBnt: false
 			}
 		},
         mounted() {
@@ -318,7 +323,27 @@
 						this.modalPoker = false;
 						this.modalYamb = false;
 						this.firstRowFulResult = 0;
-					} 
+						this.undoResultBnt = false;
+						this.$parent.activeModalColumn = '';
+					} else if (this.showModal && !this.disabledAllBtns) {
+						let field = this.fieldId.slice(-1);
+						let column = this.fieldId.slice(-2, -1);
+
+						if (column === '1') {
+							if (this.basicGameThirdSquareData['column-1'][field] && this.basicGameThirdSquareData['column-1'][field].value !== null && this.basicGameThirdSquareData['column-1'][field].value !== '')
+								this.undoResultBnt = true;
+						} else if (column === '3') {
+							if (this.basicGameThirdSquareData['column-3'][field - 2] && this.basicGameThirdSquareData['column-3'][field - 2].value !== null && this.basicGameThirdSquareData['column-3'][field - 2].value !== '')
+								this.undoResultBnt = true;
+
+							if (field === '1') {
+								if (this.$parent.$parent.secondSquareItems['column-3'][1].value !== null && this.$parent.$parent.secondSquareItems['column-3'][1].value !== '')
+									this.undoResultBnt = true;
+								else
+									this.undoResultBnt = false;
+							}
+						}
+					}
 				}
 			}
 		},

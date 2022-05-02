@@ -17,7 +17,7 @@
 				<img src="../../images/arrow-down-outline.svg" alt="Down icon" class="icon" />
 			</div>
 			<template v-for="(item, idx) in basicGameFirstSquareData['column-1']">
-				<div class="field" @click="openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns)" v-if="idx !== 6" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns" :id="item.id" :key="item.id">
+				<div class="field" @click="openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled)" v-if="idx !== 6" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled" :id="item.id" :key="item.id">
 					<input type="hidden" v-model="item.value" />
 					{{ item.value }}
 				</div>
@@ -42,7 +42,7 @@
 				<img src="../../images/arrow-up-outline.svg" alt="Up icon" class="icon" />
 			</div>
 			<template v-for="(item, idx) in basicGameFirstSquareData['column-3']">
-				<div class="field" @click="openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns)" v-if="idx !== 6" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns" :id="item.id" :key="item.id">
+				<div class="field" @click="openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled)" v-if="idx !== 6" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled" :id="item.id" :key="item.id">
 					<input type="hidden" v-model="item.value" />
 					{{ item.value }}
 				</div>
@@ -60,7 +60,7 @@
 			<div class="field blue result">{{ firstSquareSumColFour }}</div>
 		</div>
 
-		<firstSquareModal :basicGameFirstSquareData="basicGameFirstSquareData" :showModal="showModal"></firstSquareModal>
+		<firstSquareModal :basicGameFirstSquareData="basicGameFirstSquareData" :showModal="showModal" :disabledAllBtns="disabledAllBtns"></firstSquareModal>
 	</section>
 </template>
 

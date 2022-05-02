@@ -8,8 +8,8 @@
 			</div>
 			<div class="column-1">
 				<template v-for="item in basicGameSecondSquareData['column-1']">
-					<div class="field" :class="item.class" :id="item.id" :key="item.id">
-						<input type="number" v-model="item.value" />
+					<div class="field" :class="item.class" :id="item.id" :key="item.id" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns && numberFocused || item.disabled">
+						<input type="number" v-model="item.value" @blur="numberFocused = true" @focus="numberFocused = false" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns && numberFocused || item.disabled" />
 					</div>
 				</template>
 				<div class="field blue result">{{ secondSquareSumColOne }}</div>
@@ -24,8 +24,8 @@
 			</div>
 			<div class="column-3">
 				<template v-for="item in basicGameSecondSquareData['column-3']">
-					<div class="field" :class="item.class" :id="item.id" :key="item.id">
-						<input type="number" v-model="item.value" />
+					<div class="field" :class="item.class" :id="item.id" :key="item.id" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns && numberFocused || item.disabled">
+						<input type="number" v-model="item.value" @blur="numberFocused = true" @focus="numberFocused = false" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns && numberFocused || item.disabled" />
 					</div>
 				</template>
 				<div class="field blue result">{{ secondSquareSumColThree }}</div>
@@ -64,7 +64,8 @@
 		},
 		data() {
 			return {
-				showModal: false
+				showModal: false,
+				numberFocused: false
 			}
 		},
         methods: {
@@ -102,6 +103,12 @@
 					this.$bus.$emit('basic-game-second-square-sum-total', this.secondSquareSumTotal);
 				}
 			},
+			numberFocused: {
+				handler(newVal) {
+					if (newVal)
+						this.$parent.disabledAllBtns = true;
+				}
+			}
 		},
     }
 </script>

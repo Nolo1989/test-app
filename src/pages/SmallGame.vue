@@ -66,6 +66,7 @@
 				basicGameFirstSquareSumTotal: 0,
 				basicGameSecondSquareSumTotal: 0,
 				basicGameThirdSquareSumTotal: 0,
+				activeModalColumn: ''
 			}
 		},
 		mounted() {
@@ -110,6 +111,8 @@
 						id: `first-1${i}`,
 						value: null
 					}
+					if (i !== 1)
+						item1.disabled = true;
 					item2 = {
 						class: `field-2${i}`,
 						id: `first-2${i}`,
@@ -118,7 +121,8 @@
 					item3 = {
 						class: `field-3${i}`,
 						id: `first-3${i}`,
-						value: null
+						value: null,
+						disabled: true
 					}
 					item4 = {
 						class: `field-4${i}`,
@@ -141,7 +145,8 @@
 					const item1 = {
 						class: `field-sec-1${i}`,
 						id: `second-1${i}`,
-						value: null
+						value: null,
+						disabled: true
 					}
 					const item2 = {
 						class: `field-sec-2${i}`,
@@ -151,7 +156,8 @@
 					const item3 = {
 						class: `field-sec-3${i}`,
 						id: `second-3${i}`,
-						value: null
+						value: null,
+						disabled: true
 					}
 					const item4 = {
 						class: `field-sec-4${i}`,
@@ -184,7 +190,8 @@
 						class: `field-third-1${i}`,
 						id: `third-1${i}`,
 						value: null,
-						game: game
+						game: game,
+						disabled: true
 					}
 					const item2 = {
 						class: `field-third-2${i}`,
@@ -198,6 +205,8 @@
 						value: null,
 						game: game
 					}
+					if (i !== 5)
+						item3.disabled = true;
 					const item4 = {
 						class: `field-third-4${i}`,
 						id: `third-4${i}`,
@@ -210,6 +219,79 @@
 					this.thirdSquareItems['column-3'].push(item3);
 					this.thirdSquareItems['column-4'].push(item4);
 				}
+			},
+		},
+		watch: {
+			firstSquareItems: {
+				handler() {
+					for (let k = this.firstSquareItems['column-1'].length - 2; k > 0; k--) {
+						if (this.firstSquareItems['column-1'][k - 1].value || this.firstSquareItems['column-1'][k - 1].value === 0)
+							this.firstSquareItems['column-1'][k].disabled = false;
+						else
+							this.firstSquareItems['column-1'][k].disabled = true;
+
+						if (k === 5 && (this.firstSquareItems['column-1'][k].value || this.firstSquareItems['column-1'][k].value === 0)) {
+							this.secondSquareItems['column-1'][0].disabled = false;
+							break;
+						}
+						else
+							this.secondSquareItems['column-1'][0].disabled = true;
+					}
+
+					for (let l = this.firstSquareItems['column-3'].length - 2; l > 0; l--) {
+						if (this.firstSquareItems['column-3'][l].value || this.firstSquareItems['column-3'][l].value === 0)
+							this.firstSquareItems['column-3'][l - 1].disabled = false;
+						else
+							this.firstSquareItems['column-3'][l - 1].disabled = true;
+					}
+				},
+				deep: true
+			},
+			secondSquareItems: {
+				handler() {
+					if (this.secondSquareItems['column-1'][0].value || this.secondSquareItems['column-1'][0].value === 0)
+						this.secondSquareItems['column-1'][1].disabled = false;
+					else
+						this.secondSquareItems['column-1'][1].disabled = true;
+
+					if (this.secondSquareItems['column-1'][1].value || this.secondSquareItems['column-1'][1].value === 0)
+						this.thirdSquareItems['column-1'][0].disabled = false;
+					else
+						this.thirdSquareItems['column-1'][0].disabled = true;
+
+					if (this.secondSquareItems['column-3'][1].value || this.secondSquareItems['column-3'][1].value === 0)
+						this.secondSquareItems['column-3'][0].disabled = false;
+					else
+						this.secondSquareItems['column-3'][0].disabled = true;
+
+					if (this.secondSquareItems['column-3'][0].value || this.secondSquareItems['column-3'][0].value === 0)
+						this.firstSquareItems['column-3'][5].disabled = false;
+					else
+						this.firstSquareItems['column-3'][5].disabled = true;
+				},
+				deep: true
+			},
+			thirdSquareItems: {
+				handler() {
+					for (let l = this.thirdSquareItems['column-1'].length - 1; l > 0; l--) {
+						if (this.thirdSquareItems['column-1'][l - 1].value || this.thirdSquareItems['column-1'][l - 1].value === 0)
+							this.thirdSquareItems['column-1'][l].disabled = false;
+						else
+							this.thirdSquareItems['column-1'][l].disabled = true;
+					}
+
+					for (let m = this.thirdSquareItems['column-3'].length - 1; m > 0; m--) {
+						if (this.thirdSquareItems['column-3'][m].value || this.thirdSquareItems['column-3'][m].value === 0)
+							this.thirdSquareItems['column-3'][m - 1].disabled = false;
+						else
+							this.thirdSquareItems['column-3'][m - 1].disabled = true;
+
+					}
+
+					if (this.thirdSquareItems['column-3'][0].value || this.thirdSquareItems['column-3'][0].value === 0)
+						this.secondSquareItems['column-3'][1].disabled = false;
+				},
+				deep: true
 			},
 		},
 		components: {

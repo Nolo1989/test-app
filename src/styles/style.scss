@@ -658,6 +658,9 @@
 	&.reset {
 		margin-top: 20px;
 		text-transform: uppercase;
+		&[disabled] {
+			opacity: 0.5;
+		}
 	}
 	&.disabled {
 		opacity: .4;

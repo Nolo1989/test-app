@@ -31,8 +31,8 @@
 			<basic-game-third-square :basicGameThirdSquareData="thirdSquareItems" :disabledAllBtns="disabledAllBtns" :firstFulRowDisabled="firstFulRowDisabled" :secondFulRowDisabled="secondFulRowDisabled" :disabledNumber="disabledNumber" :game="'large-game'"></basic-game-third-square>
 			<single-column-third-square :column="5" :thirdSquareDataFive="thirdSquareItems['column-5']" :disabledAllBtns="disabledAllBtns" :smallFont="true"></single-column-third-square>
 			<single-column-third-square :column="6" :thirdSquareDataSix="thirdSquareItems['column-6']" :disabledAllBtns="disabledAllBtns" :smallFont="true"></single-column-third-square>
-			<single-column-third-square :column="7" :thirdSquareDataSeven="thirdSquareItems['column-7']" :disabledAllBtns="disabledAllBtns" :smallFont="true"></single-column-third-square>
-			<single-column-third-square :column="8" :thirdSquareDataEight="thirdSquareItems['column-8']" :disabledAllBtns="disabledAllBtns" :smallFont="true"></single-column-third-square>
+			<single-column-third-square :column="7" :toMiddle="true" :thirdSquareDataSeven="thirdSquareItems['column-7']" :disabledAllBtns="disabledAllBtns" :smallFont="true"></single-column-third-square>
+			<single-column-third-square :column="8" :fromMiddle="true" :thirdSquareDataEight="thirdSquareItems['column-8']" :disabledAllBtns="disabledAllBtns" :smallFont="true"></single-column-third-square>
 			<single-column-third-square :column="9" :thirdSquareDataNine="thirdSquareItems['column-9']" :disabledAllBtns="disabledAllBtns" :smallFont="true"></single-column-third-square>
 			<single-column-third-square :column="10" :nameOfColumn="'M'" :thirdSquareDataTen="thirdSquareItems['column-10']" :disabledAllBtns="disabledAllBtns" :smallFont="true" :dataForMax="dataForMax" :thirdSquareForMaxSum="thirdSquareForMaxSum"></single-column-third-square>
 			<div class="column-11">
@@ -65,7 +65,7 @@
 					</div>
 					<div class="bottom-wrap">
 						<button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
-						<button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+						<button class="modal-btn red-btn reset" :disabled="disabledUndoResultBtn" @click="setResult('', fieldId)">Ponisti rezultat</button>
 					</div>
 				</div>
 				<div v-else-if="modalTwo">
@@ -84,7 +84,7 @@
 					</div>
 					<div class="bottom-wrap">
 						<button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
-						<button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+						<button class="modal-btn red-btn reset" :disabled="disabledUndoResultBtn" @click="setResult('', fieldId)">Ponisti rezultat</button>
 					</div>
 				</div>
 				<div v-else-if="modalThree">
@@ -104,7 +104,7 @@
 					</div>
 					<div class="bottom-wrap">
 						<button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
-						<button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+						<button class="modal-btn red-btn reset" :disabled="disabledUndoResultBtn" @click="setResult('', fieldId)">Ponisti rezultat</button>
 					</div>
 				</div>
 				<div v-else-if="modalFour">
@@ -125,7 +125,7 @@
 					</div>
 					<div class="bottom-wrap">
 						<button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
-						<button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+						<button class="modal-btn red-btn reset" :disabled="disabledUndoResultBtn" @click="setResult('', fieldId)">Ponisti rezultat</button>
 					</div>
 				</div>
 				<div v-else-if="modalFive">
@@ -147,7 +147,7 @@
 					</div>
 					<div class="bottom-wrap">
 						<button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
-						<button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+						<button class="modal-btn red-btn reset" :disabled="disabledUndoResultBtn" @click="setResult('', fieldId)">Ponisti rezultat</button>
 					</div>
 				</div>
 				<div v-else-if="modalSix">
@@ -170,7 +170,7 @@
 					</div>
 					<div class="bottom-wrap">
 						<button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
-						<button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+						<button class="modal-btn red-btn reset" :disabled="disabledUndoResultBtn" @click="setResult('', fieldId)">Ponisti rezultat</button>
 					</div>
 				</div>
 				<div class="kenta" v-else-if="modalKenta">
@@ -178,7 +178,7 @@
 					<button class="modal-btn blue" @click="setResult(60, fieldId)">60</button>
 					<div class="bottom-wrap">
 						<button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
-						<button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+						<button class="modal-btn red-btn reset" :disabled="disabledUndoResultBtn" @click="setResult('', fieldId)">Ponisti rezultat</button>
 					</div>
 				</div>
 				<div class="triling" v-else-if="modalTriling">
@@ -219,7 +219,7 @@
 					</div>
 					<div class="bottom-wrap">
 						<button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
-						<button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+						<button class="modal-btn red-btn reset" :disabled="disabledUndoResultBtn" @click="setResult('', fieldId)">Ponisti rezultat</button>
 					</div>
 				</div>
 				<div class="ful" v-else-if="modalFul">
@@ -297,7 +297,7 @@
 					</div>
 					<div class="bottom-wrap">
 						<button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
-						<button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+						<button class="modal-btn red-btn reset" :disabled="disabledUndoResultBtn" @click="setResult('', fieldId)">Ponisti rezultat</button>
 					</div>
 				</div>
 				<div class="poker" v-else-if="modalPoker">
@@ -338,7 +338,7 @@
 					</div>
 					<div class="bottom-wrap">
 						<button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
-						<button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+						<button class="modal-btn red-btn reset" :disabled="disabledUndoResultBtn" @click="setResult('', fieldId)">Ponisti rezultat</button>
 					</div>
 				</div>
 				<div class="yamb" v-else-if="modalYamb">
@@ -379,7 +379,7 @@
 					</div>
 					<div class="bottom-wrap">
 						<button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
-						<button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+						<button class="modal-btn red-btn reset" :disabled="disabledUndoResultBtn" @click="setResult('', fieldId)">Ponisti rezultat</button>
 					</div>
 				</div>
 			</div>
@@ -490,7 +490,9 @@
 					ful: null,
 					poker: null,
 					yamb: null,
-				}
+				},
+				disabledUndoResultBtn: false,
+				activeModalColumn: ''
 			}
 		},
 		mounted() {
@@ -559,6 +561,8 @@
 						id: `first-1${i}`,
 						value: null
 					}
+					if (i !== 1)
+						item1.disabled = true;
 					item2 = {
 						class: `field-2${i}`,
 						id: `first-2${i}`,
@@ -567,7 +571,8 @@
 					item3 = {
 						class: `field-3${i}`,
 						id: `first-3${i}`,
-						value: null
+						value: null,
+						disabled: true
 					}
 					item4 = {
 						class: `field-4${i}`,
@@ -589,16 +594,21 @@
 						id: `first-7${i}`,
 						value: null
 					}
+					if (i !== 1)
+						item7.disabled = true;
 					item8 = {
 						class: `field-8${i}`,
 						id: `first-8${i}`,
-						value: null
+						value: null,
+						disabled: true
 					}
 					item9 = {
 						class: `field-9${i}`,
 						id: `first-9${i}`,
 						value: null
 					}
+					if (i !== 1)
+						item9.disabled = true;
 					item10 = {
 						class: `field-10${i}`,
 						id: `first-10${i}`,
@@ -632,7 +642,8 @@
 					const item1 = {
 						class: `field-sec-1${i}`,
 						id: `second-1${i}`,
-						value: null
+						value: null,
+						disabled: true
 					}
 					const item2 = {
 						class: `field-sec-2${i}`,
@@ -642,7 +653,8 @@
 					const item3 = {
 						class: `field-sec-3${i}`,
 						id: `second-3${i}`,
-						value: null
+						value: null,
+						disabled: true
 					}
 					const item4 = {
 						class: `field-sec-4${i}`,
@@ -662,7 +674,8 @@
 					const item7 = {
 						class: `field-sec-7${i}`,
 						id: `second-7${i}`,
-						value: null
+						value: null,
+						disabled: true
 					}
 					const item8 = {
 						class: `field-sec-8${i}`,
@@ -672,7 +685,8 @@
 					const item9 = {
 						class: `field-sec-9${i}`,
 						id: `second-9${i}`,
-						value: null
+						value: null,
+						disabled: true
 					}
 					const item10 = {
 						class: `field-sec-10${i}`,
@@ -697,7 +711,8 @@
 					const item1 = {
 						class: `field-third-1${i}`,
 						id: `third-1${i}`,
-						value: null
+						value: null,
+						disabled: true
 					}
 					const item2 = {
 						class: `field-third-2${i}`,
@@ -709,6 +724,8 @@
 						id: `third-3${i}`,
 						value: null
 					}
+					if (i !== 5)
+						item3.disabled = true;
 					const item4 = {
 						class: `field-third-4${i}`,
 						id: `third-4${i}`,
@@ -729,15 +746,19 @@
 						id: `third-7${i}`,
 						value: null
 					}
+					if (i !== 5)
+						item7.disabled = true;
 					const item8 = {
 						class: `field-third-8${i}`,
 						id: `third-8${i}`,
-						value: null
+						value: null,
+						disabled: true
 					}
 					const item9 = {
 						class: `field-third-9${i}`,
 						id: `third-9${i}`,
-						value: null
+						value: null,
+						disabled: true
 					}
 					const item10 = {
 						class: `field-third-10${i}`,
@@ -883,7 +904,55 @@
 						this.modalPoker = false;
 						this.modalYamb = false;
 						this.firstRowFulResult = 0;
-					} 
+						this.disabledUndoResultBtn = false;
+						this.activeModalColumn = '';
+						this.$bus.$emit('disabled:undoResultBtn', this.disabledUndoResultBtn);
+					} else if (this.showModal && !this.disabledAllBtns) {
+						let id = this.fieldId;
+						let area = id.split('-')[0];
+						let field = id.slice(-1);
+
+						// TO MIDDLE COLUMN
+						if (this.activeModalColumn === 'toMiddle') {
+							if (area === 'first' && this['firstSquareItems']['column-7'][field] && this[`${area}SquareItems`]['column-7'][field].value !== null && this[`${area}SquareItems`]['column-7'][field].value !== '') {
+								this.disabledUndoResultBtn = true;
+							}
+							if (area === 'first' && field === '6' && this.secondSquareItems['column-7'][0].value !== null && this.secondSquareItems['column-7'][0].value !== '') {
+								this.disabledUndoResultBtn = true;
+							}
+	
+							if (area === 'third' && this['thirdSquareItems']['column-7'][field - 2] && this[`${area}SquareItems`]['column-7'][field - 2].value !== null && this[`${area}SquareItems`]['column-7'][field - 2].value !== '') {
+								this.disabledUndoResultBtn = true;
+							}
+							if (area === 'third' && field === '1' && this.secondSquareItems['column-7'][1].value !== null && this.secondSquareItems['column-7'][1].value !== '') {
+								this.disabledUndoResultBtn = true;
+							}
+						} else if (this.activeModalColumn === 'fromMiddle') {
+							// FROM MIDDLE COLUMN
+							if (area === 'first' && this['firstSquareItems']['column-8'][field - 2] && this[`${area}SquareItems`]['column-8'][field - 2].value !== null && this[`${area}SquareItems`]['column-8'][field - 2].value !== '') {
+								this.disabledUndoResultBtn = true;
+							}
+							if (area === 'first' && field === '6' && this.firstSquareItems['column-8'][4].value !== null && this.firstSquareItems['column-8'][4].value !== '') {
+								this.disabledUndoResultBtn = true;
+							}
+	
+							if (area === 'third' && this['thirdSquareItems']['column-8'][field] && this[`${area}SquareItems`]['column-8'][field].value !== null && this[`${area}SquareItems`]['column-8'][field].value !== '') {
+								this.disabledUndoResultBtn = true;
+							}
+							if (area === 'third' && field === '1' && this.thirdSquareItems['column-8'][1].value !== null && this.thirdSquareItems['column-8'][1].value !== '') {
+								this.disabledUndoResultBtn = true;
+							}
+						} else {
+							// OTHER CASES
+							if (this[`${area}SquareItems`]['column-9'][field] && this[`${area}SquareItems`]['column-9'][field].value !== null && this[`${area}SquareItems`]['column-9'][field].value !== '') {
+								this.disabledUndoResultBtn = true;
+							}
+
+							if (area === 'first' && field === '6' && this.secondSquareItems['column-9'][0].value !== null && this.secondSquareItems['column-9'][0].value !== '') {
+								this.disabledUndoResultBtn = true;
+							}
+						}
+					}
 				}
 			},
 			firstSquareItems: {
@@ -922,6 +991,62 @@
 							}
 						}
 					}
+
+					for (let j = this.firstSquareItems['column-9'].length - 2; j > 0; j--) {
+						if (this.firstSquareItems['column-9'][j - 1].value || this.firstSquareItems['column-9'][j - 1].value === 0)
+							this.firstSquareItems['column-9'][j].disabled = false;
+						else
+							this.firstSquareItems['column-9'][j].disabled = true;
+
+						if (this.firstSquareItems['column-9'][5].value || this.firstSquareItems['column-9'][5].value === 0)
+							this.secondSquareItems['column-9'][0].disabled = false;
+						else
+							this.secondSquareItems['column-9'][0].disabled = true;
+					}
+
+					for (let k = this.firstSquareItems['column-1'].length - 2; k > 0; k--) {
+						if (this.firstSquareItems['column-1'][k - 1].value || this.firstSquareItems['column-1'][k - 1].value === 0)
+							this.firstSquareItems['column-1'][k].disabled = false;
+						else
+							this.firstSquareItems['column-1'][k].disabled = true;
+
+						if (k === 5 && (this.firstSquareItems['column-1'][k].value || this.firstSquareItems['column-1'][k].value === 0)) {
+							this.secondSquareItems['column-1'][0].disabled = false;
+							break;
+						}
+						else
+							this.secondSquareItems['column-1'][0].disabled = true;
+					}
+
+					for (let l = this.firstSquareItems['column-3'].length - 2; l > 0; l--) {
+						if (this.firstSquareItems['column-3'][l].value || this.firstSquareItems['column-3'][l].value === 0)
+							this.firstSquareItems['column-3'][l - 1].disabled = false;
+						else
+							this.firstSquareItems['column-3'][l - 1].disabled = true;
+					}
+
+					if (Object.keys(this.firstSquareItems).length && this.firstSquareItems['column-7']) {
+						for (let n = this.firstSquareItems['column-7'].length - 2; n > 0; n--) {
+							if (this.firstSquareItems['column-7'][n - 1].value || this.firstSquareItems['column-7'][n - 1].value === 0)
+								this.firstSquareItems['column-7'][n].disabled = false;
+							else
+								this.firstSquareItems['column-7'][n].disabled = true;
+
+							if (this.firstSquareItems['column-7'][5].value || this.firstSquareItems['column-7'][5].value === 0)
+								this.secondSquareItems['column-7'][0].disabled = false;
+							else
+								this.secondSquareItems['column-7'][0].disabled = true;
+						}
+					}
+
+					if (Object.keys(this.firstSquareItems).length && this.firstSquareItems['column-8']) {
+						for (let o = this.firstSquareItems['column-8'].length - 2; o > 0; o--) {
+							if (this.firstSquareItems['column-8'][o].value || this.firstSquareItems['column-8'][o].value === 0)
+								this.firstSquareItems['column-8'][o - 1].disabled = false;
+							else
+								this.firstSquareItems['column-8'][o - 1].disabled = true;
+						}
+					}
 				},
 				deep: true
 			},
@@ -940,6 +1065,48 @@
 								this.dataForMax.min = this.dataForMax.min === null || parseFloat(this.secondSquareItems[`column-${i}`][1].value) < this.dataForMax.min ? parseFloat(this.secondSquareItems[`column-${i}`][1].value) : this.dataForMax.min;
 							}
 						}
+					}
+
+					if (this.secondSquareItems['column-9'][0].value || this.secondSquareItems['column-9'][0].value === 0)
+						this.secondSquareItems['column-9'][1].disabled = false;
+					else
+						this.secondSquareItems['column-9'][1].disabled = true;
+
+					if (this.secondSquareItems['column-9'][1].value || this.secondSquareItems['column-9'][1].value === 0)
+						this.thirdSquareItems['column-9'][0].disabled = false;
+					else
+						this.thirdSquareItems['column-9'][0].disabled = true;
+
+					if (this.secondSquareItems['column-1'][0].value || this.secondSquareItems['column-1'][0].value === 0)
+						this.secondSquareItems['column-1'][1].disabled = false;
+					else
+						this.secondSquareItems['column-1'][1].disabled = true;
+
+					if (this.secondSquareItems['column-1'][1].value || this.secondSquareItems['column-1'][1].value === 0)
+						this.thirdSquareItems['column-1'][0].disabled = false;
+					else
+						this.thirdSquareItems['column-1'][0].disabled = true;
+
+					if (this.secondSquareItems['column-3'][1].value || this.secondSquareItems['column-3'][1].value === 0)
+						this.secondSquareItems['column-3'][0].disabled = false;
+					else
+						this.secondSquareItems['column-3'][0].disabled = true;
+
+					if (this.secondSquareItems['column-3'][0].value || this.secondSquareItems['column-3'][0].value === 0)
+						this.firstSquareItems['column-3'][5].disabled = false;
+					else
+						this.firstSquareItems['column-3'][5].disabled = true;
+
+					if (Object.keys(this.secondSquareItems).length && this.secondSquareItems['column-8']) {
+						if (this.secondSquareItems['column-8'][0].value || this.secondSquareItems['column-8'][0].value === 0)
+							this.firstSquareItems['column-8'][5].disabled = false;
+						else
+							this.firstSquareItems['column-8'][5].disabled = true;
+
+						if (this.secondSquareItems['column-8'][1].value || this.secondSquareItems['column-8'][1].value === 0)
+							this.thirdSquareItems['column-8'][0].disabled = false;
+						else
+							this.thirdSquareItems['column-8'][0].disabled = true;
 					}
 				},
 				deep: true
@@ -973,6 +1140,54 @@
 							if (this.thirdSquareItems[`column-${i}`] && this.thirdSquareItems[`column-${i}`][4] && this.thirdSquareItems[`column-${i}`][4].value !== null) {
 								this.dataForMax.yamb = this.thirdSquareItems[`column-${i}`][4].value === 0 && this.dataForMax.yamb === null || this.thirdSquareItems[`column-${i}`][4].value > this.dataForMax.yamb ? this.thirdSquareItems[`column-${i}`][4].value : this.dataForMax.yamb;
 							}
+						}
+					}
+
+					for (let k = this.thirdSquareItems['column-9'].length - 1; k > 0; k--) {
+						if (this.thirdSquareItems['column-9'][k - 1].value || this.thirdSquareItems['column-9'][k - 1].value === 0)
+							this.thirdSquareItems['column-9'][k].disabled = false;
+						else
+							this.thirdSquareItems['column-9'][k].disabled = true;
+					}
+
+					for (let l = this.thirdSquareItems['column-1'].length - 1; l > 0; l--) {
+						if (this.thirdSquareItems['column-1'][l - 1].value || this.thirdSquareItems['column-1'][l - 1].value === 0)
+							this.thirdSquareItems['column-1'][l].disabled = false;
+						else
+							this.thirdSquareItems['column-1'][l].disabled = true;
+					}
+
+					for (let m = this.thirdSquareItems['column-3'].length - 1; m > 0; m--) {
+						if (this.thirdSquareItems['column-3'][m].value || this.thirdSquareItems['column-3'][m].value === 0)
+							this.thirdSquareItems['column-3'][m - 1].disabled = false;
+						else
+							this.thirdSquareItems['column-3'][m - 1].disabled = true;
+
+					}
+
+					if (this.thirdSquareItems['column-3'][0].value || this.thirdSquareItems['column-3'][0].value === 0)
+						this.secondSquareItems['column-3'][1].disabled = false;
+
+					if (Object.keys(this.thirdSquareItems).length && this.thirdSquareItems['column-7']) {
+						for (let n = this.thirdSquareItems['column-7'].length - 1; n > 0; n--) {
+							if (this.thirdSquareItems['column-7'][n].value || this.thirdSquareItems['column-7'][n].value === 0)
+								this.thirdSquareItems['column-7'][n - 1].disabled = false;
+							else
+								this.thirdSquareItems['column-7'][n - 1].disabled = true;
+
+							if (this.thirdSquareItems['column-7'][0].value || this.thirdSquareItems['column-7'][0].value === 0)
+								this.secondSquareItems['column-7'][1].disabled = false;
+							else
+								this.secondSquareItems['column-7'][1].disabled = true;
+						}
+					}
+
+					if (Object.keys(this.thirdSquareItems).length && this.thirdSquareItems['column-8']) {
+						for (let o = this.thirdSquareItems['column-8'].length - 1; o > 0; o--) {
+							if (this.thirdSquareItems['column-8'][o - 1].value || this.thirdSquareItems['column-8'][o - 1].value === 0)
+								this.thirdSquareItems['column-8'][o].disabled = false;
+							else
+								this.thirdSquareItems['column-8'][o].disabled = true;
 						}
 					}
 				},

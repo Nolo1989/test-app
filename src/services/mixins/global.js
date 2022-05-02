@@ -7,10 +7,11 @@ export function globalVue() {
 			};
 		},
 		methods: {
-			openModal(fieldId, isDisabled) {
+			openModal(fieldId, isDisabled, activeColumn) {
 				if (isDisabled)
 					return;
 
+				this.activeModalColumn = activeColumn;
 				this.showModal = true;
 				this.fieldId = fieldId;
 

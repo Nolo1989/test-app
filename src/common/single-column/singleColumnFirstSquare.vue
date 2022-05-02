@@ -35,7 +35,7 @@
 						{{ dataForMax.six }}
 					</template>
 				</div>
-				<div v-else-if="idx !== 6" class="field" @click="$parent.openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns)" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns" :id="item.id" :key="item.id">
+				<div v-else-if="idx !== 6" class="field" @click="$parent.openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled, toMiddle ? 'toMiddle' : fromMiddle ? 'fromMiddle' : '')" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled" :id="item.id" :key="item.id">
 					<input type="hidden" v-model="item.value" />
 					{{ item.value }}
 				</div>
@@ -62,7 +62,7 @@
 					{{ dataForMax.six }}
 				</template>
 			</div>
-			<div v-else-if="idx !== 6" class="field" @click="$parent.openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns)" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns" :id="item.id" :key="item.id">
+			<div v-else-if="idx !== 6" class="field" @click="$parent.openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled, toMiddle ? 'toMiddle' : fromMiddle ? 'fromMiddle' : '')" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled" :id="item.id" :key="item.id">
 				<input type="hidden" v-model="item.value" />
 				{{ item.value }}
 			</div>
@@ -88,7 +88,7 @@
 					{{ dataForMax.six }}
 				</template>
 			</div>
-			<div v-else-if="idx !== 6" class="field" @click="$parent.openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns)" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns" :id="item.id" :key="item.id">
+			<div v-else-if="idx !== 6" class="field" @click="$parent.openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled, toMiddle ? 'toMiddle' : fromMiddle ? 'fromMiddle' : '')" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled" :id="item.id" :key="item.id">
 				<input type="hidden" v-model="item.value" />
 				{{ item.value }}
 			</div>
@@ -114,7 +114,7 @@
 					{{ dataForMax.six }}
 				</template>
 			</div>
-			<div v-else-if="idx !== 6" class="field" @click="$parent.openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns)" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns" :id="item.id" :key="item.id">
+			<div v-else-if="idx !== 6" class="field" @click="$parent.openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled, toMiddle ? 'toMiddle' : fromMiddle ? 'fromMiddle' : '')" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled" :id="item.id" :key="item.id">
 				<input type="hidden" v-model="item.value" />
 				{{ item.value }}
 			</div>
@@ -140,7 +140,7 @@
 					{{ dataForMax.six }}
 				</template>
 			</div>
-			<div v-else-if="idx !== 6" class="field" @click="$parent.openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns)" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns" :id="item.id" :key="item.id">
+			<div v-else-if="idx !== 6" class="field" @click="$parent.openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled, toMiddle ? 'toMiddle' : fromMiddle ? 'fromMiddle' : '')" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled" :id="item.id" :key="item.id">
 				<input type="hidden" v-model="item.value" />
 				{{ item.value }}
 			</div>
@@ -166,7 +166,7 @@
 					{{ dataForMax.six }}
 				</template>
 			</div>
-			<div v-else-if="idx !== 6" class="field" @click="$parent.openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns)" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns" :id="item.id" :key="item.id">
+			<div v-else-if="idx !== 6" class="field" @click="$parent.openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled, toMiddle ? 'toMiddle' : fromMiddle ? 'fromMiddle' : '')" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled" :id="item.id" :key="item.id">
 				<input type="hidden" v-model="item.value" />
 				{{ item.value }}
 			</div>
@@ -284,11 +284,6 @@
 				require: false,
 				default: 0
 			}
-		},
-		data() {
-			return {
-
-			};
 		},
 		computed: {
 			numOfColumn() {

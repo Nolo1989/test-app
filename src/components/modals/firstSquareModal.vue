@@ -19,7 +19,7 @@
 				</div>
 				<div class="bottom-wrap">
 					<button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
-					<button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+					<button class="modal-btn red-btn reset" :disabled="undoResultBnt" @click="setResult('', fieldId)">Ponisti rezultat</button>
 				</div>
 			</div>
 			<div v-else-if="modalTwo">
@@ -38,7 +38,7 @@
 				</div>
 				<div class="bottom-wrap">
 					<button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
-					<button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+					<button class="modal-btn red-btn reset" :disabled="undoResultBnt" @click="setResult('', fieldId)">Ponisti rezultat</button>
 				</div>
 			</div>
 			<div v-else-if="modalThree">
@@ -58,7 +58,7 @@
 				</div>
 				<div class="bottom-wrap">
 					<button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
-					<button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+					<button class="modal-btn red-btn reset" :disabled="undoResultBnt" @click="setResult('', fieldId)">Ponisti rezultat</button>
 				</div>
 			</div>
 			<div v-else-if="modalFour">
@@ -79,7 +79,7 @@
 				</div>
 				<div class="bottom-wrap">
 					<button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
-					<button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+					<button class="modal-btn red-btn reset" :disabled="undoResultBnt" @click="setResult('', fieldId)">Ponisti rezultat</button>
 				</div>
 			</div>
 			<div v-else-if="modalFive">
@@ -101,7 +101,7 @@
 				</div>
 				<div class="bottom-wrap">
 					<button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
-					<button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+					<button class="modal-btn red-btn reset" :disabled="undoResultBnt" @click="setResult('', fieldId)">Ponisti rezultat</button>
 				</div>
 			</div>
 			<div v-else-if="modalSix">
@@ -124,7 +124,7 @@
 				</div>
 				<div class="bottom-wrap">
 					<button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
-					<button class="modal-btn red-btn reset" @click="setResult('', fieldId)">Ponisti rezultat</button>
+					<button class="modal-btn red-btn reset" :disabled="undoResultBnt" @click="setResult('', fieldId)">Ponisti rezultat</button>
 				</div>
 			</div>
 		</div>
@@ -144,7 +144,11 @@
 			showModal: {
 				type: Boolean,
 				required: false
-			}
+			},
+			disabledAllBtns: {
+				type: Boolean,
+				required: true
+			},
 		},
 		data() {
 			return {
@@ -154,7 +158,8 @@
 				modalFour: false,
 				modalFive: false,
 				modalSix: false,
-				fieldId: ''
+				fieldId: '',
+				undoResultBnt: false
 			}
 		},
 		mounted() {
@@ -203,7 +208,28 @@
 						this.modalFour = false;
 						this.modalFive = false;
 						this.modalSix = false;
-					} 
+						this.undoResultBnt = false;
+						this.$parent.activeModalColumn = '';
+					} else if (this.showModal && !this.disabledAllBtns) {
+						let field = this.fieldId.slice(-1);
+						let column = this.fieldId.slice(-2, -1);
+
+						if (column === '1') {
+							if (this.basicGameFirstSquareData['column-1'][field] && (this.basicGameFirstSquareData['column-1'][field].value !== null && this.basicGameFirstSquareData['column-1'][field].value !== ''))
+								this.undoResultBnt = true;
+	
+							if (field === '6') {
+								if (this.$parent.$parent.secondSquareItems['column-1'][0].value !== null && this.$parent.$parent.secondSquareItems['column-1'][0].value !== '')
+									this.undoResultBnt = true;
+								else
+									this.undoResultBnt = false;
+							}
+						} else if (column === '3') {
+							if (this.basicGameFirstSquareData['column-3'][field - 2] && (this.basicGameFirstSquareData['column-3'][field - 2].value !== null && this.basicGameFirstSquareData['column-3'][field - 2].value !== ''))
+								this.undoResultBnt = true;
+						}
+
+					}
 				}
 			}
 		},
