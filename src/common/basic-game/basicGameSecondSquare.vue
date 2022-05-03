@@ -8,40 +8,60 @@
 			</div>
 			<div class="column-1">
 				<template v-for="item in basicGameSecondSquareData['column-1']">
-					<div class="field" :class="item.class" :id="item.id" :key="item.id" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns && numberFocused || item.disabled">
+					<!-- <div class="field" :class="item.class" :id="item.id" :key="item.id" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns && numberFocused || item.disabled">
 						<input type="number" v-model="item.value" @blur="numberFocused = true" @focus="numberFocused = false" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns && numberFocused || item.disabled" />
+					</div> -->
+					<div class="field" @click="openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled)" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled" :id="item.id" :key="item.id">
+						<input type="hidden" v-model="item.value" />
+						{{ item.value }}
 					</div>
 				</template>
 				<div class="field blue result">{{ secondSquareSumColOne }}</div>
 			</div>
 			<div class="column-2">
 				<template v-for="item in basicGameSecondSquareData['column-2']">
-					<div class="field" :class="item.class" :id="item.id" :key="item.id">
+					<!-- <div class="field" :class="item.class" :id="item.id" :key="item.id">
 						<input type="number" v-model="item.value" />
+					</div> -->
+					<div class="field" @click="openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled)" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled" :id="item.id" :key="item.id">
+						<input type="hidden" v-model="item.value" />
+						{{ item.value }}
 					</div>
 				</template>
 				<div class="field blue result">{{ secondSquareSumColTwo }}</div>
 			</div>
 			<div class="column-3">
 				<template v-for="item in basicGameSecondSquareData['column-3']">
-					<div class="field" :class="item.class" :id="item.id" :key="item.id" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns && numberFocused || item.disabled">
+					<!-- <div class="field" :class="item.class" :id="item.id" :key="item.id" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns && numberFocused || item.disabled">
 						<input type="number" v-model="item.value" @blur="numberFocused = true" @focus="numberFocused = false" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns && numberFocused || item.disabled" />
+					</div> -->
+					<div class="field" @click="openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled)" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled" :id="item.id" :key="item.id">
+						<input type="hidden" v-model="item.value" />
+						{{ item.value }}
 					</div>
 				</template>
 				<div class="field blue result">{{ secondSquareSumColThree }}</div>
 			</div>
 			<div class="column-4">
 				<template v-for="item in basicGameSecondSquareData['column-4']">
-					<div class="field" :class="item.class" :id="item.id" :key="item.id">
+					<!-- <div class="field" :class="item.class" :id="item.id" :key="item.id">
 						<input type="number" v-model="item.value" />
+					</div> -->
+					<div class="field" @click="openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled)" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled" :id="item.id" :key="item.id">
+						<input type="hidden" v-model="item.value" />
+						{{ item.value }}
 					</div>
 				</template>
 				<div class="field blue result">{{ secondSquareSumColFour }}</div>
 			</div>
+
+			<secondSquareModal :basicGameSecondSquareData="basicGameSecondSquareData" :showModal="showModal" :disabledAllBtns="disabledAllBtns"></secondSquareModal>
     </section>
 </template>
 
 <script>
+	import secondSquareModal from '../../components/modals/secondSquareModal.vue';
+
     export default {
         name: 'BasicGameSecondSquare',
         props: {
@@ -79,6 +99,15 @@
 
 				return sum;
 			},
+			openModal(fieldId, isDisabled) {
+				if (isDisabled)
+					return;
+
+				this.showModal = true;
+				this.fieldId = fieldId;
+
+				this.$bus.$emit('modalData', this.fieldId);
+			},
         },
         computed: {
             secondSquareSumColOne() {
@@ -110,5 +139,8 @@
 				}
 			}
 		},
+		components: {
+			secondSquareModal
+		}
     }
 </script>

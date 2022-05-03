@@ -68,8 +68,8 @@
 				<div class="field blue result">{{ thirdSquareSumTotal }}</div>
 			</div>
 		</div>
-		<modal :show="showModal" @closeModal="showModal = false" class="confirmation-modal wide">
-			<div slot="header" class="modal-title-wrapper">
+		<modal :show="showModal" @closeModal="showModal = false" class="confirmation-modal wide" :class="{ 'smaller-modal': modalMax || modalMin }">
+			<div slot="header" class="modal-title-wrapper" v-if="!(modalMax || modalMin)">
 				<p class="modal-title">Dobijena kombinacija:</p>
 			</div>
 			<div slot="body">
@@ -194,6 +194,124 @@
 					<div class="bottom-wrap">
 						<button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
 						<button class="modal-btn red-btn reset" :disabled="disabledUndoResultBtn" @click="setResult('', fieldId)">Ponisti rezultat</button>
+					</div>
+				</div>
+				<div v-else-if="modalMax">
+					<div class="dice-wrap" ref="maxscroller">
+						<button class="modal-btn dice white-btn" @click="setResult(5, fieldId)">5</button>
+						<div class="divider"></div>
+						<button class="modal-btn dice white-btn" @click="setResult(6, fieldId)">6</button>
+						<div class="divider"></div>
+						<button class="modal-btn dice white-btn" @click="setResult(7, fieldId)">7</button>
+						<div class="divider"></div>
+						<button class="modal-btn dice white-btn" @click="setResult(8, fieldId)">8</button>
+						<div class="divider"></div>
+						<button class="modal-btn dice white-btn" @click="setResult(9, fieldId)">9</button>
+						<div class="divider"></div>
+						<button class="modal-btn dice white-btn" @click="setResult(10, fieldId)">10</button>
+						<div class="divider"></div>
+						<button class="modal-btn dice white-btn" @click="setResult(11, fieldId)">11</button>
+						<div class="divider"></div>
+						<button class="modal-btn dice white-btn" @click="setResult(12, fieldId)">12</button>
+						<div class="divider"></div>
+						<button class="modal-btn dice white-btn" @click="setResult(13, fieldId)">13</button>
+						<div class="divider"></div>
+						<button class="modal-btn dice white-btn" @click="setResult(14, fieldId)">14</button>
+						<div class="divider"></div>
+						<button class="modal-btn dice white-btn" @click="setResult(15, fieldId)">15</button>
+						<div class="divider"></div>
+						<button class="modal-btn dice white-btn" @click="setResult(16, fieldId)">16</button>
+						<div class="divider"></div>
+						<button class="modal-btn dice white-btn" @click="setResult(17, fieldId)">17</button>
+						<div class="divider"></div>
+						<button class="modal-btn dice white-btn" @click="setResult(18, fieldId)">18</button>
+						<div class="divider"></div>
+						<button class="modal-btn dice white-btn" @click="setResult(19, fieldId)">19</button>
+						<div class="divider"></div>
+						<button class="modal-btn dice white-btn" @click="setResult(20, fieldId)">20</button>
+						<div class="divider"></div>
+						<button class="modal-btn dice white-btn" @click="setResult(21, fieldId)">21</button>
+						<div class="divider"></div>
+						<button class="modal-btn dice white-btn" @click="setResult(22, fieldId)">22</button>
+						<div class="divider"></div>
+						<button class="modal-btn dice white-btn" @click="setResult(23, fieldId)">23</button>
+						<div class="divider"></div>
+						<button class="modal-btn dice white-btn" @click="setResult(24, fieldId)">24</button>
+						<div class="divider"></div>
+						<button class="modal-btn dice white-btn" @click="setResult(25, fieldId)">25</button>
+						<div class="divider"></div>
+						<button class="modal-btn dice white-btn" @click="setResult(26, fieldId)">26</button>
+						<div class="divider"></div>
+						<button class="modal-btn dice white-btn" @click="setResult(27, fieldId)">27</button>
+						<div class="divider"></div>
+						<button class="modal-btn dice white-btn" @click="setResult(28, fieldId)">28</button>
+						<div class="divider"></div>
+						<button class="modal-btn dice white-btn" @click="setResult(29, fieldId)">29</button>
+						<div class="divider"></div>
+						<button class="modal-btn dice white-btn" @click="setResult(30, fieldId)">30</button>
+						<div class="divider"></div>
+					</div>
+					<div class="bottom-wrap">
+						<button class="modal-btn red-btn reset" :disabled="disabledUndoResultBtn" @click="setResult('', fieldId)">X</button>
+					</div>
+				</div>
+				<div v-else-if="modalMin">
+					<div class="dice-wrap" ref="minscroller">
+						<button class="modal-btn dice white-btn" @click="setResult(5, fieldId)">5</button>
+						<div class="divider"></div>
+						<button class="modal-btn dice white-btn" @click="setResult(6, fieldId)">6</button>
+						<div class="divider"></div>
+						<button class="modal-btn dice white-btn" @click="setResult(7, fieldId)">7</button>
+						<div class="divider"></div>
+						<button class="modal-btn dice white-btn" @click="setResult(8, fieldId)">8</button>
+						<div class="divider"></div>
+						<button class="modal-btn dice white-btn" @click="setResult(9, fieldId)">9</button>
+						<div class="divider"></div>
+						<button class="modal-btn dice white-btn" @click="setResult(10, fieldId)">10</button>
+						<div class="divider"></div>
+						<button class="modal-btn dice white-btn" @click="setResult(11, fieldId)">11</button>
+						<div class="divider"></div>
+						<button class="modal-btn dice white-btn" @click="setResult(12, fieldId)">12</button>
+						<div class="divider"></div>
+						<button class="modal-btn dice white-btn" @click="setResult(13, fieldId)">13</button>
+						<div class="divider"></div>
+						<button class="modal-btn dice white-btn" @click="setResult(14, fieldId)">14</button>
+						<div class="divider"></div>
+						<button class="modal-btn dice white-btn" @click="setResult(15, fieldId)">15</button>
+						<div class="divider"></div>
+						<button class="modal-btn dice white-btn" @click="setResult(16, fieldId)">16</button>
+						<div class="divider"></div>
+						<button class="modal-btn dice white-btn" @click="setResult(17, fieldId)">17</button>
+						<div class="divider"></div>
+						<button class="modal-btn dice white-btn" @click="setResult(18, fieldId)">18</button>
+						<div class="divider"></div>
+						<button class="modal-btn dice white-btn" @click="setResult(19, fieldId)">19</button>
+						<div class="divider"></div>
+						<button class="modal-btn dice white-btn" @click="setResult(20, fieldId)">20</button>
+						<div class="divider"></div>
+						<button class="modal-btn dice white-btn" @click="setResult(21, fieldId)">21</button>
+						<div class="divider"></div>
+						<button class="modal-btn dice white-btn" @click="setResult(22, fieldId)">22</button>
+						<div class="divider"></div>
+						<button class="modal-btn dice white-btn" @click="setResult(23, fieldId)">23</button>
+						<div class="divider"></div>
+						<button class="modal-btn dice white-btn" @click="setResult(24, fieldId)">24</button>
+						<div class="divider"></div>
+						<button class="modal-btn dice white-btn" @click="setResult(25, fieldId)">25</button>
+						<div class="divider"></div>
+						<button class="modal-btn dice white-btn" @click="setResult(26, fieldId)">26</button>
+						<div class="divider"></div>
+						<button class="modal-btn dice white-btn" @click="setResult(27, fieldId)">27</button>
+						<div class="divider"></div>
+						<button class="modal-btn dice white-btn" @click="setResult(28, fieldId)">28</button>
+						<div class="divider"></div>
+						<button class="modal-btn dice white-btn" @click="setResult(29, fieldId)">29</button>
+						<div class="divider"></div>
+						<button class="modal-btn dice white-btn" @click="setResult(30, fieldId)">30</button>
+						<div class="divider"></div>
+					</div>
+					<div class="bottom-wrap">
+						<button class="modal-btn red-btn reset" :disabled="disabledUndoResultBtn" @click="setResult('', fieldId)">X</button>
 					</div>
 				</div>
 				<div class="kenta" v-else-if="modalKenta">
@@ -472,6 +590,8 @@
 				modalFour: false,
 				modalFive: false,
 				modalSix: false,
+				modalMax: false,
+				modalMin: false,
 				modalKenta: false,
 				modalTriling: false,
 				modalFul: false,
@@ -1039,56 +1159,71 @@
 						this.disabledUndoResultBtn = false;
 						this.activeModalColumn = '';
 						this.$bus.$emit('disabled:undoResultBtn', this.disabledUndoResultBtn);
-					} else if (this.showModal && !this.disabledAllBtns) {
-						let id = this.fieldId;
-						let area = id.split('-')[0];
-						let field = id.slice(-1);
+						setTimeout(() => {
+							this.modalMax = false;
+							this.modalMin = false;
+						}, 100);
+					} else {
+						if (!this.disabledAllBtns) {
+							let id = this.fieldId;
+							let area = id.split('-')[0];
+							let field = id.slice(-1);
 
-						// TO MIDDLE COLUMN
-						if (this.activeModalColumn === 'toMiddle') {
-							if (area === 'first' && this['firstSquareItems'][`column-${this.toMiddleColumn}`][field] && this[`${area}SquareItems`][`column-${this.toMiddleColumn}`][field].value !== null && this[`${area}SquareItems`][`column-${this.toMiddleColumn}`][field].value !== '') {
-								this.disabledUndoResultBtn = true;
+							// TO MIDDLE COLUMN
+							if (this.activeModalColumn === 'toMiddle') {
+								if (area === 'first' && this['firstSquareItems'][`column-${this.toMiddleColumn}`][field] && this[`${area}SquareItems`][`column-${this.toMiddleColumn}`][field].value !== null && this[`${area}SquareItems`][`column-${this.toMiddleColumn}`][field].value !== '') {
+									this.disabledUndoResultBtn = true;
+								}
+								if (area === 'first' && field === '6' && this.secondSquareItems[`column-${this.toMiddleColumn}`][0].value !== null && this.secondSquareItems[`column-${this.toMiddleColumn}`][0].value !== '') {
+									this.disabledUndoResultBtn = true;
+								}
+		
+								if (area === 'third' && this['thirdSquareItems'][`column-${this.toMiddleColumn}`][field - 2] && this[`${area}SquareItems`][`column-${this.toMiddleColumn}`][field - 2].value !== null && this[`${area}SquareItems`][`column-${this.toMiddleColumn}`][field - 2].value !== '') {
+									this.disabledUndoResultBtn = true;
+								}
+								if (area === 'third' && field === '1' && this.secondSquareItems[`column-${this.toMiddleColumn}`][1].value !== null && this.secondSquareItems[`column-${this.toMiddleColumn}`][1].value !== '') {
+									this.disabledUndoResultBtn = true;
+								}
+							} else if (this.activeModalColumn === 'fromMiddle') {
+								// FROM MIDDLE COLUMN
+								if (area === 'first' && this['firstSquareItems'][`column-${this.fromMiddleColumn}`][field - 2] && this[`${area}SquareItems`][`column-${this.fromMiddleColumn}`][field - 2].value !== null && this[`${area}SquareItems`][`column-${this.fromMiddleColumn}`][field - 2].value !== '') {
+									this.disabledUndoResultBtn = true;
+								}
+								if (area === 'first' && field === '6' && this.firstSquareItems[`column-${this.fromMiddleColumn}`][4].value !== null && this.firstSquareItems[`column-${this.fromMiddleColumn}`][4].value !== '') {
+									this.disabledUndoResultBtn = true;
+								}
+		
+								if (area === 'third' && this['thirdSquareItems'][`column-${this.fromMiddleColumn}`][field] && this[`${area}SquareItems`][`column-${this.fromMiddleColumn}`][field].value !== null && this[`${area}SquareItems`][`column-${this.fromMiddleColumn}`][field].value !== '') {
+									this.disabledUndoResultBtn = true;
+								}
+								if (area === 'third' && field === '1' && this.thirdSquareItems[`column-${this.fromMiddleColumn}`][1].value !== null && this.thirdSquareItems[`column-${this.fromMiddleColumn}`][1].value !== '') {
+									this.disabledUndoResultBtn = true;
+								}
+							} else {
+								// OTHER CASES
+								if (this[`${area}SquareItems`][`column-${this.odjava}`] && this[`${area}SquareItems`][`column-${this.odjava}`][field] && this[`${area}SquareItems`][`column-${this.odjava}`][field].value !== null) {
+									this.disabledUndoResultBtn = true;
+								}
+								if (area === 'first' && field === '6' && this.secondSquareItems[`column-${this.odjava}`][0].value !== null) {
+									this.disabledUndoResultBtn = true;
+								}
 							}
-							if (area === 'first' && field === '6' && this.secondSquareItems[`column-${this.toMiddleColumn}`][0].value !== null && this.secondSquareItems[`column-${this.toMiddleColumn}`][0].value !== '') {
-								this.disabledUndoResultBtn = true;
-							}
-	
-							if (area === 'third' && this['thirdSquareItems'][`column-${this.toMiddleColumn}`][field - 2] && this[`${area}SquareItems`][`column-${this.toMiddleColumn}`][field - 2].value !== null && this[`${area}SquareItems`][`column-${this.toMiddleColumn}`][field - 2].value !== '') {
-								this.disabledUndoResultBtn = true;
-							}
-							if (area === 'third' && field === '1' && this.secondSquareItems[`column-${this.toMiddleColumn}`][1].value !== null && this.secondSquareItems[`column-${this.toMiddleColumn}`][1].value !== '') {
-								this.disabledUndoResultBtn = true;
-							}
-						} else if (this.activeModalColumn === 'fromMiddle') {
-							// FROM MIDDLE COLUMN
-							if (area === 'first' && this['firstSquareItems'][`column-${this.fromMiddleColumn}`][field - 2] && this[`${area}SquareItems`][`column-${this.fromMiddleColumn}`][field - 2].value !== null && this[`${area}SquareItems`][`column-${this.fromMiddleColumn}`][field - 2].value !== '') {
-								this.disabledUndoResultBtn = true;
-							}
-							if (area === 'first' && field === '6' && this.firstSquareItems[`column-${this.fromMiddleColumn}`][4].value !== null && this.firstSquareItems[`column-${this.fromMiddleColumn}`][4].value !== '') {
-								this.disabledUndoResultBtn = true;
-							}
-	
-							if (area === 'third' && this['thirdSquareItems'][`column-${this.fromMiddleColumn}`][field] && this[`${area}SquareItems`][`column-${this.fromMiddleColumn}`][field].value !== null && this[`${area}SquareItems`][`column-${this.fromMiddleColumn}`][field].value !== '') {
-								this.disabledUndoResultBtn = true;
-							}
-							if (area === 'third' && field === '1' && this.thirdSquareItems[`column-${this.fromMiddleColumn}`][1].value !== null && this.thirdSquareItems[`column-${this.fromMiddleColumn}`][1].value !== '') {
-								this.disabledUndoResultBtn = true;
-							}
-						} else {
-							// OTHER CASES
-							if (this[`${area}SquareItems`][`column-${this.odjava}`][field] && this[`${area}SquareItems`][`column-${this.odjava}`][field].value !== null) {
-								this.disabledUndoResultBtn = true;
-							}
-							if (area === 'first' && field === '6' && this.secondSquareItems[`column-${this.odjava}`][0].value !== null) {
-								this.disabledUndoResultBtn = true;
-							}
+						}
+						if (this.modalMax) {
+							this.$nextTick(() => {
+								this.$refs.maxscroller.scrollTop = 946;
+							});
+						}
+						if (this.modalMin) {
+							this.$nextTick(() => {
+								this.$refs.minscroller.scrollTop = 10;
+							});
 						}
 					}
 				}
 			},
 			firstSquareItems: {
 				handler() {
-					console.log('firstSquareItems');
 					if (this.max) {
 						this.dataForMax.one = null;
 						this.dataForMax.two = null;
@@ -1145,13 +1280,6 @@
 							this.firstSquareItems['column-1'][k].disabled = false;
 						else
 							this.firstSquareItems['column-1'][k].disabled = true;
-
-						// if (k === 5 && (this.firstSquareItems['column-1'][k].value || this.firstSquareItems['column-1'][k].value === 0)) {
-						// 	this.secondSquareItems['column-1'][0].disabled = false;
-						// 	break;
-						// }
-						// else
-						// 	this.secondSquareItems['column-1'][0].disabled = true;
 					}
 
 					if (this.firstSquareItems['column-1'][5].value || this.firstSquareItems['column-1'][5].value === 0)
@@ -1193,7 +1321,6 @@
 			},
 			secondSquareItems: {
 				handler() {
-					console.log('secondSquareItems');
 					if (this.max) {
 						this.dataForMax.max = null;
 						this.dataForMax.min = null;
@@ -1259,7 +1386,6 @@
 			},
 			thirdSquareItems: {
 				handler() {
-					console.log('thirdSquareItems');
 					if (this.max) {
 						this.dataForMax.kenta = null;
 						this.dataForMax.triling = null;

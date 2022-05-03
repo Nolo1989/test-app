@@ -32,6 +32,12 @@ export function globalVue() {
 					else if (row === '6')
 						this.modalSix = true;
 				}
+				else if (area === 'second') {
+					if (row === '1')
+						this.modalMax = true;
+					else if (row === '2')
+						this.modalMin = true;
+				}
 				else if (area === 'third') {
 					if (row === '1')
 						this.modalKenta = true;

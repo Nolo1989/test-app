@@ -553,6 +553,43 @@
 			width: 97%;
 		}
 	}
+	&.smaller-modal {
+		.modal-container {
+			width: 30%;
+			display: block;
+			padding: 0;
+			border: 18px solid #fff;
+		}
+		.modal-body {
+			margin: 10px 0;
+		}
+		.dice-wrap {
+			display: block;
+			max-height: 250px;
+			overflow-y: scroll;
+			margin: 0;
+		}
+		.dice {
+			margin: 0;
+		}
+		.modal-btn.reset {
+			width: 50px;
+			padding: 6px 10px;
+		}
+		.modal-btn.white-btn {
+			border: 0;
+			border-radius: 0;
+			color: black;
+			font-weight: 600;
+		}
+		.divider {
+			width: 25px;
+			height: 2px;
+			background-color: #2196F3;
+			margin: 0 auto;
+		
+		}
+	}
 }
 
 .modal-mask {
