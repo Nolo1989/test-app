@@ -670,6 +670,12 @@
 				this.basicGameThirdSquareSumTotal = thirdSquareSumTotal;
 			});
 		},
+		activated() {
+			this.$bus.$emit('showEyeBtn', true);
+		},
+		deactivated() {
+			this.$bus.$emit('showEyeBtn', false);
+		},
 		methods: {
 			getFirstSquare() {
 				let item1;
@@ -1168,6 +1174,7 @@
 							let id = this.fieldId;
 							let area = id.split('-')[0];
 							let field = id.slice(-1);
+							let column = this.fieldId.slice(-2, -1);
 
 							// TO MIDDLE COLUMN
 							if (this.activeModalColumn === 'toMiddle') {
@@ -1192,6 +1199,13 @@
 								if (area === 'first' && field === '6' && this.firstSquareItems[`column-${this.fromMiddleColumn}`][4].value !== null && this.firstSquareItems[`column-${this.fromMiddleColumn}`][4].value !== '') {
 									this.disabledUndoResultBtn = true;
 								}
+
+								if (area === 'second' && field === '1' && this.firstSquareItems[`column-${this.fromMiddleColumn}`][5].value !== null && this.firstSquareItems[`column-${this.fromMiddleColumn}`][5].value !== '') {
+									this.disabledUndoResultBtn = true;
+								}
+								if (area === 'second' && field === '2' && this.thirdSquareItems[`column-${this.fromMiddleColumn}`][0].value !== null && this.thirdSquareItems[`column-${this.fromMiddleColumn}`][0].value !== '') {
+									this.disabledUndoResultBtn = true;
+								}
 		
 								if (area === 'third' && this['thirdSquareItems'][`column-${this.fromMiddleColumn}`][field] && this[`${area}SquareItems`][`column-${this.fromMiddleColumn}`][field].value !== null && this[`${area}SquareItems`][`column-${this.fromMiddleColumn}`][field].value !== '') {
 									this.disabledUndoResultBtn = true;
@@ -1201,10 +1215,24 @@
 								}
 							} else {
 								// OTHER CASES
-								if (this[`${area}SquareItems`][`column-${this.odjava}`] && this[`${area}SquareItems`][`column-${this.odjava}`][field] && this[`${area}SquareItems`][`column-${this.odjava}`][field].value !== null) {
+								if (this[`${area}SquareItems`][`column-${this.odjava}`] && this[`${area}SquareItems`][`column-${this.odjava}`][field] && this[`${area}SquareItems`][`column-${this.odjava}`][field].value !== null && this[`${area}SquareItems`][`column-${this.odjava}`][field].value !== '') {
 									this.disabledUndoResultBtn = true;
 								}
-								if (area === 'first' && field === '6' && this.secondSquareItems[`column-${this.odjava}`][0].value !== null) {
+								if (area === 'second' && parseFloat(column) === this.odjava) {
+									if (field === '1') {
+										if (this.secondSquareItems[`column-${this.odjava}`][1].value !== null && this.secondSquareItems[`column-${this.odjava}`][1].value !== '')
+											this.disabledUndoResultBtn = true;
+										else
+											this.disabledUndoResultBtn = false;
+									}
+									if (field === '2') {
+										if (this.thirdSquareItems[`column-${this.odjava}`][0].value !== null && this.thirdSquareItems[`column-${this.odjava}`][0].value !== '')
+											this.disabledUndoResultBtn = true;
+										else
+											this.disabledUndoResultBtn = false;
+									}
+								}
+								if (area === 'first' && field === '6' && this.secondSquareItems[`column-${this.odjava}`][0].value !== null && this.secondSquareItems[`column-${this.odjava}`][0].value !== '') {
 									this.disabledUndoResultBtn = true;
 								}
 							}

@@ -314,7 +314,9 @@
 			<button class="btn-continue" @click="goToMyGameData()">Nastavite dalje</button>
 		</template>
 
-		<my-game-yamb v-else :myGameData="myGameData"></my-game-yamb>
+		<KeepAlive v-else>
+			<my-game-yamb :myGameData="myGameData"></my-game-yamb>
+		</KeepAlive>
 	</section>
 </template>
 

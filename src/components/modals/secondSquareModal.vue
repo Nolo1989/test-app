@@ -209,8 +209,8 @@
 								if (this.basicGameSecondSquareData['column-1'][field] && (this.basicGameSecondSquareData['column-1'][field].value !== null && this.basicGameSecondSquareData['column-1'][field].value !== ''))
 									this.undoResultBnt = true;
 		
-								if (field === '6') {
-									if (this.$parent.$parent.secondSquareItems['column-1'][0].value !== null && this.$parent.$parent.secondSquareItems['column-1'][0].value !== '')
+								if (field === '2') {
+									if (this.$parent.$parent.thirdSquareItems['column-1'][0].value !== null && this.$parent.$parent.thirdSquareItems['column-1'][0].value !== '')
 										this.undoResultBnt = true;
 									else
 										this.undoResultBnt = false;
@@ -218,6 +218,13 @@
 							} else if (column === '3') {
 								if (this.basicGameSecondSquareData['column-3'][field - 2] && (this.basicGameSecondSquareData['column-3'][field - 2].value !== null && this.basicGameSecondSquareData['column-3'][field - 2].value !== ''))
 									this.undoResultBnt = true;
+
+								if (field === '1') {
+									if (this.$parent.$parent.firstSquareItems['column-3'][5].value !== null && this.$parent.$parent.firstSquareItems['column-3'][5].value !== '')
+										this.undoResultBnt = true;
+									else
+										this.undoResultBnt = false;
+								}
 							}
 						}
 

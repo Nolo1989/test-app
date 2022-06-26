@@ -14,8 +14,8 @@
 		<div class="second-square">
 			<basic-game-second-square :basicGameSecondSquareData="secondSquareItems" :basicGameFirstSquareData="firstSquareItems" :disabledAllBtns="disabledAllBtns"></basic-game-second-square>
 			<single-column-second-square :column="5" :firstSquareOneVal="firstSquareItems['column-5'][0]" :secondSquareDataFive="secondSquareItems['column-5']" :disabledAllBtns="disabledAllBtns"></single-column-second-square>
-			<single-column-second-square :column="6" :firstSquareOneVal="firstSquareItems['column-6'][0]" :secondSquareDataSix="secondSquareItems['column-6']" :disabledAllBtns="disabledAllBtns"></single-column-second-square>
-			<single-column-second-square :column="7" :firstSquareOneVal="firstSquareItems['column-7'][0]" :secondSquareDataSeven="secondSquareItems['column-7']" :disabledAllBtns="disabledAllBtns"></single-column-second-square>
+			<single-column-second-square :column="6" :toMiddle="true" :firstSquareOneVal="firstSquareItems['column-6'][0]" :secondSquareDataSix="secondSquareItems['column-6']" :disabledAllBtns="disabledAllBtns"></single-column-second-square>
+			<single-column-second-square :column="7" :fromMiddle="true" :firstSquareOneVal="firstSquareItems['column-7'][0]" :secondSquareDataSeven="secondSquareItems['column-7']" :disabledAllBtns="disabledAllBtns"></single-column-second-square>
 			<div class="column-8">
 				<div class="field large"></div>
 				<div class="field blue">{{ secondSquareSumTotal }}</div>
@@ -927,6 +927,13 @@
 									this.disabledUndoResultBtn = true;
 								}
 								if (area === 'first' && field === '6' && this.firstSquareItems['column-7'][4].value !== null && this.firstSquareItems['column-7'][4].value !== '') {
+									this.disabledUndoResultBtn = true;
+								}
+
+								if (area === 'second' && field === '1' && this.firstSquareItems['column-7'][5].value !== null && this.firstSquareItems['column-7'][5].value !== '') {
+									this.disabledUndoResultBtn = true;
+								}
+								if (area === 'second' && field === '2' && this.thirdSquareItems['column-7'][0].value !== null && this.thirdSquareItems['column-7'][0].value !== '') {
 									this.disabledUndoResultBtn = true;
 								}
 		

@@ -18,8 +18,8 @@
 			<basic-game-second-square :basicGameSecondSquareData="secondSquareItems" :basicGameFirstSquareData="firstSquareItems" :disabledAllBtns="disabledAllBtns" :game="'large-game'"></basic-game-second-square>
 			<single-column-second-square :column="5" :firstSquareOneVal="firstSquareItems['column-5'][0]" :secondSquareDataFive="secondSquareItems['column-5']" :disabledAllBtns="disabledAllBtns" :smallFont="true"></single-column-second-square>
 			<single-column-second-square :column="6" :firstSquareOneVal="firstSquareItems['column-6'][0]" :secondSquareDataSix="secondSquareItems['column-6']" :disabledAllBtns="disabledAllBtns" :smallFont="true"></single-column-second-square>
-			<single-column-second-square :column="7" :firstSquareOneVal="firstSquareItems['column-7'][0]" :secondSquareDataSeven="secondSquareItems['column-7']" :disabledAllBtns="disabledAllBtns" :smallFont="true"></single-column-second-square>
-			<single-column-second-square :column="8" :firstSquareOneVal="firstSquareItems['column-8'][0]" :secondSquareDataEight="secondSquareItems['column-8']" :disabledAllBtns="disabledAllBtns" :smallFont="true"></single-column-second-square>
+			<single-column-second-square :column="7" :toMiddle="true"  :firstSquareOneVal="firstSquareItems['column-7'][0]" :secondSquareDataSeven="secondSquareItems['column-7']" :disabledAllBtns="disabledAllBtns" :smallFont="true"></single-column-second-square>
+			<single-column-second-square :column="8" :fromMiddle="true" :firstSquareOneVal="firstSquareItems['column-8'][0]" :secondSquareDataEight="secondSquareItems['column-8']" :disabledAllBtns="disabledAllBtns" :smallFont="true"></single-column-second-square>
 			<single-column-second-square :column="9" :firstSquareOneVal="firstSquareItems['column-9'][0]" :secondSquareDataNine="secondSquareItems['column-9']" :disabledAllBtns="disabledAllBtns" :smallFont="true"></single-column-second-square>
 			<single-column-second-square :column="10" :nameOfColumn="'M'" :firstSquareOneVal="firstSquareItems['column-10'][0]" :secondSquareDataTen="secondSquareItems['column-10']" :disabledAllBtns="disabledAllBtns" :smallFont="true" :dataForMax="dataForMax" :secondSquareForMaxSum="secondSquareForMaxSum"></single-column-second-square>
 			<div class="column-11">
@@ -1036,6 +1036,7 @@
 							let id = this.fieldId;
 							let area = id.split('-')[0];
 							let field = id.slice(-1);
+							let column = this.fieldId.slice(-2, -1);
 
 							// TO MIDDLE COLUMN
 							if (this.activeModalColumn === 'toMiddle') {
@@ -1060,6 +1061,13 @@
 								if (area === 'first' && field === '6' && this.firstSquareItems['column-8'][4].value !== null && this.firstSquareItems['column-8'][4].value !== '') {
 									this.disabledUndoResultBtn = true;
 								}
+
+								if (area === 'second' && field === '1' && this.firstSquareItems['column-8'][5].value !== null && this.firstSquareItems['column-8'][5].value !== '') {
+									this.disabledUndoResultBtn = true;
+								}
+								if (area === 'second' && field === '2' && this.thirdSquareItems['column-8'][0].value !== null && this.thirdSquareItems['column-8'][0].value !== '') {
+									this.disabledUndoResultBtn = true;
+								}
 		
 								if (area === 'third' && this['thirdSquareItems']['column-8'][field] && this[`${area}SquareItems`]['column-8'][field].value !== null && this[`${area}SquareItems`]['column-8'][field].value !== '') {
 									this.disabledUndoResultBtn = true;
@@ -1072,7 +1080,12 @@
 								if (this[`${area}SquareItems`]['column-9'][field] && this[`${area}SquareItems`]['column-9'][field].value !== null && this[`${area}SquareItems`]['column-9'][field].value !== '') {
 									this.disabledUndoResultBtn = true;
 								}
-
+								if (area === 'second' && column === '9' && field === '2') {
+									if (this.thirdSquareItems['column-9'][0].value !== null && this.thirdSquareItems['column-9'][0].value !== '')
+										this.disabledUndoResultBtn = true;
+									else
+										this.disabledUndoResultBtn = false;
+								}
 								if (area === 'first' && field === '6' && this.secondSquareItems['column-9'][0].value !== null && this.secondSquareItems['column-9'][0].value !== '') {
 									this.disabledUndoResultBtn = true;
 								}
