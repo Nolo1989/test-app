@@ -646,7 +646,8 @@
 					yamb: null,
 				},
 				disabledUndoResultBtn: false,
-				activeModalColumn: ''
+				activeModalColumn: '',
+				counter: 0,
 			}
 		},
 		mounted() {
@@ -1048,12 +1049,36 @@
 				const col = fieldId.split('-')[1].length > 2 ? fieldId.split('-')[1].substring(0, 2) : fieldId.split('-')[1][0];
 				const row = fieldId.split('-')[1].length > 2 ? fieldId.split('-')[1][2] : fieldId.split('-')[1][1];
 
-				if (area === 'first')
+				if (area === 'first') {
+					const oldVal = this.firstSquareItems[`column-${col}`][`${row - 1}`].value;
+					
+					if (val !== '' && (oldVal === null || oldVal === ''))
+						this.counter++;
+					else if (val === '' && oldVal !== null && oldVal !== '')
+						this.counter--;
+
 					this.firstSquareItems[`column-${col}`][`${row - 1}`].value = val;
-				else if (area === 'second')
+				}
+				else if (area === 'second') {
+					const oldVal = this.secondSquareItems[`column-${col}`][`${row - 1}`].value;
+					
+					if (val !== '' && (oldVal === null || oldVal === ''))
+						this.counter++;
+					else if (val === '' && oldVal !== null && oldVal !== '')
+						this.counter--;
+
 					this.secondSquareItems[`column-${col}`][`${row - 1}`].value = val;
-				else if (area === 'third')
+				}
+				else if (area === 'third') {
+					const oldVal = this.thirdSquareItems[`column-${col}`][`${row - 1}`].value;
+					
+					if (val !== '' && (oldVal === null || oldVal === ''))
+						this.counter++;
+					else if (val === '' && oldVal !== null && oldVal !== '')
+						this.counter--;
+
 					this.thirdSquareItems[`column-${col}`][`${row - 1}`].value = val;
+				}
 
 				this.showModal = false;
 				this.disabledNumber = 0;
@@ -1110,7 +1135,10 @@
 				return total;
 			},
 			secondSquareForMaxSum() {
-				return (this.dataForMax.max - this.dataForMax.min) * this.dataForMax.one;
+				if (this.dataForMax.max && this.dataForMax.min && (this.dataForMax.one !== null || this.dataForMax.one !== ''))
+					return (this.dataForMax.max - this.dataForMax.min) * this.dataForMax.one;
+				
+				return 0;
 			},
 			thirdSquareForMaxSum() {
 				return this.dataForMax.kenta + this.dataForMax.triling + this.dataForMax.ful + this.dataForMax.poker + this.dataForMax.yamb;
@@ -1144,6 +1172,9 @@
 			},
 			totalNumberOfCols() {
 				return 4 + this.myGameData.length;
+			},
+			totalResult() {
+				return this.firstSquareSumTotal + this.secondSquareSumTotal + this.thirdSquareSumTotal;
 			},
 		},
 		watch: {
@@ -1500,6 +1531,33 @@
 				},
 				deep: true
 			},
+			counter: {
+				handler() {
+					let maxNumberOfFields = 0;
+
+					if (this.totalNumberOfCols === 4)
+						maxNumberOfFields = 52;
+					else if (this.totalNumberOfCols === 5)
+						this.max ? maxNumberOfFields = 52 : maxNumberOfFields = 65;
+					else if (this.totalNumberOfCols === 6)
+						this.max ? maxNumberOfFields = 65 : maxNumberOfFields = 78;
+					else if (this.totalNumberOfCols === 7)
+						this.max ? maxNumberOfFields = 78 : maxNumberOfFields = 91;
+					else if (this.totalNumberOfCols === 8)
+						this.max ? maxNumberOfFields = 91 : maxNumberOfFields = 104;
+					else if (this.totalNumberOfCols === 9)
+						this.max ? maxNumberOfFields = 104 : maxNumberOfFields = 117;
+					else if (this.totalNumberOfCols === 10)
+						this.max ? maxNumberOfFields = 117 : maxNumberOfFields = 130;
+
+					if (this.counter === maxNumberOfFields) {
+						this.$nextTick(() => {
+							this.$bus.$emit('showTotalResult', this.totalResult);
+						});
+					}
+				},
+				deep: true
+			}
 		},
 		components: {
 			BasicGameFirstSquare,

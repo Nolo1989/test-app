@@ -66,7 +66,8 @@
 				basicGameFirstSquareSumTotal: 0,
 				basicGameSecondSquareSumTotal: 0,
 				basicGameThirdSquareSumTotal: 0,
-				activeModalColumn: ''
+				activeModalColumn: '',
+				counter: 0,
 			}
 		},
 		mounted() {
@@ -293,6 +294,21 @@
 				},
 				deep: true
 			},
+			counter: {
+				handler() {
+					if (this.counter === 52) {
+						this.$nextTick(() => {
+							this.$bus.$emit('showTotalResult', this.totalResult);
+						});
+					}
+				},
+				deep: true
+			}
+		},
+		computed: {
+			totalResult() {
+				return this.basicGameFirstSquareSumTotal + this.basicGameSecondSquareSumTotal + this.basicGameThirdSquareSumTotal;
+			}
 		},
 		components: {
 			BasicGameFirstSquare,

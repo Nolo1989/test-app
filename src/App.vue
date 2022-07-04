@@ -6,14 +6,23 @@
       dark
       class="header"
     >
-    <modal :show="showModal" @closeModal="showModal = false" class="confirmation-modal">
+    <modal :show="showModal" @closeModal="[showModal = false, showTotalResult = false]" class="confirmation-modal" :class="{'show-animation': showTotalResult}">
       <div slot="header" class="modal-title-wrapper">
-        <p class="modal-title" v-if="$route.name === 'Dashboard'">Da li želite da napustite igru?</p>
-        <p class="modal-title" v-else>Da li želite da prekinete partiju?</p>
+        <p class="modal-title" v-if="showTotalResult">
+          <span>Partija je završena!</span>
+          <span class="blocked-elem">Vaš rezultat je:</span>
+        </p>
+        <template v-else>
+          <p class="modal-title" v-if="$route.name === 'Dashboard'">Da li želite da napustite igru?</p>
+          <p class="modal-title" v-else>Da li želite da prekinete partiju?</p>
+        </template>
       </div>
       <div slot="body">
-        <button class="modal-btn" @click="showModal = false">NE</button>
-        <button class="modal-btn blue" @click="$route.name === 'Dashboard' ? exitApp() : goToDashboard()">DA</button>
+        <div class="modal-result total-field active" v-if="showTotalResult">{{ totalResult }}</div>
+        <template v-else>
+          <button class="modal-btn" @click="showModal = false">NE</button>
+          <button class="modal-btn blue" @click="$route.name === 'Dashboard' ? exitApp() : goToDashboard()">DA</button>
+        </template>
       </div>
     </modal>
     <div class="back-btn-wrap" @click="openModal()">
@@ -51,7 +60,9 @@ export default {
   data: () => ({
     showModal: false,
     enableEdit: false,
-    showEye: false
+    showEye: false,
+    showTotalResult: false,
+    totalResult: 0
   }),
   mounted() {
     this.$bus.$on('openModal', () => {
@@ -62,6 +73,11 @@ export default {
     });
     this.$bus.$on('showEyeBtn', show => {
       this.showEye = show; 
+    });
+    this.$bus.$on('showTotalResult', res => {
+      this.totalResult = res;
+      this.showTotalResult = true;
+      this.openModal();
     });
 
     App.addListener('backButton', () => {

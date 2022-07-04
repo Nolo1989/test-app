@@ -184,8 +184,16 @@
 				const col = fieldId.split('-')[1][0];
 				const row = fieldId.split('-')[1][1];
 
-				if (area === 'second')
+				if (area === 'second') {
+					const oldVal = this.basicGameSecondSquareData[`column-${col}`][`${row - 1}`].value;
+					
+					if (val !== '' && (oldVal === null || oldVal === ''))
+						this.$parent.$parent.counter++;
+					else if (val === '' && oldVal !== null && oldVal !== '')
+						this.$parent.$parent.counter--;
+
 					this.basicGameSecondSquareData[`column-${col}`][`${row - 1}`].value = val;
+				}
 
 				this.$parent.showModal = false;
 				this.$parent.$parent.disabledAllBtns = true;

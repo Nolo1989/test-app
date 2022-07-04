@@ -342,7 +342,7 @@
 				mOrder: null,
 				numOfGames: 5,
 				myGameData: [],
-				showMyGame: false
+				showMyGame: false,
 			};
 		},
 		methods: {

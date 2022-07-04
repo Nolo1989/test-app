@@ -289,8 +289,16 @@
 				const col = fieldId.split('-')[1].length > 2 ? fieldId.split('-')[1].substring(0, 2) : fieldId.split('-')[1][0];
 				const row = fieldId.split('-')[1].length > 2 ? fieldId.split('-')[1][2] : fieldId.split('-')[1][1];
 
-				if (area === 'third')
+				if (area === 'third') {
+					const oldVal = this.basicGameThirdSquareData[`column-${col}`][`${row - 1}`].value;
+					
+					if (val !== '' && (oldVal === null || oldVal === ''))
+						this.$parent.$parent.counter++;
+					else if (val === '' && oldVal !== null && oldVal !== '')
+						this.$parent.$parent.counter--;
+
 					this.basicGameThirdSquareData[`column-${col}`][`${row - 1}`].value = val;
+				}
 
 				this.$parent.showModal = false;
 				// this.disabledNumber = 0;

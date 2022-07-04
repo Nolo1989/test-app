@@ -612,7 +612,8 @@
 					yamb: null,
 				},
 				disabledUndoResultBtn: false,
-				activeModalColumn: ''
+				activeModalColumn: '',
+				counter: 0,
 			}
 		},
 		mounted() {
@@ -984,7 +985,10 @@
 				return total;
 			},
 			secondSquareForMaxSum() {
-				return (this.dataForMax.max - this.dataForMax.min) * this.dataForMax.one;
+				if (this.dataForMax.max && this.dataForMax.min && (this.dataForMax.one !== null || this.dataForMax.one !== ''))
+					return (this.dataForMax.max - this.dataForMax.min) * this.dataForMax.one;
+				
+				return 0;
 			},
 			thirdSquareForMaxSum() {
 				return this.dataForMax.kenta + this.dataForMax.triling + this.dataForMax.ful + this.dataForMax.poker + this.dataForMax.yamb;
@@ -997,6 +1001,9 @@
 			},
 			thirdSquareSumTotal() {
 				return this.basicGameThirdSquareSumTotal + this.thirdSquareSumColFive + this.thirdSquareSumColSix + this.thirdSquareSumColSeven + this.thirdSquareSumColEight + this.thirdSquareSumColNine + this.thirdSquareForMaxSum;
+			},
+			totalResult() {
+				return this.firstSquareSumTotal + this.secondSquareSumTotal + this.thirdSquareSumTotal;
 			},
 		},
 		components: {
@@ -1342,6 +1349,16 @@
 				},
 				deep: true
 			},
+			counter: {
+				handler() {
+					if (this.counter === 117) {
+						this.$nextTick(() => {
+							this.$bus.$emit('showTotalResult', this.totalResult);
+						});
+					}
+				},
+				deep: true
+			}
 		}
 	}
 </script>

@@ -572,6 +572,7 @@
 				thirdSquareSumColSeven: 0,
 				activeModalColumn: '',
 				disabledUndoResultBtn: false,
+				counter: 0,
 			}
 		},
 		mounted() {
@@ -868,6 +869,9 @@
 			thirdSquareSumTotal() {
 				return this.basicGameThirdSquareSumTotal + this.thirdSquareSumColFive + this.thirdSquareSumColSix + this.thirdSquareSumColSeven;
 			},
+			totalResult() {
+				return this.firstSquareSumTotal + this.secondSquareSumTotal + this.thirdSquareSumTotal;
+			},
 		},
 		components: {
 			modal,
@@ -1095,6 +1099,16 @@
 				},
 				deep: true
 			},
+			counter: {
+				handler() {
+					if (this.counter === 91) {
+						this.$nextTick(() => {
+							this.$bus.$emit('showTotalResult', this.totalResult);
+						});
+					}
+				},
+				deep: true
+			}
 		}
 	}
 </script>
