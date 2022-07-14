@@ -1,7 +1,7 @@
 <template>
 	<section class="my-game" :class="numOfColumns">
 		<div class="first-square">
-			<basic-game-first-square :basicGameFirstSquareData="firstSquareItems" :disabledAllBtns="disabledAllBtns" :game="'large-game'"></basic-game-first-square>
+			<basic-game-first-square :basicGameFirstSquareData="firstSquareItems" :disabledAllBtns="disabledAllBtns" :game="'large-game'" :totalNumberOfCols="totalNumberOfCols"></basic-game-first-square>
 			<template v-if="myGameDataSorted && myGameDataSorted.length">
 				<template v-for="item in myGameDataSorted">
 					<single-column-first-square v-if="item.order === 6" :column="item.order - 1" :nameOfColumn="item.game === 'toMiddle' || item.game === 'fromMiddle' ? null : item.game" :toMiddle="item.game === 'toMiddle' ? true : false" :fromMiddle="item.game === 'fromMiddle' ? true : false" :firstSquareDataFive="firstSquareItems['column-5']" :disabledAllBtns="disabledAllBtns" :smallFont="true" :key="item.order" :dataForMax="dataForMax" :firstSquareForMaxSum="firstSquareForMaxSum"></single-column-first-square>
@@ -1549,6 +1549,9 @@
 						this.max ? maxNumberOfFields = 104 : maxNumberOfFields = 117;
 					else if (this.totalNumberOfCols === 10)
 						this.max ? maxNumberOfFields = 117 : maxNumberOfFields = 130;
+
+					if (this.counter === (maxNumberOfFields - 13))
+						this.$bus.$emit('startOdjava', false);
 
 					if (this.counter === maxNumberOfFields) {
 						this.$nextTick(() => {

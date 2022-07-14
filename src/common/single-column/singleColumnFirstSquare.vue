@@ -35,7 +35,7 @@
 						{{ dataForMax.six }}
 					</template>
 				</div>
-				<div v-else-if="idx !== 6" class="field" @click="$parent.openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled, toMiddle ? 'toMiddle' : fromMiddle ? 'fromMiddle' : '')" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled" :id="item.id" :key="item.id">
+				<div v-else-if="idx !== 6" class="field" @click="$parent.openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled || (startOdjava && nameOfColumn === 'O'), toMiddle ? 'toMiddle' : fromMiddle ? 'fromMiddle' : '')" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled || (startOdjava && nameOfColumn === 'O')" :id="item.id" :key="item.id">
 					<input type="hidden" v-model="item.value" />
 					{{ item.value }}
 				</div>
@@ -62,7 +62,7 @@
 					{{ dataForMax.six }}
 				</template>
 			</div>
-			<div v-else-if="idx !== 6" class="field" @click="$parent.openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled, toMiddle ? 'toMiddle' : fromMiddle ? 'fromMiddle' : '')" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled" :id="item.id" :key="item.id">
+			<div v-else-if="idx !== 6" class="field" @click="$parent.openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled || (startOdjava && nameOfColumn === 'O'), toMiddle ? 'toMiddle' : fromMiddle ? 'fromMiddle' : '')" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled || (startOdjava && nameOfColumn === 'O')" :id="item.id" :key="item.id">
 				<input type="hidden" v-model="item.value" />
 				{{ item.value }}
 			</div>
@@ -88,7 +88,7 @@
 					{{ dataForMax.six }}
 				</template>
 			</div>
-			<div v-else-if="idx !== 6" class="field" @click="$parent.openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled, toMiddle ? 'toMiddle' : fromMiddle ? 'fromMiddle' : '')" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled" :id="item.id" :key="item.id">
+			<div v-else-if="idx !== 6" class="field" @click="$parent.openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled || (startOdjava && nameOfColumn === 'O'), toMiddle ? 'toMiddle' : fromMiddle ? 'fromMiddle' : '')" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled || (startOdjava && nameOfColumn === 'O')" :id="item.id" :key="item.id">
 				<input type="hidden" v-model="item.value" />
 				{{ item.value }}
 			</div>
@@ -114,7 +114,7 @@
 					{{ dataForMax.six }}
 				</template>
 			</div>
-			<div v-else-if="idx !== 6" class="field" @click="$parent.openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled, toMiddle ? 'toMiddle' : fromMiddle ? 'fromMiddle' : '')" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled" :id="item.id" :key="item.id">
+			<div v-else-if="idx !== 6" class="field" @click="$parent.openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled || (startOdjava && nameOfColumn === 'O'), toMiddle ? 'toMiddle' : fromMiddle ? 'fromMiddle' : '')" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled || (startOdjava && nameOfColumn === 'O')" :id="item.id" :key="item.id">
 				<input type="hidden" v-model="item.value" />
 				{{ item.value }}
 			</div>
@@ -140,7 +140,7 @@
 					{{ dataForMax.six }}
 				</template>
 			</div>
-			<div v-else-if="idx !== 6" class="field" @click="$parent.openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled, toMiddle ? 'toMiddle' : fromMiddle ? 'fromMiddle' : '')" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled" :id="item.id" :key="item.id">
+			<div v-else-if="idx !== 6" class="field" @click="$parent.openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled || (startOdjava && nameOfColumn === 'O'), toMiddle ? 'toMiddle' : fromMiddle ? 'fromMiddle' : '')" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled || (startOdjava && nameOfColumn === 'O')" :id="item.id" :key="item.id">
 				<input type="hidden" v-model="item.value" />
 				{{ item.value }}
 			</div>
@@ -166,7 +166,7 @@
 					{{ dataForMax.six }}
 				</template>
 			</div>
-			<div v-else-if="idx !== 6" class="field" @click="$parent.openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled, toMiddle ? 'toMiddle' : fromMiddle ? 'fromMiddle' : '')" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled" :id="item.id" :key="item.id">
+			<div v-else-if="idx !== 6" class="field" @click="$parent.openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled || (startOdjava && nameOfColumn === 'O'), toMiddle ? 'toMiddle' : fromMiddle ? 'fromMiddle' : '')" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled || (startOdjava && nameOfColumn === 'O')" :id="item.id" :key="item.id">
 				<input type="hidden" v-model="item.value" />
 				{{ item.value }}
 			</div>
@@ -176,6 +176,10 @@
 				{{ firstSquareForMaxSum }}
 			</template>
 			<template v-else>
+				<div class="hit-bonus" v-if="showBonusColFive">{{ hitTheBonusFive }}</div>
+				<div class="hit-bonus" ref="plusThirtyColFive" v-show="plus30ColFive">+30</div>
+				<div class="hit-bonus" ref="plusFourtyColFive" v-show="plus40ColFive">+40</div>
+				<div class="hit-bonus" ref="plusFiftyColFive" v-show="plus50ColFive">+50</div>
 				{{ firstSquareSumColumnFive }}
 			</template>
 		</div>
@@ -184,6 +188,10 @@
 				{{ firstSquareForMaxSum }}
 			</template>
 			<template v-else>
+				<div class="hit-bonus" v-if="showBonusColSix">{{ hitTheBonusSix }}</div>
+				<div class="hit-bonus" ref="plusThirtyColSix" v-show="plus30ColSix">+30</div>
+				<div class="hit-bonus" ref="plusFourtyColSix" v-show="plus40ColSix">+40</div>
+				<div class="hit-bonus" ref="plusFiftyColSix" v-show="plus50ColSix">+50</div>
 				{{ firstSquareSumColumnSix }}
 			</template>
 		</div>
@@ -192,6 +200,10 @@
 				{{ firstSquareForMaxSum }}
 			</template>
 			<template v-else>
+				<div class="hit-bonus" v-if="showBonusColSeven">{{ hitTheBonusSeven }}</div>
+				<div class="hit-bonus" ref="plusThirtyColSeven" v-show="plus30ColSeven">+30</div>
+				<div class="hit-bonus" ref="plusFourtyColSeven" v-show="plus40ColSeven">+40</div>
+				<div class="hit-bonus" ref="plusFiftyColSeven" v-show="plus50ColSeven">+50</div>
 				{{ firstSquareSumColumnSeven }}
 			</template>
 		</div>
@@ -200,6 +212,10 @@
 				{{ firstSquareForMaxSum }}
 			</template>
 			<template v-else>
+				<div class="hit-bonus" v-if="showBonusColEight">{{ hitTheBonusEight }}</div>
+				<div class="hit-bonus" ref="plusThirtyColEight" v-show="plus30ColEight">+30</div>
+				<div class="hit-bonus" ref="plusFourtyColEight" v-show="plus40ColEight">+40</div>
+				<div class="hit-bonus" ref="plusFiftyColEight" v-show="plus50ColEight">+50</div>
 				{{ firstSquareSumColumnEight }}
 			</template>
 		</div>
@@ -208,6 +224,10 @@
 				{{ firstSquareForMaxSum }}
 			</template>
 			<template v-else>
+				<div class="hit-bonus" v-if="showBonusColNine">{{ hitTheBonusNine }}</div>
+				<div class="hit-bonus" ref="plusThirtyColNine" v-show="plus30ColNine">+30</div>
+				<div class="hit-bonus" ref="plusFourtyColNine" v-show="plus40ColNine">+40</div>
+				<div class="hit-bonus" ref="plusFiftyColNine" v-show="plus50ColNine">+50</div>
 				{{ firstSquareSumColumnNine }}
 			</template>
 		</div>
@@ -216,6 +236,10 @@
 				{{ firstSquareForMaxSum }}
 			</template>
 			<template v-else>
+				<div class="hit-bonus" v-if="showBonusColTen">{{ hitTheBonusTen }}</div>
+				<div class="hit-bonus" ref="plusThirtyColTen" v-show="plus30ColTen">+30</div>
+				<div class="hit-bonus" ref="plusFourtyColTen" v-show="plus40ColTen">+40</div>
+				<div class="hit-bonus" ref="plusFiftyColTen" v-show="plus50ColTen">+50</div>
 				{{ firstSquareSumColumnTen }}
 			</template>
 		</div>
@@ -283,7 +307,41 @@
 				type: Number,
 				require: false,
 				default: 0
-			}
+			},
+		},
+		data() {
+			return {
+				showBonusColFive: false,
+				plus30ColFive: false,
+				plus40ColFive: false,
+				plus50ColFive: false,
+				showBonusColSix: false,
+				plus30ColSix: false,
+				plus40ColSix: false,
+				plus50ColSix: false,
+				showBonusColSeven: false,
+				plus30ColSeven: false,
+				plus40ColSeven: false,
+				plus50ColSeven: false,
+				showBonusColEight: false,
+				plus30ColEight: false,
+				plus40ColEight: false,
+				plus50ColEight: false,
+				showBonusColNine: false,
+				plus30ColNine: false,
+				plus40ColNine: false,
+				plus50ColNine: false,
+				showBonusColTen: false,
+				plus30ColTen: false,
+				plus40ColTen: false,
+				plus50ColTen: false,
+				startOdjava: true
+			};
+		},
+		mounted() {
+			this.$bus.$on('startOdjava', (bool) => {
+				this.startOdjava = bool;
+			});
 		},
 		computed: {
 			numOfColumn() {
@@ -411,36 +469,462 @@
 
 				return sum;
 			},
+			hitTheBonusFive() {
+				if (this.showBonusColFive && this.firstSquareSumColumnFive < 60)
+					return -60 + this.firstSquareSumColumnFive;
+			
+				return 0;
+			},
+			hitTheBonusSix() {
+				if (this.showBonusColSix && this.firstSquareSumColumnSix < 60)
+					return -60 + this.firstSquareSumColumnSix;
+			
+				return 0;
+			},
+			hitTheBonusSeven() {
+				if (this.showBonusColSeven && this.firstSquareSumColumnSeven < 60)
+					return -60 + this.firstSquareSumColumnSeven;
+			
+				return 0;
+			},
+			hitTheBonusEight() {
+				if (this.showBonusColEight && this.firstSquareSumColumnEight < 60)
+					return -60 + this.firstSquareSumColumnEight;
+			
+				return 0;
+			},
+			hitTheBonusNine() {
+				if (this.showBonusColNine && this.firstSquareSumColumnNine < 60)
+					return -60 + this.firstSquareSumColumnNine;
+			
+				return 0;
+			},
+			hitTheBonusTen() {
+				if (this.showBonusColTen && this.firstSquareSumColumnTen < 60)
+					return -60 + this.firstSquareSumColumnTen;
+			
+				return 0;
+			},
 		},
 		watch: {
 			firstSquareSumColumnFive: {
 				handler() {
 					this.$parent.firstSquareSumColFive = this.firstSquareSumColumnFive;
+
+					const isFilled = (element) => element.value !== null && element.value !== '';
+					const arrForCheckBonus = [];
+					const diff = -60 + this.firstSquareSumColumnFive;
+
+					for (let i = 0; i < 6; i++) {
+						arrForCheckBonus.push(this.firstSquareDataFive[i]);
+					}
+
+					this.showBonusColFive = false;
+
+					if (diff >= 0) {
+						if (diff < 50) {
+							this.plus30ColFive = true;
+
+							this.$refs.plusThirtyColFive.classList.remove('hide');
+							this.$refs.plusFourtyColFive.classList.add('hide');
+							this.$refs.plusFiftyColFive.classList.add('hide');
+							setTimeout(() => {
+								this.$refs.plusThirtyColFive.classList.add('animation');
+								this.$refs.plusFourtyColFive.classList.remove('animation');
+								this.$refs.plusFiftyColFive.classList.remove('animation');
+							}, 0);
+						}
+						else if (diff < 70) {
+							this.plus30ColFive = false;
+							this.plus40ColFive = true;
+
+							this.$refs.plusFourtyColFive.classList.remove('hide');
+							this.$refs.plusThirtyColFive.classList.add('hide');
+							this.$refs.plusFiftyColFive.classList.add('hide');
+							setTimeout(() => {
+								this.$refs.plusFourtyColFive.classList.add('animation');
+								this.$refs.plusThirtyColFive.classList.remove('animation');
+								this.$refs.plusFiftyColFive.classList.remove('animation');
+							}, 0);
+						}
+						else {
+							this.plus30ColFive = false;
+							this.plus40ColFive = false;
+							this.plus50ColFive = true;
+
+							this.$refs.plusFiftyColFive.classList.remove('hide');
+							this.$refs.plusThirtyColFive.classList.add('hide');
+							this.$refs.plusFourtyColFive.classList.add('hide');
+							setTimeout(() => {
+								this.$refs.plusFiftyColFive.classList.add('animation');
+								this.$refs.plusThirtyColFive.classList.remove('animation');
+								this.$refs.plusFourtyColFive.classList.remove('animation');
+							}, 0);
+						}
+					}
+					else if (arrForCheckBonus.some(isFilled)) {
+						this.showBonusColFive = true;
+
+						if (arrForCheckBonus.every(isFilled))
+							this.showBonusColFive = false;
+
+						this.$refs.plusThirtyColFive.classList.remove('animation');
+						this.$refs.plusFourtyColFive.classList.remove('animation');
+						this.$refs.plusFiftyColFive.classList.remove('animation');
+						this.$refs.plusThirtyColFive.classList.add('hide');
+						this.$refs.plusFourtyColFive.classList.add('hide');
+						this.$refs.plusFiftyColFive.classList.add('hide');
+					}
 				}
 			},
 			firstSquareSumColumnSix: {
 				handler() {
 					this.$parent.firstSquareSumColSix = this.firstSquareSumColumnSix;
+
+					const isFilled = (element) => element.value !== null && element.value !== '';
+					const arrForCheckBonus = [];
+					const diff = -60 + this.firstSquareSumColumnSix;
+
+					for (let i = 0; i < 6; i++) {
+						arrForCheckBonus.push(this.firstSquareDataSix[i]);
+					}
+
+					this.showBonusColSix = false;
+
+					if (diff >= 0) {
+						if (diff < 50) {
+							this.plus30ColSix = true;
+
+							this.$refs.plusThirtyColSix.classList.remove('hide');
+							this.$refs.plusFourtyColSix.classList.add('hide');
+							this.$refs.plusFiftyColSix.classList.add('hide');
+							setTimeout(() => {
+								this.$refs.plusThirtyColSix.classList.add('animation');
+								this.$refs.plusFourtyColSix.classList.remove('animation');
+								this.$refs.plusFiftyColSix.classList.remove('animation');
+							}, 0);
+						}
+						else if (diff < 70) {
+							this.plus30ColSix = false;
+							this.plus40ColSix = true;
+
+							this.$refs.plusFourtyColSix.classList.remove('hide');
+							this.$refs.plusThirtyColSix.classList.add('hide');
+							this.$refs.plusFiftyColSix.classList.add('hide');
+							setTimeout(() => {
+								this.$refs.plusFourtyColSix.classList.add('animation');
+								this.$refs.plusThirtyColSix.classList.remove('animation');
+								this.$refs.plusFiftyColSix.classList.remove('animation');
+							}, 0);
+						}
+						else {
+							this.plus30ColSix = false;
+							this.plus40ColSix = false;
+							this.plus50ColSix = true;
+
+							this.$refs.plusFiftyColSix.classList.remove('hide');
+							this.$refs.plusThirtyColSix.classList.add('hide');
+							this.$refs.plusFourtyColSix.classList.add('hide');
+							setTimeout(() => {
+								this.$refs.plusFiftyColSix.classList.add('animation');
+								this.$refs.plusThirtyColSix.classList.remove('animation');
+								this.$refs.plusFourtyColSix.classList.remove('animation');
+							}, 0);
+						}
+					}
+					else if (arrForCheckBonus.some(isFilled)) {
+						this.showBonusColSix = true;
+
+						if (arrForCheckBonus.every(isFilled))
+							this.showBonusColSix = false;
+
+						this.$refs.plusThirtyColSix.classList.remove('animation');
+						this.$refs.plusFourtyColSix.classList.remove('animation');
+						this.$refs.plusFiftyColSix.classList.remove('animation');
+						this.$refs.plusThirtyColSix.classList.add('hide');
+						this.$refs.plusFourtyColSix.classList.add('hide');
+						this.$refs.plusFiftyColSix.classList.add('hide');
+					}
 				}
 			},
 			firstSquareSumColumnSeven: {
 				handler() {
 					this.$parent.firstSquareSumColSeven = this.firstSquareSumColumnSeven;
+
+					const isFilled = (element) => element.value !== null && element.value !== '';
+					const arrForCheckBonus = [];
+					const diff = -60 + this.firstSquareSumColumnSeven;
+
+					for (let i = 0; i < 6; i++) {
+						arrForCheckBonus.push(this.firstSquareDataSeven[i]);
+					}
+
+					this.showBonusColSeven = false;
+
+					if (diff >= 0) {
+						if (diff < 50) {
+							this.plus30ColSeven = true;
+
+							this.$refs.plusThirtyColSeven.classList.remove('hide');
+							this.$refs.plusFourtyColSeven.classList.add('hide');
+							this.$refs.plusFiftyColSeven.classList.add('hide');
+							setTimeout(() => {
+								this.$refs.plusThirtyColSeven.classList.add('animation');
+								this.$refs.plusFourtyColSeven.classList.remove('animation');
+								this.$refs.plusFiftyColSeven.classList.remove('animation');
+							}, 0);
+						}
+						else if (diff < 70) {
+							this.plus30ColSeven = false;
+							this.plus40ColSeven = true;
+
+							this.$refs.plusFourtyColSeven.classList.remove('hide');
+							this.$refs.plusThirtyColSeven.classList.add('hide');
+							this.$refs.plusFiftyColSeven.classList.add('hide');
+							setTimeout(() => {
+								this.$refs.plusFourtyColSeven.classList.add('animation');
+								this.$refs.plusThirtyColSeven.classList.remove('animation');
+								this.$refs.plusFiftyColSeven.classList.remove('animation');
+							}, 0);
+						}
+						else {
+							this.plus30ColSeven = false;
+							this.plus40ColSeven = false;
+							this.plus50ColSeven = true;
+
+							this.$refs.plusFiftyColSeven.classList.remove('hide');
+							this.$refs.plusThirtyColSeven.classList.add('hide');
+							this.$refs.plusFourtyColSeven.classList.add('hide');
+							setTimeout(() => {
+								this.$refs.plusFiftyColSeven.classList.add('animation');
+								this.$refs.plusThirtyColSeven.classList.remove('animation');
+								this.$refs.plusFourtyColSeven.classList.remove('animation');
+							}, 0);
+						}
+					}
+					else if (arrForCheckBonus.some(isFilled)) {
+						this.showBonusColSeven = true;
+
+						if (arrForCheckBonus.every(isFilled))
+							this.showBonusColSeven = false;
+
+						this.$refs.plusThirtyColSeven.classList.remove('animation');
+						this.$refs.plusFourtyColSeven.classList.remove('animation');
+						this.$refs.plusFiftyColSeven.classList.remove('animation');
+						this.$refs.plusThirtyColSeven.classList.add('hide');
+						this.$refs.plusFourtyColSeven.classList.add('hide');
+						this.$refs.plusFiftyColSeven.classList.add('hide');
+					}
 				}
 			},
 			firstSquareSumColumnEight: {
 				handler() {
 					this.$parent.firstSquareSumColEight = this.firstSquareSumColumnEight;
+
+					const isFilled = (element) => element.value !== null && element.value !== '';
+					const arrForCheckBonus = [];
+					const diff = -60 + this.firstSquareSumColumnEight;
+
+					for (let i = 0; i < 6; i++) {
+						arrForCheckBonus.push(this.firstSquareDataEight[i]);
+					}
+
+					this.showBonusColEight = false;
+
+					if (diff >= 0) {
+						if (diff < 50) {
+							this.plus30ColEight = true;
+
+							this.$refs.plusThirtyColEight.classList.remove('hide');
+							this.$refs.plusFourtyColEight.classList.add('hide');
+							this.$refs.plusFiftyColEight.classList.add('hide');
+							setTimeout(() => {
+								this.$refs.plusThirtyColEight.classList.add('animation');
+								this.$refs.plusFourtyColEight.classList.remove('animation');
+								this.$refs.plusFiftyColEight.classList.remove('animation');
+							}, 0);
+						}
+						else if (diff < 70) {
+							this.plus30ColEight = false;
+							this.plus40ColEight = true;
+
+							this.$refs.plusFourtyColEight.classList.remove('hide');
+							this.$refs.plusThirtyColEight.classList.add('hide');
+							this.$refs.plusFiftyColEight.classList.add('hide');
+							setTimeout(() => {
+								this.$refs.plusFourtyColEight.classList.add('animation');
+								this.$refs.plusThirtyColEight.classList.remove('animation');
+								this.$refs.plusFiftyColEight.classList.remove('animation');
+							}, 0);
+						}
+						else {
+							this.plus30ColEight = false;
+							this.plus40ColEight = false;
+							this.plus50ColEight = true;
+
+							this.$refs.plusFiftyColEight.classList.remove('hide');
+							this.$refs.plusThirtyColEight.classList.add('hide');
+							this.$refs.plusFourtyColEight.classList.add('hide');
+							setTimeout(() => {
+								this.$refs.plusFiftyColEight.classList.add('animation');
+								this.$refs.plusThirtyColEight.classList.remove('animation');
+								this.$refs.plusFourtyColEight.classList.remove('animation');
+							}, 0);
+						}
+					}
+					else if (arrForCheckBonus.some(isFilled)) {
+						this.showBonusColEight = true;
+
+						if (arrForCheckBonus.every(isFilled))
+							this.showBonusColEight = false;
+
+						this.$refs.plusThirtyColEight.classList.remove('animation');
+						this.$refs.plusFourtyColEight.classList.remove('animation');
+						this.$refs.plusFiftyColEight.classList.remove('animation');
+						this.$refs.plusThirtyColEight.classList.add('hide');
+						this.$refs.plusFourtyColEight.classList.add('hide');
+						this.$refs.plusFiftyColEight.classList.add('hide');
+					}
 				}
 			},
 			firstSquareSumColumnNine: {
 				handler() {
 					this.$parent.firstSquareSumColNine = this.firstSquareSumColumnNine;
+
+					const isFilled = (element) => element.value !== null && element.value !== '';
+					const arrForCheckBonus = [];
+					const diff = -60 + this.firstSquareSumColumnNine;
+
+					for (let i = 0; i < 6; i++) {
+						arrForCheckBonus.push(this.firstSquareDataNine[i]);
+					}
+
+					this.showBonusColNine = false;
+
+					if (diff >= 0) {
+						if (diff < 50) {
+							this.plus30ColNine = true;
+
+							this.$refs.plusThirtyColNine.classList.remove('hide');
+							this.$refs.plusFourtyColNine.classList.add('hide');
+							this.$refs.plusFiftyColNine.classList.add('hide');
+							setTimeout(() => {
+								this.$refs.plusThirtyColNine.classList.add('animation');
+								this.$refs.plusFourtyColNine.classList.remove('animation');
+								this.$refs.plusFiftyColNine.classList.remove('animation');
+							}, 0);
+						}
+						else if (diff < 70) {
+							this.plus30ColNine = false;
+							this.plus40ColNine = true;
+
+							this.$refs.plusFourtyColNine.classList.remove('hide');
+							this.$refs.plusThirtyColNine.classList.add('hide');
+							this.$refs.plusFiftyColNine.classList.add('hide');
+							setTimeout(() => {
+								this.$refs.plusFourtyColNine.classList.add('animation');
+								this.$refs.plusThirtyColNine.classList.remove('animation');
+								this.$refs.plusFiftyColNine.classList.remove('animation');
+							}, 0);
+						}
+						else {
+							this.plus30ColNine = false;
+							this.plus40ColNine = false;
+							this.plus50ColNine = true;
+
+							this.$refs.plusFiftyColNine.classList.remove('hide');
+							this.$refs.plusThirtyColNine.classList.add('hide');
+							this.$refs.plusFourtyColNine.classList.add('hide');
+							setTimeout(() => {
+								this.$refs.plusFiftyColNine.classList.add('animation');
+								this.$refs.plusThirtyColNine.classList.remove('animation');
+								this.$refs.plusFourtyColNine.classList.remove('animation');
+							}, 0);
+						}
+					}
+					else if (arrForCheckBonus.some(isFilled)) {
+						this.showBonusColNine = true;
+
+						if (arrForCheckBonus.every(isFilled))
+							this.showBonusColNine = false;
+
+						this.$refs.plusThirtyColNine.classList.remove('animation');
+						this.$refs.plusFourtyColNine.classList.remove('animation');
+						this.$refs.plusFiftyColNine.classList.remove('animation');
+						this.$refs.plusThirtyColNine.classList.add('hide');
+						this.$refs.plusFourtyColNine.classList.add('hide');
+						this.$refs.plusFiftyColNine.classList.add('hide');
+					}
 				}
 			},
 			firstSquareSumColumnTen: {
 				handler() {
 					this.$parent.firstSquareSumColTen = this.firstSquareSumColumnTen;
+
+					const isFilled = (element) => element.value !== null && element.value !== '';
+					const arrForCheckBonus = [];
+					const diff = -60 + this.firstSquareSumColumnTen;
+
+					for (let i = 0; i < 6; i++) {
+						arrForCheckBonus.push(this.firstSquareDataTen[i]);
+					}
+
+					this.showBonusColTen = false;
+
+					if (diff >= 0) {
+						if (diff < 50) {
+							this.plus30ColTen = true;
+
+							this.$refs.plusThirtyColTen.classList.remove('hide');
+							this.$refs.plusFourtyColTen.classList.add('hide');
+							this.$refs.plusFiftyColTen.classList.add('hide');
+							setTimeout(() => {
+								this.$refs.plusThirtyColTen.classList.add('animation');
+								this.$refs.plusFourtyColTen.classList.remove('animation');
+								this.$refs.plusFiftyColTen.classList.remove('animation');
+							}, 0);
+						}
+						else if (diff < 70) {
+							this.plus30ColTen = false;
+							this.plus40ColTen = true;
+
+							this.$refs.plusFourtyColTen.classList.remove('hide');
+							this.$refs.plusThirtyColTen.classList.add('hide');
+							this.$refs.plusFiftyColTen.classList.add('hide');
+							setTimeout(() => {
+								this.$refs.plusFourtyColTen.classList.add('animation');
+								this.$refs.plusThirtyColTen.classList.remove('animation');
+								this.$refs.plusFiftyColTen.classList.remove('animation');
+							}, 0);
+						}
+						else {
+							this.plus30ColTen = false;
+							this.plus40ColTen = false;
+							this.plus50ColTen = true;
+
+							this.$refs.plusFiftyColTen.classList.remove('hide');
+							this.$refs.plusThirtyColTen.classList.add('hide');
+							this.$refs.plusFourtyColTen.classList.add('hide');
+							setTimeout(() => {
+								this.$refs.plusFiftyColTen.classList.add('animation');
+								this.$refs.plusThirtyColTen.classList.remove('animation');
+								this.$refs.plusFourtyColTen.classList.remove('animation');
+							}, 0);
+						}
+					}
+					else if (arrForCheckBonus.some(isFilled)) {
+						this.showBonusColTen = true;
+
+						if (arrForCheckBonus.every(isFilled))
+							this.showBonusColTen = false;
+
+						this.$refs.plusThirtyColTen.classList.remove('animation');
+						this.$refs.plusFourtyColTen.classList.remove('animation');
+						this.$refs.plusFiftyColTen.classList.remove('animation');
+						this.$refs.plusThirtyColTen.classList.add('hide');
+						this.$refs.plusFourtyColTen.classList.add('hide');
+						this.$refs.plusFiftyColTen.classList.add('hide');
+					}
 				}
 			},
 		}

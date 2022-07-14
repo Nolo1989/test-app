@@ -96,6 +96,7 @@
 	align-items: center;
 	background-color: #fff;
 	border: 1px solid #000;
+	position: relative;
 	// font-family: cursive;
 	&.blue {
 		background-color: #b6d1ff;
@@ -116,6 +117,54 @@
 		text-align: center;
 		border: none;
 		font-weight: 600;
+	}
+}
+.bonus {
+	position: absolute;
+	top: -50%;
+    transform: translateY(80%);
+	max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 5px;
+    font-size: 10px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+	&.small {
+		top: -44%;
+		font-size: 8px;
+	}
+}
+.hit-bonus {
+	position: absolute;
+    top: 0;
+    left: calc((100% - 20px) / 2);
+	min-width: 15px;
+    display: flex;
+    justify-content: center;
+    font-size: 8px;
+	&.hide {
+		display: none;
+	}
+	&:not(.animation) {
+		top: -7px;
+		left: 50%;
+		width: 20px;
+		padding: 1px 3px;
+		line-height: 1;
+		transform: translateX(-50%);
+		background-color: white;
+		border: 1px solid black;
+		border-radius: 5px;
+	}
+	&.animation {
+		color: white;
+		transform: scale(1.6);
+		opacity: 0;
+		display: block;
+		transition: display 0.1s ease-out, transform 1.5s ease-out, opacity 3s ease-out;
 	}
 }
 .second-square {
@@ -290,8 +339,8 @@
 		}
 	}
 	.total-field {
-		position: absolute;
-		top: -61px;
+		position: fixed;
+		top: -6px;
 		left: calc(50% - 35px);
 		width: 70px;
 		z-index: 5;
@@ -416,8 +465,8 @@
 		}
 	}
 	.total-field {
-		position: absolute;
-		top: -61px;
+		position: fixed;
+		top: -6px;
 		left: calc(50% - 35px);
 		width: 70px;
 		z-index: 5;

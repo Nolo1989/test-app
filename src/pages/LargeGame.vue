@@ -1,7 +1,7 @@
 <template>
 	<section class="large-game">
 		<div class="first-square">
-			<basic-game-first-square :basicGameFirstSquareData="firstSquareItems" :disabledAllBtns="disabledAllBtns" :game="'large-game'"></basic-game-first-square>
+			<basic-game-first-square :basicGameFirstSquareData="firstSquareItems" :disabledAllBtns="disabledAllBtns" :game="'large-game'" :totalNumberOfCols="10"></basic-game-first-square>
 			<single-column-first-square :column="5" :nameOfColumn="'R'" :firstSquareDataFive="firstSquareItems['column-5']" :disabledAllBtns="disabledAllBtns" :smallFont="true"></single-column-first-square>
 			<single-column-first-square :column="6" :nameOfColumn="'D'" :firstSquareDataSix="firstSquareItems['column-6']" :disabledAllBtns="disabledAllBtns" :smallFont="true"></single-column-first-square>
 			<single-column-first-square :column="7" :toMiddle="true" :firstSquareDataSeven="firstSquareItems['column-7']" :disabledAllBtns="disabledAllBtns" :smallFont="true"></single-column-first-square>
@@ -904,12 +904,36 @@
 				const col = fieldId.split('-')[1].length > 2 ? fieldId.split('-')[1].substring(0, 2) : fieldId.split('-')[1][0];
 				const row = fieldId.split('-')[1].length > 2 ? fieldId.split('-')[1][2] : fieldId.split('-')[1][1];
 
-				if (area === 'first')
+				if (area === 'first') {
+					const oldVal = this.firstSquareItems[`column-${col}`][`${row - 1}`].value;
+					
+					if (val !== '' && (oldVal === null || oldVal === ''))
+						this.counter++;
+					else if (val === '' && oldVal !== null && oldVal !== '')
+						this.counter--;
+
 					this.firstSquareItems[`column-${col}`][`${row - 1}`].value = val;
-				else if (area === 'second')
+				}
+				else if (area === 'second') {
+					const oldVal = this.secondSquareItems[`column-${col}`][`${row - 1}`].value;
+					
+					if (val !== '' && (oldVal === null || oldVal === ''))
+						this.counter++;
+					else if (val === '' && oldVal !== null && oldVal !== '')
+						this.counter--;
+
 					this.secondSquareItems[`column-${col}`][`${row - 1}`].value = val;
-				else if (area === 'third')
+				}
+				else if (area === 'third') {
+					const oldVal = this.thirdSquareItems[`column-${col}`][`${row - 1}`].value;
+					
+					if (val !== '' && (oldVal === null || oldVal === ''))
+						this.counter++;
+					else if (val === '' && oldVal !== null && oldVal !== '')
+						this.counter--;
+
 					this.thirdSquareItems[`column-${col}`][`${row - 1}`].value = val;
+				}
 
 				this.showModal = false;
 				this.disabledNumber = 0;
@@ -1351,6 +1375,9 @@
 			},
 			counter: {
 				handler() {
+					if (this.counter === 104)
+						this.$bus.$emit('startOdjava', false);
+
 					if (this.counter === 117) {
 						this.$nextTick(() => {
 							this.$bus.$emit('showTotalResult', this.totalResult);

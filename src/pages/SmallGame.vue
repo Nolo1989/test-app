@@ -1,7 +1,7 @@
 <template>
 	<section>
 		<div class="first-square">
-			<basic-game-first-square :basicGameFirstSquareData="firstSquareItems" :disabledAllBtns="disabledAllBtns"></basic-game-first-square>
+			<basic-game-first-square :basicGameFirstSquareData="firstSquareItems" :disabledAllBtns="disabledAllBtns" :game="'small-game'"></basic-game-first-square>
 			<div class="column-5">
 				<div class="field blue">YAMB</div>
 				<div class="field large"></div>

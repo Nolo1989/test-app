@@ -83,6 +83,8 @@ export default {
     App.addListener('backButton', () => {
       this.openModal();
     });
+
+    console.log('dark', this.appIsDark);
   },
   methods: {
     exitApp() {
