@@ -3,7 +3,6 @@
     <v-app-bar
       app
       color="primary"
-      dark
       class="header"
     >
     <modal :show="showModal" @closeModal="[showModal = false, showTotalResult = false]" class="confirmation-modal" :class="{'show-animation': showTotalResult}">
@@ -31,11 +30,11 @@
     <template v-if="($route.name !== 'Dashboard' && $route.name !== 'MyGame') || ($route.name === 'MyGame' && showEye)">
       <div class="eye-btn-wrap" v-if="!enableEdit" @click="editChanged()">
           <img src="./images/eye-off.svg" alt="Hide" class="icon" />
-          <p class="text show">Prikaži</p>
+          <p class="text show">Izmeni</p>
       </div>
       <div class="eye-btn-wrap" v-else @click="editChanged()">
           <img src="./images/eye-on.svg" alt="Show" class="icon" />
-          <p class="text">Sakrij</p>
+          <p class="text show">Izmeni</p>
       </div>
     </template>
     </v-app-bar>
@@ -83,8 +82,6 @@ export default {
     App.addListener('backButton', () => {
       this.openModal();
     });
-
-    console.log('dark', this.appIsDark);
   },
   methods: {
     exitApp() {

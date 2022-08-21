@@ -910,10 +910,22 @@
 		// font-family: cursive;
 		font-size: 16px;
 	}
+	.selected-column, .choose-game {
+		height: 46px;
+		padding: 10px;
+		margin-left: 3.5px;
+		margin-right: 3.5px;
+		margin-top: 10px;
+		background-color: #eee;
+		border: 1px solid #1976d2;
+		border-radius: 15px;
+		// font-family: cursive;
+	}
 	.selected-columns {
 		display: flex;
 		flex-wrap: wrap;
 		min-height: 112px;
+		margin-left: -3.5px;
 		.close {
 			position: absolute;
 			top: -6px;
@@ -932,22 +944,10 @@
 			background-color: #eee;
 		}
 	}
-	.selected-column, .choose-game {
-		height: 46px;
-		padding: 10px;
-		margin-left: 8px;
-		margin-top: 10px;
-		background-color: #eee;
-		border: 1px solid #1976d2;
-		border-radius: 15px;
-		// font-family: cursive;
-		&:first-child {
-			margin-left: 0;
-		}
-	}
 	.choose-games {
 		display: flex;
 		flex-wrap: wrap;
+		margin-left: -3.5px;
 	}
 	.choose-game {
 		position: relative;

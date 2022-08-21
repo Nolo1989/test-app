@@ -35,7 +35,7 @@
 						{{ dataForMax.six }}
 					</template>
 				</div>
-				<div v-else-if="idx !== 6" class="field" @click="$parent.openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled || (startOdjava && nameOfColumn === 'O'), toMiddle ? 'toMiddle' : fromMiddle ? 'fromMiddle' : '')" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled || (startOdjava && nameOfColumn === 'O')" :id="item.id" :key="item.id">
+				<div v-else-if="idx !== 6" class="field" @click="$parent.openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled || (startOdjava && nameOfColumn === 'O'), toMiddle ? 'toMiddle' : fromMiddle ? 'fromMiddle' : nameOfColumn === 'O' ? 'odjava' : '')" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled || (startOdjava && nameOfColumn === 'O')" :id="item.id" :key="item.id">
 					<input type="hidden" v-model="item.value" />
 					{{ item.value }}
 				</div>
@@ -62,7 +62,7 @@
 					{{ dataForMax.six }}
 				</template>
 			</div>
-			<div v-else-if="idx !== 6" class="field" @click="$parent.openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled || (startOdjava && nameOfColumn === 'O'), toMiddle ? 'toMiddle' : fromMiddle ? 'fromMiddle' : '')" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled || (startOdjava && nameOfColumn === 'O')" :id="item.id" :key="item.id">
+			<div v-else-if="idx !== 6" class="field" @click="$parent.openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled || (startOdjava && nameOfColumn === 'O'), toMiddle ? 'toMiddle' : fromMiddle ? 'fromMiddle' : nameOfColumn === 'O' ? 'odjava' : '')" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled || (startOdjava && nameOfColumn === 'O')" :id="item.id" :key="item.id">
 				<input type="hidden" v-model="item.value" />
 				{{ item.value }}
 			</div>
@@ -88,7 +88,7 @@
 					{{ dataForMax.six }}
 				</template>
 			</div>
-			<div v-else-if="idx !== 6" class="field" @click="$parent.openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled || (startOdjava && nameOfColumn === 'O'), toMiddle ? 'toMiddle' : fromMiddle ? 'fromMiddle' : '')" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled || (startOdjava && nameOfColumn === 'O')" :id="item.id" :key="item.id">
+			<div v-else-if="idx !== 6" class="field" @click="$parent.openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled || (startOdjava && nameOfColumn === 'O'), toMiddle ? 'toMiddle' : fromMiddle ? 'fromMiddle' : nameOfColumn === 'O' ? 'odjava' : '')" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled || (startOdjava && nameOfColumn === 'O')" :id="item.id" :key="item.id">
 				<input type="hidden" v-model="item.value" />
 				{{ item.value }}
 			</div>
@@ -114,7 +114,7 @@
 					{{ dataForMax.six }}
 				</template>
 			</div>
-			<div v-else-if="idx !== 6" class="field" @click="$parent.openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled || (startOdjava && nameOfColumn === 'O'), toMiddle ? 'toMiddle' : fromMiddle ? 'fromMiddle' : '')" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled || (startOdjava && nameOfColumn === 'O')" :id="item.id" :key="item.id">
+			<div v-else-if="idx !== 6" class="field" @click="$parent.openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled || (startOdjava && nameOfColumn === 'O'), toMiddle ? 'toMiddle' : fromMiddle ? 'fromMiddle' : nameOfColumn === 'O' ? 'odjava' : '')" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled || (startOdjava && nameOfColumn === 'O')" :id="item.id" :key="item.id">
 				<input type="hidden" v-model="item.value" />
 				{{ item.value }}
 			</div>
@@ -140,7 +140,7 @@
 					{{ dataForMax.six }}
 				</template>
 			</div>
-			<div v-else-if="idx !== 6" class="field" @click="$parent.openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled || (startOdjava && nameOfColumn === 'O'), toMiddle ? 'toMiddle' : fromMiddle ? 'fromMiddle' : '')" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled || (startOdjava && nameOfColumn === 'O')" :id="item.id" :key="item.id">
+			<div v-else-if="idx !== 6" class="field" @click="$parent.openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled || (startOdjava && nameOfColumn === 'O'), toMiddle ? 'toMiddle' : fromMiddle ? 'fromMiddle' : nameOfColumn === 'O' ? 'odjava' : '')" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled || (startOdjava && nameOfColumn === 'O')" :id="item.id" :key="item.id">
 				<input type="hidden" v-model="item.value" />
 				{{ item.value }}
 			</div>
@@ -166,7 +166,7 @@
 					{{ dataForMax.six }}
 				</template>
 			</div>
-			<div v-else-if="idx !== 6" class="field" @click="$parent.openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled || (startOdjava && nameOfColumn === 'O'), toMiddle ? 'toMiddle' : fromMiddle ? 'fromMiddle' : '')" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled || (startOdjava && nameOfColumn === 'O')" :id="item.id" :key="item.id">
+			<div v-else-if="idx !== 6" class="field" @click="$parent.openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled || (startOdjava && nameOfColumn === 'O'), toMiddle ? 'toMiddle' : fromMiddle ? 'fromMiddle' : nameOfColumn === 'O' ? 'odjava' : '')" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns || item.disabled || (startOdjava && nameOfColumn === 'O')" :id="item.id" :key="item.id">
 				<input type="hidden" v-model="item.value" />
 				{{ item.value }}
 			</div>

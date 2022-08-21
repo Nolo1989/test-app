@@ -159,7 +159,8 @@
 				modalFive: false,
 				modalSix: false,
 				fieldId: '',
-				undoResultBnt: false
+				undoResultBnt: false,
+				odjavaStarted: false,
 			}
 		},
 		mounted() {
@@ -182,6 +183,9 @@
 					else if (row === '6')
 						this.modalSix = true;
 				}
+			});
+			this.$bus.$on('startOdjava', (bool) => {
+				this.odjavaStarted = !bool;
 			});
 		},
 		methods: {
@@ -218,6 +222,8 @@
 						this.modalSix = false;
 						this.undoResultBnt = false;
 						this.$parent.activeModalColumn = '';
+					} else if (this.showModal && this.odjavaStarted) {
+						this.undoResultBnt = true;
 					} else if (this.showModal && !this.disabledAllBtns) {
 						let field = this.fieldId.slice(-1);
 						let column = this.fieldId.slice(-2, -1);

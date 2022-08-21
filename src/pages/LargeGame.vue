@@ -614,6 +614,7 @@
 				disabledUndoResultBtn: false,
 				activeModalColumn: '',
 				counter: 0,
+				odjavaStarted: false,
 			}
 		},
 		mounted() {
@@ -1375,8 +1376,10 @@
 			},
 			counter: {
 				handler() {
-					if (this.counter === 104)
+					if (this.counter === 104) {
 						this.$bus.$emit('startOdjava', false);
+						this.odjavaStarted = true;
+					}
 
 					if (this.counter === 117) {
 						this.$nextTick(() => {
