@@ -5,41 +5,41 @@
         </div>
         <div slot="body">
             <div class="kenta" v-if="modalKenta">
-					<button class="modal-btn blue" @click="setResult(55, fieldId)">55</button>
-					<button class="modal-btn blue" @click="setResult(60, fieldId)">60</button>
+					<button class="modal-btn white-color" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor" @click="setResult(55, fieldId)">55</button>
+					<button class="modal-btn white-color" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor" @click="setResult(60, fieldId)">60</button>
 					<div class="bottom-wrap">
-						<button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
+						<button class="modal-btn white-color" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor" @click="setResult(0, fieldId)">0</button>
 						<button class="modal-btn red-btn reset" :disabled="undoResultBnt" @click="setResult('', fieldId)">Ponisti rezultat</button>
 					</div>
 				</div>
 				<div class="triling" v-else-if="modalTriling">
 					<div class="dice-wrap">
-						<button class="modal-btn blue dice" @click="setResult(23, fieldId)">
+						<button class="modal-btn dice" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor" @click="setResult(23, fieldId)">
 							<span class="center"></span>
 						</button>
-						<button class="modal-btn blue dice" @click="setResult(26, fieldId)">
+						<button class="modal-btn dice" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor" @click="setResult(26, fieldId)">
 							<span class="three"></span>
 							<span class="four"></span>
 						</button>
-						<button class="modal-btn blue dice" @click="setResult(29, fieldId)">
+						<button class="modal-btn dice" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor" @click="setResult(29, fieldId)">
 							<span class="three"></span>
 							<span class="center"></span>
 							<span class="four"></span>
 						</button>
-						<button class="modal-btn blue dice" @click="setResult(32, fieldId)">
+						<button class="modal-btn dice" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor" @click="setResult(32, fieldId)">
 							<span class="one"></span>
 							<span class="three"></span>
 							<span class="four"></span>
 							<span class="six"></span>
 						</button>
-						<button class="modal-btn blue dice" @click="setResult(35, fieldId)">
+						<button class="modal-btn dice" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor" @click="setResult(35, fieldId)">
 							<span class="one"></span>
 							<span class="three"></span>
 							<span class="center"></span>
 							<span class="four"></span>
 							<span class="six"></span>
 						</button>
-						<button class="modal-btn blue dice" @click="setResult(38, fieldId)">
+						<button class="modal-btn dice" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor" @click="setResult(38, fieldId)">
 							<span class="one"></span>
 							<span class="two"></span>
 							<span class="three"></span>
@@ -49,39 +49,39 @@
 						</button>
 					</div>
 					<div class="bottom-wrap">
-						<button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
+						<button class="modal-btn white-color" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor" @click="setResult(0, fieldId)">0</button>
 						<button class="modal-btn red-btn reset" :disabled="undoResultBnt" @click="setResult('', fieldId)">Ponisti rezultat</button>
 					</div>
 				</div>
 				<div class="ful" v-else-if="modalFul">
 					<div class="dice-wrap">
 						<span class="multiplier">3 x </span>
-						<button class="modal-btn blue dice" :class="{'disabled': firstFulRowDisabled}" :disabled="firstFulRowDisabled" @click="setFirstRowFul(3, 1)">
+						<button class="modal-btn dice" :class="[{'disabled': firstFulRowDisabled}, $parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor]" :disabled="firstFulRowDisabled" @click="setFirstRowFul(3, 1)">
 							<span class="center"></span>
 						</button>
-						<button class="modal-btn blue dice" :class="{'disabled': firstFulRowDisabled}" :disabled="firstFulRowDisabled" @click="setFirstRowFul(6, 2)">
+						<button class="modal-btn dice" :class="[{'disabled': firstFulRowDisabled}, $parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor]" :disabled="firstFulRowDisabled" @click="setFirstRowFul(6, 2)">
 							<span class="three"></span>
 							<span class="four"></span>
 						</button>
-						<button class="modal-btn blue dice" :class="{'disabled': firstFulRowDisabled}" :disabled="firstFulRowDisabled" @click="setFirstRowFul(9, 3)">
+						<button class="modal-btn dice" :class="[{'disabled': firstFulRowDisabled}, $parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor]" :disabled="firstFulRowDisabled" @click="setFirstRowFul(9, 3)">
 							<span class="three"></span>
 							<span class="center"></span>
 							<span class="four"></span>
 						</button>
-						<button class="modal-btn blue dice" :class="{'disabled': firstFulRowDisabled}" :disabled="firstFulRowDisabled" @click="setFirstRowFul(12, 4)">
+						<button class="modal-btn dice" :class="[{'disabled': firstFulRowDisabled}, $parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor]" :disabled="firstFulRowDisabled" @click="setFirstRowFul(12, 4)">
 							<span class="one"></span>
 							<span class="three"></span>
 							<span class="four"></span>
 							<span class="six"></span>
 						</button>
-						<button class="modal-btn blue dice" :class="{'disabled': firstFulRowDisabled}" :disabled="firstFulRowDisabled" @click="setFirstRowFul(15, 5)">
+						<button class="modal-btn dice" :class="[{'disabled': firstFulRowDisabled}, $parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor]" :disabled="firstFulRowDisabled" @click="setFirstRowFul(15, 5)">
 							<span class="one"></span>
 							<span class="three"></span>
 							<span class="center"></span>
 							<span class="four"></span>
 							<span class="six"></span>
 						</button>
-						<button class="modal-btn blue dice" :class="{'disabled': firstFulRowDisabled}" :disabled="firstFulRowDisabled" @click="setFirstRowFul(18, 6)">
+						<button class="modal-btn dice" :class="[{'disabled': firstFulRowDisabled}, $parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor]" :disabled="firstFulRowDisabled" @click="setFirstRowFul(18, 6)">
 							<span class="one"></span>
 							<span class="two"></span>
 							<span class="three"></span>
@@ -92,32 +92,32 @@
 					</div>
 					<div class="dice-wrap">
 						<span class="multiplier">2 x </span>
-						<button class="modal-btn blue dice" :class="{'disabled': secondFulRowDisabled || disabledNumber === 1}" :disabled="secondFulRowDisabled || disabledNumber === 1" @click="setFulResult(2, fieldId)">
+						<button class="modal-btn dice" :class="[{'disabled': secondFulRowDisabled || disabledNumber === 1}, $parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor]" :disabled="secondFulRowDisabled || disabledNumber === 1" @click="setFulResult(2, fieldId)">
 							<span class="center"></span>
 						</button>
-						<button class="modal-btn blue dice" :class="{'disabled': secondFulRowDisabled || disabledNumber === 2}" :disabled="secondFulRowDisabled || disabledNumber === 2" @click="setFulResult(4, fieldId)">
+						<button class="modal-btn dice" :class="[{'disabled': secondFulRowDisabled || disabledNumber === 2}, $parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor]" :disabled="secondFulRowDisabled || disabledNumber === 2" @click="setFulResult(4, fieldId)">
 							<span class="three"></span>
 							<span class="four"></span>
 						</button>
-						<button class="modal-btn blue dice" :class="{'disabled': secondFulRowDisabled || disabledNumber === 3}" :disabled="secondFulRowDisabled || disabledNumber === 3" @click="setFulResult(6, fieldId)">
+						<button class="modal-btn dice" :class="[{'disabled': secondFulRowDisabled || disabledNumber === 3}, $parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor]" :disabled="secondFulRowDisabled || disabledNumber === 3" @click="setFulResult(6, fieldId)">
 							<span class="three"></span>
 							<span class="center"></span>
 							<span class="four"></span>
 						</button>
-						<button class="modal-btn blue dice" :class="{'disabled': secondFulRowDisabled || disabledNumber === 4}" :disabled="secondFulRowDisabled || disabledNumber === 4" @click="setFulResult(8, fieldId)">
+						<button class="modal-btn dice" :class="[{'disabled': secondFulRowDisabled || disabledNumber === 4}, $parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor]" :disabled="secondFulRowDisabled || disabledNumber === 4" @click="setFulResult(8, fieldId)">
 							<span class="one"></span>
 							<span class="three"></span>
 							<span class="four"></span>
 							<span class="six"></span>
 						</button>
-						<button class="modal-btn blue dice" :class="{'disabled': secondFulRowDisabled || disabledNumber === 5}" :disabled="secondFulRowDisabled || disabledNumber === 5" @click="setFulResult(10, fieldId)">
+						<button class="modal-btn dice" :class="[{'disabled': secondFulRowDisabled || disabledNumber === 5}, $parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor]" :disabled="secondFulRowDisabled || disabledNumber === 5" @click="setFulResult(10, fieldId)">
 							<span class="one"></span>
 							<span class="three"></span>
 							<span class="center"></span>
 							<span class="four"></span>
 							<span class="six"></span>
 						</button>
-						<button class="modal-btn blue dice" :class="{'disabled': secondFulRowDisabled || disabledNumber === 6}" :disabled="secondFulRowDisabled || disabledNumber === 6" @click="setFulResult(12, fieldId)">
+						<button class="modal-btn dice" :class="[{'disabled': secondFulRowDisabled || disabledNumber === 6}, $parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor]" :disabled="secondFulRowDisabled || disabledNumber === 6" @click="setFulResult(12, fieldId)">
 							<span class="one"></span>
 							<span class="two"></span>
 							<span class="three"></span>
@@ -127,38 +127,38 @@
 						</button>
 					</div>
 					<div class="bottom-wrap">
-						<button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
+						<button class="modal-btn white-color" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor" @click="setResult(0, fieldId)">0</button>
 						<button class="modal-btn red-btn reset" :disabled="undoResultBnt" @click="setResult('', fieldId)">Ponisti rezultat</button>
 					</div>
 				</div>
 				<div class="poker" v-else-if="modalPoker">
 					<div class="dice-wrap">
-						<button class="modal-btn blue dice" @click="setResult(54, fieldId)">
+						<button class="modal-btn dice" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor" @click="setResult(54, fieldId)">
 							<span class="center"></span>
 						</button>
-						<button class="modal-btn blue dice" @click="setResult(58, fieldId)">
+						<button class="modal-btn dice" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor" @click="setResult(58, fieldId)">
 							<span class="three"></span>
 							<span class="four"></span>
 						</button>
-						<button class="modal-btn blue dice" @click="setResult(62, fieldId)">
+						<button class="modal-btn dice" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor" @click="setResult(62, fieldId)">
 							<span class="three"></span>
 							<span class="center"></span>
 							<span class="four"></span>
 						</button>
-						<button class="modal-btn blue dice" @click="setResult(66, fieldId)">
+						<button class="modal-btn dice" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor" @click="setResult(66, fieldId)">
 							<span class="one"></span>
 							<span class="three"></span>
 							<span class="four"></span>
 							<span class="six"></span>
 						</button>
-						<button class="modal-btn blue dice" @click="setResult(70, fieldId)">
+						<button class="modal-btn dice" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor" @click="setResult(70, fieldId)">
 							<span class="one"></span>
 							<span class="three"></span>
 							<span class="center"></span>
 							<span class="four"></span>
 							<span class="six"></span>
 						</button>
-						<button class="modal-btn blue dice" @click="setResult(74, fieldId)">
+						<button class="modal-btn dice" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor" @click="setResult(74, fieldId)">
 							<span class="one"></span>
 							<span class="two"></span>
 							<span class="three"></span>
@@ -168,38 +168,38 @@
 						</button>
 					</div>
 					<div class="bottom-wrap">
-						<button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
+						<button class="modal-btn white-color" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor" @click="setResult(0, fieldId)">0</button>
 						<button class="modal-btn red-btn reset" :disabled="undoResultBnt" @click="setResult('', fieldId)">Ponisti rezultat</button>
 					</div>
 				</div>
 				<div class="yamb" v-else-if="modalYamb">
 					<div class="dice-wrap">
-						<button class="modal-btn blue dice" @click="setResult(85, fieldId)">
+						<button class="modal-btn dice" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor" @click="setResult(85, fieldId)">
 							<span class="center"></span>
 						</button>
-						<button class="modal-btn blue dice" @click="setResult(90, fieldId)">
+						<button class="modal-btn dice" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor" @click="setResult(90, fieldId)">
 							<span class="three"></span>
 							<span class="four"></span>
 						</button>
-						<button class="modal-btn blue dice" @click="setResult(95, fieldId)">
+						<button class="modal-btn dice" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor" @click="setResult(95, fieldId)">
 							<span class="three"></span>
 							<span class="center"></span>
 							<span class="four"></span>
 						</button>
-						<button class="modal-btn blue dice" @click="setResult(100, fieldId)">
+						<button class="modal-btn dice" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor" @click="setResult(100, fieldId)">
 							<span class="one"></span>
 							<span class="three"></span>
 							<span class="four"></span>
 							<span class="six"></span>
 						</button>
-						<button class="modal-btn blue dice" @click="setResult(105, fieldId)">
+						<button class="modal-btn dice" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor" @click="setResult(105, fieldId)">
 							<span class="one"></span>
 							<span class="three"></span>
 							<span class="center"></span>
 							<span class="four"></span>
 							<span class="six"></span>
 						</button>
-						<button class="modal-btn blue dice" @click="setResult(110, fieldId)">
+						<button class="modal-btn dice" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor" @click="setResult(110, fieldId)">
 							<span class="one"></span>
 							<span class="two"></span>
 							<span class="three"></span>
@@ -209,7 +209,7 @@
 						</button>
 					</div>
 					<div class="bottom-wrap">
-						<button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
+						<button class="modal-btn white-color" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor" @click="setResult(0, fieldId)">0</button>
 						<button class="modal-btn red-btn reset" :disabled="undoResultBnt" @click="setResult('', fieldId)">Ponisti rezultat</button>
 					</div>
 				</div>

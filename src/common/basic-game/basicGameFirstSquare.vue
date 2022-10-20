@@ -1,25 +1,25 @@
 <template>
 	<section class="basic-game-first-suare">
 		<div class="column-0">
-			<div v-if="game && game === 'large-game'" class="field blue">Y</div>
-			<div v-else class="field blue smaller">YAMB</div>
+			<div v-if="game && game === 'large-game'" class="field" :class="$parent.$attrs.themeColor || $parent.$parent.$attrs.themeColor">Y</div>
+			<div v-else class="field smaller" :class="$parent.$attrs.themeColor || $parent.$parent.$attrs.themeColor">YAMB</div>
 			<div class="field smaller">1</div>
 			<div class="field smaller">2</div>
 			<div class="field smaller">3</div>
 			<div class="field smaller">4</div>
 			<div class="field smaller">5</div>
 			<div class="field smaller">6</div>
-			<div v-if="game && game === 'large-game'" class="field blue">
+			<div v-if="game && game === 'large-game'" class="field" :class="$parent.$attrs.themeColor || $parent.$parent.$attrs.themeColor">
 				<div class="bonus" :class="{'small': totalNumberOfCols && totalNumberOfCols > 5}">BONUS</div>
 				S
 			</div>
-			<div v-else class="field blue">
+			<div v-else class="field" :class="$parent.$attrs.themeColor || $parent.$parent.$attrs.themeColor">
 				<div class="bonus" :class="{'small':(game && game !== 'small-game')}">BONUS</div>
 				SUM
 			</div>
 		</div>
 		<div class="column-1">
-			<div class="field blue">
+			<div class="field" :class="$parent.$attrs.themeColor || $parent.$parent.$attrs.themeColor">
 				<img src="../../images/arrow-down-outline.svg" alt="Down icon" class="icon" />
 			</div>
 			<template v-for="(item, idx) in basicGameFirstSquareData['column-1']">
@@ -28,7 +28,7 @@
 					{{ item.value }}
 				</div>
 			</template>
-			<div class="field blue result">
+			<div class="field result" :class="$parent.$attrs.themeColor || $parent.$parent.$attrs.themeColor">
 				<div class="hit-bonus" v-if="showBonusColOne">{{ hitTheBonusOne }}</div>
 				<div class="hit-bonus" ref="plusThirtyColOne" v-show="plus30ColOne">+30</div>
 				<div class="hit-bonus" ref="plusFourtyColOne" v-show="plus40ColOne">+40</div>
@@ -37,7 +37,7 @@
 			</div>
 		</div>
 		<div class="column-2">
-			<div class="field blue">
+			<div class="field" :class="$parent.$attrs.themeColor || $parent.$parent.$attrs.themeColor">
 				<img src="../../images/arrow-down-outline.svg" alt="Down icon" class="icon" />
 				<img src="../../images/arrow-up-outline.svg" alt="Up icon" class="icon" />
 			</div>
@@ -47,7 +47,7 @@
 					{{ item.value }}
 				</div>
 			</template>
-			<div class="field blue result">
+			<div class="field result" :class="$parent.$attrs.themeColor || $parent.$parent.$attrs.themeColor">
 				<div class="hit-bonus" v-if="showBonusColTwo">{{ hitTheBonusTwo }}</div>
 				<div class="hit-bonus" ref="plusThirtyColTwo" v-show="plus30ColTwo">+30</div>
 				<div class="hit-bonus" ref="plusFourtyColTwo" v-show="plus40ColTwo">+40</div>
@@ -56,7 +56,7 @@
 			</div>
 		</div>
 		<div class="column-3">
-			<div class="field blue">
+			<div class="field" :class="$parent.$attrs.themeColor || $parent.$parent.$attrs.themeColor">
 				<img src="../../images/arrow-up-outline.svg" alt="Up icon" class="icon" />
 			</div>
 			<template v-for="(item, idx) in basicGameFirstSquareData['column-3']">
@@ -65,7 +65,7 @@
 					{{ item.value }}
 				</div>
 			</template>
-			<div class="field blue result">
+			<div class="field result" :class="$parent.$attrs.themeColor || $parent.$parent.$attrs.themeColor">
 				<div class="hit-bonus" v-if="showBonusColThree">{{ hitTheBonusThree }}</div>
 				<div class="hit-bonus" ref="plusThirtyColThree" v-show="plus30ColThree">+30</div>
 				<div class="hit-bonus" ref="plusFourtyColThree" v-show="plus40ColThree">+40</div>
@@ -74,14 +74,14 @@
 			</div>
 		</div>
 		<div class="column-4">
-			<div class="field blue">N</div>
+			<div class="field" :class="$parent.$attrs.themeColor || $parent.$parent.$attrs.themeColor">N</div>
 			<template v-for="(item, idx) in basicGameFirstSquareData['column-4']">
 				<div class="field" @click="openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns)" v-if="idx !== 6" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns" :id="item.id" :key="item.id">
 					<input type="hidden" v-model="item.value" />
 					{{ item.value }}
 				</div>
 			</template>
-			<div class="field blue result">
+			<div class="field result" :class="$parent.$attrs.themeColor || $parent.$parent.$attrs.themeColor">
 				<div class="hit-bonus" v-if="showBonusColFour">{{ hitTheBonusFour }}</div>
 				<div class="hit-bonus" ref="plusThirtyColFour" v-show="plus30ColFour">+30</div>
 				<div class="hit-bonus" ref="plusFourtyColFour" v-show="plus40ColFour">+40</div>

@@ -12,6 +12,7 @@
     "@capacitor/app": "^1.1.1",
     "@capacitor/cli": "^3.3.3",
     "@capacitor/core": "^3.3.3",
+    "@robingenz/capacitor-android-dark-mode-support": "^1.0.1",
     "cordova-plugin-screen-orientation": "^3.0.2",
     "core-js": "^3.6.5",
     "vue": "^2.6.11",
@@ -49,5 +50,10 @@
     "> 1%",
     "last 2 versions",
     "not dead"
-  ]
+  ],
+  "volta": {
+    "node": "16.13.1",
+    "npm": "6.4.1",
+    "yarn": "1.22.19"
+  }
 }

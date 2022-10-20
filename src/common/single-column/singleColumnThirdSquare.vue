@@ -24,7 +24,7 @@
 					{{ item.value }}
 				</div>
 			</template>
-			<div class="field blue" :class="{'result': smallFont}">
+			<div class="field" :class="[{'result': smallFont}, $parent.$attrs.themeColor || $parent.$parent.$attrs.themeColor]">
 				<template v-if="nameOfColumn === 'M'">
 					{{ thirdSquareForMaxSum }}
 				</template>
@@ -57,7 +57,7 @@
 					{{ item.value }}
 				</div>
 			</template>
-			<div class="field blue" :class="{'result': smallFont}">
+			<div class="field" :class="[{'result': smallFont}, $parent.$attrs.themeColor || $parent.$parent.$attrs.themeColor]">
 				<template v-if="nameOfColumn === 'M'">
 					{{ thirdSquareForMaxSum }}
 				</template>
@@ -90,7 +90,7 @@
 					{{ item.value }}
 				</div>
 			</template>
-			<div class="field blue" :class="{'result': smallFont}">
+			<div class="field" :class="[{'result': smallFont}, $parent.$attrs.themeColor || $parent.$parent.$attrs.themeColor]">
 				<template v-if="nameOfColumn === 'M'">
 					{{ thirdSquareForMaxSum }}
 				</template>
@@ -123,7 +123,7 @@
 					{{ item.value }}
 				</div>
 			</template>
-			<div class="field blue" :class="{'result': smallFont}">
+			<div class="field" :class="[{'result': smallFont}, $parent.$attrs.themeColor || $parent.$parent.$attrs.themeColor]">
 				<template v-if="nameOfColumn === 'M'">
 					{{ thirdSquareForMaxSum }}
 				</template>
@@ -156,7 +156,7 @@
 					{{ item.value }}
 				</div>
 			</template>
-			<div class="field blue" :class="{'result': smallFont}">
+			<div class="field" :class="[{'result': smallFont}, $parent.$attrs.themeColor || $parent.$parent.$attrs.themeColor]">
 				<template v-if="nameOfColumn === 'M'">
 					{{ thirdSquareForMaxSum }}
 				</template>
@@ -189,7 +189,7 @@
 					{{ item.value }}
 				</div>
 			</template>
-			<div class="field blue" :class="{'result': smallFont}">
+			<div class="field" :class="[{'result': smallFont}, $parent.$attrs.themeColor || $parent.$parent.$attrs.themeColor]">
 				<template v-if="nameOfColumn === 'M'">
 					{{ thirdSquareForMaxSum }}
 				</template>

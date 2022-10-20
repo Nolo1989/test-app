@@ -3,26 +3,26 @@
 		<template v-if="!showMyGame">
 			<div class="my-game-draft">
 				<div class="column" v-if="basicGame">
-					<div class="draft-field blue">Y</div>
+					<div class="draft-field" :class="$attrs.themeColor">Y</div>
 					<div class="draft-field">1</div>
 					<div class="draft-field">2</div>
 					<div class="draft-field">3</div>
 					<div class="draft-field">4</div>
 					<div class="draft-field">5</div>
 					<div class="draft-field">6</div>
-					<div class="draft-field blue">S</div>
+					<div class="draft-field" :class="$attrs.themeColor">S</div>
 					<div class="draft-field smaller">MAX</div>
 					<div class="draft-field smaller">MIN</div>
-					<div class="draft-field blue">S</div>
+					<div class="draft-field" :class="$attrs.themeColor">S</div>
 					<div class="draft-field">K</div>
 					<div class="draft-field">T</div>
 					<div class="draft-field">F</div>
 					<div class="draft-field">P</div>
 					<div class="draft-field">Y</div>
-					<div class="draft-field blue without-border">S</div>
+					<div class="draft-field without-border" :class="$attrs.themeColor">S</div>
 				</div>
 				<div class="column" v-if="basicGame">
-					<div class="draft-field blue">
+					<div class="draft-field" :class="$attrs.themeColor">
 						<img src="../images/arrow-down-outline.svg" alt="Down icon" class="icon" />
 					</div>
 					<div class="draft-field"></div>
@@ -31,19 +31,19 @@
 					<div class="draft-field"></div>
 					<div class="draft-field"></div>
 					<div class="draft-field"></div>
-					<div class="draft-field blue">0</div>
+					<div class="draft-field" :class="$attrs.themeColor">0</div>
 					<div class="draft-field"></div>
 					<div class="draft-field"></div>
-					<div class="draft-field blue">0</div>
+					<div class="draft-field" :class="$attrs.themeColor">0</div>
 					<div class="draft-field"></div>
 					<div class="draft-field"></div>
 					<div class="draft-field"></div>
 					<div class="draft-field"></div>
 					<div class="draft-field"></div>
-					<div class="draft-field blue without-border">0</div>
+					<div class="draft-field without-border" :class="$attrs.themeColor">0</div>
 				</div>
 				<div class="column" v-if="basicGame">
-					<div class="draft-field blue">
+					<div class="draft-field" :class="$attrs.themeColor">
 						<img src="../images/arrow-down-outline.svg" alt="Down icon" class="icon" />
 						<img src="../images/arrow-up-outline.svg" alt="Up icon" class="icon" />
 					</div>
@@ -53,19 +53,19 @@
 					<div class="draft-field"></div>
 					<div class="draft-field"></div>
 					<div class="draft-field"></div>
-					<div class="draft-field blue">0</div>
+					<div class="draft-field" :class="$attrs.themeColor">0</div>
 					<div class="draft-field"></div>
 					<div class="draft-field"></div>
-					<div class="draft-field blue">0</div>
+					<div class="draft-field" :class="$attrs.themeColor">0</div>
 					<div class="draft-field"></div>
 					<div class="draft-field"></div>
 					<div class="draft-field"></div>
 					<div class="draft-field"></div>
 					<div class="draft-field"></div>
-					<div class="draft-field blue without-border">0</div>
+					<div class="draft-field without-border" :class="$attrs.themeColor">0</div>
 				</div>
 				<div class="column" v-if="basicGame">
-					<div class="draft-field blue">
+					<div class="draft-field" :class="$attrs.themeColor">
 						<img src="../images/arrow-up-outline.svg" alt="Up icon" class="icon" />
 					</div>
 					<div class="draft-field"></div>
@@ -74,81 +74,81 @@
 					<div class="draft-field"></div>
 					<div class="draft-field"></div>
 					<div class="draft-field"></div>
-					<div class="draft-field blue">0</div>
+					<div class="draft-field" :class="$attrs.themeColor">0</div>
 					<div class="draft-field"></div>
 					<div class="draft-field"></div>
-					<div class="draft-field blue">0</div>
+					<div class="draft-field" :class="$attrs.themeColor">0</div>
 					<div class="draft-field"></div>
 					<div class="draft-field"></div>
 					<div class="draft-field"></div>
 					<div class="draft-field"></div>
 					<div class="draft-field"></div>
-					<div class="draft-field blue without-border">0</div>
+					<div class="draft-field without-border" :class="$attrs.themeColor">0</div>
 				</div>
 				<div class="column" v-if="basicGame">
-					<div class="draft-field blue">N</div>
+					<div class="draft-field" :class="$attrs.themeColor">N</div>
 					<div class="draft-field"></div>
 					<div class="draft-field"></div>
 					<div class="draft-field"></div>
 					<div class="draft-field"></div>
 					<div class="draft-field"></div>
 					<div class="draft-field"></div>
-					<div class="draft-field blue">0</div>
+					<div class="draft-field" :class="$attrs.themeColor">0</div>
 					<div class="draft-field"></div>
 					<div class="draft-field"></div>
-					<div class="draft-field blue">0</div>
+					<div class="draft-field" :class="$attrs.themeColor">0</div>
 					<div class="draft-field"></div>
 					<div class="draft-field"></div>
 					<div class="draft-field"></div>
 					<div class="draft-field"></div>
 					<div class="draft-field"></div>
-					<div class="draft-field blue without-border">0</div>
+					<div class="draft-field without-border" :class="$attrs.themeColor">0</div>
 				</div>
 				<transition name="bounce">
 					<div class="column" v-if="R" :style="{'order': rOrder}">
-						<div class="draft-field blue">R</div>
+						<div class="draft-field" :class="$attrs.themeColor">R</div>
 						<div class="draft-field"></div>
 						<div class="draft-field"></div>
 						<div class="draft-field"></div>
 						<div class="draft-field"></div>
 						<div class="draft-field"></div>
 						<div class="draft-field"></div>
-						<div class="draft-field blue">0</div>
+						<div class="draft-field" :class="$attrs.themeColor">0</div>
 						<div class="draft-field"></div>
 						<div class="draft-field"></div>
-						<div class="draft-field blue">0</div>
+						<div class="draft-field" :class="$attrs.themeColor">0</div>
 						<div class="draft-field"></div>
 						<div class="draft-field"></div>
 						<div class="draft-field"></div>
 						<div class="draft-field"></div>
 						<div class="draft-field"></div>
-						<div class="draft-field blue without-border">0</div>
+						<div class="draft-field without-border" :class="$attrs.themeColor">0</div>
 					</div>
 				</transition>
 				<transition name="bounce">
 					<div class="column" v-if="D" :style="{'order': dOrder}">
-						<div class="draft-field blue">D</div>
+						<div class="draft-field" :class="$attrs.themeColor">D</div>
 						<div class="draft-field"></div>
 						<div class="draft-field"></div>
 						<div class="draft-field"></div>
 						<div class="draft-field"></div>
 						<div class="draft-field"></div>
 						<div class="draft-field"></div>
-						<div class="draft-field blue">0</div>
+						<div class="draft-field" :class="$attrs.themeColor">0</div>
 						<div class="draft-field"></div>
 						<div class="draft-field"></div>
-						<div class="draft-field blue">0</div>
+						<div class="draft-field" :class="$attrs.themeColor">0</div>
 						<div class="draft-field"></div>
 						<div class="draft-field"></div>
 						<div class="draft-field"></div>
 						<div class="draft-field"></div>
 						<div class="draft-field"></div>
-						<div class="draft-field blue without-border">0</div>
+						<div class="draft-field without-border" :class="$attrs.themeColor">0</div>
 					</div>
 				</transition>
 				<transition name="bounce">
 					<div class="column" v-if="toMiddle" :style="{'order': toMiddleOrder}">
-						<div class="draft-field blue to-middle">
+						<div class="draft-field to-middle" :class="$attrs.themeColor">
 							<img src="../images/arrow-down-outline.svg" alt="Down icon" class="icon" />
 							<div class="divider"></div>
 							<img src="../images/arrow-up-outline.svg" alt="Up icon" class="icon" />
@@ -159,21 +159,21 @@
 						<div class="draft-field"></div>
 						<div class="draft-field"></div>
 						<div class="draft-field"></div>
-						<div class="draft-field blue">0</div>
+						<div class="draft-field" :class="$attrs.themeColor">0</div>
 						<div class="draft-field"></div>
 						<div class="draft-field"></div>
-						<div class="draft-field blue">0</div>
+						<div class="draft-field" :class="$attrs.themeColor">0</div>
 						<div class="draft-field"></div>
 						<div class="draft-field"></div>
 						<div class="draft-field"></div>
 						<div class="draft-field"></div>
 						<div class="draft-field"></div>
-						<div class="draft-field blue without-border">0</div>
+						<div class="draft-field without-border" :class="$attrs.themeColor">0</div>
 					</div>
 				</transition>
 				<transition name="bounce">
 					<div class="column" v-if="fromMiddle" :style="{'order': fromMiddleOrder}">
-						<div class="draft-field blue from-middle">
+						<div class="draft-field from-middle" :class="$attrs.themeColor">
 							<img src="../images/arrow-up-outline.svg" alt="Up icon" class="icon" />
 							<div class="divider"></div>
 							<img src="../images/arrow-down-outline.svg" alt="Down icon" class="icon" />
@@ -184,79 +184,79 @@
 						<div class="draft-field"></div>
 						<div class="draft-field"></div>
 						<div class="draft-field"></div>
-						<div class="draft-field blue">0</div>
+						<div class="draft-field" :class="$attrs.themeColor">0</div>
 						<div class="draft-field"></div>
 						<div class="draft-field"></div>
-						<div class="draft-field blue">0</div>
+						<div class="draft-field" :class="$attrs.themeColor">0</div>
 						<div class="draft-field"></div>
 						<div class="draft-field"></div>
 						<div class="draft-field"></div>
 						<div class="draft-field"></div>
 						<div class="draft-field"></div>
-						<div class="draft-field blue without-border">0</div>
+						<div class="draft-field without-border" :class="$attrs.themeColor">0</div>
 					</div>
 				</transition>
 				<transition name="bounce">
 					<div class="column" v-if="O" :style="{'order': oOrder}">
-						<div class="draft-field blue">O</div>
+						<div class="draft-field" :class="$attrs.themeColor">O</div>
 						<div class="draft-field"></div>
 						<div class="draft-field"></div>
 						<div class="draft-field"></div>
 						<div class="draft-field"></div>
 						<div class="draft-field"></div>
 						<div class="draft-field"></div>
-						<div class="draft-field blue">0</div>
+						<div class="draft-field" :class="$attrs.themeColor">0</div>
 						<div class="draft-field"></div>
 						<div class="draft-field"></div>
-						<div class="draft-field blue">0</div>
+						<div class="draft-field" :class="$attrs.themeColor">0</div>
 						<div class="draft-field"></div>
 						<div class="draft-field"></div>
 						<div class="draft-field"></div>
 						<div class="draft-field"></div>
 						<div class="draft-field"></div>
-						<div class="draft-field blue without-border">0</div>
+						<div class="draft-field without-border" :class="$attrs.themeColor">0</div>
 					</div>
 				</transition>
 				<transition name="bounce">
 					<div class="column" v-if="M" :style="{'order': mOrder}">
-						<div class="draft-field blue">M</div>
+						<div class="draft-field" :class="$attrs.themeColor">M</div>
 						<div class="draft-field"></div>
 						<div class="draft-field"></div>
 						<div class="draft-field"></div>
 						<div class="draft-field"></div>
 						<div class="draft-field"></div>
 						<div class="draft-field"></div>
-						<div class="draft-field blue">0</div>
+						<div class="draft-field" :class="$attrs.themeColor">0</div>
 						<div class="draft-field"></div>
 						<div class="draft-field"></div>
-						<div class="draft-field blue">0</div>
+						<div class="draft-field" :class="$attrs.themeColor">0</div>
 						<div class="draft-field"></div>
 						<div class="draft-field"></div>
 						<div class="draft-field"></div>
 						<div class="draft-field"></div>
 						<div class="draft-field"></div>
-						<div class="draft-field blue without-border">0</div>
+						<div class="draft-field without-border" :class="$attrs.themeColor">0</div>
 					</div>
 				</transition>
 				<transition name="bounce">
 					<div class="column last-column" style="order: 12">
-						<div class="draft-field blue">Y</div>
+						<div class="draft-field" :class="$attrs.themeColor">Y</div>
 						<div class="draft-field without-border"></div>
 						<div class="draft-field without-border"></div>
 						<div class="draft-field without-border"></div>
 						<div class="draft-field without-border"></div>
 						<div class="draft-field without-border"></div>
 						<div class="draft-field"></div>
-						<div class="draft-field blue">0</div>
+						<div class="draft-field" :class="$attrs.themeColor">0</div>
 						<div class="draft-field without-border"></div>
 						<div class="draft-field"></div>
-						<div class="draft-field blue">0</div>
+						<div class="draft-field" :class="$attrs.themeColor">0</div>
 						<div class="draft-field without-border"></div>
 						<div class="draft-field without-border"></div>
 						<div class="draft-field without-border"></div>
 						<div class="draft-field without-border"></div>
 						<div class="draft-field"></div>
-						<div class="draft-field blue without-border">0</div>
+						<div class="draft-field without-border" :class="$attrs.themeColor">0</div>
 					</div>
 				</transition>
 			</div>

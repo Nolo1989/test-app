@@ -1,18 +1,18 @@
 <template>
 	<div :class="numOfColumn" class="single-column">
 		<template v-if="toMiddle || fromMiddle">
-			<div v-if="toMiddle" class="field blue to-middle">
+			<div v-if="toMiddle" class="field to-middle" :class="$parent.$attrs.themeColor || $parent.$parent.$attrs.themeColor">
 				<img src="../../images/arrow-down-outline.svg" alt="Down icon" class="icon" />
 				<div class="divider"></div>
 				<img src="../../images/arrow-up-outline.svg" alt="Up icon" class="icon" />
 			</div>
-			<div v-else-if="fromMiddle" class="field blue from-middle">
+			<div v-else-if="fromMiddle" class="field from-middle" :class="$parent.$attrs.themeColor || $parent.$parent.$attrs.themeColor">
 				<img src="../../images/arrow-up-outline.svg" alt="Up icon" class="icon" />
 				<div class="divider"></div>
 				<img src="../../images/arrow-down-outline.svg" alt="Down icon" class="icon" />
 			</div>
 		</template>
-		<div v-else class="field blue">{{ nameOfColumn }}</div>
+		<div v-else class="field" :class="$parent.$attrs.themeColor || $parent.$parent.$attrs.themeColor">{{ nameOfColumn }}</div>
 		<template v-if="column === 5">
 			<template v-for="(item, idx) in firstSquareDataFive">
 				<div v-if="nameOfColumn === 'M' && idx !== 6" :key="idx" class="field" :class="item.class" :disabled="nameOfColumn === 'M'">
@@ -171,7 +171,7 @@
 				{{ item.value }}
 			</div>
 		</template>
-		<div v-if="column === 5" class="field blue" :class="{'result': smallFont}">
+		<div v-if="column === 5" class="field" :class="[{'result': smallFont}, $parent.$attrs.themeColor || $parent.$parent.$attrs.themeColor]">
 			<template v-if="nameOfColumn === 'M'">
 				{{ firstSquareForMaxSum }}
 			</template>
@@ -183,7 +183,7 @@
 				{{ firstSquareSumColumnFive }}
 			</template>
 		</div>
-		<div v-else-if="column === 6" class="field blue" :class="{'result': smallFont}">
+		<div v-else-if="column === 6" class="field" :class="[{'result': smallFont}, $parent.$attrs.themeColor || $parent.$parent.$attrs.themeColor]">
 			<template v-if="nameOfColumn === 'M'">
 				{{ firstSquareForMaxSum }}
 			</template>
@@ -195,7 +195,7 @@
 				{{ firstSquareSumColumnSix }}
 			</template>
 		</div>
-		<div v-else-if="column === 7" class="field blue" :class="{'result': smallFont}">
+		<div v-else-if="column === 7" class="field" :class="[{'result': smallFont}, $parent.$attrs.themeColor || $parent.$parent.$attrs.themeColor]">
 			<template v-if="nameOfColumn === 'M'">
 				{{ firstSquareForMaxSum }}
 			</template>
@@ -207,7 +207,7 @@
 				{{ firstSquareSumColumnSeven }}
 			</template>
 		</div>
-		<div v-else-if="column === 8" class="field blue" :class="{'result': smallFont}">
+		<div v-else-if="column === 8" class="field" :class="[{'result': smallFont}, $parent.$attrs.themeColor || $parent.$parent.$attrs.themeColor]">
 			<template v-if="nameOfColumn === 'M'">
 				{{ firstSquareForMaxSum }}
 			</template>
@@ -219,7 +219,7 @@
 				{{ firstSquareSumColumnEight }}
 			</template>
 		</div>
-		<div v-else-if="column === 9" class="field blue" :class="{'result': smallFont}">
+		<div v-else-if="column === 9" class="field" :class="[{'result': smallFont}, $parent.$attrs.themeColor || $parent.$parent.$attrs.themeColor]">
 			<template v-if="nameOfColumn === 'M'">
 				{{ firstSquareForMaxSum }}
 			</template>
@@ -231,7 +231,7 @@
 				{{ firstSquareSumColumnNine }}
 			</template>
 		</div>
-		<div v-else-if="column === 10" class="field blue" :class="{'result': smallFont}">
+		<div v-else-if="column === 10" class="field" :class="[{'result': smallFont}, $parent.$attrs.themeColor || $parent.$parent.$attrs.themeColor]">
 			<template v-if="nameOfColumn === 'M'">
 				{{ firstSquareForMaxSum }}
 			</template>

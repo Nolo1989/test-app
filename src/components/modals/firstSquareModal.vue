@@ -6,64 +6,64 @@
 		<div slot="body">
 			<div v-if="modalOne">
 				<div class="dice-wrap">
-					<button class="modal-btn blue dice">
+					<button class="modal-btn dice" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor">
 						<span class="center"></span>
 					</button>
 				</div>
 				<div class="dice-wrap">
-					<button class="modal-btn dice white-btn" @click="setResult(1, fieldId)">x 1</button>
-					<button class="modal-btn dice white-btn" @click="setResult(2, fieldId)">x 2</button>
-					<button class="modal-btn dice white-btn" @click="setResult(3, fieldId)">x 3</button>
-					<button class="modal-btn dice white-btn" @click="setResult(4, fieldId)">x 4</button>
-					<button class="modal-btn dice white-btn" @click="setResult(5, fieldId)">x 5</button>
+					<button class="modal-btn dice white-btn" :style="getThemeColor" @click="setResult(1, fieldId)">x 1</button>
+					<button class="modal-btn dice white-btn" :style="getThemeColor" @click="setResult(2, fieldId)">x 2</button>
+					<button class="modal-btn dice white-btn" :style="getThemeColor" @click="setResult(3, fieldId)">x 3</button>
+					<button class="modal-btn dice white-btn" :style="getThemeColor" @click="setResult(4, fieldId)">x 4</button>
+					<button class="modal-btn dice white-btn" :style="getThemeColor" @click="setResult(5, fieldId)">x 5</button>
 				</div>
 				<div class="bottom-wrap">
-					<button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
+					<button class="modal-btn white-color" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor" @click="setResult(0, fieldId)">0</button>
 					<button class="modal-btn red-btn reset" :disabled="undoResultBnt" @click="setResult('', fieldId)">Ponisti rezultat</button>
 				</div>
 			</div>
 			<div v-else-if="modalTwo">
 				<div class="dice-wrap">
-					<button class="modal-btn blue dice">
+					<button class="modal-btn dice" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor">
 						<span class="three"></span>
 						<span class="four"></span>
 					</button>
 				</div>
 				<div class="dice-wrap">
-					<button class="modal-btn dice white-btn" @click="setResult(2, fieldId)">x 1</button>
-					<button class="modal-btn dice white-btn" @click="setResult(4, fieldId)">x 2</button>
-					<button class="modal-btn dice white-btn" @click="setResult(6, fieldId)">x 3</button>
-					<button class="modal-btn dice white-btn" @click="setResult(8, fieldId)">x 4</button>
-					<button class="modal-btn dice white-btn" @click="setResult(10, fieldId)">x 5</button>
+					<button class="modal-btn dice white-btn" :style="getThemeColor" @click="setResult(2, fieldId)">x 1</button>
+					<button class="modal-btn dice white-btn" :style="getThemeColor" @click="setResult(4, fieldId)">x 2</button>
+					<button class="modal-btn dice white-btn" :style="getThemeColor" @click="setResult(6, fieldId)">x 3</button>
+					<button class="modal-btn dice white-btn" :style="getThemeColor" @click="setResult(8, fieldId)">x 4</button>
+					<button class="modal-btn dice white-btn" :style="getThemeColor" @click="setResult(10, fieldId)">x 5</button>
 				</div>
 				<div class="bottom-wrap">
-					<button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
+					<button class="modal-btn white-color" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor" @click="setResult(0, fieldId)">0</button>
 					<button class="modal-btn red-btn reset" :disabled="undoResultBnt" @click="setResult('', fieldId)">Ponisti rezultat</button>
 				</div>
 			</div>
 			<div v-else-if="modalThree">
 				<div class="dice-wrap">
-					<button class="modal-btn blue dice">
+					<button class="modal-btn dice" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor">
 						<span class="three"></span>
 						<span class="center"></span>
 						<span class="four"></span>
 					</button>
 				</div>
 				<div class="dice-wrap">
-					<button class="modal-btn dice white-btn" @click="setResult(3, fieldId)">x 1</button>
-					<button class="modal-btn dice white-btn" @click="setResult(6, fieldId)">x 2</button>
-					<button class="modal-btn dice white-btn" @click="setResult(9, fieldId)">x 3</button>
-					<button class="modal-btn dice white-btn" @click="setResult(12, fieldId)">x 4</button>
-					<button class="modal-btn dice white-btn" @click="setResult(15, fieldId)">x 5</button>
+					<button class="modal-btn dice white-btn" :style="getThemeColor" @click="setResult(3, fieldId)">x 1</button>
+					<button class="modal-btn dice white-btn" :style="getThemeColor" @click="setResult(6, fieldId)">x 2</button>
+					<button class="modal-btn dice white-btn" :style="getThemeColor" @click="setResult(9, fieldId)">x 3</button>
+					<button class="modal-btn dice white-btn" :style="getThemeColor" @click="setResult(12, fieldId)">x 4</button>
+					<button class="modal-btn dice white-btn" :style="getThemeColor" @click="setResult(15, fieldId)">x 5</button>
 				</div>
 				<div class="bottom-wrap">
-					<button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
+					<button class="modal-btn white-color" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor" @click="setResult(0, fieldId)">0</button>
 					<button class="modal-btn red-btn reset" :disabled="undoResultBnt" @click="setResult('', fieldId)">Ponisti rezultat</button>
 				</div>
 			</div>
 			<div v-else-if="modalFour">
 				<div class="dice-wrap">
-					<button class="modal-btn blue dice">
+					<button class="modal-btn dice" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor">
 						<span class="one"></span>
 						<span class="three"></span>
 						<span class="four"></span>
@@ -71,20 +71,20 @@
 					</button>
 				</div>
 				<div class="dice-wrap">
-					<button class="modal-btn dice white-btn" @click="setResult(4, fieldId)">x 1</button>
-					<button class="modal-btn dice white-btn" @click="setResult(8, fieldId)">x 2</button>
-					<button class="modal-btn dice white-btn" @click="setResult(12, fieldId)">x 3</button>
-					<button class="modal-btn dice white-btn" @click="setResult(16, fieldId)">x 4</button>
-					<button class="modal-btn dice white-btn" @click="setResult(20, fieldId)">x 5</button>
+					<button class="modal-btn dice white-btn" :style="getThemeColor" @click="setResult(4, fieldId)">x 1</button>
+					<button class="modal-btn dice white-btn" :style="getThemeColor" @click="setResult(8, fieldId)">x 2</button>
+					<button class="modal-btn dice white-btn" :style="getThemeColor" @click="setResult(12, fieldId)">x 3</button>
+					<button class="modal-btn dice white-btn" :style="getThemeColor" @click="setResult(16, fieldId)">x 4</button>
+					<button class="modal-btn dice white-btn" :style="getThemeColor" @click="setResult(20, fieldId)">x 5</button>
 				</div>
 				<div class="bottom-wrap">
-					<button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
+					<button class="modal-btn white-color" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor" @click="setResult(0, fieldId)">0</button>
 					<button class="modal-btn red-btn reset" :disabled="undoResultBnt" @click="setResult('', fieldId)">Ponisti rezultat</button>
 				</div>
 			</div>
 			<div v-else-if="modalFive">
 				<div class="dice-wrap">
-					<button class="modal-btn blue dice">
+					<button class="modal-btn dice" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor">
 						<span class="one"></span>
 						<span class="three"></span>
 						<span class="center"></span>
@@ -93,20 +93,20 @@
 					</button>
 				</div>
 				<div class="dice-wrap">
-					<button class="modal-btn dice white-btn" @click="setResult(5, fieldId)">x 1</button>
-					<button class="modal-btn dice white-btn" @click="setResult(10, fieldId)">x 2</button>
-					<button class="modal-btn dice white-btn" @click="setResult(15, fieldId)">x 3</button>
-					<button class="modal-btn dice white-btn" @click="setResult(20, fieldId)">x 4</button>
-					<button class="modal-btn dice white-btn" @click="setResult(25, fieldId)">x 5</button>
+					<button class="modal-btn dice white-btn" :style="getThemeColor" @click="setResult(5, fieldId)">x 1</button>
+					<button class="modal-btn dice white-btn" :style="getThemeColor" @click="setResult(10, fieldId)">x 2</button>
+					<button class="modal-btn dice white-btn" :style="getThemeColor" @click="setResult(15, fieldId)">x 3</button>
+					<button class="modal-btn dice white-btn" :style="getThemeColor" @click="setResult(20, fieldId)">x 4</button>
+					<button class="modal-btn dice white-btn" :style="getThemeColor" @click="setResult(25, fieldId)">x 5</button>
 				</div>
 				<div class="bottom-wrap">
-					<button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
+					<button class="modal-btn white-color" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor" @click="setResult(0, fieldId)">0</button>
 					<button class="modal-btn red-btn reset" :disabled="undoResultBnt" @click="setResult('', fieldId)">Ponisti rezultat</button>
 				</div>
 			</div>
 			<div v-else-if="modalSix">
 				<div class="dice-wrap">
-					<button class="modal-btn blue dice">
+					<button class="modal-btn dice" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor">
 						<span class="one"></span>
 						<span class="two"></span>
 						<span class="three"></span>
@@ -116,14 +116,14 @@
 					</button>
 				</div>
 				<div class="dice-wrap">
-					<button class="modal-btn dice white-btn" @click="setResult(6, fieldId)">x 1</button>
-					<button class="modal-btn dice white-btn" @click="setResult(12, fieldId)">x 2</button>
-					<button class="modal-btn dice white-btn" @click="setResult(18, fieldId)">x 3</button>
-					<button class="modal-btn dice white-btn" @click="setResult(24, fieldId)">x 4</button>
-					<button class="modal-btn dice white-btn" @click="setResult(30, fieldId)">x 5</button>
+					<button class="modal-btn dice white-btn" :style="getThemeColor" @click="setResult(6, fieldId)">x 1</button>
+					<button class="modal-btn dice white-btn" :style="getThemeColor" @click="setResult(12, fieldId)">x 2</button>
+					<button class="modal-btn dice white-btn" :style="getThemeColor" @click="setResult(18, fieldId)">x 3</button>
+					<button class="modal-btn dice white-btn" :style="getThemeColor" @click="setResult(24, fieldId)">x 4</button>
+					<button class="modal-btn dice white-btn" :style="getThemeColor" @click="setResult(30, fieldId)">x 5</button>
 				</div>
 				<div class="bottom-wrap">
-					<button class="modal-btn blue" @click="setResult(0, fieldId)">0</button>
+					<button class="modal-btn white-color" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor" @click="setResult(0, fieldId)">0</button>
 					<button class="modal-btn red-btn reset" :disabled="undoResultBnt" @click="setResult('', fieldId)">Ponisti rezultat</button>
 				</div>
 			</div>
@@ -245,6 +245,42 @@
 
 					}
 				}
+			}
+		},
+		computed: {
+			getThemeColor() {
+				let color = '';
+				let theme = this.$parent.$parent.$attrs.themeColor || this.$parent.$parent.$parent.$attrs.themeColor;
+
+				if (theme === 'blue')
+					color = '';
+				else if (theme === 'pink')
+					color = '#E91E63';
+				else if (theme === 'yellow')
+					color = '#FFEB3B';
+				else if (theme === 'deep-purple')
+					color = '#673AB7';
+				else if (theme === 'green')
+					color = '#4CAF50';
+				else if (theme === 'deep-orange')
+					color = '#FF5722';
+				else if (theme === 'red')
+					color = '#F44336';
+				else if (theme === 'indigo')
+					color = '#3F51B5';
+				else if (theme === 'cyan darken-3')
+					color = '#00838F';
+				else if (theme === 'teal')
+					color = '#009688';
+				else if (theme === 'lime')
+					color = '#CDDC39';
+				else if (theme === 'blue-grey')
+					color = '#607D8B';
+
+				return {
+					'color': color, 
+					'border-color': color
+				};
 			}
 		},
 		components: {

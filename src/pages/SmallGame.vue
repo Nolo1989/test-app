@@ -3,16 +3,16 @@
 		<div class="first-square">
 			<basic-game-first-square :basicGameFirstSquareData="firstSquareItems" :disabledAllBtns="disabledAllBtns" :game="'small-game'"></basic-game-first-square>
 			<div class="column-5">
-				<div class="field blue">YAMB</div>
+				<div class="field" :class="$attrs.themeColor">YAMB</div>
 				<div class="field large"></div>
-				<div class="field blue">{{ basicGameFirstSquareSumTotal }}</div>
+				<div class="field" :class="$attrs.themeColor">{{ basicGameFirstSquareSumTotal }}</div>
 			</div>
 		</div>
 		<div class="second-square">
 			<basic-game-second-square :basicGameSecondSquareData="secondSquareItems" :basicGameFirstSquareData="firstSquareItems" :disabledAllBtns="disabledAllBtns"></basic-game-second-square>
 			<div class="column-5">
 				<div class="field large"></div>
-				<div class="field blue">{{ basicGameSecondSquareSumTotal }}</div>
+				<div class="field" :class="$attrs.themeColor">{{ basicGameSecondSquareSumTotal }}</div>
 			</div>
 		</div>
 		<div class="third-square">
@@ -20,11 +20,11 @@
 			<div class="column-5">
 				<div class="field large">
 					<p class="total">TOTAL:</p>
-					<div class="total-field" @click="totalFieldActive = !totalFieldActive" :class="{'active': totalFieldActive}">
+					<div class="total-field" @click="totalFieldActive = !totalFieldActive" :class="[{'active': totalFieldActive}, $attrs.themeColor]">
 						{{ basicGameFirstSquareSumTotal + basicGameSecondSquareSumTotal + basicGameThirdSquareSumTotal }}
 					</div>
 				</div>
-				<div class="field blue">{{ basicGameThirdSquareSumTotal }}</div>
+				<div class="field" :class="$attrs.themeColor">{{ basicGameThirdSquareSumTotal }}</div>
 			</div>
 		</div>
 	</section>

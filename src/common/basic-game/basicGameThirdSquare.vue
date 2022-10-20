@@ -7,7 +7,7 @@
                     <div class="field">F</div>
                     <div class="field">P</div>
                     <div class="field">Y</div>
-                    <div class="field blue">S</div>
+                    <div class="field" :class="$parent.$attrs.themeColor || $parent.$parent.$attrs.themeColor">S</div>
                 </template>
                 <template v-else>
                     <div class="field">KENTA</div>
@@ -15,7 +15,7 @@
                     <div class="field">FUL</div>
                     <div class="field">POKER</div>
                     <div class="field">YAMB</div>
-                    <div class="field blue">SUM</div>
+                    <div class="field" :class="$parent.$attrs.themeColor || $parent.$parent.$attrs.themeColor">SUM</div>
                 </template>
 			</div>
 			<div class="column-1">
@@ -25,7 +25,7 @@
 						{{ item.value }}
 					</div>
 				</template>
-				<div class="field blue result">{{ thirdSquareSumColOne }}</div>
+				<div class="field result" :class="$parent.$attrs.themeColor || $parent.$parent.$attrs.themeColor">{{ thirdSquareSumColOne }}</div>
 			</div>
 			<div class="column-2">
 				<template v-for="item in basicGameThirdSquareData['column-2']">
@@ -34,7 +34,7 @@
 						{{ item.value }}
 					</div>
 				</template>
-				<div class="field blue result">{{ thirdSquareSumColTwo }}</div>
+				<div class="field result" :class="$parent.$attrs.themeColor || $parent.$parent.$attrs.themeColor">{{ thirdSquareSumColTwo }}</div>
 			</div>
 			<div class="column-3">
 				<template v-for="item in basicGameThirdSquareData['column-3']">
@@ -43,7 +43,7 @@
 						{{ item.value }}
 					</div>
 				</template>
-				<div class="field blue result">{{ thirdSquareSumColThree }}</div>
+				<div class="field result" :class="$parent.$attrs.themeColor || $parent.$parent.$attrs.themeColor">{{ thirdSquareSumColThree }}</div>
 			</div>
 			<div class="column-4">
 				<template v-for="item in basicGameThirdSquareData['column-4']">
@@ -52,7 +52,7 @@
 						{{ item.value }}
 					</div>
 				</template>
-				<div class="field blue result">{{ thirdSquareSumColFour }}</div>
+				<div class="field result" :class="$parent.$attrs.themeColor || $parent.$parent.$attrs.themeColor">{{ thirdSquareSumColFour }}</div>
 			</div>
 
             <thirdSquareModal :basicGameThirdSquareData="basicGameThirdSquareData" :showModal="showModal" :firstFulRowDisabled="firstFulRowDisabled" :secondFulRowDisabled="secondFulRowDisabled" :disabledNumber="disabledNumber" :disabledAllBtns="disabledAllBtns"></thirdSquareModal>

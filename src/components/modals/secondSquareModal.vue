@@ -12,57 +12,57 @@
 				</div> -->
 				<div class="dice-wrap" ref="maxscroller">
 					<button class="modal-btn dice white-btn" @click="setResult(5, fieldId)">5</button>
-					<div class="divider"></div>
+					<div class="divider" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor"></div>
 					<button class="modal-btn dice white-btn" @click="setResult(6, fieldId)">6</button>
-					<div class="divider"></div>
+					<div class="divider" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor"></div>
 					<button class="modal-btn dice white-btn" @click="setResult(7, fieldId)">7</button>
-					<div class="divider"></div>
+					<div class="divider" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor"></div>
 					<button class="modal-btn dice white-btn" @click="setResult(8, fieldId)">8</button>
-					<div class="divider"></div>
+					<div class="divider" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor"></div>
 					<button class="modal-btn dice white-btn" @click="setResult(9, fieldId)">9</button>
-					<div class="divider"></div>
+					<div class="divider" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor"></div>
 					<button class="modal-btn dice white-btn" @click="setResult(10, fieldId)">10</button>
-					<div class="divider"></div>
+					<div class="divider" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor"></div>
 					<button class="modal-btn dice white-btn" @click="setResult(11, fieldId)">11</button>
-					<div class="divider"></div>
+					<div class="divider" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor"></div>
 					<button class="modal-btn dice white-btn" @click="setResult(12, fieldId)">12</button>
-					<div class="divider"></div>
+					<div class="divider" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor"></div>
 					<button class="modal-btn dice white-btn" @click="setResult(13, fieldId)">13</button>
-					<div class="divider"></div>
+					<div class="divider" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor"></div>
 					<button class="modal-btn dice white-btn" @click="setResult(14, fieldId)">14</button>
-					<div class="divider"></div>
+					<div class="divider" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor"></div>
 					<button class="modal-btn dice white-btn" @click="setResult(15, fieldId)">15</button>
-					<div class="divider"></div>
+					<div class="divider" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor"></div>
 					<button class="modal-btn dice white-btn" @click="setResult(16, fieldId)">16</button>
-					<div class="divider"></div>
+					<div class="divider" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor"></div>
 					<button class="modal-btn dice white-btn" @click="setResult(17, fieldId)">17</button>
-					<div class="divider"></div>
+					<div class="divider" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor"></div>
 					<button class="modal-btn dice white-btn" @click="setResult(18, fieldId)">18</button>
-					<div class="divider"></div>
+					<div class="divider" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor"></div>
 					<button class="modal-btn dice white-btn" @click="setResult(19, fieldId)">19</button>
-					<div class="divider"></div>
+					<div class="divider" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor"></div>
 					<button class="modal-btn dice white-btn" @click="setResult(20, fieldId)">20</button>
-					<div class="divider"></div>
+					<div class="divider" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor"></div>
 					<button class="modal-btn dice white-btn" @click="setResult(21, fieldId)">21</button>
-					<div class="divider"></div>
+					<div class="divider" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor"></div>
 					<button class="modal-btn dice white-btn" @click="setResult(22, fieldId)">22</button>
-					<div class="divider"></div>
+					<div class="divider" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor"></div>
 					<button class="modal-btn dice white-btn" @click="setResult(23, fieldId)">23</button>
-					<div class="divider"></div>
+					<div class="divider" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor"></div>
 					<button class="modal-btn dice white-btn" @click="setResult(24, fieldId)">24</button>
-					<div class="divider"></div>
+					<div class="divider" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor"></div>
 					<button class="modal-btn dice white-btn" @click="setResult(25, fieldId)">25</button>
-					<div class="divider"></div>
+					<div class="divider" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor"></div>
 					<button class="modal-btn dice white-btn" @click="setResult(26, fieldId)">26</button>
-					<div class="divider"></div>
+					<div class="divider" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor"></div>
 					<button class="modal-btn dice white-btn" @click="setResult(27, fieldId)">27</button>
-					<div class="divider"></div>
+					<div class="divider" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor"></div>
 					<button class="modal-btn dice white-btn" @click="setResult(28, fieldId)">28</button>
-					<div class="divider"></div>
+					<div class="divider" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor"></div>
 					<button class="modal-btn dice white-btn" @click="setResult(29, fieldId)">29</button>
-					<div class="divider"></div>
+					<div class="divider" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor"></div>
 					<button class="modal-btn dice white-btn" @click="setResult(30, fieldId)">30</button>
-					<div class="divider"></div>
+					<div class="divider" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor"></div>
 				</div>
 				<div class="bottom-wrap">
 					<button class="modal-btn red-btn reset" :disabled="undoResultBnt" @click="setResult('', fieldId)">X</button>
@@ -77,57 +77,57 @@
 				</div> -->
 				<div class="dice-wrap" ref="minscroller">
 					<button class="modal-btn dice white-btn" @click="setResult(5, fieldId)">5</button>
-					<div class="divider"></div>
+					<div class="divider" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor"></div>
 					<button class="modal-btn dice white-btn" @click="setResult(6, fieldId)">6</button>
-					<div class="divider"></div>
+					<div class="divider" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor"></div>
 					<button class="modal-btn dice white-btn" @click="setResult(7, fieldId)">7</button>
-					<div class="divider"></div>
+					<div class="divider" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor"></div>
 					<button class="modal-btn dice white-btn" @click="setResult(8, fieldId)">8</button>
-					<div class="divider"></div>
+					<div class="divider" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor"></div>
 					<button class="modal-btn dice white-btn" @click="setResult(9, fieldId)">9</button>
-					<div class="divider"></div>
+					<div class="divider" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor"></div>
 					<button class="modal-btn dice white-btn" @click="setResult(10, fieldId)">10</button>
-					<div class="divider"></div>
+					<div class="divider" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor"></div>
 					<button class="modal-btn dice white-btn" @click="setResult(11, fieldId)">11</button>
-					<div class="divider"></div>
+					<div class="divider" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor"></div>
 					<button class="modal-btn dice white-btn" @click="setResult(12, fieldId)">12</button>
-					<div class="divider"></div>
+					<div class="divider" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor"></div>
 					<button class="modal-btn dice white-btn" @click="setResult(13, fieldId)">13</button>
-					<div class="divider"></div>
+					<div class="divider" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor"></div>
 					<button class="modal-btn dice white-btn" @click="setResult(14, fieldId)">14</button>
-					<div class="divider"></div>
+					<div class="divider" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor"></div>
 					<button class="modal-btn dice white-btn" @click="setResult(15, fieldId)">15</button>
-					<div class="divider"></div>
+					<div class="divider" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor"></div>
 					<button class="modal-btn dice white-btn" @click="setResult(16, fieldId)">16</button>
-					<div class="divider"></div>
+					<div class="divider" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor"></div>
 					<button class="modal-btn dice white-btn" @click="setResult(17, fieldId)">17</button>
-					<div class="divider"></div>
+					<div class="divider" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor"></div>
 					<button class="modal-btn dice white-btn" @click="setResult(18, fieldId)">18</button>
-					<div class="divider"></div>
+					<div class="divider" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor"></div>
 					<button class="modal-btn dice white-btn" @click="setResult(19, fieldId)">19</button>
-					<div class="divider"></div>
+					<div class="divider" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor"></div>
 					<button class="modal-btn dice white-btn" @click="setResult(20, fieldId)">20</button>
-					<div class="divider"></div>
+					<div class="divider" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor"></div>
 					<button class="modal-btn dice white-btn" @click="setResult(21, fieldId)">21</button>
-					<div class="divider"></div>
+					<div class="divider" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor"></div>
 					<button class="modal-btn dice white-btn" @click="setResult(22, fieldId)">22</button>
-					<div class="divider"></div>
+					<div class="divider" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor"></div>
 					<button class="modal-btn dice white-btn" @click="setResult(23, fieldId)">23</button>
-					<div class="divider"></div>
+					<div class="divider" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor"></div>
 					<button class="modal-btn dice white-btn" @click="setResult(24, fieldId)">24</button>
-					<div class="divider"></div>
+					<div class="divider" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor"></div>
 					<button class="modal-btn dice white-btn" @click="setResult(25, fieldId)">25</button>
-					<div class="divider"></div>
+					<div class="divider" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor"></div>
 					<button class="modal-btn dice white-btn" @click="setResult(26, fieldId)">26</button>
-					<div class="divider"></div>
+					<div class="divider" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor"></div>
 					<button class="modal-btn dice white-btn" @click="setResult(27, fieldId)">27</button>
-					<div class="divider"></div>
+					<div class="divider" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor"></div>
 					<button class="modal-btn dice white-btn" @click="setResult(28, fieldId)">28</button>
-					<div class="divider"></div>
+					<div class="divider" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor"></div>
 					<button class="modal-btn dice white-btn" @click="setResult(29, fieldId)">29</button>
-					<div class="divider"></div>
+					<div class="divider" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor"></div>
 					<button class="modal-btn dice white-btn" @click="setResult(30, fieldId)">30</button>
-					<div class="divider"></div>
+					<div class="divider" :class="$parent.$parent.$attrs.themeColor || $parent.$parent.$parent.$attrs.themeColor"></div>
 				</div>
 				<div class="bottom-wrap">
 					<button class="modal-btn red-btn reset" :disabled="undoResultBnt" @click="setResult('', fieldId)">X</button>
@@ -244,7 +244,7 @@
 
 						if (this.modalMax) {
 							this.$nextTick(() => {
-								this.$refs.maxscroller.scrollTop = 946;
+								this.$refs.maxscroller.scrollTop = 1110;
 							});
 						}
 						if (this.modalMin) {

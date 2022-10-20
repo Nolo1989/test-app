@@ -3,8 +3,8 @@
         <div class="column-0">
 				<div class="field smaller">MAX</div>
 				<div class="field smaller">MIN</div>
-				<div v-if="game === 'large-game'" class="field blue">S</div>
-				<div v-else class="field blue">SUM</div>
+				<div v-if="game === 'large-game'" class="field" :class="$parent.$attrs.themeColor || $parent.$parent.$attrs.themeColor">S</div>
+				<div v-else class="field" :class="$parent.$attrs.themeColor || $parent.$parent.$attrs.themeColor">SUM</div>
 			</div>
 			<div class="column-1">
 				<template v-for="item in basicGameSecondSquareData['column-1']">
@@ -16,7 +16,7 @@
 						{{ item.value }}
 					</div>
 				</template>
-				<div class="field blue result">{{ secondSquareSumColOne }}</div>
+				<div class="field result" :class="$parent.$attrs.themeColor || $parent.$parent.$attrs.themeColor">{{ secondSquareSumColOne }}</div>
 			</div>
 			<div class="column-2">
 				<template v-for="item in basicGameSecondSquareData['column-2']">
@@ -28,7 +28,7 @@
 						{{ item.value }}
 					</div>
 				</template>
-				<div class="field blue result">{{ secondSquareSumColTwo }}</div>
+				<div class="field result" :class="$parent.$attrs.themeColor || $parent.$parent.$attrs.themeColor">{{ secondSquareSumColTwo }}</div>
 			</div>
 			<div class="column-3">
 				<template v-for="item in basicGameSecondSquareData['column-3']">
@@ -40,7 +40,7 @@
 						{{ item.value }}
 					</div>
 				</template>
-				<div class="field blue result">{{ secondSquareSumColThree }}</div>
+				<div class="field result" :class="$parent.$attrs.themeColor || $parent.$parent.$attrs.themeColor">{{ secondSquareSumColThree }}</div>
 			</div>
 			<div class="column-4">
 				<template v-for="item in basicGameSecondSquareData['column-4']">
@@ -52,7 +52,7 @@
 						{{ item.value }}
 					</div>
 				</template>
-				<div class="field blue result">{{ secondSquareSumColFour }}</div>
+				<div class="field result" :class="$parent.$attrs.themeColor || $parent.$parent.$attrs.themeColor">{{ secondSquareSumColFour }}</div>
 			</div>
 
 			<secondSquareModal :basicGameSecondSquareData="basicGameSecondSquareData" :showModal="showModal" :disabledAllBtns="disabledAllBtns"></secondSquareModal>
