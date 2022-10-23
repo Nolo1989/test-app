@@ -343,8 +343,62 @@
 				numOfGames: 5,
 				myGameData: [],
 				showMyGame: false,
+				mySavedObj: {},
 			};
 		},
+		mounted() {
+			if (!this.$router.options.routes[5].meta.gameInProgress) {
+				this.showMyGame = false;
+				localStorage.removeItem('myGame');
+				localStorage.removeItem('myGamePage');
+			}
+
+			if (localStorage.getItem('myGamePage')) {
+				this.mySavedObj = JSON.parse(localStorage.getItem('myGamePage'));
+
+				this.basicGame = this.mySavedObj.basicGame;
+				this.R = this.mySavedObj.R;
+				this.D = this.mySavedObj.D;
+				this.toMiddle = this.mySavedObj.toMiddle;
+				this.fromMiddle = this.mySavedObj.fromMiddle;
+				this.O = this.mySavedObj.O;
+				this.M = this.mySavedObj.M;
+				this.rOrder = this.mySavedObj.rOrder;
+				this.dOrder = this.mySavedObj.dOrder;
+				this.toMiddleOrder = this.mySavedObj.toMiddleOrder;
+				this.fromMiddleOrder = this.mySavedObj.fromMiddleOrder;
+				this.oOrder = this.mySavedObj.oOrder;
+				this.mOrder = this.mySavedObj.mOrder;
+				this.numOfGames = this.mySavedObj.numOfGames;
+				this.myGameData = this.mySavedObj.myGameData;
+				this.showMyGame = this.mySavedObj.showMyGame;
+			}
+		},
+		updated() {
+			const myObj = {
+				basicGame: this.basicGame,
+				R: this.R,
+				D: this.D,
+				toMiddle: this.toMiddle,
+				fromMiddle: this.fromMiddle,
+				O: this.O,
+				M: this.M,
+				rOrder: this.rOrder,
+				dOrder: this.dOrder,
+				toMiddleOrder: this.toMiddleOrder,
+				fromMiddleOrder: this.fromMiddleOrder,
+				oOrder: this.oOrder,
+				mOrder: this.mOrder,
+				numOfGames: this.numOfGames,
+				myGameData: this.myGameData,
+				showMyGame: this.showMyGame,
+			}
+			localStorage.setItem('myGamePage', JSON.stringify(myObj));
+		},
+		// beforeRouteLeave(to, from , next) {
+		// 	this.$bus.$emit('update:saveMyGame');
+		// 	next();
+		// },
 		methods: {
 			toggleR() {
 				if (this.R) {
@@ -570,8 +624,7 @@
 							this.oOrder--;
 					}
 				}
-			},
-			
+			}
 		},
 		components: {
 			MyGameYamb

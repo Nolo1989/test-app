@@ -61,7 +61,7 @@
 			<div :class="`column-${myGameData.length}`">
 				<div class="field large">
 					<!-- <p class="total">TOTAL:</p> -->
-					<div class="total-field" @click="totalFieldActive = !totalFieldActive" :class="[{'active': totalFieldActive}, $parent.$attrs.themeColor]">
+					<div class="total-field" @click="totalFieldActive = !totalFieldActive" :class="[{'active': totalFieldActive}, bkgTotal(), {'darken-2': isDarker()}]">
 						{{ firstSquareSumTotal + secondSquareSumTotal + thirdSquareSumTotal }}
 					</div>
 				</div>
@@ -648,7 +648,8 @@
 				disabledUndoResultBtn: false,
 				activeModalColumn: '',
 				counter: 0,
-				odjavaStarted: false
+				odjavaStarted: false,
+				mySavedObj: {},
 			}
 		},
 		mounted() {
@@ -671,6 +672,239 @@
 			this.$bus.$on('basic-game-third-square-sum-total', (thirdSquareSumTotal) => {
 				this.basicGameThirdSquareSumTotal = thirdSquareSumTotal;
 			});
+			this.$bus.$on('resetMyGame', () => {
+				this.firstSquareItems = {
+					'column-1': [],
+					'column-2': [],
+					'column-3': [],
+					'column-4': [],
+					'column-5': [],
+					'column-6': [],
+					'column-7': [],
+					'column-8': [],
+					'column-9': [],
+					'column-10': [],
+				};
+				this.secondSquareItems = {
+					'column-1': [],
+					'column-2': [],
+					'column-3': [],
+					'column-4': [],
+					'column-5': [],
+					'column-6': [],
+					'column-7': [],
+					'column-8': [],
+					'column-9': [],
+					'column-10': [],
+				};
+				this.thirdSquareItems = {
+					'column-1': [],
+					'column-2': [],
+					'column-3': [],
+					'column-4': [],
+					'column-5': [],
+					'column-6': [],
+					'column-7': [],
+					'column-8': [],
+					'column-9': [],
+					'column-10': [],
+				};
+				this.showModal = false;
+				this.modalOne = false;
+				this.modalTwo = false;
+				this.modalThree = false;
+				this.modalFour = false;
+				this.modalFive = false;
+				this.modalSix = false;
+				this.modalMax = false;
+				this.modalMin = false;
+				this.modalKenta = false;
+				this.modalTriling = false;
+				this.modalFul = false;
+				this.modalPoker = false;
+				this.modalYamb = false;
+				this.fieldId = '';
+				this.firstFulRowDisabled = false;
+				this.secondFulRowDisabled = true;
+				this.firstRowFulResult = 0;
+				this.disabledNumber = 0;
+				this.totalFieldActive = false;
+				this.disabledAllBtns = true;
+				this.firstSquareSumColFive = 0;
+				this.firstSquareSumColSix = 0;
+				this.firstSquareSumColSeven = 0;
+				this.firstSquareSumColEight = 0;
+				this.firstSquareSumColNine = 0;
+				this.firstSquareSumColTen = 0;
+				this.secondSquareSumColFive = 0;
+				this.secondSquareSumColSix = 0;
+				this.secondSquareSumColSeven = 0;
+				this.secondSquareSumColEight = 0;
+				this.secondSquareSumColNine = 0;
+				this.secondSquareSumColTen = 0;
+				this.thirdSquareSumColFive = 0;
+				this.thirdSquareSumColSix = 0;
+				this.thirdSquareSumColSeven = 0;
+				this.thirdSquareSumColEight = 0;
+				this.thirdSquareSumColNine = 0;
+				this.thirdSquareSumColTen = 0;
+				this.basicGameFirstSquareSumTotal = 0;
+				this.basicGameSecondSquareSumTotal = 0;
+				this.basicGameThirdSquareSumTotal = 0;
+				this.myGameDataSorted = [];
+				this.max = 0;
+				this.odjava = 0;
+				this.toMiddleColumn = 0;
+				this.fromMiddleColumn = 0;
+				this.dataForMax = {
+					one: null,
+					two: null,
+					three: null,
+					four: null,
+					five: null,
+					six: null,
+					max: null,
+					min: null,
+					kenta: null,
+					triling: null,
+					ful: null,
+					poker: null,
+					yamb: null,
+				};
+				this.disabledUndoResultBtn = false;
+				this.activeModalColumn = '';
+				this.counter = 0;
+				this.odjavaStarted = false;
+
+				this.orderOfColumns();
+				this.getFirstSquare();
+				this.$nextTick(() => {
+					this.singleColumnsSort();
+				});
+				this.getSecondSquare();
+				this.getThirdSquare();
+				this.$bus.$emit('isDisabledAllButtons', this.disabledAllBtns);
+			});
+
+			if (localStorage.getItem('myGame')) {
+				this.mySavedObj = JSON.parse(localStorage.getItem('myGame'));
+
+				this.firstSquareItems = this.mySavedObj.firstSquareItems;
+				this.secondSquareItems = this.mySavedObj.secondSquareItems;
+				this.thirdSquareItems = this.mySavedObj.thirdSquareItems;
+				this.showModal = this.mySavedObj.showModal;
+				this.modalOne = this.mySavedObj.modalOne;
+				this.modalTwo = this.mySavedObj.modalTwo;
+				this.modalThree = this.mySavedObj.modalThree;
+				this.modalFour = this.mySavedObj.modalFour;
+				this.modalFive = this.mySavedObj.modalFive;
+				this.modalSix = this.mySavedObj.modalSix;
+				this.modalMax = this.mySavedObj.modalMax;
+				this.modalMin = this.mySavedObj.modalMin;
+				this.modalKenta = this.mySavedObj.modalKenta;
+				this.modalTriling = this.mySavedObj.modalTriling;
+				this.modalFul = this.mySavedObj.modalFul;
+				this.modalPoker = this.mySavedObj.modalPoker;
+				this.modalYamb = this.mySavedObj.modalYamb;
+				this.fieldId = this.mySavedObj.fieldId;
+				this.firstFulRowDisabled = this.mySavedObj.firstFulRowDisabled;
+				this.secondFulRowDisabled = this.mySavedObj.secondFulRowDisabled;
+				this.firstRowFulResult = this.mySavedObj.firstRowFulResult;
+				this.disabledNumber = this.mySavedObj.disabledNumber;
+				this.totalFieldActive = this.mySavedObj.totalFieldActive;
+				this.disabledAllBtns = this.mySavedObj.disabledAllBtns;
+				this.firstSquareSumColFive = this.mySavedObj.firstSquareSumColFive;
+				this.firstSquareSumColSix = this.mySavedObj.firstSquareSumColSix;
+				this.firstSquareSumColSeven = this.mySavedObj.firstSquareSumColSeven;
+				this.firstSquareSumColEight = this.mySavedObj.firstSquareSumColEight;
+				this.firstSquareSumColNine = this.mySavedObj.firstSquareSumColNine;
+				this.firstSquareSumColTen = this.mySavedObj.firstSquareSumColTen;
+				this.secondSquareSumColFive = this.mySavedObj.secondSquareSumColFive;
+				this.secondSquareSumColSix = this.mySavedObj.secondSquareSumColSix;
+				this.secondSquareSumColSeven = this.mySavedObj.secondSquareSumColSeven;
+				this.secondSquareSumColEight = this.mySavedObj.secondSquareSumColEight;
+				this.secondSquareSumColNine = this.mySavedObj.secondSquareSumColNine;
+				this.secondSquareSumColTen = this.mySavedObj.secondSquareSumColTen;
+				this.thirdSquareSumColFive = this.mySavedObj.thirdSquareSumColFive;
+				this.thirdSquareSumColSix = this.mySavedObj.thirdSquareSumColSix;
+				this.thirdSquareSumColSeven = this.mySavedObj.thirdSquareSumColSeven;
+				this.thirdSquareSumColEight = this.mySavedObj.thirdSquareSumColEight;
+				this.thirdSquareSumColNine = this.mySavedObj.thirdSquareSumColNine;
+				this.thirdSquareSumColTen = this.mySavedObj.thirdSquareSumColTen;
+				this.basicGameFirstSquareSumTotal = this.mySavedObj.basicGameFirstSquareSumTotal;
+				this.basicGameSecondSquareSumTotal = this.mySavedObj.basicGameSecondSquareSumTotal;
+				this.basicGameThirdSquareSumTotal = this.mySavedObj.basicGameThirdSquareSumTotal;
+				this.max = this.mySavedObj.max;
+				this.odjava = this.mySavedObj.odjava;
+				this.toMiddleColumn = this.mySavedObj.toMiddleColumn;
+				this.fromMiddleColumn = this.mySavedObj.fromMiddleColumn;
+				this.dataForMax = this.mySavedObj.dataForMax;
+				this.disabledUndoResultBtn = this.mySavedObj.disabledUndoResultBtn;
+				this.activeModalColumn = this.mySavedObj.activeModalColumn;
+				this.counter = this.mySavedObj.counter;
+				this.odjavaStarted = this.mySavedObj.odjavaStarted;
+			}
+
+			this.$bus.$emit('isDisabledAllButtons', this.disabledAllBtns);
+		},
+		updated() {
+			const myObj = {
+				firstSquareItems: this.firstSquareItems,
+				secondSquareItems: this.secondSquareItems,
+				thirdSquareItems: this.thirdSquareItems,
+				showModal: this.showModal,
+				modalOne: this.modalOne,
+				modalTwo: this.modalTwo,
+				modalThree: this.modalThree,
+				modalFour: this.modalFour,
+				modalFive: this.modalFive,
+				modalSix: this.modalSix,
+				modalMax: this.modalMax,
+				modalMin: this.modalMin,
+				modalKenta: this.modalKenta,
+				modalTriling: this.modalTriling,
+				modalFul: this.modalFul,
+				modalPoker: this.modalPoker,
+				modalYamb: this.modalYamb,
+				fieldId: this.fieldId,
+				firstFulRowDisabled: this.firstFulRowDisabled,
+				secondFulRowDisabled: this.secondFulRowDisabled,
+				firstRowFulResult: this.firstRowFulResult,
+				disabledNumber: this.disabledNumber,
+				totalFieldActive: this.totalFieldActive,
+				disabledAllBtns: this.disabledAllBtns,
+				firstSquareSumColFive: this.firstSquareSumColFive,
+				firstSquareSumColSix: this.firstSquareSumColSix,
+				firstSquareSumColSeven: this.firstSquareSumColSeven,
+				firstSquareSumColEight: this.firstSquareSumColEight,
+				firstSquareSumColNine: this.firstSquareSumColNine,
+				firstSquareSumColTen: this.firstSquareSumColTen,
+				secondSquareSumColFive: this.secondSquareSumColFive,
+				secondSquareSumColSix: this.secondSquareSumColSix,
+				secondSquareSumColSeven: this.secondSquareSumColSeven,
+				secondSquareSumColEight: this.secondSquareSumColEight,
+				secondSquareSumColNine: this.secondSquareSumColNine,
+				secondSquareSumColTen: this.secondSquareSumColTen,
+				thirdSquareSumColFive: this.thirdSquareSumColFive,
+				thirdSquareSumColSix: this.thirdSquareSumColSix,
+				thirdSquareSumColSeven: this.thirdSquareSumColSeven,
+				thirdSquareSumColEight: this.thirdSquareSumColEight,
+				thirdSquareSumColNine: this.thirdSquareSumColNine,
+				thirdSquareSumColTen: this.thirdSquareSumColTen,
+				basicGameFirstSquareSumTotal: this.basicGameFirstSquareSumTotal,
+				basicGameSecondSquareSumTotal: this.basicGameSecondSquareSumTotal,
+				basicGameThirdSquareSumTotal: this.basicGameThirdSquareSumTotal,
+				max: this.max,
+				odjava: this.odjava,
+				toMiddleColumn: this.toMiddleColumn,
+				fromMiddleColumn: this.fromMiddleColumn,
+				dataForMax: this.dataForMax,
+				disabledUndoResultBtn: this.disabledUndoResultBtn,
+				activeModalColumn: this.activeModalColumn,
+				counter: this.counter,
+				odjavaStarted: this.odjavaStarted,
+			}
+			localStorage.setItem('myGame', JSON.stringify(myObj));
 		},
 		activated() {
 			this.$bus.$emit('showEyeBtn', true);
@@ -1122,6 +1356,17 @@
 					if (element.game === 'fromMiddle')
 						this.fromMiddleColumn = element.order - 1;
 				});
+			},
+			isDarker() {
+				return this.$parent.$attrs.themeColor.includes('darken-3') ? true : false;
+			},
+			bkgTotal() {
+				let color = this.$parent.$attrs.themeColor;
+
+				if (this.isDarker())
+					return color.replace('darken-3', '');
+
+				return color;
 			},
 		},
 		computed: {

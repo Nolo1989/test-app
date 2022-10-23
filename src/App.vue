@@ -6,19 +6,36 @@
       dark
       class="header darken-2"
     >
-    <modal :show="showModal" @closeModal="[showModal = false, showTotalResult = false]" class="confirmation-modal" :class="{'show-animation': showTotalResult}">
+    <modal :show="showModal" @closeModal="[showModal = false, showTotalResult = false, showResetModal = false, showMyGameModal= false]" class="confirmation-modal" :class="{'show-animation': showTotalResult}">
       <div slot="header" class="modal-title-wrapper">
-        <p class="modal-title" v-if="showTotalResult">
+        <p class="modal-title" v-if="showResetModal">
+          <span>Da li želite da započnete novu igru?</span>
+        </p>
+        <p class="modal-title" v-else-if="showMyGameModal">
+          <span>Da li želite da nastavite započetu igru?</span>
+        </p>
+        <p class="modal-title" v-else-if="showTotalResult">
           <span>Partija je završena!</span>
           <span class="blocked-elem">Vaš rezultat je:</span>
         </p>
         <template v-else>
           <p class="modal-title" v-if="$route.name === 'Dashboard'">Da li želite da napustite igru?</p>
-          <p class="modal-title" v-else>Da li želite da prekinete partiju?</p>
+          <p class="modal-title" v-else>Da li želite da napustite partiju?</p>
         </template>
       </div>
       <div slot="body">
-        <div class="modal-result total-field active" v-if="showTotalResult">{{ totalResult }}</div>
+        <template v-if="showResetModal">
+          <button class="modal-btn" :style="getThemeColor" @click="closeResetModal()">NE</button>
+          <button class="modal-btn white-color" :class="themeColor" @click="resetGame()">DA</button>
+        </template>
+
+        <template v-else-if="showMyGameModal">
+          <button class="modal-btn" :style="getThemeColor" @click="goToMyGame(false)">NE</button>
+          <button class="modal-btn white-color" :class="themeColor" @click="goToMyGame(true)">DA</button>
+        </template>
+        
+        <div v-else-if="showTotalResult" class="modal-result total-field active" :class="themeColor" style="border-color: #000 !important;">{{ totalResult }}</div>
+
         <template v-else>
           <button class="modal-btn" :style="getThemeColor" @click="showModal = false">NE</button>
           <button class="modal-btn white-color" :class="themeColor" @click="$route.name === 'Dashboard' ? exitApp() : goToDashboard()">DA</button>
@@ -29,6 +46,10 @@
         <img src="./images/arrow-down-outline.svg" alt="Down icon" class="icon" />
     </div>
     <template v-if="($route.name !== 'Dashboard' && $route.name !== 'MyGame') || ($route.name === 'MyGame' && showEye)">
+      <div class="eye-btn-wrap reset" @click="openModalForResetGame()">
+          <img src="./images/reset.svg" alt="Reset" class="icon" />
+          <p class="text show">Reset</p>
+      </div>
       <div class="eye-btn-wrap" v-if="!enableEdit" @click="editChanged()">
           <img src="./images/eye-off.svg" alt="Hide" class="icon" />
           <p class="text show">Izmeni</p>
@@ -91,6 +112,8 @@ export default {
     totalResult: 0,
     themeColor: 'blue',
     notClickable: false,
+    showResetModal: false,
+    showMyGameModal: false,
   }),
   mounted() {
     this.$bus.$on('openModal', () => {
@@ -115,6 +138,11 @@ export default {
 
     App.addListener('backButton', () => {
       this.openModal();
+    });
+
+    this.$bus.$on('isDisabledAllButtons', (isDisabledAllBtns) => {
+      console.log('usao');
+      this.enableEdit = !isDisabledAllBtns;
     });
   },
   methods: {
@@ -153,6 +181,34 @@ export default {
       this.themeColor = color;
       localStorage.setItem('themeColor', color);
       this.closeChangeThemeModal();
+    },
+    openModalForResetGame() {
+      this.showModal = true;
+      this.showResetModal = true;
+    },
+    closeResetModal() {
+      this.showModal = false;
+      this.showResetModal = false;
+    },
+    resetGame() {
+      const component = this.$route.name;
+
+      if (component === 'SmallGame')
+        this.$bus.$emit('resetSmallGame');
+      if (component === 'MediumGame')
+        this.$bus.$emit('resetMediumGame');
+      if (component === 'LargeGame')
+        this.$bus.$emit('resetLargeGame');
+      if (component === 'MyGame')
+        this.$bus.$emit('resetMyGame');
+
+      this.showModal = false;
+      this.showResetModal = false;
+    },
+    goToMyGame(flag) {
+      this.showModal = false;
+      this.showMyGameModal = false;
+      this.$bus.$emit('isExistedGame', flag);
     }
   },
   computed: {

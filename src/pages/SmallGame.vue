@@ -20,7 +20,7 @@
 			<div class="column-5">
 				<div class="field large">
 					<p class="total">TOTAL:</p>
-					<div class="total-field" @click="totalFieldActive = !totalFieldActive" :class="[{'active': totalFieldActive}, $attrs.themeColor]">
+					<div class="total-field" @click="totalFieldActive = !totalFieldActive" :class="[{'active': totalFieldActive}, $attrs.themeColor]" style="border-color: #000 !important;">
 						{{ basicGameFirstSquareSumTotal + basicGameSecondSquareSumTotal + basicGameThirdSquareSumTotal }}
 					</div>
 				</div>
@@ -68,6 +68,7 @@
 				basicGameThirdSquareSumTotal: 0,
 				activeModalColumn: '',
 				counter: 0,
+				mySavedObj: {},
 			}
 		},
 		mounted() {
@@ -86,6 +87,83 @@
 			this.$bus.$on('basic-game-third-square-sum-total', (thirdSquareSumTotal) => {
 				this.basicGameThirdSquareSumTotal = thirdSquareSumTotal;
 			});
+			this.$bus.$on('resetSmallGame', () => {
+				this.firstSquareItems = {
+					'column-1': [],
+					'column-2': [],
+					'column-3': [],
+					'column-4': []
+				};
+				this.secondSquareItems = {
+					'column-1': [],
+					'column-2': [],
+					'column-3': [],
+					'column-4': []
+				};
+				this.thirdSquareItems = {
+					'column-1': [],
+					'column-2': [],
+					'column-3': [],
+					'column-4': []
+				};
+				this.firstFulRowDisabled = false;
+				this.secondFulRowDisabled = true;
+				this.firstRowFulResult = 0;
+				this.disabledNumber = 0;
+				this.totalFieldActive = false;
+				this.disabledAllBtns = true;
+				this.basicGameFirstSquareSumTotal = 0;
+				this.basicGameSecondSquareSumTotal = 0;
+				this.basicGameThirdSquareSumTotal = 0;
+				this.activeModalColumn = '';
+				this.counter = 0;
+
+				this.getFirstSquare();
+				this.getSecondSquare();
+				this.getThirdSquare();
+				this.$bus.$emit('isDisabledAllButtons', this.disabledAllBtns);
+			});
+
+			if (localStorage.getItem('smallGame')) {
+				this.mySavedObj = JSON.parse(localStorage.getItem('smallGame'));
+
+				this.firstSquareItems = this.mySavedObj.firstSquareItems;
+				this.secondSquareItems = this.mySavedObj.secondSquareItems;
+				this.thirdSquareItems = this.mySavedObj.thirdSquareItems;
+				this.firstFulRowDisabled = this.mySavedObj.firstFulRowDisabled;
+				this.secondFulRowDisabled = this.mySavedObj.secondFulRowDisabled;
+				this.firstRowFulResult = this.mySavedObj.firstRowFulResult;
+				this.disabledNumber = this.mySavedObj.disabledNumber;
+				this.totalFieldActive = this.mySavedObj.totalFieldActive;
+				this.disabledAllBtns = this.mySavedObj.disabledAllBtns;
+				this.basicGameFirstSquareSumTotal= this.mySavedObj.basicGameFirstSquareSumTotal;
+				this.basicGameSecondSquareSumTotal= this.mySavedObj.basicGameSecondSquareSumTotal;
+				this.basicGameThirdSquareSumTotal= this.mySavedObj.basicGameThirdSquareSumTotal;
+				this.activeModalColumn = this.mySavedObj.activeModalColumn;
+				this.counter = this.mySavedObj.counter;
+			}
+
+			this.$bus.$emit('isDisabledAllButtons', this.disabledAllBtns);
+		},
+		updated() {
+			const myObj = {
+				firstSquareItems: this.firstSquareItems,
+				secondSquareItems: this.secondSquareItems,
+				thirdSquareItems: this.thirdSquareItems,
+				firstFulRowDisabled: this.firstFulRowDisabled,
+				secondFulRowDisabled: this.secondFulRowDisabled,
+				firstRowFulResult: this.firstRowFulResult,
+				disabledNumber: this.disabledNumber,
+				totalFieldActive: this.totalFieldActive,
+				disabledAllBtns: this.disabledAllBtns,
+				basicGameFirstSquareSumTotal: this.basicGameFirstSquareSumTotal,
+				basicGameSecondSquareSumTotal: this.basicGameSecondSquareSumTotal,
+				basicGameThirdSquareSumTotal: this.basicGameThirdSquareSumTotal,
+				activeModalColumn: this.activeModalColumn,
+				counter: this.counter,
+				totalResult: this.totalResult
+			}
+			localStorage.setItem('smallGame', JSON.stringify(myObj));
 		},
 		methods: {
 			getFirstSquare() {

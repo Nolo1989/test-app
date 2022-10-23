@@ -7,7 +7,7 @@
 			<router-link class="card" :class="{'not-clickable': $parent.$parent.$parent.notClickable}" :style="getThemeColor" :to="{name: 'LargeGame'}">Veliki listić</router-link>
 		</ul>
 		<h2 class="page-title">
-			<router-link :to="{name: 'MyGame'}" class="my-game-link" :class="{'not-clickable': $parent.$parent.$parent.notClickable}">
+			<router-link :to="{name: 'MyGame'}" @click.native.prevent="sendToNextStep({name: 'MyGame'})" event="" class="my-game-link" :class="{'not-clickable': $parent.$parent.$parent.notClickable}">
 				<span>
 					Napravi svoj listić! 
 				</span>
@@ -21,9 +21,24 @@
 import Vue from "vue";
 
 export default Vue.extend({
-	name: "Home",
+	name: "Dashboard",
 	data: function() {
 		return {};
+	},
+	methods: {
+		sendToNextStep(route) {
+			if (localStorage.getItem('myGame')) {
+				this.$parent.$parent.$parent.showMyGameModal = true;
+				this.$parent.$parent.$parent.openModal();
+
+				this.$bus.$on('isExistedGame', (flag) => {
+					this.$router.options.routes[5].meta.gameInProgress = flag;
+					this.$router.push(route).catch(()=>{});
+				});
+			}
+			else
+				this.$router.push(route).catch(()=>{});
+		}
 	},
 	computed: {
 		getThemeColor() {

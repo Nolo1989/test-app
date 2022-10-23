@@ -10,9 +10,15 @@
 }
 .eye-btn-wrap {
 	height: 100%;
-    display: inline-flex;
+	position: absolute;
+    right: 0px;
+    display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: center;
+	&.reset {
+		right: 56px;
+		margin-left: auto;
+	}
 	.text {
 		margin: 0;
 		font-size: 11px;
@@ -469,6 +475,7 @@
 		top: -6px;
 		left: calc(50% - 35px);
 		width: 70px;
+		font-size: 16px;
 		z-index: 5;
 	}
 	.first-square .to-middle-flag .field:nth-child(2) {
