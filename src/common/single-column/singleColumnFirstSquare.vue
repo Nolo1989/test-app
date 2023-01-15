@@ -12,7 +12,7 @@
 				<img src="../../images/arrow-down-outline.svg" alt="Down icon" class="icon" />
 			</div>
 		</template>
-		<div v-else class="field" :class="$parent.$attrs.themeColor || $parent.$parent.$attrs.themeColor">{{ nameOfColumn }}</div>
+		<div v-else class="field" :class="[$parent.$attrs.themeColor || $parent.$parent.$attrs.themeColor, {'thick': totalNumberOfCols && totalNumberOfCols < 7}]">{{ nameOfColumn }}</div>
 		<template v-if="column === 5">
 			<template v-for="(item, idx) in firstSquareDataFive">
 				<div v-if="nameOfColumn === 'M' && idx !== 6" :key="idx" class="field" :class="item.class" :disabled="nameOfColumn === 'M'">
@@ -308,6 +308,10 @@
 				require: false,
 				default: 0
 			},
+			totalNumberOfCols: {
+				type: Number,
+				require: false
+			}
 		},
 		data() {
 			return {

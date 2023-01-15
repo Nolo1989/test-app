@@ -97,6 +97,10 @@
 
 import modal from './common/modal.vue';
 import { App } from '@capacitor/app';
+import { KeepAwake } from '@capacitor-community/keep-awake';
+
+// https://stackoverflow.com/questions/65542665/error-package-android-view-does-not-exist
+KeepAwake.keepAwake();
 
 window.screen.orientation.lock('portrait');
 window.screen.orientation.unlock('landscape');
@@ -141,7 +145,6 @@ export default {
     });
 
     this.$bus.$on('isDisabledAllButtons', (isDisabledAllBtns) => {
-      console.log('usao');
       this.enableEdit = !isDisabledAllBtns;
     });
   },

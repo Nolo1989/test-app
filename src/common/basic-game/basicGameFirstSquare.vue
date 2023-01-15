@@ -1,15 +1,15 @@
 <template>
 	<section class="basic-game-first-suare">
 		<div class="column-0">
-			<div v-if="game && game === 'large-game'" class="field" :class="$parent.$attrs.themeColor || $parent.$parent.$attrs.themeColor">Y</div>
-			<div v-else class="field smaller" :class="$parent.$attrs.themeColor || $parent.$parent.$attrs.themeColor">YAMB</div>
+			<div v-if="game && game === 'large-game'" class="field" :class="[$parent.$attrs.themeColor || $parent.$parent.$attrs.themeColor, {'thick': totalNumberOfCols && totalNumberOfCols < 7, 'normal': !totalNumberOfCols || totalNumberOfCols >= 7}]">Y</div>
+			<div v-else class="field smaller" :class="[$parent.$attrs.themeColor || $parent.$parent.$attrs.themeColor, {'normal': game && game === 'large-game' || game === 'medium-game'}]">YAMB</div>
 			<div class="field smaller">1</div>
 			<div class="field smaller">2</div>
 			<div class="field smaller">3</div>
 			<div class="field smaller">4</div>
 			<div class="field smaller">5</div>
 			<div class="field smaller">6</div>
-			<div v-if="game && game === 'large-game'" class="field" :class="$parent.$attrs.themeColor || $parent.$parent.$attrs.themeColor">
+			<div v-if="game && game === 'large-game'" class="field" :class="[$parent.$attrs.themeColor || $parent.$parent.$attrs.themeColor, {'smaller': game === 'large-game'}]">
 				<div class="bonus" :class="{'small': totalNumberOfCols && totalNumberOfCols > 5}">BONUS</div>
 				S
 			</div>
@@ -74,7 +74,7 @@
 			</div>
 		</div>
 		<div class="column-4">
-			<div class="field" :class="$parent.$attrs.themeColor || $parent.$parent.$attrs.themeColor">N</div>
+			<div class="field" :class="[$parent.$attrs.themeColor || $parent.$parent.$attrs.themeColor, {'thick': (game && game === 'small-game') || (totalNumberOfCols && totalNumberOfCols < 7)}]">N</div>
 			<template v-for="(item, idx) in basicGameFirstSquareData['column-4']">
 				<div class="field" @click="openModal(item.id, (item.value || item.value == 0) && item.value !== '' && disabledAllBtns)" v-if="idx !== 6" :class="item.class" :disabled="(item.value || item.value == 0) && item.value !== '' && disabledAllBtns" :id="item.id" :key="item.id">
 					<input type="hidden" v-model="item.value" />

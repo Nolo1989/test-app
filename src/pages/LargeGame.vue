@@ -573,7 +573,7 @@
 				secondFulRowDisabled: true,
 				firstRowFulResult: 0,
 				disabledNumber: 0,
-				totalFieldActive: false,
+				totalFieldActive: true,
 				disabledAllBtns: true,
 				basicGameFirstSquareSumTotal: 0,
 				basicGameSecondSquareSumTotal: 0,
@@ -690,7 +690,7 @@
 				this.secondFulRowDisabled = true;
 				this.firstRowFulResult = 0;
 				this.disabledNumber = 0;
-				this.totalFieldActive = false;
+				this.totalFieldActive = true;
 				this.disabledAllBtns = true;
 				this.basicGameFirstSquareSumTotal = 0;
 				this.basicGameSecondSquareSumTotal = 0;
@@ -1224,7 +1224,7 @@
 					return color.replace('darken-3', '');
 
 				return color;
-			}
+			},
 		},
 		computed: {
 			firstSquareForMaxSum() {

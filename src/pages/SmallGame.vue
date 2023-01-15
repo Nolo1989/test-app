@@ -3,7 +3,7 @@
 		<div class="first-square">
 			<basic-game-first-square :basicGameFirstSquareData="firstSquareItems" :disabledAllBtns="disabledAllBtns" :game="'small-game'"></basic-game-first-square>
 			<div class="column-5">
-				<div class="field" :class="$attrs.themeColor">YAMB</div>
+				<div class="field thick" :class="$attrs.themeColor">YAMB</div>
 				<div class="field large"></div>
 				<div class="field" :class="$attrs.themeColor">{{ basicGameFirstSquareSumTotal }}</div>
 			</div>
@@ -20,9 +20,10 @@
 			<div class="column-5">
 				<div class="field large">
 					<p class="total">TOTAL:</p>
-					<div class="total-field" @click="totalFieldActive = !totalFieldActive" :class="[{'active': totalFieldActive}, $attrs.themeColor]" style="border-color: #000 !important;">
+					<div class="total-field" @click="totalFieldActive = !totalFieldActive" :class="[{'active': totalFieldActive}, bkgTotal(), {'darken-2': isDarker()}]">
 						{{ basicGameFirstSquareSumTotal + basicGameSecondSquareSumTotal + basicGameThirdSquareSumTotal }}
 					</div>
+					<!-- <img src="../images/hand-cursor.svg" alt="Hand cursor icon" class="icon" /> -->
 				</div>
 				<div class="field" :class="$attrs.themeColor">{{ basicGameThirdSquareSumTotal }}</div>
 			</div>
@@ -61,7 +62,7 @@
 				secondFulRowDisabled: true,
 				firstRowFulResult: 0,
 				disabledNumber: 0,
-				totalFieldActive: false,
+				totalFieldActive: true,
 				disabledAllBtns: true,
 				basicGameFirstSquareSumTotal: 0,
 				basicGameSecondSquareSumTotal: 0,
@@ -110,7 +111,7 @@
 				this.secondFulRowDisabled = true;
 				this.firstRowFulResult = 0;
 				this.disabledNumber = 0;
-				this.totalFieldActive = false;
+				this.totalFieldActive = true;
 				this.disabledAllBtns = true;
 				this.basicGameFirstSquareSumTotal = 0;
 				this.basicGameSecondSquareSumTotal = 0;
@@ -298,6 +299,17 @@
 					this.thirdSquareItems['column-3'].push(item3);
 					this.thirdSquareItems['column-4'].push(item4);
 				}
+			},
+			isDarker() {
+				return this.$attrs.themeColor.includes('darken-3') ? true : false;
+			},
+			bkgTotal() {
+				let color = this.$attrs.themeColor;
+
+				if (this.isDarker())
+					return color.replace('darken-3', '');
+
+				return color;
 			},
 		},
 		watch: {

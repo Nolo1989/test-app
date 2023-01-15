@@ -7,7 +7,7 @@
                     <div class="field">F</div>
                     <div class="field">P</div>
                     <div class="field">Y</div>
-                    <div class="field" :class="$parent.$attrs.themeColor || $parent.$parent.$attrs.themeColor">S</div>
+                    <div class="field" :class="[$parent.$attrs.themeColor || $parent.$parent.$attrs.themeColor, {'smaller': game === 'large-game'}]">S</div>
                 </template>
                 <template v-else>
                     <div class="field">KENTA</div>
@@ -15,7 +15,7 @@
                     <div class="field">FUL</div>
                     <div class="field">POKER</div>
                     <div class="field">YAMB</div>
-                    <div class="field" :class="$parent.$attrs.themeColor || $parent.$parent.$attrs.themeColor">SUM</div>
+                    <div class="field larger" :class="$parent.$attrs.themeColor || $parent.$parent.$attrs.themeColor">SUM</div>
                 </template>
 			</div>
 			<div class="column-1">

@@ -3,7 +3,7 @@
         <div class="column-0">
 				<div class="field smaller">MAX</div>
 				<div class="field smaller">MIN</div>
-				<div v-if="game === 'large-game'" class="field" :class="$parent.$attrs.themeColor || $parent.$parent.$attrs.themeColor">S</div>
+				<div v-if="game === 'large-game'" class="field" :class="[$parent.$attrs.themeColor || $parent.$parent.$attrs.themeColor, {'smaller': game === 'large-game'}]">S</div>
 				<div v-else class="field" :class="$parent.$attrs.themeColor || $parent.$parent.$attrs.themeColor">SUM</div>
 			</div>
 			<div class="column-1">
